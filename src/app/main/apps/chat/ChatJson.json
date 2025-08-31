@@ -1,0 +1,1072 @@
+{
+    "messages": [
+        {
+            "message": {
+                "messageType": "interactive",
+                "interactiveMessage": {
+                    "body": {
+                        "text": "Welcome to CherishX – Your Celebration Partner 💛\n\nLet us know how we can help you today:"
+                    },
+                    "type": "list",
+                    "button": "Choose your option",
+                    "header": {
+                        "text": "Hi Pankaj  |--_--|",
+                        "type": "text"
+                    },
+                    "sections": [
+                        {
+                            "rows": [
+                                {
+                                    "id": "5c5a0622-c0a7-446c-bc4c-7e0033c4e624",
+                                    "title": "New Order",
+                                    "description": "Plan a new celebration"
+                                },
+                                {
+                                    "id": "8c4a647e-2481-41ad-9e32-de75535ba537",
+                                    "title": "Existing Order",
+                                    "description": "Track or modify a booking"
+                                },
+                                {
+                                    "id": "6756f6d5-e791-4b75-897b-b383b57d06f3",
+                                    "title": "Complaint",
+                                    "description": "Report an issue"
+                                },
+                                {
+                                    "id": "a67888c8-848a-442b-bbaa-e00da867e9f8",
+                                    "title": "More options",
+                                    "description": ""
+                                }
+                            ],
+                            "title": ""
+                        }
+                    ]
+                }
+            },
+            "messageOriginType": "USER",
+            "id": "47168945-dab4-46be-9f71-369eabeb33e3",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 1,
+            "dateCreated": "2025-08-18T05:50:23.557Z",
+            "dateUpdated": "2025-08-18T05:50:23.579Z",
+            "replyMessageId": null,
+            "messageTime": 1755496223557,
+            "totalCount": 1,
+            "errorMessage": "Markdown is not allowed for header text",
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {
+                "id": "user_LSSTd5SOPD",
+                "name": "Mayank Singhania (Public API)",
+                "phoneNumber": "917828434400"
+            },
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Hi",
+                "messageType": "text"
+            },
+            "messageOriginType": "CUSTOMER",
+            "id": "483d3330-910e-445b-ad85-c01c8f2823c5",
+            "readCount": 1,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-18T05:50:22.873Z",
+            "dateUpdated": "2025-08-18T05:50:23.198Z",
+            "replyMessageId": null,
+            "messageTime": 1755496222873,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "messageType": "template",
+                "templateMessage": {
+                    "body": {
+                        "data": [
+                            {
+                                "text": "Dear pankaj, Hi, I recently tried reaching out regarding your request but couldn’t get through. If you have any questions or need help, feel free to reply or call us at 8010679679. We’d love to assist you. Thanks for considering us!",
+                                "type": "text"
+                            }
+                        ]
+                    },
+                    "footer": {
+                        "data": [
+                            {
+                                "text": "Team CherishX",
+                                "type": "text"
+                            }
+                        ]
+                    }
+                }
+            },
+            "messageOriginType": "USER",
+            "id": "01d5ddaa-ceb0-419b-86b4-d1e74442ab2d",
+            "readCount": 0,
+            "deliveryCount": 1,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-16T17:55:01.962Z",
+            "dateUpdated": "2025-08-16T17:55:01.969Z",
+            "replyMessageId": null,
+            "messageTime": 1755366901962,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {
+                "id": "user_LSSTd5SOPD",
+                "name": "Mayank Singhania",
+                "phoneNumber": "917828434400"
+            },
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "messageType": "template",
+                "templateMessage": {
+                    "body": {
+                        "data": [
+                            {
+                                "text": "Hi 👋 Hope you’re doing well! We were chatting earlier about the décor for your upcoming event, and I just wanted to check in — are we still on track to make it magical together, or have you already gone with another plan? Either way, I’d love to hear from you so we can plan ahead. 🎈✨",
+                                "type": "text"
+                            }
+                        ]
+                    },
+                    "footer": {
+                        "data": [
+                            {
+                                "text": "Team CherishX",
+                                "type": "text"
+                            }
+                        ]
+                    }
+                }
+            },
+            "messageOriginType": "USER",
+            "id": "20bf8f59-8446-4bb4-a998-f5c21692108e",
+            "readCount": 0,
+            "deliveryCount": 1,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-16T17:54:40.542Z",
+            "dateUpdated": "2025-08-16T17:54:40.549Z",
+            "replyMessageId": null,
+            "messageTime": 1755366880542,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {
+                "id": "user_LSSTd5SOPD",
+                "name": "Mayank Singhania",
+                "phoneNumber": "917828434400"
+            },
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Conversation assigned to Mayank Singhania by Mayank Singhania",
+                "messageType": "system_message_v2",
+                "actionType": "ASSIGN_AGENT",
+                "actorType": "USER",
+                "actorId": "user_LSSTd5SOPD"
+            },
+            "messageOriginType": "SYSTEM",
+            "id": "83110327-1212-4c02-a151-aa3b133455a1",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-16T17:45:45.044Z",
+            "dateUpdated": "2025-08-16T17:45:45.044Z",
+            "replyMessageId": null,
+            "messageTime": 1755366345044,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Hi! 👋\nThank you for reaching out. Our customer support hours are from 9:00 AM to 10:00 PM.\n\nWe’ve received your message and one of our team members will get back to you first thing tomorrow after 9 AM.\n\nWe truly appreciate your patience and look forward to assisting you soon! 💛\n\nᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴅᴏᴜʙʟᴇᴛɪᴄᴋ ᴀᴘᴘ",
+                "messageType": "text"
+            },
+            "messageOriginType": "USER",
+            "id": "6e1a25d6-ecec-48f1-b117-e529b0a9b0d4",
+            "readCount": 0,
+            "deliveryCount": 1,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-16T17:45:07.083Z",
+            "dateUpdated": "2025-08-16T17:45:07.105Z",
+            "replyMessageId": null,
+            "messageTime": 1755366307083,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {
+                "id": "user_LSSTd5SOPD",
+                "name": "Mayank Singhania",
+                "phoneNumber": "917828434400"
+            },
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Hi Team, I was viewing this page and need some assistance:\n\nhttps://cherishx.com/",
+                "messageType": "text"
+            },
+            "messageOriginType": "CUSTOMER",
+            "id": "7f10d6b8-ed2c-48cb-82eb-814327e06ad6",
+            "readCount": 1,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-16T17:45:04.508Z",
+            "dateUpdated": "2025-08-16T17:45:04.693Z",
+            "replyMessageId": null,
+            "messageTime": 1755366304508,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Conversation marked resolved by Subhash Mandal",
+                "messageType": "system_message_v2",
+                "actionType": "CLOSE_CONVERSATION",
+                "actorType": "USER",
+                "actorId": "user_I971KCfTpi"
+            },
+            "messageOriginType": "SYSTEM",
+            "id": "9a9fcaf3-406b-4280-aba1-8d3215fdb917",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-13T12:55:02.988Z",
+            "dateUpdated": "2025-08-13T12:55:02.988Z",
+            "replyMessageId": null,
+            "messageTime": 1755089702988,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Hi Team, I was viewing this page and need some assistance:\n\nhttps://cherishx.com/",
+                "messageType": "text"
+            },
+            "messageOriginType": "CUSTOMER",
+            "id": "6c31524f-b014-40e4-8439-51d02ebf4af5",
+            "readCount": 1,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-13T12:20:19.233Z",
+            "dateUpdated": "2025-08-13T12:20:19.423Z",
+            "replyMessageId": null,
+            "messageTime": 1755087619233,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Conversation marked resolved by Mayank Singhania",
+                "messageType": "system_message_v2",
+                "actionType": "CLOSE_CONVERSATION",
+                "actorType": "USER",
+                "actorId": "user_LSSTd5SOPD"
+            },
+            "messageOriginType": "SYSTEM",
+            "id": "7895b992-1a69-470e-8c71-016a56fc7f3b",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T09:37:55.549Z",
+            "dateUpdated": "2025-08-12T09:37:55.549Z",
+            "replyMessageId": null,
+            "messageTime": 1754991475549,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "messageType": "template",
+                "templateMessage": {
+                    "body": {
+                        "data": [
+                            {
+                                "text": "*3323* is your verification code.\nFor your security, do not share this code.",
+                                "type": "text"
+                            }
+                        ]
+                    },
+                    "button": {
+                        "data": [
+                            {
+                                "type": "OTP",
+                                "text": "Copy Code",
+                                "otp_type": "COPY_CODE",
+                                "otp": "3323",
+                                "example": "12345"
+                            }
+                        ]
+                    },
+                    "footer": {
+                        "data": [
+                            {
+                                "text": "This code will expire in 5 minutes.",
+                                "type": "text"
+                            }
+                        ]
+                    }
+                }
+            },
+            "messageOriginType": "USER",
+            "id": "1fb756ff-407e-4905-aba0-82ad4c1cfd75",
+            "readCount": 0,
+            "deliveryCount": 1,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T07:40:21.614Z",
+            "dateUpdated": "2025-08-12T07:40:21.637Z",
+            "replyMessageId": null,
+            "messageTime": 1754984421614,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {
+                "id": "user_LSSTd5SOPD",
+                "name": "Mayank Singhania (Public API)",
+                "phoneNumber": "917828434400"
+            },
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "messageType": "template",
+                "templateMessage": {
+                    "body": {
+                        "data": [
+                            {
+                                "text": "*3323* is your verification code.\nFor your security, do not share this code.",
+                                "type": "text"
+                            }
+                        ]
+                    },
+                    "button": {
+                        "data": [
+                            {
+                                "type": "OTP",
+                                "text": "Copy Code",
+                                "otp_type": "COPY_CODE",
+                                "otp": "3323",
+                                "example": "12345"
+                            }
+                        ]
+                    },
+                    "footer": {
+                        "data": [
+                            {
+                                "text": "This code will expire in 5 minutes.",
+                                "type": "text"
+                            }
+                        ]
+                    }
+                }
+            },
+            "messageOriginType": "USER",
+            "id": "d64b9953-3d60-4253-aa72-6963b58610c0",
+            "readCount": 0,
+            "deliveryCount": 1,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T07:39:19.569Z",
+            "dateUpdated": "2025-08-12T07:39:19.596Z",
+            "replyMessageId": null,
+            "messageTime": 1754984359569,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {
+                "id": "user_LSSTd5SOPD",
+                "name": "Mayank Singhania (Public API)",
+                "phoneNumber": "917828434400"
+            },
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "API \"Sales Lead Assignment\" called by Pankaj's Test Bot",
+                "botRunId": "83857411",
+                "botRunLogId": "1025820980",
+                "messageType": "system_message_v2",
+                "actionType": "API_CALL",
+                "actorType": "BOT",
+                "actorId": "dcfdb072-e810-461d-8d6d-01389013c9cc",
+                "links": [
+                    {
+                        "type": "BOT",
+                        "id": "dcfdb072-e810-461d-8d6d-01389013c9cc",
+                        "start": 38,
+                        "end": 54
+                    }
+                ]
+            },
+            "messageOriginType": "SYSTEM",
+            "id": "4702ac31-e675-493e-9cf3-797dd888e7a6",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T07:00:45.833Z",
+            "dateUpdated": "2025-08-12T07:00:45.833Z",
+            "replyMessageId": null,
+            "messageTime": 1754982045833,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Conversation assigned to Rakshit Mehra by Mayank Singhania",
+                "messageType": "system_message_v2",
+                "actionType": "ASSIGN_AGENT",
+                "actorType": "USER",
+                "actorId": "user_LSSTd5SOPD"
+            },
+            "messageOriginType": "SYSTEM",
+            "id": "deefb47f-a0fc-4ec7-9081-b0819076705d",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T07:00:44.361Z",
+            "dateUpdated": "2025-08-12T07:00:44.361Z",
+            "replyMessageId": null,
+            "messageTime": 1754982044361,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Sales",
+                "payload": "67a06ec4-cbec-4e7d-b80c-ba7e750a0300",
+                "messageType": "button"
+            },
+            "messageOriginType": "CUSTOMER",
+            "id": "bafa2e72-4be6-40a1-a379-6c18256c9ae4",
+            "readCount": 1,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T07:00:41.620Z",
+            "dateUpdated": "2025-08-12T07:00:42.155Z",
+            "replyMessageId": "7be012d4-9eeb-42b8-b4c6-cde06a25354d",
+            "messageTime": 1754982041620,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": {
+                "id": "7be012d4-9eeb-42b8-b4c6-cde06a25354d",
+                "messageOriginType": "USER",
+                "message": {
+                    "messageType": "interactive",
+                    "interactiveMessage": {
+                        "body": {
+                            "text": "Testing Pankaj"
+                        },
+                        "type": "list",
+                        "button": "TEST",
+                        "header": {
+                            "text": "Test",
+                            "type": "text"
+                        },
+                        "sections": [
+                            {
+                                "rows": [
+                                    {
+                                        "id": "67a06ec4-cbec-4e7d-b80c-ba7e750a0300",
+                                        "title": "Sales",
+                                        "description": ""
+                                    },
+                                    {
+                                        "id": "51ed893a-3625-4bf6-bb17-3e728bb4c32d",
+                                        "title": "Operations",
+                                        "description": ""
+                                    }
+                                ],
+                                "title": ""
+                            }
+                        ]
+                    }
+                },
+                "senderUser": {
+                    "id": null,
+                    "name": null,
+                    "phoneNumber": null
+                },
+                "messageTime": null
+            },
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Interactive list message sent by Pankaj's Test Bot",
+                "botRunId": "83857411",
+                "botRunLogId": "1025820563",
+                "messageType": "system_message_v2",
+                "actionType": "INTERACTIVE_LIST_MESSAGE",
+                "actorType": "BOT",
+                "actorId": "dcfdb072-e810-461d-8d6d-01389013c9cc",
+                "links": [
+                    {
+                        "type": "BOT",
+                        "id": "dcfdb072-e810-461d-8d6d-01389013c9cc",
+                        "start": 33,
+                        "end": 49
+                    }
+                ]
+            },
+            "messageOriginType": "SYSTEM",
+            "id": "f2f7545a-3e70-4afc-aefb-a6e6d0915274",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T07:00:33.266Z",
+            "dateUpdated": "2025-08-12T07:00:33.266Z",
+            "replyMessageId": null,
+            "messageTime": 1754982033266,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "messageType": "interactive",
+                "interactiveMessage": {
+                    "body": {
+                        "text": "Testing Pankaj"
+                    },
+                    "type": "list",
+                    "button": "TEST",
+                    "header": {
+                        "text": "Test",
+                        "type": "text"
+                    },
+                    "sections": [
+                        {
+                            "rows": [
+                                {
+                                    "id": "67a06ec4-cbec-4e7d-b80c-ba7e750a0300",
+                                    "title": "Sales",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "51ed893a-3625-4bf6-bb17-3e728bb4c32d",
+                                    "title": "Operations",
+                                    "description": ""
+                                }
+                            ],
+                            "title": ""
+                        }
+                    ]
+                }
+            },
+            "messageOriginType": "USER",
+            "id": "7be012d4-9eeb-42b8-b4c6-cde06a25354d",
+            "readCount": 0,
+            "deliveryCount": 1,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T07:00:31.777Z",
+            "dateUpdated": "2025-08-12T07:00:31.801Z",
+            "replyMessageId": null,
+            "messageTime": 1754982031777,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {
+                "id": "user_LSSTd5SOPD",
+                "name": "Mayank Singhania (Public API)",
+                "phoneNumber": "917828434400"
+            },
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Pankaj Test",
+                "messageType": "text"
+            },
+            "messageOriginType": "CUSTOMER",
+            "id": "df4f738d-ab82-44d8-a22a-569e90632e96",
+            "readCount": 1,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T07:00:27.607Z",
+            "dateUpdated": "2025-08-12T07:00:28.374Z",
+            "replyMessageId": null,
+            "messageTime": 1754982027607,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Conversation assigned to Mohit Chopra by Mayank Singhania",
+                "messageType": "system_message_v2",
+                "actionType": "ASSIGN_AGENT",
+                "actorType": "USER",
+                "actorId": "user_LSSTd5SOPD"
+            },
+            "messageOriginType": "SYSTEM",
+            "id": "5a863c17-eb5d-4511-afb4-13ad1a3e3699",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T06:59:59.175Z",
+            "dateUpdated": "2025-08-12T06:59:59.175Z",
+            "replyMessageId": null,
+            "messageTime": 1754981999175,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Conversation assigned to Rakshit Mehra by Mayank Singhania",
+                "messageType": "system_message_v2",
+                "actionType": "ASSIGN_AGENT",
+                "actorType": "USER",
+                "actorId": "user_LSSTd5SOPD"
+            },
+            "messageOriginType": "SYSTEM",
+            "id": "a0272880-1618-4d03-9149-adb36768ca4c",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T06:54:53.650Z",
+            "dateUpdated": "2025-08-12T06:54:53.650Z",
+            "replyMessageId": null,
+            "messageTime": 1754981693650,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "API \"AssignAgent\" called by Pankaj's Test Bot",
+                "botRunId": "83853683",
+                "botRunLogId": "1025794861",
+                "messageType": "system_message_v2",
+                "actionType": "API_CALL",
+                "actorType": "BOT",
+                "actorId": "dcfdb072-e810-461d-8d6d-01389013c9cc",
+                "links": [
+                    {
+                        "type": "BOT",
+                        "id": "dcfdb072-e810-461d-8d6d-01389013c9cc",
+                        "start": 28,
+                        "end": 44
+                    }
+                ]
+            },
+            "messageOriginType": "SYSTEM",
+            "id": "6a317819-7e11-41b4-95d9-19d5af017865",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T06:48:44.488Z",
+            "dateUpdated": "2025-08-12T06:48:44.488Z",
+            "replyMessageId": null,
+            "messageTime": 1754981324488,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Conversation assigned to Rakshit Mehra by Mayank Singhania",
+                "messageType": "system_message_v2",
+                "actionType": "ASSIGN_AGENT",
+                "actorType": "USER",
+                "actorId": "user_LSSTd5SOPD"
+            },
+            "messageOriginType": "SYSTEM",
+            "id": "85306e1a-7a2c-4af8-b9c1-9d7984fe8d8a",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T06:48:42.852Z",
+            "dateUpdated": "2025-08-12T06:48:42.852Z",
+            "replyMessageId": null,
+            "messageTime": 1754981322852,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Sales",
+                "payload": "4c369bae-0a9e-4732-8861-2fa6904506ef",
+                "messageType": "button",
+                "agentReaction": {
+                    "text": "👍",
+                    "agentId": "user_nAV4Su4i4O",
+                    "agentName": "Sandeep Kumar",
+                    "agentPhone": "918920896510",
+                    "messageType": "reaction"
+                }
+            },
+            "messageOriginType": "CUSTOMER",
+            "id": "84a97426-1677-4a66-9b1b-fe512707f31f",
+            "readCount": 1,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T06:48:39.814Z",
+            "dateUpdated": "2025-08-12T06:54:46.701Z",
+            "replyMessageId": "2a0cd37b-2c47-4fe7-8add-955ea6ad1b88",
+            "messageTime": 1754981319814,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": {
+                "id": "2a0cd37b-2c47-4fe7-8add-955ea6ad1b88",
+                "messageOriginType": "USER",
+                "message": {
+                    "messageType": "interactive",
+                    "interactiveMessage": {
+                        "body": {
+                            "text": "Testing Pankaj"
+                        },
+                        "type": "list",
+                        "button": "TEST",
+                        "header": {
+                            "text": "Test",
+                            "type": "text"
+                        },
+                        "sections": [
+                            {
+                                "rows": [
+                                    {
+                                        "id": "4c369bae-0a9e-4732-8861-2fa6904506ef",
+                                        "title": "Sales",
+                                        "description": ""
+                                    },
+                                    {
+                                        "id": "cb5291dc-f3fe-418e-b001-24eec49851c9",
+                                        "title": "Operations",
+                                        "description": ""
+                                    }
+                                ],
+                                "title": ""
+                            }
+                        ]
+                    }
+                },
+                "senderUser": {
+                    "id": null,
+                    "name": null,
+                    "phoneNumber": null
+                },
+                "messageTime": null
+            },
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Interactive list message sent by Pankaj's Test Bot",
+                "botRunId": "83853683",
+                "botRunLogId": "1025794604",
+                "messageType": "system_message_v2",
+                "actionType": "INTERACTIVE_LIST_MESSAGE",
+                "actorType": "BOT",
+                "actorId": "dcfdb072-e810-461d-8d6d-01389013c9cc",
+                "links": [
+                    {
+                        "type": "BOT",
+                        "id": "dcfdb072-e810-461d-8d6d-01389013c9cc",
+                        "start": 33,
+                        "end": 49
+                    }
+                ]
+            },
+            "messageOriginType": "SYSTEM",
+            "id": "71be86c4-ffec-4b86-ab11-b03346a22084",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T06:48:34.144Z",
+            "dateUpdated": "2025-08-12T06:48:34.144Z",
+            "replyMessageId": null,
+            "messageTime": 1754981314144,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "messageType": "interactive",
+                "interactiveMessage": {
+                    "body": {
+                        "text": "Testing Pankaj"
+                    },
+                    "type": "list",
+                    "button": "TEST",
+                    "header": {
+                        "text": "Test",
+                        "type": "text"
+                    },
+                    "sections": [
+                        {
+                            "rows": [
+                                {
+                                    "id": "4c369bae-0a9e-4732-8861-2fa6904506ef",
+                                    "title": "Sales",
+                                    "description": ""
+                                },
+                                {
+                                    "id": "cb5291dc-f3fe-418e-b001-24eec49851c9",
+                                    "title": "Operations",
+                                    "description": ""
+                                }
+                            ],
+                            "title": ""
+                        }
+                    ]
+                }
+            },
+            "messageOriginType": "USER",
+            "id": "2a0cd37b-2c47-4fe7-8add-955ea6ad1b88",
+            "readCount": 0,
+            "deliveryCount": 1,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T06:48:32.366Z",
+            "dateUpdated": "2025-08-12T06:48:32.383Z",
+            "replyMessageId": null,
+            "messageTime": 1754981312366,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {
+                "id": "user_LSSTd5SOPD",
+                "name": "Mayank Singhania (Public API)",
+                "phoneNumber": "917828434400"
+            },
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Pankaj Test",
+                "messageType": "text"
+            },
+            "messageOriginType": "CUSTOMER",
+            "id": "3c2498bb-82fc-41d3-b821-f8e3b8f94e22",
+            "readCount": 1,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T06:48:30.556Z",
+            "dateUpdated": "2025-08-12T06:48:30.737Z",
+            "replyMessageId": null,
+            "messageTime": 1754981310556,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Conversation assigned to Muskan Khan by Mayank Singhania",
+                "messageType": "system_message_v2",
+                "actionType": "ASSIGN_AGENT",
+                "actorType": "USER",
+                "actorId": "user_LSSTd5SOPD"
+            },
+            "messageOriginType": "SYSTEM",
+            "id": "e7d96861-0f38-4ad7-a3cd-770e4bdd3106",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T06:47:51.887Z",
+            "dateUpdated": "2025-08-12T06:47:51.887Z",
+            "replyMessageId": null,
+            "messageTime": 1754981271887,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "API \"AssignAgent\" called by Pankaj's Test Bot",
+                "botRunId": "83853312",
+                "botRunLogId": "1025792592",
+                "messageType": "system_message_v2",
+                "actionType": "API_CALL",
+                "actorType": "BOT",
+                "actorId": "dcfdb072-e810-461d-8d6d-01389013c9cc",
+                "links": [
+                    {
+                        "type": "BOT",
+                        "id": "dcfdb072-e810-461d-8d6d-01389013c9cc",
+                        "start": 28,
+                        "end": 44
+                    }
+                ]
+            },
+            "messageOriginType": "SYSTEM",
+            "id": "db1ddd95-7069-44d0-8c10-de9b286c734b",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T06:47:32.129Z",
+            "dateUpdated": "2025-08-12T06:47:32.129Z",
+            "replyMessageId": null,
+            "messageTime": 1754981252129,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Conversation assigned to Rakshit Mehra by Mayank Singhania",
+                "messageType": "system_message_v2",
+                "actionType": "ASSIGN_AGENT",
+                "actorType": "USER",
+                "actorId": "user_LSSTd5SOPD"
+            },
+            "messageOriginType": "SYSTEM",
+            "id": "32c4b7b8-1fa7-439a-971a-c080df712bff",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T06:47:31.683Z",
+            "dateUpdated": "2025-08-12T06:47:31.683Z",
+            "replyMessageId": null,
+            "messageTime": 1754981251683,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
+        },
+        {
+            "message": {
+                "text": "Sales",
+                "payload": "4c369bae-0a9e-4732-8861-2fa6904506ef",
+                "messageType": "button"
+            },
+            "messageOriginType": "CUSTOMER",
+            "id": "0a32e3cc-7b89-42b1-b1a1-f62eff8419fa",
+            "readCount": 1,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-12T06:47:30.851Z",
+            "dateUpdated": "2025-08-12T06:47:31.067Z",
+            "replyMessageId": "ea110937-b8f7-4fe0-a51e-51a95be30e76",
+            "messageTime": 1754981250851,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": {
+                "id": "ea110937-b8f7-4fe0-a51e-51a95be30e76",
+                "messageOriginType": "USER",
+                "message": {
+                    "messageType": "interactive",
+                    "interactiveMessage": {
+                        "body": {
+                            "text": "Testing Pankaj"
+                        },
+                        "type": "list",
+                        "button": "TEST",
+                        "header": {
+                            "text": "Test",
+                            "type": "text"
+                        },
+                        "sections": [
+                            {
+                                "rows": [
+                                    {
+                                        "id": "4c369bae-0a9e-4732-8861-2fa6904506ef",
+                                        "title": "Sales",
+                                        "description": ""
+                                    },
+                                    {
+                                        "id": "cb5291dc-f3fe-418e-b001-24eec49851c9",
+                                        "title": "Operations",
+                                        "description": ""
+                                    }
+                                ],
+                                "title": ""
+                            }
+                        ]
+                    }
+                },
+                "senderUser": {
+                    "id": null,
+                    "name": null,
+                    "phoneNumber": null
+                },
+                "messageTime": null
+            },
+            "senderUser": {},
+            "messageMetadata": {}
+        }
+    ],
+    "hasMore": true,
+    "lastChatMessageId": "0a32e3cc-7b89-42b1-b1a1-f62eff8419fa",
+    "olderThanTimestamp": "2025-08-12T06:47:30.851Z"
+}
