@@ -44,7 +44,7 @@ const chatSlice = createSlice({
     [sendMessage.fulfilled]: (state, action) => [...state, action.payload],
   },
 });
-
+export const { addTempMessage } = chatSlice.actions;
 export const selectChat = ({ chatApp }) => chatApp.chat;
 
 export default chatSlice.reducer;

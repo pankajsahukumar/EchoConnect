@@ -1,6 +1,6 @@
 import FuseScrollbars from "@fuse/core/FuseScrollbars";
 import clsx from "clsx";
-import RenderMessage from "../../Messages/RenderMessage";
+import RenderMessage from "./Messages/RenderMessage";
 
 export default function ChatMessages({
   chat,
@@ -14,7 +14,6 @@ export default function ChatMessages({
   chatRef,
   className
 }) {
-  console.log("ChatMessages", chat);
   
     const getMessagePreview = (message, messageType) => {
         if (!message) return "Message";
@@ -86,6 +85,7 @@ export default function ChatMessages({
               onDelete={onDelete}
               onEmojiSelect={onEmojiSelect}
               onQuoteClick={onQuoteClick}
+              Data={msg}
             />
           );
         })}

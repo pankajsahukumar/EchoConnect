@@ -15,21 +15,18 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
 import Tooltip from "@mui/material/Tooltip";
-
+import JsonDdata from "../../../../../TestData.json";
 // NOTE: These imports assume your existing store slices export these utilities
 import {
   getChat,
   selectChat,
   sendMessage,
+  addTempMessage,
   // sendTemplateMessage, sendInteractiveReply
 } from "../store/chatSlice";
 import { selectContactById } from "../store/contactsSlice";
 import { selectUser } from "../store/userSlice";
 import { ChatAppContext } from "../ChatApp";
-import SystemMessageComponent from "./SystemMessage";
-import UrlMessage from "./UrlMessage";
-import RenderMessage from "../Messages/RenderMessage";
-import { ButtonBase } from "@mui/material";
 import TemplateDialog from "./components/TemplateDialog";
 import ChatHeader from "./components/ChatHeader";
 import ChatMessages from "./components/ChatMessages";
@@ -43,283 +40,10 @@ import MessageInput from "./components/MessageInput";
  * =============================================================
  */
 
-const DateSeparator = styled("div")(() => ({
-  display: "flex",
-  justifyContent: "center",
-  margin: "12px 0",
-  "& .date-chip": {
-    backgroundColor: "#ffffff",
-    color: "#54656f",
-    fontSize: "12.5px",
-    fontWeight: 400,
-    padding: "5px 12px",
-    borderRadius: "7.5px",
-    boxShadow: "0 1px 0.5px rgba(11,20,26,.13)",
-    fontFamily:
-      "Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif",
-  },
-}));
 
-const SystemMessage = styled("div")(() => ({
-  display: "flex",
-  justifyContent: "center",
-  margin: "12px 0",
-  "& .system-chip": {
-    backgroundColor: "#ffffff",
-    color: "#54656f",
-    fontSize: "12.5px",
-    fontWeight: 400,
-    padding: "6px 12px",
-    borderRadius: "7.5px",
-    boxShadow: "0 1px 0.5px rgba(11,20,26,.13)",
-    fontFamily:
-      "Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif",
-    textAlign: "center",
-    maxWidth: "80%",
-  },
-}));
 
-const HoverActions = styled("div")(({ theme }) => ({
-  position: "absolute",
-  top: -16,
-  right: -8,
-  display: "none",
-  gap: 6,
-  padding: "8px 12px",
-  borderRadius: 16,
-  background: theme.palette.background.paper,
-  boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
-  zIndex: 3,
-  border: `1px solid ${theme.palette.divider}`,
-  backdropFilter: "blur(20px)",
-  animation: "slideIn 0.2s ease-out",
-  "@keyframes slideIn": {
-    "0%": {
-      opacity: 0,
-      transform: "translateY(8px) scale(0.95)",
-    },
-    "100%": {
-      opacity: 1,
-      transform: "translateY(0) scale(1)",
-    },
-  },
-}));
 
-const Bubble = styled("div")(() => ({
-  position: "relative",
-  padding: "6px 7px 8px 9px",
-  borderRadius: "inherit",
-  wordBreak: "break-word",
-  lineHeight: "19px",
-  fontSize: "14.2px",
-  fontFamily:
-    "Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif",
-  minHeight: "20px",
-  "&:hover": {
-    [`& ${HoverActions}`]: {
-      display: "flex",
-    },
-  },
-}));
 
-function MessageBubble({
-  item,
-  isMine,
-  onReply,
-  onCopy,
-  onForward,
-  onDelete,
-  contact,
-}) {
-  // Handle different message structures
-  const messageData = item.message || item;
-  const messageType = messageData.messageType || messageData.type;
-  const messageText =
-    messageData.text ||
-    messageData.payload?.text?.body ||
-    messageData.payload?.body ||
-    "";
-  const createdAt = item.dateCreated
-    ? new Date(item.dateCreated)
-    : item.messageTime
-    ? new Date(item.messageTime)
-    : item.createdAt
-    ? new Date(item.createdAt)
-    : new Date();
-
-  // Format time like WhatsApp (HH:MM)
-  const timeString = createdAt.toLocaleTimeString("en-US", {
-    hour12: false,
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
-  return (
-    <Bubble className="bubble">
-      {/* Hover actions */}
-      <HoverActions>
-        <Tooltip title="Reply">
-          <IconButton size="small" onClick={() => onReply({ quoted: item })}>
-            <FuseSvgIcon size={20}>heroicons-outline:reply</FuseSvgIcon>
-          </IconButton>
-        </Tooltip>
-        <Tooltip title="Copy">
-          <IconButton size="small" onClick={() => onCopy(item)}>
-            <FuseSvgIcon size={20}>heroicons-outline:duplicate</FuseSvgIcon>
-          </IconButton>
-        </Tooltip>
-        <Tooltip title="Forward">
-          <IconButton size="small" onClick={() => onForward(item)}>
-            <FuseSvgIcon size={20}>heroicons-outline:arrow-right</FuseSvgIcon>
-          </IconButton>
-        </Tooltip>
-        <Tooltip title="Delete">
-          <IconButton size="small" onClick={() => onDelete(item)}>
-            <FuseSvgIcon size={20}>heroicons-outline:trash</FuseSvgIcon>
-          </IconButton>
-        </Tooltip>
-      </HoverActions>
-    </Bubble>
-  );
-}
-
-function renderTicks(status) {
-  // simple ticks display similar to WA
-  if (!status) return null;
-  const map = {
-    sent: "✓",
-    delivered: "✓✓",
-    read: "✓✓",
-  };
-  return (
-    <span style={{ marginLeft: 6, opacity: 0.8 }}>{map[status] || ""}</span>
-  );
-}
-
-function renderQuotedPreview(q) {
-  switch (q.type) {
-    case "text":
-      return q.payload?.text?.body || q.preview || "Text";
-    case "image":
-      return "📷 Image";
-    case "video":
-      return "🎬 Video";
-    case "audio":
-      return "🎵 Audio";
-    case "document":
-      return q.payload?.document?.filename || "📎 Document";
-    case "location":
-      return "📍 Location";
-    case "contacts":
-      return "👤 Contact";
-    case "interactive":
-      return "🔘 Interactive";
-    case "template":
-      return `🧩 ${q.payload?.template?.name || "Template"}`;
-    default:
-      return "Message";
-  }
-}
-
-// Dialog for choosing a template + variables (simple demo)
-
-function AttachmentMenu({
-  anchorEl,
-  onClose,
-  onPickFile,
-  onPickImage,
-  onPickAudio,
-  onPickVideo,
-  onPickDoc,
-  onPickLocation,
-  onPickContact,
-  onPickTemplate,
-}) {
-  const open = Boolean(anchorEl);
-  return (
-    <Menu anchorEl={anchorEl} open={open} onClose={onClose} elevation={3}>
-      <MenuItem
-        onClick={() => {
-          onPickImage?.();
-          onClose();
-        }}
-      >
-        <FuseSvgIcon className="text-20" sx={{ mr: 1 }}>
-          heroicons-outline:photograph
-        </FuseSvgIcon>{" "}
-        Image
-      </MenuItem>
-      <MenuItem
-        onClick={() => {
-          onPickVideo?.();
-          onClose();
-        }}
-      >
-        <FuseSvgIcon className="text-20" sx={{ mr: 1 }}>
-          heroicons-outline:video-camera
-        </FuseSvgIcon>{" "}
-        Video
-      </MenuItem>
-      <MenuItem
-        onClick={() => {
-          onPickAudio?.();
-          onClose();
-        }}
-      >
-        <FuseSvgIcon className="text-20" sx={{ mr: 1 }}>
-          heroicons-outline:music-note
-        </FuseSvgIcon>{" "}
-        Audio
-      </MenuItem>
-      <MenuItem
-        onClick={() => {
-          onPickDoc?.();
-          onClose();
-        }}
-      >
-        <FuseSvgIcon className="text-20" sx={{ mr: 1 }}>
-          heroicons-outline:paper-clip
-        </FuseSvgIcon>{" "}
-        Document
-      </MenuItem>
-      <Divider />
-      <MenuItem
-        onClick={() => {
-          onPickLocation?.();
-          onClose();
-        }}
-      >
-        <FuseSvgIcon className="text-20" sx={{ mr: 1 }}>
-          heroicons-outline:location-marker
-        </FuseSvgIcon>{" "}
-        Location
-      </MenuItem>
-      <MenuItem
-        onClick={() => {
-          onPickContact?.();
-          onClose();
-        }}
-      >
-        <FuseSvgIcon className="text-20" sx={{ mr: 1 }}>
-          heroicons-outline:user
-        </FuseSvgIcon>{" "}
-        Contact
-      </MenuItem>
-      <Divider />
-      <MenuItem
-        onClick={() => {
-          onPickTemplate?.();
-          onClose();
-        }}
-      >
-        <FuseSvgIcon className="text-20" sx={{ mr: 1 }}>
-          heroicons-outline:template
-        </FuseSvgIcon>{" "}
-        Template
-      </MenuItem>
-    </Menu>
-  );
-}
 
 export default function Chat(props) {
   const { setMainSidebarOpen, setContactSidebarOpen } =
@@ -445,21 +169,26 @@ export default function Chat(props) {
   
 
   useEffect(() => {
-
+    if (!user) return; // wait until user is loaded
+  
     ws.current = new WebSocket('ws://localhost:8080');
-
-        ws.current.onopen = () => {
-            console.log('Connected to WebSocket server');
-            // Register the user once connected
-            ws.current.send(JSON.stringify({
-                type: 'register',
-                payload: { userId: contactId, contactId: contactId }
-            }));
-        };
+  
+    ws.current.onopen = () => {
+      console.log('Connected to WebSocket server', user);
+      ws.current.send(JSON.stringify({
+        type: 'register',
+        payload: { userId: user.id, contactId }
+      }));
+    };
+  
     dispatch(getChat(contactId));
-
-  }, [contactId, dispatch]);
-
+  
+    return () => {
+      ws.current?.close();
+    };
+  }, [user, contactId, dispatch]);
+  
+  const reversedData = [...JsonDdata].reverse();
   useEffect(() => {
     if (chatRef.current && chat?.length > 0) {
       setTimeout(() => {
@@ -471,65 +200,63 @@ export default function Chat(props) {
     }
   }, [chat]);
 
-  const grouped = useMemo(() => chat || [], [chat]);
-
-  function isFirstMessageOfGroup(item, i) {
-    return (
-      i === 0 ||
-      (grouped[i - 1] &&
-        grouped[i - 1].messageOriginType !== item.messageOriginType)
-    );
-  }
-
-  function isLastMessageOfGroup(item, i) {
-    return (
-      i === grouped.length - 1 ||
-      (grouped[i + 1] &&
-        grouped[i + 1].messageOriginType !== item.messageOriginType)
-    );
-  }
-
-  function shouldShowDateSeparator(currentItem, previousItem) {
-    if (!previousItem) return true;
-    const currentDate = new Date(
-      currentItem.dateCreated ||
-        currentItem.messageTime ||
-        currentItem.createdAt
-    );
-    const previousDate = new Date(
-      previousItem.dateCreated ||
-        previousItem.messageTime ||
-        previousItem.createdAt
-    );
-    return currentDate.toDateString() !== previousDate.toDateString();
-  }
-
-  function formatMessageDate(item) {
-    const date = new Date(
-      item.dateCreated || item.messageTime || item.createdAt || Date.now()
-    );
-    const today = new Date();
-    const yesterday = new Date(today);
-    yesterday.setDate(yesterday.getDate() - 1);
-
-    if (date.toDateString() === today.toDateString()) {
-      return "Today";
-    } else if (date.toDateString() === yesterday.toDateString()) {
-      return "Yesterday";
-    } else {
-      return date.toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year:
-          date.getFullYear() !== today.getFullYear() ? "numeric" : undefined,
-      });
-    }
-  }
-
-  function onInputChange(ev) {
-    setMessageText(ev.target.value);
-  }
-
+  useEffect(() => {
+    if (!ws.current) return;
+  
+    ws.current.onmessage = (event) => {
+      try {
+        const data = JSON.parse(event.data);
+        console.log("WS message received:", data);
+        const messageData=   {
+          "message": {
+              "text":data.payload.content,
+              "messageType": "text"
+          },
+          "messageOriginType": "CUSTOMER",
+          "id": "reply-msg-1",
+          "readCount": 1,
+          "deliveryCount": 1,
+          "erroredCount": 0,
+          "dateCreated": "2025-08-29T10:01:00.000Z",
+          "dateUpdated": "2025-08-29T10:01:00.000Z",
+          "replyMessageId": "original-msg-1",
+          "messageTime": 1755496283557,
+          "totalCount": 1,
+          "errorMessage": null,
+          "adReferralData": null,
+          "replyMessage": {
+              "id": "original-msg-1",
+              "messageOriginType": "USER",
+              "message": {
+                  "text": "Hello! How can I help you today?",
+                  "messageType": "text"
+              },
+              "senderUser": {
+                  "id": "user_LSSTd5SOPD",
+                  "name": "Support Agent",
+                  "phoneNumber": "917828434400"
+              },
+              "messageTime": 1755496223557
+          },
+          "senderUser": {
+              "id": "customer_123",
+              "name": "Pankaj Sahu",
+              "phoneNumber": "919876543210"
+          },
+          "messageMetadata": {}
+      };
+        // content
+        if (data.type === "chatMessage") {
+          
+          dispatch(addTempMessage(messageData));
+        }
+      } catch (e) {
+        console.error("WS parse error:", e);
+      }
+    };
+  }, [ws.current,dispatch]);
+  
+  
   async function onMessageSubmit(ev) {
     ev.preventDefault();
     const trimmed = messageText.trim();
@@ -545,7 +272,19 @@ export default function Chat(props) {
         context: quote ? { message_id: quote.id } : undefined,
       };
 
-
+      if (ws.current && ws.current.readyState === WebSocket.OPEN) {
+        console.log("Sending message via WebSocket:", messageData);
+        ws.current.send(JSON.stringify({
+          "type": "chatMessage",
+          "payload": {
+            "senderId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
+            "receiverId": "user1",
+            "content": "Hello from Postman pankaj!"
+          }
+        }));
+      }else{
+        console.log("WebSocket not connected");
+      }
       // Send message via Redux action
       const resultAction = await dispatch(
         sendMessage({
@@ -592,7 +331,7 @@ export default function Chat(props) {
     <ChatHeader contact={selectedContact} onSidebarToggle={() => setMainSidebarOpen(true)} onContactInfo={() => setContactSidebarOpen(true)} />
 
     <ChatMessages
-      chat={chat}
+      chat={reversedData}
       highlightedMessageId={highlightedMessageId}
       onReply={handleReply}
       onCopy={handleCopy}

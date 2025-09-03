@@ -14320,7 +14320,73 @@
               },
               "senderUser": {},
               "messageMetadata": {}
+          },{
+            "message": {
+              "messageType": "template",
+              "templateMessage": {
+                "header": {
+                  "type": "IMAGE",
+                  "image": {
+                    "link": "assets/images/avatars/male-02.jpg"
+                  }
+                },
+                "body": {
+                  "data": [
+                    {
+                      "type": "text",
+                      "text": "Hello {{1}}, your order *#{{2}}* is confirmed! 🎉"
+                    }
+                  ]
+                },
+                "footer": {
+                  "data": [
+                    {
+                      "type": "text",
+                      "text": "Team CherishX"
+                    }
+                  ]
+                },
+                "buttons": [
+                  {
+                    "type": "URL",
+                    "text": "View Order",
+                    "url": "https://cherishx.com/orders/{{2}}"
+                  },
+                  {
+                    "type": "CALL",
+                    "text": "Call Support",
+                    "phoneNumber": "+918010679679"
+                  },
+                  {
+                    "type": "QUICK_REPLY",
+                    "text": "Track Order"
+                  },
+                  {
+                    "type": "OTP",
+                    "text": "Copy Code",
+                    "otp_type": "COPY_CODE",
+                    "otp": "123456",
+                    "example": "123456"
+                  }
+                ]
+              }
+            },
+            "messageOriginType": "USER",
+            "id": "template-full-example-1",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-08-31T12:00:00.000Z",
+            "dateUpdated": "2025-08-31T12:00:00.000Z",
+            "messageTime": 1755446400000,
+            "senderUser": {
+              "id": "user_LSSTd5SOPD",
+              "name": "Mayank Singhania",
+              "phoneNumber": "917828434400"
+            },
+            "messageMetadata": {}
           }
+          
       ]
       },
       

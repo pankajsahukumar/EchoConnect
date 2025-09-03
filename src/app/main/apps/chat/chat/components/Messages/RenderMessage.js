@@ -6,7 +6,9 @@ import TemplateMessage from "./TemplateMessage";
 import TextMessage from "./TextMessage";
 import SystemMessage from "./SystemMessage";
 import QuotedMessage from "./QuotedMessage";
-
+import ImageMessage from "./ImageMessage";
+import InteractiveMessage from "./InteractiveMessage";
+import ButtonMessage from "./ButtonMessage";
 const StyledMessageRow = styled("div")(() => ({
   display: "flex",
   width: "100%",
@@ -44,11 +46,12 @@ const StyledMessageRow = styled("div")(() => ({
   },
 }));
 
-const MessageWrapper = styled("div")(({ highlighted }) => ({
+const MessageWrapper = styled("div", {
+  shouldForwardProp: (prop) => prop !== "highlighted",
+})(({ highlighted }) => ({
   position: "relative",
   transition: "all 0.2s ease",
   borderRadius: "7.5px",
-  padding: "2px 8px",
   margin: "1px 0",
   ...(highlighted && {
     backgroundColor: "rgba(0, 168, 132, 0.15)",
@@ -66,16 +69,14 @@ const MessageWrapper = styled("div")(({ highlighted }) => ({
 // WhatsApp-like down arrow
 const HoverArrow = styled("div")(({ isMine }) => ({
   position: "absolute",
-  top: "-10px",
-  right: isMine ? "8px" : "auto",
-  left: isMine ? "auto" : "8px",
+  top: "3px",
+  right: "3px" ,
   display: "none",
   zIndex: 1000,
   "& .MuiIconButton-root": {
     width: "28px",
     height: "28px",
     color: "#54656f",
-    backgroundColor: "#fff",
     borderRadius: "50%",
     boxShadow: "0 1px 3px rgba(0,0,0,0.3)",
     "&:hover": { backgroundColor: "rgba(0,0,0,0.05)" },
@@ -98,9 +99,9 @@ const RenderMessage = ({
   onEmojiSelect,
   onQuoteClick,
   setHighlightedMessageId, // 👈 pass this from parent
+  Data
 }) => {
   const [menuAnchor, setMenuAnchor] = useState(null);
-
   if (messageOriginType === "SYSTEM") {
     return <SystemMessage message={message} />;
   }
@@ -147,8 +148,6 @@ const RenderMessage = ({
           />
         );
       case "text":
-      case "interactive":
-      default:
         return (
           <TextMessage
             message={message}
@@ -156,6 +155,34 @@ const RenderMessage = ({
             senderName={senderName}
           />
         );
+      case "button":
+        return (
+          <ButtonMessage
+            message={message}
+            isMine={isMine}
+            senderName={senderName}
+          />
+        );
+      case "image":
+        return (
+          <ImageMessage
+            message={message}
+            isMine={isMine}
+            senderName={senderName}
+          />
+        );
+      case "interactive":
+        return (
+          <InteractiveMessage
+            message={message}
+            isMine={isMine}
+            senderName={senderName}
+          />
+        );
+      default:
+        console.log("Unsupported message type:", messageType);
+        return null;
+      
     }
   };
 
@@ -180,6 +207,7 @@ const RenderMessage = ({
       id={`message-${messageId}`}
     >
       <MessageWrapper highlighted={highlightedMessageId === messageId}>
+        
         {quote && (
           <QuotedMessage
             quote={quote}
@@ -236,6 +264,8 @@ const RenderMessage = ({
 
         {/* Actual message content */}
         {renderMessageContent()}
+
+     {/* <TemplateMessage message={dummyTemplate} isMine={false} /> */}
       </MessageWrapper>
     </StyledMessageRow>
   );

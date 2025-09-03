@@ -1,13 +1,37 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { IconButton } from '@mui/material';
+import DownloadIcon from '@mui/icons-material/Download';
 
-const TextContainer = styled(Box)(() => ({
+const ImageContainer = styled(Box)(() => ({
   width: '100%',
-  fontFamily: 'Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif',
+  maxWidth: '330px',
   position: 'relative',
-  padding: '6px 7px 8px 9px',
-  // Remove duplicate styling - let parent handle background, border, shadow
+  padding: '6px',
+  borderRadius: '7.5px',
+  overflow: 'hidden',
+}));
+
+const StyledImage = styled('img')(() => ({
+  width: '100%',
+  height: 'auto',
+  maxHeight: '330px',
+  objectFit: 'cover',
+  borderRadius: '6px',
+  cursor: 'pointer',
+}));
+
+const ImageOverlay = styled(Box)(() => ({
+  position: 'absolute',
+  top: 0,
+  right: 0,
+  padding: '8px',
+  display: 'flex',
+  alignItems: 'center',
+  gap: '8px',
+  background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%)',
+  width: '100%',
 }));
 
 
@@ -66,14 +90,7 @@ const MessageTailSvg = ({ isMine }) => (
   </div>
 );
 
-const TextMessage = ({ message, isMine, senderName }) => {
-  // Get text content from different possible structures
-  const messageText = message?.text ||
-                     message?.payload?.text?.body ||
-                     message?.body?.text ||
-                     message?.interactiveMessage?.body?.text ||
-                     'No text content';
-
+const ImageMessage = ({ message, isMine, senderName }) => {
   // Format time like WhatsApp (HH:MM)
   const createdAt = message.dateCreated ? new Date(message.dateCreated) :
                    message.messageTime ? new Date(message.messageTime) :
@@ -84,8 +101,22 @@ const TextMessage = ({ message, isMine, senderName }) => {
     minute: '2-digit'
   });
 
+  const handleImageClick = () => {
+    window.open(message.fileUrl, '_blank');
+  };
+
+  const handleDownload = (e) => {
+    e.stopPropagation();
+    const link = document.createElement('a');
+    link.href = message.fileUrl;
+    link.download = message.fileName || 'image';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <TextContainer>
+    <ImageContainer>
       {/* Sender name for contact messages */}
       {!isMine && senderName && (
         <SenderName>
@@ -93,23 +124,35 @@ const TextMessage = ({ message, isMine, senderName }) => {
         </SenderName>
       )}
 
-      {/* Text content */}
-      <TextContent>
-        {messageText}
-      </TextContent>
-
-      {/* Time and status */}
-      <TimeStamp>
-        {timeString}
-        {isMine && (
-          <span style={{ marginLeft: '2px', color: '#00a884' }}>
-            ✓✓
-          </span>
-        )}
-      </TimeStamp>
-    </TextContainer>
+      {/* Image with overlay */}
+      <Box position="relative">
+        <StyledImage
+          src={message.thumbnailUrl || message.fileUrl}
+          alt={message.fileName || 'Image'}
+          onClick={handleImageClick}
+          loading="lazy"
+        />
+        <ImageOverlay>
+          <IconButton
+            size="small"
+            onClick={handleDownload}
+            sx={{ color: 'white', '&:hover': { backgroundColor: 'rgba(255,255,255,0.1)' } }}
+          >
+            <DownloadIcon fontSize="small" />
+          </IconButton>
+          <TimeStamp sx={{ color: 'white', margin: 0 }}>
+            {timeString}
+            {isMine && (
+              <span style={{ marginLeft: '2px', color: '#fff' }}>
+                ✓✓
+              </span>
+            )}
+          </TimeStamp>
+        </ImageOverlay>
+      </Box>
+    </ImageContainer>
   );
 }
 
-export default TextMessage;
+export default ImageMessage;
 
