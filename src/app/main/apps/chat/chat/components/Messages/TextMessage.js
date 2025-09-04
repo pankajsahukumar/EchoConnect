@@ -96,7 +96,7 @@ const TextMessage = ({ message, isMine, senderName }) => {
 
       {/* Text content */}
       <TextContent>
-        <TextComponent text={messageText} />
+         <TextComponent text={messageText} />
         {/* {messageText} */}
       </TextContent>
 

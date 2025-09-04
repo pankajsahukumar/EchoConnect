@@ -57,48 +57,68 @@ export default function Chat(props) {
     selectContactById(state, contactId)
   );
   const chatRef = useRef(null);
+  const fileInputRef = useRef(null);
   const inputRef = useRef(null);
   const [messageText, setMessageText] = useState("");
   const [anchorEl, setAnchorEl] = useState(null);
   const [templateOpen, setTemplateOpen] = useState(false);
   const [quote, setQuote] = useState(null); // quoted message when replying
   const [highlightedMessageId, setHighlightedMessageId] = useState(null); // for scroll-to-message highlight
-  const fileInputRef = useRef(null);
   const ws = useRef(null);
   const handlePickImage = () => {
     fileInputRef.current?.click();
   };
 
-  const handleFileChange = async (event) => {
+  const handleFileChange = (event) => {
     const file = event.target.files[0];
-    if (!file) return;
-
-    console.log("Picked file:", file);
-
-    // TODO: replace this with actual upload logic
-    // For now, dispatch sendMessage with type "image"
-    const messageData = {
-      type: "image",
-      payload: {
-        image: {
-          name: file.name,
-          size: file.size,
-          type: file.type,
-          // optionally convert to base64 or send FormData
-        },
-      },
-    };
-
-    await dispatch(
-      sendMessage({
-        contactId,
-        ...messageData,
-      })
-    );
-
-    // Reset input so the same file can be selected again
-    event.target.value = "";
+    if (file) {
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('type', file.type.startsWith('image/') ? 'image' :
+        file.type.startsWith('video/') ? 'video' :
+        file.type.startsWith('audio/') ? 'audio' : 'document');
+      handleMediaUpload(formData);
+    }
   };
+
+  const handleMediaUpload = async (formData) => {
+    try {
+      const messageType = formData.get('type');
+      const file = formData.get('file');
+
+      // Create message data based on type
+      const messageData = {
+        type: messageType,
+        payload: {
+          [messageType]: {
+            filename: file.name,
+            mimetype: file.type,
+            // You would typically upload to your server here and get a URL
+            url: URL.createObjectURL(file)
+          }
+        },
+        context: quote ? { message_id: quote.id } : undefined
+      };
+
+      // Send message via Redux action
+      const resultAction = await dispatch(
+        sendMessage({
+          contactId,
+          ...messageData,
+        })
+      );
+
+      if (sendMessage.fulfilled.match(resultAction)) {
+        console.log('Media message sent successfully:', resultAction.payload);
+      } else {
+        console.error('Failed to send media message:', resultAction.error);
+      }
+
+      setQuote(null);
+    } catch (error) {
+       console.error('Error handling media upload:', error);
+     }
+   };
 
   // Handler functions for RenderMessage callbacks
   const handleReply = (replyData) => {
@@ -171,7 +191,7 @@ export default function Chat(props) {
   useEffect(() => {
     if (!user) return; // wait until user is loaded
   
-    ws.current = new WebSocket('ws://localhost:8080');
+    ws.current = new WebSocket('ws://localhost:8081');
   
     ws.current.onopen = () => {
       console.log('Connected to WebSocket server', user);
@@ -188,7 +208,6 @@ export default function Chat(props) {
     };
   }, [user, contactId, dispatch]);
   
-  const reversedData = [...JsonDdata].reverse();
   useEffect(() => {
     if (chatRef.current && chat?.length > 0) {
       setTimeout(() => {
@@ -207,49 +226,21 @@ export default function Chat(props) {
       try {
         const data = JSON.parse(event.data);
         console.log("WS message received:", data);
-        const messageData=   {
-          "message": {
-              "text":data.payload.content,
-              "messageType": "text"
-          },
-          "messageOriginType": "CUSTOMER",
-          "id": "reply-msg-1",
-          "readCount": 1,
-          "deliveryCount": 1,
-          "erroredCount": 0,
-          "dateCreated": "2025-08-29T10:01:00.000Z",
-          "dateUpdated": "2025-08-29T10:01:00.000Z",
-          "replyMessageId": "original-msg-1",
-          "messageTime": 1755496283557,
-          "totalCount": 1,
-          "errorMessage": null,
-          "adReferralData": null,
-          "replyMessage": {
-              "id": "original-msg-1",
-              "messageOriginType": "USER",
-              "message": {
-                  "text": "Hello! How can I help you today?",
-                  "messageType": "text"
-              },
-              "senderUser": {
-                  "id": "user_LSSTd5SOPD",
-                  "name": "Support Agent",
-                  "phoneNumber": "917828434400"
-              },
-              "messageTime": 1755496223557
-          },
-          "senderUser": {
-              "id": "customer_123",
-              "name": "Pankaj Sahu",
-              "phoneNumber": "919876543210"
-          },
-          "messageMetadata": {}
-      };
+        const messageData=data.payload;
         // content
         if (data.type === "chatMessage") {
           
           dispatch(addTempMessage(messageData));
         }
+        setTimeout(() => {
+          if (chatRef.current) {
+            console.log(chatRef.current.scrollHeight,"this is height i am running")
+            chatRef.current.scrollTo({
+              top: chatRef.current.scrollHeight,
+              behavior: "smooth",
+            });
+          }
+        }, 100);
       } catch (e) {
         console.error("WS parse error:", e);
       }
@@ -276,11 +267,7 @@ export default function Chat(props) {
         console.log("Sending message via WebSocket:", messageData);
         ws.current.send(JSON.stringify({
           "type": "chatMessage",
-          "payload": {
-            "senderId": "cfaad35d-07a3-4447-a6c3-d8c3d54fd5df",
-            "receiverId": "user1",
-            "content": "Hello from Postman pankaj!"
-          }
+          "payload": messageData
         }));
       }else{
         console.log("WebSocket not connected");
@@ -331,7 +318,7 @@ export default function Chat(props) {
     <ChatHeader contact={selectedContact} onSidebarToggle={() => setMainSidebarOpen(true)} onContactInfo={() => setContactSidebarOpen(true)} />
 
     <ChatMessages
-      chat={reversedData}
+      chat={chat}
       highlightedMessageId={highlightedMessageId}
       onReply={handleReply}
       onCopy={handleCopy}

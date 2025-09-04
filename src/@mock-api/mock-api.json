@@ -13195,143 +13195,768 @@
         "value": [
           {
               "message": {
-                  "text": "Hello! How can I help you today?",
+                  "text": "He himself told that",
                   "messageType": "text"
               },
-              "messageOriginType": "USER",
-              "id": "original-msg-1",
-              "readCount": 1,
-              "deliveryCount": 1,
+              "messageOriginType": "CUSTOMER",
+              "id": "b9fcc809-44ec-4063-a9e3-637710ba4663",
+              "readCount": 0,
+              "deliveryCount": 0,
               "erroredCount": 0,
-              "dateCreated": "2025-08-29T10:00:00.000Z",
-              "dateUpdated": "2025-08-29T10:00:00.000Z",
+              "dateCreated": "2025-09-02T14:56:12.223Z",
+              "dateUpdated": "2025-09-02T14:56:12.389Z",
               "replyMessageId": null,
-              "messageTime": 1755496223557,
+              "messageTime": 1756824972223,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
               "replyMessage": null,
-              "senderUser": {
-                  "id": "user_LSSTd5SOPD",
-                  "name": "Support Agent",
-                  "phoneNumber": "917828434400"
-              },
+              "senderUser": {},
               "messageMetadata": {}
           },
           {
               "message": {
-                  "text": "I need help with my order status",
+                  "text": "It wasn’t a mistake. You did not inform decorator for additional balloons",
                   "messageType": "text"
               },
               "messageOriginType": "CUSTOMER",
-              "id": "reply-msg-1",
-              "readCount": 1,
-              "deliveryCount": 1,
+              "id": "9ba15169-d977-4743-91d3-293f934deff5",
+              "readCount": 0,
+              "deliveryCount": 0,
               "erroredCount": 0,
-              "dateCreated": "2025-08-29T10:01:00.000Z",
-              "dateUpdated": "2025-08-29T10:01:00.000Z",
-              "replyMessageId": "original-msg-1",
-              "messageTime": 1755496283557,
+              "dateCreated": "2025-09-02T14:56:05.907Z",
+              "dateUpdated": "2025-09-02T14:56:06.106Z",
+              "replyMessageId": "bd2f7c89-a1e0-4774-bd06-92d75fc7bc33",
+              "messageTime": 1756824965907,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
               "replyMessage": {
-                  "id": "original-msg-1",
+                  "id": "bd2f7c89-a1e0-4774-bd06-92d75fc7bc33",
                   "messageOriginType": "USER",
                   "message": {
-                      "text": "Hello! How can I help you today?",
+                      "text": "If you check the decoration pictures, you’ll notice that minuscule white balloons were included. We sincerely apologize if some additional white balloons were placed by mistake",
                       "messageType": "text"
                   },
                   "senderUser": {
-                      "id": "user_LSSTd5SOPD",
-                      "name": "Support Agent",
-                      "phoneNumber": "917828434400"
+                      "id": "user_YqTyFV7uLv",
+                      "name": "Abhishek Juyal",
+                      "phoneNumber": "919654461106"
                   },
-                  "messageTime": 1755496223557
+                  "messageTime": null
               },
-              "senderUser": {
-                  "id": "customer_123",
-                  "name": "Pankaj Sahu",
-                  "phoneNumber": "919876543210"
-              },
+              "senderUser": {},
               "messageMetadata": {}
           },
           {
               "message": {
-                  "messageType": "interactive",
-                  "interactiveMessage": {
-                      "body": {
-                          "text": "Welcome to CherishX – Your Celebration Partner 💛\n\nLet us know how we can help you today:"
-                      },
-                      "type": "list",
-                      "button": "Choose your option",
-                      "header": {
-                          "text": "Hi Pankaj  |--_--|",
-                          "type": "text"
-                      },
-                      "sections": [
-                          {
-                              "rows": [
-                                  {
-                                      "id": "5c5a0622-c0a7-446c-bc4c-7e0033c4e624",
-                                      "title": "New Order",
-                                      "description": "Plan a new celebration"
-                                  },
-                                  {
-                                      "id": "8c4a647e-2481-41ad-9e32-de75535ba537",
-                                      "title": "Existing Order",
-                                      "description": "Track or modify a booking"
-                                  },
-                                  {
-                                      "id": "6756f6d5-e791-4b75-897b-b383b57d06f3",
-                                      "title": "Complaint",
-                                      "description": "Report an issue"
-                                  },
-                                  {
-                                      "id": "a67888c8-848a-442b-bbaa-e00da867e9f8",
-                                      "title": "More options",
-                                      "description": ""
-                                  }
-                              ],
-                              "title": ""
-                          }
-                      ]
-                  }
-              },
-              "messageOriginType": "USER",
-              "id": "47168945-dab4-46be-9f71-369eabeb33e3",
-              "readCount": 0,
-              "deliveryCount": 0,
-              "erroredCount": 1,
-              "dateCreated": "2025-08-18T05:50:23.557Z",
-              "dateUpdated": "2025-08-18T05:50:23.579Z",
-              "replyMessageId": null,
-              "messageTime": 1755496223557,
-              "totalCount": 1,
-              "errorMessage": "Markdown is not allowed for header text",
-              "adReferralData": null,
-              "replyMessage": null,
-              "senderUser": {
-                  "id": "user_LSSTd5SOPD",
-                  "name": "Mayank Singhania (Public API)",
-                  "phoneNumber": "917828434400"
-              },
-              "messageMetadata": {}
-          },
-          {
-              "message": {
-                  "text": "Hi",
+                  "text": "I need to escalate this, give me your higher authorities connect",
                   "messageType": "text"
               },
               "messageOriginType": "CUSTOMER",
-              "id": "483d3330-910e-445b-ad85-c01c8f2823c5",
+              "id": "302b7910-a887-4465-9378-e5c68016d754",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T14:54:46.111Z",
+              "dateUpdated": "2025-09-02T14:54:46.514Z",
+              "replyMessageId": null,
+              "messageTime": 1756824886111,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "If this is so okay, then why did not you inform me earlier, balloon colour may differ from what you have selected",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "52be9419-d5c5-41a4-b25d-e430267273d3",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T14:54:19.969Z",
+              "dateUpdated": "2025-09-02T14:54:20.140Z",
+              "replyMessageId": null,
+              "messageTime": 1756824859969,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "I have paid money beforehand not to have minscule white balloons.",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "d7ab2ec0-24be-4a85-9301-4d4c9cca5b2d",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T14:53:42.204Z",
+              "dateUpdated": "2025-09-02T14:53:42.388Z",
+              "replyMessageId": null,
+              "messageTime": 1756824822204,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Laid back and taken for granted approach",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "293d1ff8-18a1-45b4-9e2c-be590bdbcba1",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T14:53:07.235Z",
+              "dateUpdated": "2025-09-02T14:53:07.404Z",
+              "replyMessageId": null,
+              "messageTime": 1756824787235,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "You are coming to this, after I have  shared all the concerns.",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "ef7310fc-8456-421a-bba2-4ae6764a0a12",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T14:52:50.316Z",
+              "dateUpdated": "2025-09-02T14:52:50.480Z",
+              "replyMessageId": null,
+              "messageTime": 1756824770316,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Is this a professional reply.",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "69c5e7f8-1e21-41f6-bc9e-4f9c612d3a5d",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T14:52:23.428Z",
+              "dateUpdated": "2025-09-02T14:52:23.738Z",
+              "replyMessageId": "bd2f7c89-a1e0-4774-bd06-92d75fc7bc33",
+              "messageTime": 1756824743428,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": {
+                  "id": "bd2f7c89-a1e0-4774-bd06-92d75fc7bc33",
+                  "messageOriginType": "USER",
+                  "message": {
+                      "text": "If you check the decoration pictures, you’ll notice that minuscule white balloons were included. We sincerely apologize if some additional white balloons were placed by mistake",
+                      "messageType": "text"
+                  },
+                  "senderUser": {
+                      "id": "user_YqTyFV7uLv",
+                      "name": "Abhishek Juyal",
+                      "phoneNumber": "919654461106"
+                  },
+                  "messageTime": null
+              },
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Conversation marked resolved by Abhishek Juyal",
+                  "messageType": "system_message_v2",
+                  "actionType": "CLOSE_CONVERSATION",
+                  "actorType": "USER",
+                  "actorId": "user_YqTyFV7uLv"
+              },
+              "messageOriginType": "SYSTEM",
+              "id": "b9ac7008-113e-4b42-a29e-865c4f23d65e",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T14:33:34.250Z",
+              "dateUpdated": "2025-09-02T14:33:34.250Z",
+              "replyMessageId": null,
+              "messageTime": 1756823614250,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "If you check the decoration pictures, you’ll notice that minuscule white balloons were included. We sincerely apologize if some additional white balloons were placed by mistake",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "bd2f7c89-a1e0-4774-bd06-92d75fc7bc33",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T14:16:58.896Z",
+              "dateUpdated": "2025-09-02T14:16:58.909Z",
+              "replyMessageId": null,
+              "messageTime": 1756822618896,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_YqTyFV7uLv",
+                  "name": "Abhishek Juyal",
+                  "phoneNumber": "919654461106"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Get your facts corrected",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "0720c1d5-a80c-4d4e-abf5-82078a330d76",
               "readCount": 1,
               "deliveryCount": 0,
               "erroredCount": 0,
-              "dateCreated": "2025-08-18T05:50:22.873Z",
-              "dateUpdated": "2025-08-18T05:50:23.198Z",
+              "dateCreated": "2025-09-02T14:12:05.468Z",
+              "dateUpdated": "2025-09-02T14:12:05.660Z",
               "replyMessageId": null,
-              "messageTime": 1755496222873,
+              "messageTime": 1756822325468,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "No white balloon  I have selected",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "8054756f-8098-4c16-b41b-177a3430803a",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T14:11:33.513Z",
+              "dateUpdated": "2025-09-02T14:11:33.911Z",
+              "replyMessageId": null,
+              "messageTime": 1756822293513,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Not the ones he has used",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "e62413e0-c68c-4c54-980b-ce56c63e8709",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T14:10:56.522Z",
+              "dateUpdated": "2025-09-02T14:10:56.693Z",
+              "replyMessageId": null,
+              "messageTime": 1756822256522,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "These are the 4 colours I have chosen",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "93e7249a-c89e-4353-a20c-52b52534f6c5",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T14:10:49.499Z",
+              "dateUpdated": "2025-09-02T14:10:49.733Z",
+              "replyMessageId": "e0e8d84c-791c-426f-9662-55f868a1d1d4",
+              "messageTime": 1756822249499,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": {
+                  "id": "e0e8d84c-791c-426f-9662-55f868a1d1d4",
+                  "messageOriginType": "CUSTOMER",
+                  "message": {
+                      "text": "In short I need 4 colours\nPastel blue, Pastel Pink, Pastel yellow and Pastel purple.\nEach 50.\nTotal 🟰 200",
+                      "messageType": "text"
+                  },
+                  "senderUser": {
+                      "id": null,
+                      "name": null,
+                      "phoneNumber": null
+                  },
+                  "messageTime": null
+              },
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "You can take him in confrence call with me",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "bafdd712-7f47-4d0b-9ddb-513aa4b86daf",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T14:10:14.121Z",
+              "dateUpdated": "2025-09-02T14:10:15.258Z",
+              "replyMessageId": null,
+              "messageTime": 1756822214121,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Did you check with balloon decorator vendor. At what time he reached venue and what did he say about 200 additional balloon thing?",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "f483f084-fb70-426c-9ba7-c92960a15fbb",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T14:10:00.151Z",
+              "dateUpdated": "2025-09-02T14:10:00.352Z",
+              "replyMessageId": null,
+              "messageTime": 1756822200151,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Conversation marked resolved by Abhishek Juyal",
+                  "messageType": "system_message_v2",
+                  "actionType": "CLOSE_CONVERSATION",
+                  "actorType": "USER",
+                  "actorId": "user_YqTyFV7uLv"
+              },
+              "messageOriginType": "SYSTEM",
+              "id": "ebbc89ce-1ce8-4796-bebe-4edbd855db6c",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T13:29:06.556Z",
+              "dateUpdated": "2025-09-02T13:29:06.556Z",
+              "replyMessageId": null,
+              "messageTime": 1756819746556,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "If there’s anything more you’d like to discuss regarding your experience, don’t hesitate to get in touch. ",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "f7056562-0971-4404-adb5-e32deab4a3ec",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T13:09:14.500Z",
+              "dateUpdated": "2025-09-02T13:09:14.505Z",
+              "replyMessageId": null,
+              "messageTime": 1756818554500,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_YqTyFV7uLv",
+                  "name": "Abhishek Juyal",
+                  "phoneNumber": "919654461106"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "size": 2246541,
+                  "text": "",
+                  "width": 1200,
+                  "height": 1600,
+                  "fileUrl": "https://quickscale-chat-messages.s3.ap-south-1.amazonaws.com/intg_twv2cWtAQl/c48354a1-0717-44cd-8fb6-583657fa5e30",
+                  "messageType": "image",
+                  "thumbnailUrl": "https://quickscale-chat-messages.s3.ap-south-1.amazonaws.com/intg_twv2cWtAQl/c48354a1-0717-44cd-8fb6-583657fa5e30",
+                  "fileName": "455c82c4-b59c-454e-bb33-a653853e7be3"
+              },
+              "messageOriginType": "USER",
+              "id": "4e4cbc15-2fe8-472c-b3bb-717260097ea8",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T12:38:29.458Z",
+              "dateUpdated": "2025-09-02T12:38:34.986Z",
+              "replyMessageId": null,
+              "messageTime": 1756816709458,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_YqTyFV7uLv",
+                  "name": "Abhishek Juyal",
+                  "phoneNumber": "919654461106"
+              },
+              "messageMetadata": {
+                  "status": "PROCESSING"
+              }
+          },
+          {
+              "message": {
+                  "size": 2246541,
+                  "text": "",
+                  "width": 1200,
+                  "height": 1600,
+                  "fileUrl": "https://quickscale-chat-messages.s3.ap-south-1.amazonaws.com/intg_twv2cWtAQl/c48354a1-0717-44cd-8fb6-583657fa5e30",
+                  "messageType": "image",
+                  "thumbnailUrl": "https://quickscale-chat-messages.s3.ap-south-1.amazonaws.com/intg_twv2cWtAQl/c48354a1-0717-44cd-8fb6-583657fa5e30",
+                  "fileName": "455c82c4-b59c-454e-bb33-a653853e7be3"
+              },
+              "messageOriginType": "USER",
+              "id": "0aa4bd34-c3f4-4328-91fe-630be1c0135c",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T12:38:29.396Z",
+              "dateUpdated": "2025-09-02T12:38:43.062Z",
+              "replyMessageId": null,
+              "messageTime": 1756816709396,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_YqTyFV7uLv",
+                  "name": "Abhishek Juyal",
+                  "phoneNumber": "919654461106"
+              },
+              "messageMetadata": {
+                  "status": "PROCESSING"
+              }
+          },
+          {
+              "message": {
+                  "size": 2246541,
+                  "text": "",
+                  "width": 1200,
+                  "height": 1600,
+                  "fileUrl": "https://quickscale-chat-messages.s3.ap-south-1.amazonaws.com/intg_twv2cWtAQl/c48354a1-0717-44cd-8fb6-583657fa5e30",
+                  "messageType": "image",
+                  "thumbnailUrl": "https://quickscale-chat-messages.s3.ap-south-1.amazonaws.com/intg_twv2cWtAQl/c48354a1-0717-44cd-8fb6-583657fa5e30",
+                  "fileName": "455c82c4-b59c-454e-bb33-a653853e7be3"
+              },
+              "messageOriginType": "USER",
+              "id": "5b5427c4-3825-41ab-9cdb-ef42f73a145e",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T12:38:29.385Z",
+              "dateUpdated": "2025-09-02T12:38:38.909Z",
+              "replyMessageId": null,
+              "messageTime": 1756816709385,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_YqTyFV7uLv",
+                  "name": "Abhishek Juyal",
+                  "phoneNumber": "919654461106"
+              },
+              "messageMetadata": {
+                  "status": "PROCESSING"
+              }
+          },
+          {
+              "message": {
+                  "size": 2246541,
+                  "text": "",
+                  "width": 1200,
+                  "height": 1600,
+                  "fileUrl": "https://quickscale-chat-messages.s3.ap-south-1.amazonaws.com/intg_twv2cWtAQl/c48354a1-0717-44cd-8fb6-583657fa5e30",
+                  "messageType": "image",
+                  "thumbnailUrl": "https://quickscale-chat-messages.s3.ap-south-1.amazonaws.com/intg_twv2cWtAQl/c48354a1-0717-44cd-8fb6-583657fa5e30",
+                  "fileName": "455c82c4-b59c-454e-bb33-a653853e7be3"
+              },
+              "messageOriginType": "USER",
+              "id": "457bc153-ca0a-423a-a73d-02c652d0a1b6",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T12:38:29.379Z",
+              "dateUpdated": "2025-09-02T12:38:35.439Z",
+              "replyMessageId": null,
+              "messageTime": 1756816709379,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_YqTyFV7uLv",
+                  "name": "Abhishek Juyal",
+                  "phoneNumber": "919654461106"
+              },
+              "messageMetadata": {
+                  "status": "PROCESSING"
+              }
+          },
+          {
+              "message": {
+                  "text": "We have checked as per the selected colours only they provided the extra balloons.",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "d23118c5-b855-4907-8127-b53a0fbd37ee",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T12:38:17.511Z",
+              "dateUpdated": "2025-09-02T12:38:17.529Z",
+              "replyMessageId": null,
+              "messageTime": 1756816697511,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_YqTyFV7uLv",
+                  "name": "Abhishek Juyal",
+                  "phoneNumber": "919654461106"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Okay sir, let us investigate regarding this.",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "0b8b56ed-0132-4237-9e84-27fd985607d3",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T12:12:36.104Z",
+              "dateUpdated": "2025-09-02T12:12:36.127Z",
+              "replyMessageId": null,
+              "messageTime": 1756815156104,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_YqTyFV7uLv",
+                  "name": "Abhishek Juyal",
+                  "phoneNumber": "919654461106"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Tags added: Existing Order by Sandeep Kumar",
+                  "messageType": "system_message_v2",
+                  "actionType": "SET_TAGS",
+                  "actorType": "USER",
+                  "actorId": "user_nAV4Su4i4O"
+              },
+              "messageOriginType": "SYSTEM",
+              "id": "13ed6b4a-534a-4355-938f-edfe9bd003b7",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T12:09:54.526Z",
+              "dateUpdated": "2025-09-02T12:09:54.526Z",
+              "replyMessageId": null,
+              "messageTime": 1756814994526,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "It’s simply not the best way to provide customer support",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "c28eaf8f-2d87-444b-9061-e7fb6c17ffe5",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T12:05:37.712Z",
+              "dateUpdated": "2025-09-02T12:05:38.204Z",
+              "replyMessageId": null,
+              "messageTime": 1756814737712,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Can you share with us the picture of the decoration that has been done ?",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "0fdbf412-f219-4db0-bcff-e4bc36eeb816",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T10:07:50.672Z",
+              "dateUpdated": "2025-09-02T10:07:50.693Z",
+              "replyMessageId": null,
+              "messageTime": 1756807670672,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_YqTyFV7uLv",
+                  "name": "Abhishek Juyal",
+                  "phoneNumber": "919654461106"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Balloon decorator said, I have extra, I will give whatever I have with me.\nI have specifically chosen colour and shared with you.\nBut last minute thing, whatever he had, he gave.\nNo customer support from cherish x\nYour product may be good but customer experience is not at all good and convenient",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "e01ab309-8804-4fbf-b29d-487bebdedd0a",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T09:57:39.280Z",
+              "dateUpdated": "2025-09-02T09:57:39.452Z",
+              "replyMessageId": null,
+              "messageTime": 1756807059280,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Dear Customer,\n\nHave you not received the additional 200 balloons ?",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "e928b896-e9b5-4b6e-9419-50b443301c8d",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T08:39:08.510Z",
+              "dateUpdated": "2025-09-02T08:39:08.543Z",
+              "replyMessageId": null,
+              "messageTime": 1756802348510,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_YqTyFV7uLv",
+                  "name": "Abhishek Juyal",
+                  "phoneNumber": "919654461106"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Very very irresponsible on your part",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "8f2160e7-a180-4ba5-8be0-b6c6c12e3a1b",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T08:36:14.086Z",
+              "dateUpdated": "2025-09-02T08:36:15.677Z",
+              "replyMessageId": null,
+              "messageTime": 1756802174086,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "My decoration completion time was 1 pm. Balloon decorator arrived around 1:15 pm. He told Cherish X did not inform him\nFor 200 additional balloon",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "d4292236-a21d-4269-a333-6ef6d0bd95d9",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-02T08:36:03.675Z",
+              "dateUpdated": "2025-09-02T08:36:04.758Z",
+              "replyMessageId": null,
+              "messageTime": 1756802163675,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
@@ -13346,15 +13971,24 @@
                       "body": {
                           "data": [
                               {
-                                  "text": "Dear pankaj, Hi, I recently tried reaching out regarding your request but couldn’t get through. If you have any questions or need help, feel free to reply or call us at 8010679679. We’d love to assist you. Thanks for considering us!",
+                                  "text": "Hi Sakshi,\n\nWe hope everything went well with your recent CherishX experience.\n\nTo help us improve, we’d appreciate it if you could take a moment to share your feedback.\n\nJust click the button below to leave a quick review.\n\nThank you for your time and support.",
                                   "type": "text"
                               }
                           ]
                       },
-                      "footer": {
+                      "button": {
                           "data": [
                               {
-                                  "text": "Team CherishX",
+                                  "url": "https://cherishx.com/feedback?oid=OD17550940686030",
+                                  "text": "Review",
+                                  "type": "URL"
+                              }
+                          ]
+                      },
+                      "header": {
+                          "data": [
+                              {
+                                  "text": "Tell us about your experience",
                                   "type": "text"
                               }
                           ]
@@ -13362,84 +13996,185 @@
                   }
               },
               "messageOriginType": "USER",
-              "id": "01d5ddaa-ceb0-419b-86b4-d1e74442ab2d",
-              "readCount": 0,
+              "id": "783ff501-236b-4f87-9eff-6fd6d102269b",
+              "readCount": 1,
               "deliveryCount": 1,
               "erroredCount": 0,
-              "dateCreated": "2025-08-16T17:55:01.962Z",
-              "dateUpdated": "2025-08-16T17:55:01.969Z",
+              "dateCreated": "2025-09-02T06:00:41.128Z",
+              "dateUpdated": "2025-09-02T06:00:41.881Z",
               "replyMessageId": null,
-              "messageTime": 1755366901962,
+              "messageTime": 1756792841128,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
               "replyMessage": null,
               "senderUser": {
                   "id": "user_LSSTd5SOPD",
-                  "name": "Mayank Singhania",
+                  "name": "Mayank Singhania (Public API)",
                   "phoneNumber": "917828434400"
               },
               "messageMetadata": {}
           },
           {
               "message": {
-                  "messageType": "template",
-                  "templateMessage": {
-                      "body": {
-                          "data": [
-                              {
-                                  "text": "Hi 👋 Hope you’re doing well! We were chatting earlier about the décor for your upcoming event, and I just wanted to check in — are we still on track to make it magical together, or have you already gone with another plan? Either way, I’d love to hear from you so we can plan ahead. 🎈✨",
-                                  "type": "text"
-                              }
-                          ]
-                      },
-                      "footer": {
-                          "data": [
-                              {
-                                  "text": "Team CherishX",
-                                  "type": "text"
-                              }
-                          ]
-                      }
-                  }
-              },
-              "messageOriginType": "USER",
-              "id": "20bf8f59-8446-4bb4-a998-f5c21692108e",
-              "readCount": 0,
-              "deliveryCount": 1,
-              "erroredCount": 0,
-              "dateCreated": "2025-08-16T17:54:40.542Z",
-              "dateUpdated": "2025-08-16T17:54:40.549Z",
-              "replyMessageId": null,
-              "messageTime": 1755366880542,
-              "totalCount": 1,
-              "errorMessage": null,
-              "adReferralData": null,
-              "replyMessage": null,
-              "senderUser": {
-                  "id": "user_LSSTd5SOPD",
-                  "name": "Mayank Singhania",
-                  "phoneNumber": "917828434400"
-              },
-              "messageMetadata": {}
-          },
-          {
-              "message": {
-                  "text": "Conversation assigned to Mayank Singhania by Mayank Singhania",
+                  "text": "Conversation marked resolved by Abhishek Juyal",
                   "messageType": "system_message_v2",
-                  "actionType": "ASSIGN_AGENT",
+                  "actionType": "CLOSE_CONVERSATION",
                   "actorType": "USER",
-                  "actorId": "user_LSSTd5SOPD"
+                  "actorId": "user_YqTyFV7uLv"
               },
               "messageOriginType": "SYSTEM",
-              "id": "83110327-1212-4c02-a151-aa3b133455a1",
+              "id": "c118af57-184f-44aa-93ad-c909043276c9",
               "readCount": 0,
               "deliveryCount": 0,
               "erroredCount": 0,
-              "dateCreated": "2025-08-16T17:45:45.044Z",
-              "dateUpdated": "2025-08-16T17:45:45.044Z",
+              "dateCreated": "2025-09-01T09:27:04.744Z",
+              "dateUpdated": "2025-09-01T09:27:04.744Z",
               "replyMessageId": null,
-              "messageTime": 1755366345044,
+              "messageTime": 1756718824744,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Since we haven't heard back, we're closing this chat.Just send us a message on this thread to reopen it.",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "450057e6-8a41-4981-90c3-439ec7a73205",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-01T09:27:02.971Z",
+              "dateUpdated": "2025-09-01T09:27:02.983Z",
+              "replyMessageId": null,
+              "messageTime": 1756718822971,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_YqTyFV7uLv",
+                  "name": "Abhishek Juyal",
+                  "phoneNumber": "919654461106"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Dear Customer,\n\nTell us about your query.",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "ba747d25-e23c-45dd-80ce-e44a16ff6299",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-01T08:48:48.241Z",
+              "dateUpdated": "2025-09-01T08:48:48.301Z",
+              "replyMessageId": null,
+              "messageTime": 1756716528241,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_YqTyFV7uLv",
+                  "name": "Abhishek Juyal",
+                  "phoneNumber": "919654461106"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Connect me to customer service executive",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "8b1f607c-828b-4aa3-8a7c-4297afeb7c75",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-01T08:15:49.890Z",
+              "dateUpdated": "2025-09-01T08:15:49.934Z",
+              "replyMessageId": null,
+              "messageTime": 1756714549890,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Conversation marked resolved by Sandeep Kumar",
+                  "messageType": "system_message_v2",
+                  "actionType": "CLOSE_CONVERSATION",
+                  "actorType": "USER",
+                  "actorId": "user_nAV4Su4i4O"
+              },
+              "messageOriginType": "SYSTEM",
+              "id": "4f150623-8f68-44aa-8988-566138ddc69a",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-01T07:22:30.241Z",
+              "dateUpdated": "2025-09-01T07:22:30.241Z",
+              "replyMessageId": null,
+              "messageTime": 1756711350241,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Conversation assigned to Abhishek Juyal by Muskan Khan",
+                  "messageType": "system_message_v2",
+                  "actionType": "ASSIGN_AGENT",
+                  "actorType": "USER",
+                  "actorId": "user_MnzR9QY460"
+              },
+              "messageOriginType": "SYSTEM",
+              "id": "be5ccd93-1d2e-46a1-848f-eb1e907dd1f7",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-01T06:57:10.360Z",
+              "dateUpdated": "2025-09-01T06:57:10.360Z",
+              "replyMessageId": null,
+              "messageTime": 1756709830360,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Conversation assigned to Muskan Khan by Deepanshu Chhabra",
+                  "messageType": "system_message_v2",
+                  "actionType": "ASSIGN_AGENT",
+                  "actorType": "USER",
+                  "actorId": "user_rKIloFQcJF"
+              },
+              "messageOriginType": "SYSTEM",
+              "id": "af0592d5-3196-40a1-acb0-60cdc1e5d3de",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-09-01T05:01:06.408Z",
+              "dateUpdated": "2025-09-01T05:01:06.408Z",
+              "replyMessageId": null,
+              "messageTime": 1756702866408,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
@@ -13453,14 +14188,14 @@
                   "messageType": "text"
               },
               "messageOriginType": "USER",
-              "id": "6e1a25d6-ecec-48f1-b117-e529b0a9b0d4",
-              "readCount": 0,
+              "id": "4619bc2f-b40b-44e9-83ab-9581374a06e1",
+              "readCount": 1,
               "deliveryCount": 1,
               "erroredCount": 0,
-              "dateCreated": "2025-08-16T17:45:07.083Z",
-              "dateUpdated": "2025-08-16T17:45:07.105Z",
+              "dateCreated": "2025-08-31T23:00:32.186Z",
+              "dateUpdated": "2025-08-31T23:00:32.202Z",
               "replyMessageId": null,
-              "messageTime": 1755366307083,
+              "messageTime": 1756681232186,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
@@ -13474,18 +14209,18 @@
           },
           {
               "message": {
-                  "text": "Hi Team, I was viewing this page and need some assistance:\n\nhttps://cherishx.com/",
+                  "text": "Greetings from Tohfa-Your box of Joy!\n\nFollow this link to view our catalog on WhatsApp: https://wa.me/c/917838851826\n\nDM for any inquiry.\n\nJoin us on :\n\nInstagram \nhttps://www.instagram.com/tohfayourboxofjoy?igsh=MWlpdnJyejBma2o1cQ==\n\nWhatsApp Community\nhttps://chat.whatsapp.com/Hqc1hNR6xsQJwb0vGqWQVY\n\nHave a good day ahead!",
                   "messageType": "text"
               },
               "messageOriginType": "CUSTOMER",
-              "id": "7f10d6b8-ed2c-48cb-82eb-814327e06ad6",
+              "id": "2aeaf687-95ef-49a2-bc9d-081c72cbc27e",
               "readCount": 1,
               "deliveryCount": 0,
               "erroredCount": 0,
-              "dateCreated": "2025-08-16T17:45:04.508Z",
-              "dateUpdated": "2025-08-16T17:45:04.693Z",
+              "dateCreated": "2025-08-31T23:00:29.899Z",
+              "dateUpdated": "2025-08-31T23:00:30.405Z",
               "replyMessageId": null,
-              "messageTime": 1755366304508,
+              "messageTime": 1756681229899,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
@@ -13495,21 +14230,604 @@
           },
           {
               "message": {
-                  "text": "Conversation marked resolved by Subhash Mandal",
+                  "messageType": "template",
+                  "templateMessage": {
+                      "body": {
+                          "data": [
+                              {
+                                  "text": "Hey!\n\nJust a gentle reminder for your today's booking with us. So what's next?\n\n💆‍♀️ We don't like to Disturb! Your booking is confirmed. Sit back & relax while we prepare your experience. We will only call you if we need some details. Your booking will be completed within the time slot selected by you while booking.\n\n👨‍🔧 You can check your host / decorator details from the link below.\n\n📋 Make sure that, we have all your details with us. Check if you have filled all the post-booking details like Delivery Address, Custom Photographs, Personalised Message etc (if any) ? If you haven’t, please select the Bookings section from the menu on the App or Website and update the details!\n\n🤙 Happy to Help anytime! You can call us on +91-8081833833 for any help regarding your booking.",
+                                  "type": "text"
+                              }
+                          ]
+                      },
+                      "button": {
+                          "data": [
+                              {
+                                  "url": "https://cherishx.com/track_order/OD17550940686030",
+                                  "text": "Track your Booking",
+                                  "type": "URL"
+                              }
+                          ]
+                      },
+                      "footer": {
+                          "data": [
+                              {
+                                  "text": "Keep CherishX-ing!",
+                                  "type": "text"
+                              }
+                          ]
+                      },
+                      "header": {
+                          "data": [
+                              {
+                                  "text": "Reminder for your upcoming booking",
+                                  "type": "text"
+                              }
+                          ]
+                      }
+                  }
+              },
+              "messageOriginType": "USER",
+              "id": "d9c85307-d590-4581-a111-3c0e3e87b0ac",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-31T23:00:22.630Z",
+              "dateUpdated": "2025-08-31T23:00:22.646Z",
+              "replyMessageId": null,
+              "messageTime": 1756681222630,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_LSSTd5SOPD",
+                  "name": "Mayank Singhania (Public API)",
+                  "phoneNumber": "917828434400"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "messageType": "template",
+                  "templateMessage": {
+                      "body": {
+                          "data": [
+                              {
+                                  "text": "Hello Sakshi ! It’s Prakash from CherishX.\n\nTime flies, and it's been a year since we had the joy of organizing your loved one's celebration. We hope life has treated you well since then! 🌟💞 \n\nGuess what? We've been busy curating exciting new themes and packages that we can't wait for you to explore. As a token of our gratitude for your loyalty, we're thrilled to offer you an exclusive 10% discount on your next booking! Simply use the code LOYAL10 at checkout.🎁\n\n*Our New Categories -*\nPremium Decors - https://cherishx.com/experiences/delhi-ncr/premium-decors\n\n*Get more with CherishX now*\nReturn Gifts\nBanquet Decorations\nHaldi & Mehndi Setups\nTenting on Rent\nGames and Coordinators",
+                                  "type": "text"
+                              }
+                          ]
+                      },
+                      "button": {
+                          "data": [
+                              {
+                                  "url": "https://cherishx.com?utm_source=whatsapp&utm_medium=past_year_customers_march_2023",
+                                  "text": "Visit CherishX.com",
+                                  "type": "URL"
+                              },
+                              {
+                                  "text": "Call Coordinator",
+                                  "type": "PHONE_NUMBER",
+                                  "phoneNumber": "+918010679679"
+                              }
+                          ]
+                      },
+                      "footer": {
+                          "data": [
+                              {
+                                  "text": "Reply \"STOP\" to Unsubscribe",
+                                  "type": "text"
+                              }
+                          ]
+                      },
+                      "header": {
+                          "data": [
+                              {
+                                  "link": "https://quickscale-chat-messages.s3.ap-south-1.amazonaws.com/intg_twv2cWtAQl/c48354a1-0717-44cd-8fb6-583657fa5e30",
+                                  "type": "image"
+                              }
+                          ]
+                      }
+                  }
+              },
+              "messageOriginType": "USER",
+              "id": "fc19bcd3-2379-4568-991e-635b0b392a6b",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 1,
+              "dateCreated": "2025-08-25T08:08:23.467Z",
+              "dateUpdated": "2025-08-25T08:08:23.545Z",
+              "replyMessageId": null,
+              "messageTime": 1756109303467,
+              "totalCount": 1,
+              "errorMessage": "This message was not delivered to maintain healthy ecosystem engagement.",
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_LSSTd5SOPD",
+                  "name": "Mayank Singhania (Public API)",
+                  "phoneNumber": "917828434400"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Conversation marked resolved by Vikram Chauhan",
                   "messageType": "system_message_v2",
                   "actionType": "CLOSE_CONVERSATION",
+                  "actorType": "USER",
+                  "actorId": "user_R0z1NjiJRB"
+              },
+              "messageOriginType": "SYSTEM",
+              "id": "643e8401-197d-44d8-a537-351cc57ae265",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:33:14.618Z",
+              "dateUpdated": "2025-08-14T08:33:14.618Z",
+              "replyMessageId": null,
+              "messageTime": 1755160394618,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Please let me know if you need any further assistance.",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "5093b912-ab08-40bb-87a3-67779ef5c9ec",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:33:11.414Z",
+              "dateUpdated": "2025-08-14T08:33:11.435Z",
+              "replyMessageId": null,
+              "messageTime": 1755160391414,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_R0z1NjiJRB",
+                  "name": "Vikram Chauhan",
+                  "phoneNumber": "917827606272"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Noted",
+                  "reaction": {
+                      "text": "👍",
+                      "messageType": "reaction"
+                  },
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "4a1d976c-9a51-4862-ae9b-166930f484f7",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:32:21.694Z",
+              "dateUpdated": "2025-08-14T08:32:40.425Z",
+              "replyMessageId": "e0e8d84c-791c-426f-9662-55f868a1d1d4",
+              "messageTime": 1755160341694,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": {
+                  "id": "e0e8d84c-791c-426f-9662-55f868a1d1d4",
+                  "messageOriginType": "CUSTOMER",
+                  "message": {
+                      "text": "In short I need 4 colours\nPastel blue, Pastel Pink, Pastel yellow and Pastel purple.\nEach 50.\nTotal 🟰 200",
+                      "messageType": "text"
+                  },
+                  "senderUser": {
+                      "id": null,
+                      "name": null,
+                      "phoneNumber": null
+                  },
+                  "messageTime": null
+              },
+              "senderUser": {
+                  "id": "user_R0z1NjiJRB",
+                  "name": "Vikram Chauhan",
+                  "phoneNumber": "917827606272"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "In short I need 4 colours\nPastel blue, Pastel Pink, Pastel yellow and Pastel purple.\nEach 50.\nTotal 🟰 200",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "e0e8d84c-791c-426f-9662-55f868a1d1d4",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:25:53.580Z",
+              "dateUpdated": "2025-08-14T08:25:53.796Z",
+              "replyMessageId": null,
+              "messageTime": 1755159953580,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Your choice of balloon colours?\n(Add 100 balloons)\n\nPastel blue- 25\nPastel pink- 25\nPastel purple- 50\n\nYour choice of balloon colours?\n(Add 100 balloons)\n\nPastel Yellow-50\nPastel Blue- 25\nPastel pink-25",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "c30cb211-1658-409d-ac1a-c85ce2cb052f",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:23:28.641Z",
+              "dateUpdated": "2025-08-14T08:23:28.826Z",
+              "replyMessageId": null,
+              "messageTime": 1755159808641,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "please mention your choice of balloon colors here",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "e22bd128-fad8-4fe9-baea-e9e1fc42bc04",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:20:31.965Z",
+              "dateUpdated": "2025-08-14T08:20:32.088Z",
+              "replyMessageId": null,
+              "messageTime": 1755159631965,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_R0z1NjiJRB",
+                  "name": "Vikram Chauhan",
+                  "phoneNumber": "917827606272"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Your choice of balloon colours?\n(Add 100 balloons)\n: \nYour choice of balloon colours?\n(Add 100 balloons)\n:",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "4e552a09-8cdc-432b-985a-6a993ada389c",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:20:09.966Z",
+              "dateUpdated": "2025-08-14T08:20:10.007Z",
+              "replyMessageId": null,
+              "messageTime": 1755159609966,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_R0z1NjiJRB",
+                  "name": "Vikram Chauhan",
+                  "phoneNumber": "917827606272"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "No.",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "6a9e090f-3a7f-4212-a894-42c3a029331e",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:19:29.526Z",
+              "dateUpdated": "2025-08-14T08:19:29.721Z",
+              "replyMessageId": null,
+              "messageTime": 1755159569526,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Let me specify box",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "92c58031-a818-4466-945e-ce5d917d3d4e",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:19:24.902Z",
+              "dateUpdated": "2025-08-14T08:19:25.361Z",
+              "replyMessageId": null,
+              "messageTime": 1755159564902,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "No",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "37a33480-57b0-4f60-a8be-e3fbfe5c95ae",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:19:13.390Z",
+              "dateUpdated": "2025-08-14T08:19:14.801Z",
+              "replyMessageId": null,
+              "messageTime": 1755159553390,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "All 200 balloons you want in this color?",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "8a404e2e-284b-462a-a744-b5b422aedcf4",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:19:01.483Z",
+              "dateUpdated": "2025-08-14T08:19:01.490Z",
+              "replyMessageId": "9db20383-e347-4b71-9808-b98311e8ea0b",
+              "messageTime": 1755159541483,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": {
+                  "id": "9db20383-e347-4b71-9808-b98311e8ea0b",
+                  "messageOriginType": "CUSTOMER",
+                  "message": {
+                      "text": "Pastel Blue, Pastel Pink and Pastel Purple",
+                      "messageType": "text"
+                  },
+                  "senderUser": {
+                      "id": null,
+                      "name": null,
+                      "phoneNumber": null
+                  },
+                  "messageTime": null
+              },
+              "senderUser": {
+                  "id": "user_R0z1NjiJRB",
+                  "name": "Vikram Chauhan",
+                  "phoneNumber": "917827606272"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Ignore this one",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "dc8f3513-4973-4fb0-a568-5d5f244eb726",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:18:11.697Z",
+              "dateUpdated": "2025-08-14T08:18:12.929Z",
+              "replyMessageId": "4a2159fb-ec43-4f68-ad43-ec967869085c",
+              "messageTime": 1755159491697,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": {
+                  "id": "4a2159fb-ec43-4f68-ad43-ec967869085c",
+                  "messageOriginType": "CUSTOMER",
+                  "message": {
+                      "text": "Pastel blue, pastel yellow, plaster purple",
+                      "messageType": "text"
+                  },
+                  "senderUser": {
+                      "id": null,
+                      "name": null,
+                      "phoneNumber": null
+                  },
+                  "messageTime": null
+              },
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Pastel Blue, Pastel Pink and Pastel Purple",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "9db20383-e347-4b71-9808-b98311e8ea0b",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:17:55.641Z",
+              "dateUpdated": "2025-08-14T08:17:55.924Z",
+              "replyMessageId": null,
+              "messageTime": 1755159475641,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Pastel blue, pastel yellow, plaster purple",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "4a2159fb-ec43-4f68-ad43-ec967869085c",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:16:46.781Z",
+              "dateUpdated": "2025-08-14T08:16:47.196Z",
+              "replyMessageId": null,
+              "messageTime": 1755159406781,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "please let me know the color for rest 100 balloons",
+                  "reaction": {
+                      "text": "👍",
+                      "messageType": "reaction"
+                  },
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "5bff39b6-b292-4c2a-a351-21479547e703",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:15:53.925Z",
+              "dateUpdated": "2025-08-14T08:16:05.429Z",
+              "replyMessageId": null,
+              "messageTime": 1755159353925,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_R0z1NjiJRB",
+                  "name": "Vikram Chauhan",
+                  "phoneNumber": "917827606272"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Okay, you have selected Pastel Pink,Pastel Yellow,Pastel Purple",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "97aa55c7-4182-45d8-b7bd-4e6d87951d79",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:15:40.805Z",
+              "dateUpdated": "2025-08-14T08:15:40.819Z",
+              "replyMessageId": null,
+              "messageTime": 1755159340805,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_R0z1NjiJRB",
+                  "name": "Vikram Chauhan",
+                  "phoneNumber": "917827606272"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "I have book 2 100 additional balloons. But I have got only once a option of selecting colours",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "9365a097-b7bb-40be-908e-68f91cf62c08",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:10:50.812Z",
+              "dateUpdated": "2025-08-14T08:10:51.003Z",
+              "replyMessageId": null,
+              "messageTime": 1755159050812,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Please share your concern with us so that we can arrange call from concern team.",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "99a28440-9312-42bc-8482-77077cc2a2f7",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T08:09:35.194Z",
+              "dateUpdated": "2025-08-14T08:09:35.213Z",
+              "replyMessageId": null,
+              "messageTime": 1755158975194,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_R0z1NjiJRB",
+                  "name": "Vikram Chauhan",
+                  "phoneNumber": "917827606272"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Tags added: Post sales by Subhash Mandal",
+                  "messageType": "system_message_v2",
+                  "actionType": "SET_TAGS",
                   "actorType": "USER",
                   "actorId": "user_I971KCfTpi"
               },
               "messageOriginType": "SYSTEM",
-              "id": "9a9fcaf3-406b-4280-aba1-8d3215fdb917",
+              "id": "ea116368-ad39-4e45-966e-8ed1e834d750",
               "readCount": 0,
               "deliveryCount": 0,
               "erroredCount": 0,
-              "dateCreated": "2025-08-13T12:55:02.988Z",
-              "dateUpdated": "2025-08-13T12:55:02.988Z",
+              "dateCreated": "2025-08-14T07:53:09.218Z",
+              "dateUpdated": "2025-08-14T07:53:09.218Z",
               "replyMessageId": null,
-              "messageTime": 1755089702988,
+              "messageTime": 1755157989218,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
@@ -13519,18 +14837,18 @@
           },
           {
               "message": {
-                  "text": "Hi Team, I was viewing this page and need some assistance:\n\nhttps://cherishx.com/",
+                  "text": "Please connect over call",
                   "messageType": "text"
               },
               "messageOriginType": "CUSTOMER",
-              "id": "6c31524f-b014-40e4-8439-51d02ebf4af5",
+              "id": "b5b063f7-7469-4b2c-aec0-8da32bbd8d57",
               "readCount": 1,
               "deliveryCount": 0,
               "erroredCount": 0,
-              "dateCreated": "2025-08-13T12:20:19.233Z",
-              "dateUpdated": "2025-08-13T12:20:19.423Z",
+              "dateCreated": "2025-08-14T07:15:36.667Z",
+              "dateUpdated": "2025-08-14T07:15:37.557Z",
               "replyMessageId": null,
-              "messageTime": 1755087619233,
+              "messageTime": 1755155736667,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
@@ -13540,21 +14858,45 @@
           },
           {
               "message": {
-                  "text": "Conversation marked resolved by Mayank Singhania",
+                  "text": "Conversation marked resolved by Vikram Chauhan",
                   "messageType": "system_message_v2",
                   "actionType": "CLOSE_CONVERSATION",
                   "actorType": "USER",
-                  "actorId": "user_LSSTd5SOPD"
+                  "actorId": "user_R0z1NjiJRB"
               },
               "messageOriginType": "SYSTEM",
-              "id": "7895b992-1a69-470e-8c71-016a56fc7f3b",
+              "id": "e76d0645-0f18-4c82-9143-1c16b57d1f97",
               "readCount": 0,
               "deliveryCount": 0,
               "erroredCount": 0,
-              "dateCreated": "2025-08-12T09:37:55.549Z",
-              "dateUpdated": "2025-08-12T09:37:55.549Z",
+              "dateCreated": "2025-08-14T06:24:42.245Z",
+              "dateUpdated": "2025-08-14T06:24:42.245Z",
               "replyMessageId": null,
-              "messageTime": 1754991475549,
+              "messageTime": 1755152682245,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Conversation assigned to Vikram Chauhan by Vikram Chauhan",
+                  "messageType": "system_message_v2",
+                  "actionType": "ASSIGN_AGENT",
+                  "actorType": "USER",
+                  "actorId": "user_R0z1NjiJRB"
+              },
+              "messageOriginType": "SYSTEM",
+              "id": "d407ee7d-37c9-4f70-8d16-a3f45491b27c",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-14T05:23:38.768Z",
+              "dateUpdated": "2025-08-14T05:23:38.768Z",
+              "replyMessageId": null,
+              "messageTime": 1755149018768,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
@@ -13569,7 +14911,171 @@
                       "body": {
                           "data": [
                               {
-                                  "text": "*3323* is your verification code.\nFor your security, do not share this code.",
+                                  "text": "You are all set to cherish your Candy Land Birthday Decoration experience. We will only call you if we need some details. Your host/decorator details will be provided through email/whatsapp 3-12 hours before the booking.\n\nTo manage and track your booking status you can use the link below. Also make sure we have all your details such as address, photos & other relevant information in case of personalised bookings.",
+                                  "type": "text"
+                              }
+                          ]
+                      },
+                      "button": {
+                          "data": [
+                              {
+                                  "url": "https://cherishx.com/track_order/OD17550940686030",
+                                  "text": "Manage Booking",
+                                  "type": "URL"
+                              }
+                          ]
+                      },
+                      "footer": {
+                          "data": [
+                              {
+                                  "text": "Keep CherishX-ing!",
+                                  "type": "text"
+                              }
+                          ]
+                      },
+                      "header": {
+                          "data": [
+                              {
+                                  "text": "Your Booking is Confirmed!",
+                                  "type": "text"
+                              }
+                          ]
+                      }
+                  }
+              },
+              "messageOriginType": "USER",
+              "id": "20e480ea-0433-4317-88e2-ae846f964994",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T17:06:08.391Z",
+              "dateUpdated": "2025-08-13T17:06:08.405Z",
+              "replyMessageId": null,
+              "messageTime": 1755104768391,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_LSSTd5SOPD",
+                  "name": "Mayank Singhania (Public API)",
+                  "phoneNumber": "917828434400"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "messageType": "template",
+                  "templateMessage": {
+                      "body": {
+                          "data": [
+                              {
+                                  "text": "You are all set to cherish your Candy Land Birthday Decoration experience. We will only call you if we need some details. Your host/decorator details will be provided through email/whatsapp 3-12 hours before the booking.\n\nTo manage and track your booking status you can use the link below. Also make sure we have all your details such as address, photos & other relevant information in case of personalised bookings.",
+                                  "type": "text"
+                              }
+                          ]
+                      },
+                      "button": {
+                          "data": [
+                              {
+                                  "url": "https://cherishx.com/track_order/OD17550940686030",
+                                  "text": "Manage Booking",
+                                  "type": "URL"
+                              }
+                          ]
+                      },
+                      "footer": {
+                          "data": [
+                              {
+                                  "text": "Keep CherishX-ing!",
+                                  "type": "text"
+                              }
+                          ]
+                      },
+                      "header": {
+                          "data": [
+                              {
+                                  "text": "Your Booking is Confirmed!",
+                                  "type": "text"
+                              }
+                          ]
+                      }
+                  }
+              },
+              "messageOriginType": "USER",
+              "id": "fdb383af-f4ed-47df-8146-93c9aee20806",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T17:04:09.128Z",
+              "dateUpdated": "2025-08-13T17:04:09.229Z",
+              "replyMessageId": null,
+              "messageTime": 1755104649128,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_LSSTd5SOPD",
+                  "name": "Mayank Singhania (Public API)",
+                  "phoneNumber": "917828434400"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Hi! 👋\nThank you for reaching out. Our customer support hours are from 9:00 AM to 10:00 PM.\n\nWe’ve received your message and one of our team members will get back to you first thing tomorrow after 9 AM.\n\nWe truly appreciate your patience and look forward to assisting you soon! 💛\n\nᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴅᴏᴜʙʟᴇᴛɪᴄᴋ ᴀᴘᴘ",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "16f632a3-cbd3-40cb-b45c-7acc47f5c91c",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T16:59:05.074Z",
+              "dateUpdated": "2025-08-13T16:59:05.084Z",
+              "replyMessageId": null,
+              "messageTime": 1755104345074,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_LSSTd5SOPD",
+                  "name": "Mayank Singhania",
+                  "phoneNumber": "917828434400"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Source: CherishX.com https://share.google/H1jI5whwm0pUqLHdc",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "32571f7f-1281-4291-a5d4-d80726738f0e",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T16:59:02.223Z",
+              "dateUpdated": "2025-08-13T16:59:02.399Z",
+              "replyMessageId": null,
+              "messageTime": 1755104342223,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "messageType": "template",
+                  "templateMessage": {
+                      "body": {
+                          "data": [
+                              {
+                                  "text": "*7793* is your verification code.\nFor your security, do not share this code.",
                                   "type": "text"
                               }
                           ]
@@ -13580,7 +15086,7 @@
                                   "type": "OTP",
                                   "text": "Copy Code",
                                   "otp_type": "COPY_CODE",
-                                  "otp": "3323",
+                                  "otp": "7793",
                                   "example": "12345"
                               }
                           ]
@@ -13596,14 +15102,14 @@
                   }
               },
               "messageOriginType": "USER",
-              "id": "1fb756ff-407e-4905-aba0-82ad4c1cfd75",
-              "readCount": 0,
+              "id": "3f27c132-9045-4b6a-b289-3559ab991256",
+              "readCount": 1,
               "deliveryCount": 1,
               "erroredCount": 0,
-              "dateCreated": "2025-08-12T07:40:21.614Z",
-              "dateUpdated": "2025-08-12T07:40:21.637Z",
+              "dateCreated": "2025-08-13T16:55:46.566Z",
+              "dateUpdated": "2025-08-13T16:55:46.650Z",
               "replyMessageId": null,
-              "messageTime": 1754984421614,
+              "messageTime": 1755104146566,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
@@ -13622,7 +15128,185 @@
                       "body": {
                           "data": [
                               {
-                                  "text": "*3323* is your verification code.\nFor your security, do not share this code.",
+                                  "text": "Dear Sakshi ,\n\nYou are one step away from enjoying the awesome Candy Land Birthday Decoration experience.\n\nAt CherishX we love to personalise the experience to your taste. For achieving this we have a lot of interesting and unique customisations as add-ons to turbo charge your experience!\n\nCheck and book any customisation to curate your experience for your loved one(s). 🥳🥳\n",
+                                  "type": "text"
+                              }
+                          ]
+                      },
+                      "button": {
+                          "data": [
+                              {
+                                  "url": "https://cherishx.com/track_order/OD17550940686030#addons",
+                                  "text": "Upgrade it",
+                                  "type": "URL"
+                              }
+                          ]
+                      },
+                      "footer": {
+                          "data": [
+                              {
+                                  "text": "Keep CherishX-ing!",
+                                  "type": "text"
+                              }
+                          ]
+                      },
+                      "header": {
+                          "data": [
+                              {
+                                  "link": "https://quickscale-chat-messages.s3.ap-south-1.amazonaws.com/intg_twv2cWtAQl/e792a484-bc41-4aea-ba8f-4ceb7a21184c",
+                                  "type": "video"
+                              }
+                          ]
+                      }
+                  }
+              },
+              "messageOriginType": "USER",
+              "id": "9d9122c1-2289-4772-bdd2-561b5ac85d54",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T15:00:31.076Z",
+              "dateUpdated": "2025-08-13T15:00:31.109Z",
+              "replyMessageId": null,
+              "messageTime": 1755097231076,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_LSSTd5SOPD",
+                  "name": "Mayank Singhania (Public API)",
+                  "phoneNumber": "917828434400"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Conversation marked resolved by Abhishek Juyal",
+                  "messageType": "system_message_v2",
+                  "actionType": "CLOSE_CONVERSATION",
+                  "actorType": "USER",
+                  "actorId": "user_YqTyFV7uLv"
+              },
+              "messageOriginType": "SYSTEM",
+              "id": "4f5daeb7-8be8-4b4d-b4d7-37288561919a",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T14:55:06.614Z",
+              "dateUpdated": "2025-08-13T14:55:06.614Z",
+              "replyMessageId": null,
+              "messageTime": 1755096906614,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "If there’s anything more you’d like to discuss regarding your experience, don’t hesitate to get in touch. ",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "0ca97e17-c9e0-4719-a6b7-9a38de08743c",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T14:55:05.905Z",
+              "dateUpdated": "2025-08-13T14:55:05.912Z",
+              "replyMessageId": null,
+              "messageTime": 1755096905905,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_YqTyFV7uLv",
+                  "name": "Abhishek Juyal",
+                  "phoneNumber": "919654461106"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Dear Customer,\n\nYou can directly add it, by going to the customization section.",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "b561410f-ba9a-4b75-86cc-b93b0b683e0b",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T14:27:01.408Z",
+              "dateUpdated": "2025-08-13T14:27:01.425Z",
+              "replyMessageId": null,
+              "messageTime": 1755095221408,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_YqTyFV7uLv",
+                  "name": "Abhishek Juyal",
+                  "phoneNumber": "919654461106"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Conversation assigned to Abhishek Juyal by Abhay Kumar",
+                  "messageType": "system_message_v2",
+                  "actionType": "ASSIGN_AGENT",
+                  "actorType": "USER",
+                  "actorId": "user_qBDJG6hWZo"
+              },
+              "messageOriginType": "SYSTEM",
+              "id": "b715ae5d-8ce2-4a55-b11a-c7f5c81f8ff7",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T14:16:56.645Z",
+              "dateUpdated": "2025-08-13T14:16:56.645Z",
+              "replyMessageId": null,
+              "messageTime": 1755094616645,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "I need to add balloons",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "ff00e3ed-fe6e-4dd7-921c-6a17a69ad22a",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T14:15:55.790Z",
+              "dateUpdated": "2025-08-13T14:15:55.985Z",
+              "replyMessageId": null,
+              "messageTime": 1755094555790,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "messageType": "template",
+                  "templateMessage": {
+                      "body": {
+                          "data": [
+                              {
+                                  "text": "*4858* is your verification code.\nFor your security, do not share this code.",
                                   "type": "text"
                               }
                           ]
@@ -13633,7 +15317,7 @@
                                   "type": "OTP",
                                   "text": "Copy Code",
                                   "otp_type": "COPY_CODE",
-                                  "otp": "3323",
+                                  "otp": "4858",
                                   "example": "12345"
                               }
                           ]
@@ -13649,14 +15333,14 @@
                   }
               },
               "messageOriginType": "USER",
-              "id": "d64b9953-3d60-4253-aa72-6963b58610c0",
-              "readCount": 0,
+              "id": "0c2cc31b-9ee3-40c2-b2f9-c061946b8354",
+              "readCount": 1,
               "deliveryCount": 1,
               "erroredCount": 0,
-              "dateCreated": "2025-08-12T07:39:19.569Z",
-              "dateUpdated": "2025-08-12T07:39:19.596Z",
+              "dateCreated": "2025-08-13T14:14:02.552Z",
+              "dateUpdated": "2025-08-13T14:14:02.566Z",
               "replyMessageId": null,
-              "messageTime": 1754984359569,
+              "messageTime": 1755094442552,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
@@ -13670,106 +15354,417 @@
           },
           {
               "message": {
-                  "text": "API \"Sales Lead Assignment\" called by Pankaj's Test Bot",
-                  "botRunId": "83857411",
-                  "botRunLogId": "1025820980",
-                  "messageType": "system_message_v2",
-                  "actionType": "API_CALL",
-                  "actorType": "BOT",
-                  "actorId": "dcfdb072-e810-461d-8d6d-01389013c9cc",
-                  "links": [
-                      {
-                          "type": "BOT",
-                          "id": "dcfdb072-e810-461d-8d6d-01389013c9cc",
-                          "start": 38,
-                          "end": 54
+                  "messageType": "template",
+                  "templateMessage": {
+                      "body": {
+                          "data": [
+                              {
+                                  "text": "You are all set to cherish your Candy Land Birthday Decoration experience. We will only call you if we need some details. Your host/decorator details will be provided through email/whatsapp 3-12 hours before the booking.\n\nTo manage and track your booking status you can use the link below. Also make sure we have all your details such as address, photos & other relevant information in case of personalised bookings.",
+                                  "type": "text"
+                              }
+                          ]
+                      },
+                      "button": {
+                          "data": [
+                              {
+                                  "url": "https://cherishx.com/track_order/OD17550940686030",
+                                  "text": "Manage Booking",
+                                  "type": "URL"
+                              }
+                          ]
+                      },
+                      "footer": {
+                          "data": [
+                              {
+                                  "text": "Keep CherishX-ing!",
+                                  "type": "text"
+                              }
+                          ]
+                      },
+                      "header": {
+                          "data": [
+                              {
+                                  "text": "Your Booking is Confirmed!",
+                                  "type": "text"
+                              }
+                          ]
                       }
-                  ]
+                  }
               },
-              "messageOriginType": "SYSTEM",
-              "id": "4702ac31-e675-493e-9cf3-797dd888e7a6",
-              "readCount": 0,
-              "deliveryCount": 0,
+              "messageOriginType": "USER",
+              "id": "10d9941a-300e-40b5-8115-62c8a3c468aa",
+              "readCount": 1,
+              "deliveryCount": 1,
               "erroredCount": 0,
-              "dateCreated": "2025-08-12T07:00:45.833Z",
-              "dateUpdated": "2025-08-12T07:00:45.833Z",
+              "dateCreated": "2025-08-13T14:08:25.902Z",
+              "dateUpdated": "2025-08-13T14:08:25.927Z",
               "replyMessageId": null,
-              "messageTime": 1754982045833,
+              "messageTime": 1755094105902,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
               "replyMessage": null,
-              "senderUser": {},
+              "senderUser": {
+                  "id": "user_LSSTd5SOPD",
+                  "name": "Mayank Singhania (Public API)",
+                  "phoneNumber": "917828434400"
+              },
               "messageMetadata": {}
           },
           {
               "message": {
-                  "text": "Conversation assigned to Rakshit Mehra by Mayank Singhania",
-                  "messageType": "system_message_v2",
-                  "actionType": "ASSIGN_AGENT",
-                  "actorType": "USER",
-                  "actorId": "user_LSSTd5SOPD"
+                  "text": "Complete the payment on this ",
+                  "messageType": "text"
               },
-              "messageOriginType": "SYSTEM",
-              "id": "deefb47f-a0fc-4ec7-9081-b0819076705d",
-              "readCount": 0,
-              "deliveryCount": 0,
+              "messageOriginType": "USER",
+              "id": "854005e8-c25a-4e9f-a397-e0412f88de42",
+              "readCount": 1,
+              "deliveryCount": 1,
               "erroredCount": 0,
-              "dateCreated": "2025-08-12T07:00:44.361Z",
-              "dateUpdated": "2025-08-12T07:00:44.361Z",
+              "dateCreated": "2025-08-13T14:01:07.531Z",
+              "dateUpdated": "2025-08-13T14:01:07.547Z",
               "replyMessageId": null,
-              "messageTime": 1754982044361,
+              "messageTime": 1755093667531,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
               "replyMessage": null,
-              "senderUser": {},
+              "senderUser": {
+                  "id": "user_qBDJG6hWZo",
+                  "name": "Abhay Kumar",
+                  "phoneNumber": "919625913441"
+              },
               "messageMetadata": {}
           },
           {
               "message": {
-                  "text": "Sales",
-                  "payload": "67a06ec4-cbec-4e7d-b80c-ba7e750a0300",
-                  "messageType": "button"
+                  "text": "https://cherishx.com/checkout/4c7e80ff-5cd1-4dd4-b031-3aa88d3f3650",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "90e23419-e4ed-494d-93f1-8e474beed36c",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T14:01:00.627Z",
+              "dateUpdated": "2025-08-13T14:01:00.639Z",
+              "replyMessageId": null,
+              "messageTime": 1755093660627,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_qBDJG6hWZo",
+                  "name": "Abhay Kumar",
+                  "phoneNumber": "919625913441"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Yes",
+                  "messageType": "text"
               },
               "messageOriginType": "CUSTOMER",
-              "id": "bafa2e72-4be6-40a1-a379-6c18256c9ae4",
+              "id": "8f5a4f2f-636b-4e5c-8841-36e812d157d1",
               "readCount": 1,
               "deliveryCount": 0,
               "erroredCount": 0,
-              "dateCreated": "2025-08-12T07:00:41.620Z",
-              "dateUpdated": "2025-08-12T07:00:42.155Z",
-              "replyMessageId": "7be012d4-9eeb-42b8-b4c6-cde06a25354d",
-              "messageTime": 1754982041620,
+              "dateCreated": "2025-08-13T13:53:40.972Z",
+              "dateUpdated": "2025-08-13T13:53:41.196Z",
+              "replyMessageId": null,
+              "messageTime": 1755093220972,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "This is the selected package right ?",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "22b44c85-33a0-4f9c-9aa6-743f28c152e6",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T13:53:24.094Z",
+              "dateUpdated": "2025-08-13T13:53:24.104Z",
+              "replyMessageId": null,
+              "messageTime": 1755093204094,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_qBDJG6hWZo",
+                  "name": "Abhay Kumar",
+                  "phoneNumber": "919625913441"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "https://cherishx.com/experience/3269/bangalore/candy-land-birthday-decoration",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "e51d5f4f-bca8-4534-be3e-1835bb9ef1d7",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T13:53:04.079Z",
+              "dateUpdated": "2025-08-13T13:53:04.099Z",
+              "replyMessageId": null,
+              "messageTime": 1755093184079,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_qBDJG6hWZo",
+                  "name": "Abhay Kumar",
+                  "phoneNumber": "919625913441"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Kindly share the below details:-\n\nPackage:- Candy Land Birthday Decoration\n\nName:-sakshi Singhal\nPhone:-7838851826\nAlternate Phone:-9711987312\nEmail:-ns.sakshi@gmail.com\nDate:-01-09-2025\nDecoration Completion Time:-2:00\nPm\nAddress:-E-301 skyline Beverly Park, Amruthahalli main road \nPin Code:-560092\nAdd on (if any):-",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "75b6c90b-28cd-4336-8414-448a587243f4",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T13:29:53.879Z",
+              "dateUpdated": "2025-08-13T13:29:54.061Z",
+              "replyMessageId": null,
+              "messageTime": 1755091793879,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Kindly share the below details:-\n\nPackage:- Candy Land Birthday Decoration\n\nName:-\nPhone:-\nAlternate Phone:-\nEmail:-\nDate:-\nDecoration Completion Time:-\nAddress:-\nPin Code:-\nAdd on (if any):-",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "a4d96237-e22f-4ac3-a01c-28ca6ab0f501",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T13:06:02.688Z",
+              "dateUpdated": "2025-08-13T13:06:02.695Z",
+              "replyMessageId": null,
+              "messageTime": 1755090362688,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_qBDJG6hWZo",
+                  "name": "Abhay Kumar",
+                  "phoneNumber": "919625913441"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Conversation assigned to Abhay Kumar by Subhash Mandal",
+                  "messageType": "system_message_v2",
+                  "actionType": "ASSIGN_AGENT",
+                  "actorType": "USER",
+                  "actorId": "user_I971KCfTpi"
+              },
+              "messageOriginType": "SYSTEM",
+              "id": "7fe47837-21d6-4679-85e0-bb8c7ee82b20",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T13:02:34.595Z",
+              "dateUpdated": "2025-08-13T13:02:34.595Z",
+              "replyMessageId": null,
+              "messageTime": 1755090154595,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "560092",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "d5653567-e27e-451e-a163-336f13360a1f",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T13:00:48.075Z",
+              "dateUpdated": "2025-08-13T13:00:48.285Z",
+              "replyMessageId": null,
+              "messageTime": 1755090048075,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Please share the pin code.",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "7a274791-e33f-4353-8970-a458a7a3dd6c",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T12:41:12.214Z",
+              "dateUpdated": "2025-08-13T12:41:12.227Z",
+              "replyMessageId": null,
+              "messageTime": 1755088872214,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_I971KCfTpi",
+                  "name": "Subhash Mandal",
+                  "phoneNumber": "918527865311"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "This date is not shown on site",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "80602b3c-c1d2-472d-9481-f81fe0473989",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T12:35:35.396Z",
+              "dateUpdated": "2025-08-13T12:35:35.571Z",
+              "replyMessageId": null,
+              "messageTime": 1755088535396,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "I need candyland decoration setup for September 1St",
+                  "messageType": "text"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "14db156f-aa86-4b6d-bf65-d59401641ec6",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T12:35:14.870Z",
+              "dateUpdated": "2025-08-13T12:35:15.437Z",
+              "replyMessageId": null,
+              "messageTime": 1755088514870,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Please type your query. We're here to help 😊",
+                  "messageType": "text"
+              },
+              "messageOriginType": "USER",
+              "id": "26f37c73-e294-4a9d-9e85-1affbe16f6ad",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T12:34:52.914Z",
+              "dateUpdated": "2025-08-13T12:34:53.502Z",
+              "replyMessageId": null,
+              "messageTime": 1755088492914,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_LSSTd5SOPD",
+                  "name": "Mayank Singhania (Public API)",
+                  "phoneNumber": "917828434400"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Others",
+                  "payload": "c058d03b-fa9e-47e1-a0e4-a5924eb7c552",
+                  "messageType": "button"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "01cab129-6e35-44ca-b5bd-93292e34133b",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T12:34:47.777Z",
+              "dateUpdated": "2025-08-13T12:34:48.118Z",
+              "replyMessageId": "f4bee7e7-8eed-4e18-9217-56a67a7eba57",
+              "messageTime": 1755088487777,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
               "replyMessage": {
-                  "id": "7be012d4-9eeb-42b8-b4c6-cde06a25354d",
+                  "id": "f4bee7e7-8eed-4e18-9217-56a67a7eba57",
                   "messageOriginType": "USER",
                   "message": {
                       "messageType": "interactive",
                       "interactiveMessage": {
                           "body": {
-                              "text": "Testing Pankaj"
+                              "text": "🎉 Yay! Let’s help you plan something amazing."
                           },
                           "type": "list",
-                          "button": "TEST",
-                          "header": {
-                              "text": "Test",
-                              "type": "text"
-                          },
+                          "button": "Let’s get started",
                           "sections": [
                               {
                                   "rows": [
                                       {
-                                          "id": "67a06ec4-cbec-4e7d-b80c-ba7e750a0300",
-                                          "title": "Sales",
+                                          "id": "113d023a-4cfc-4379-a8a0-8207191249a0",
+                                          "title": "Package Suggestions",
                                           "description": ""
                                       },
                                       {
-                                          "id": "51ed893a-3625-4bf6-bb17-3e728bb4c32d",
-                                          "title": "Operations",
+                                          "id": "87cd1ec3-ee25-49d4-95c1-3a5d4a852df0",
+                                          "title": "Booking Procedure",
+                                          "description": ""
+                                      },
+                                      {
+                                          "id": "3263f597-3daa-4a90-b3a4-944369c500be",
+                                          "title": "Customize a Package",
+                                          "description": ""
+                                      },
+                                      {
+                                          "id": "c058d03b-fa9e-47e1-a0e4-a5924eb7c552",
+                                          "title": "Others",
                                           "description": ""
                                       }
                                   ],
@@ -13790,31 +15785,186 @@
           },
           {
               "message": {
-                  "text": "Interactive list message sent by Pankaj's Test Bot",
-                  "botRunId": "83857411",
-                  "botRunLogId": "1025820563",
+                  "messageType": "interactive",
+                  "interactiveMessage": {
+                      "body": {
+                          "text": "🎉 Yay! Let’s help you plan something amazing."
+                      },
+                      "type": "list",
+                      "button": "Let’s get started",
+                      "sections": [
+                          {
+                              "rows": [
+                                  {
+                                      "id": "113d023a-4cfc-4379-a8a0-8207191249a0",
+                                      "title": "Package Suggestions",
+                                      "description": ""
+                                  },
+                                  {
+                                      "id": "87cd1ec3-ee25-49d4-95c1-3a5d4a852df0",
+                                      "title": "Booking Procedure",
+                                      "description": ""
+                                  },
+                                  {
+                                      "id": "3263f597-3daa-4a90-b3a4-944369c500be",
+                                      "title": "Customize a Package",
+                                      "description": ""
+                                  },
+                                  {
+                                      "id": "c058d03b-fa9e-47e1-a0e4-a5924eb7c552",
+                                      "title": "Others",
+                                      "description": ""
+                                  }
+                              ],
+                              "title": ""
+                          }
+                      ]
+                  }
+              },
+              "messageOriginType": "USER",
+              "id": "f4bee7e7-8eed-4e18-9217-56a67a7eba57",
+              "readCount": 1,
+              "deliveryCount": 1,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T12:34:36.296Z",
+              "dateUpdated": "2025-08-13T12:34:36.333Z",
+              "replyMessageId": null,
+              "messageTime": 1755088476296,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {
+                  "id": "user_LSSTd5SOPD",
+                  "name": "Mayank Singhania (Public API)",
+                  "phoneNumber": "917828434400"
+              },
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Tags added: New Order by CherishX Flow 1",
+                  "botRunId": "84402170",
+                  "botRunLogId": "1029115182",
                   "messageType": "system_message_v2",
-                  "actionType": "INTERACTIVE_LIST_MESSAGE",
+                  "actionType": "SET_TAGS",
                   "actorType": "BOT",
-                  "actorId": "dcfdb072-e810-461d-8d6d-01389013c9cc",
+                  "actorId": "7b8ae836-f639-4c72-8524-ce572ed8fd0a",
                   "links": [
                       {
                           "type": "BOT",
-                          "id": "dcfdb072-e810-461d-8d6d-01389013c9cc",
-                          "start": 33,
-                          "end": 49
+                          "id": "7b8ae836-f639-4c72-8524-ce572ed8fd0a",
+                          "start": 25,
+                          "end": 39
                       }
                   ]
               },
               "messageOriginType": "SYSTEM",
-              "id": "f2f7545a-3e70-4afc-aefb-a6e6d0915274",
+              "id": "c0fbd6f0-f158-410c-a0ee-20164d886cb3",
               "readCount": 0,
               "deliveryCount": 0,
               "erroredCount": 0,
-              "dateCreated": "2025-08-12T07:00:33.266Z",
-              "dateUpdated": "2025-08-12T07:00:33.266Z",
+              "dateCreated": "2025-08-13T12:34:34.338Z",
+              "dateUpdated": "2025-08-13T12:34:34.338Z",
               "replyMessageId": null,
-              "messageTime": 1754982033266,
+              "messageTime": 1755088474338,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": null,
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "New Order",
+                  "payload": "dcccf1d6-18b0-4514-83a4-0a509c6dc622",
+                  "description": "Plan a new celebration",
+                  "messageType": "button"
+              },
+              "messageOriginType": "CUSTOMER",
+              "id": "82bc8202-ff1b-4a72-81ea-e560fa7c16da",
+              "readCount": 1,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T12:34:27.789Z",
+              "dateUpdated": "2025-08-13T12:34:28.018Z",
+              "replyMessageId": "662ea32d-3bd9-4277-9bf1-64f687602663",
+              "messageTime": 1755088467789,
+              "totalCount": 1,
+              "errorMessage": null,
+              "adReferralData": null,
+              "replyMessage": {
+                  "id": "662ea32d-3bd9-4277-9bf1-64f687602663",
+                  "messageOriginType": "USER",
+                  "message": {
+                      "messageType": "interactive",
+                      "interactiveMessage": {
+                          "body": {
+                              "text": "Welcome to CherishX – Your Celebration Partner 💛\n\nLet us know how we can help you today:"
+                          },
+                          "type": "list",
+                          "button": "Choose your option",
+                          "header": {
+                              "text": "Hi Tohfa- Your Box of JOY!",
+                              "type": "text"
+                          },
+                          "sections": [
+                              {
+                                  "rows": [
+                                      {
+                                          "id": "dcccf1d6-18b0-4514-83a4-0a509c6dc622",
+                                          "title": "New Order",
+                                          "description": "Plan a new celebration"
+                                      },
+                                      {
+                                          "id": "42c32415-c8bd-4025-8c18-4295301c3fbf",
+                                          "title": "Existing Order",
+                                          "description": "Track or modify a booking"
+                                      },
+                                      {
+                                          "id": "0669c01c-3272-4241-9498-c315cafea411",
+                                          "title": "Complaint",
+                                          "description": "Report an issue"
+                                      },
+                                      {
+                                          "id": "50d2950a-4b8e-4117-9d11-b9d4e07feea9",
+                                          "title": "More options",
+                                          "description": ""
+                                      }
+                                  ],
+                                  "title": ""
+                              }
+                          ]
+                      }
+                  },
+                  "senderUser": {
+                      "id": null,
+                      "name": null,
+                      "phoneNumber": null
+                  },
+                  "messageTime": null
+              },
+              "senderUser": {},
+              "messageMetadata": {}
+          },
+          {
+              "message": {
+                  "text": "Conversation assigned to Subhash Mandal by Abhishek Juyal",
+                  "messageType": "system_message_v2",
+                  "actionType": "ASSIGN_AGENT",
+                  "actorType": "USER",
+                  "actorId": "user_YqTyFV7uLv"
+              },
+              "messageOriginType": "SYSTEM",
+              "id": "a3335d40-6c21-44f3-92e2-af2739232886",
+              "readCount": 0,
+              "deliveryCount": 0,
+              "erroredCount": 0,
+              "dateCreated": "2025-08-13T12:32:34.068Z",
+              "dateUpdated": "2025-08-13T12:32:34.068Z",
+              "replyMessageId": null,
+              "messageTime": 1755088354068,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
@@ -13827,25 +15977,35 @@
                   "messageType": "interactive",
                   "interactiveMessage": {
                       "body": {
-                          "text": "Testing Pankaj"
+                          "text": "Welcome to CherishX – Your Celebration Partner 💛\n\nLet us know how we can help you today:"
                       },
                       "type": "list",
-                      "button": "TEST",
+                      "button": "Choose your option",
                       "header": {
-                          "text": "Test",
+                          "text": "Hi Tohfa- Your Box of JOY!",
                           "type": "text"
                       },
                       "sections": [
                           {
                               "rows": [
                                   {
-                                      "id": "67a06ec4-cbec-4e7d-b80c-ba7e750a0300",
-                                      "title": "Sales",
-                                      "description": ""
+                                      "id": "dcccf1d6-18b0-4514-83a4-0a509c6dc622",
+                                      "title": "New Order",
+                                      "description": "Plan a new celebration"
                                   },
                                   {
-                                      "id": "51ed893a-3625-4bf6-bb17-3e728bb4c32d",
-                                      "title": "Operations",
+                                      "id": "42c32415-c8bd-4025-8c18-4295301c3fbf",
+                                      "title": "Existing Order",
+                                      "description": "Track or modify a booking"
+                                  },
+                                  {
+                                      "id": "0669c01c-3272-4241-9498-c315cafea411",
+                                      "title": "Complaint",
+                                      "description": "Report an issue"
+                                  },
+                                  {
+                                      "id": "50d2950a-4b8e-4117-9d11-b9d4e07feea9",
+                                      "title": "More options",
                                       "description": ""
                                   }
                               ],
@@ -13855,14 +16015,14 @@
                   }
               },
               "messageOriginType": "USER",
-              "id": "7be012d4-9eeb-42b8-b4c6-cde06a25354d",
-              "readCount": 0,
+              "id": "662ea32d-3bd9-4277-9bf1-64f687602663",
+              "readCount": 1,
               "deliveryCount": 1,
               "erroredCount": 0,
-              "dateCreated": "2025-08-12T07:00:31.777Z",
-              "dateUpdated": "2025-08-12T07:00:31.801Z",
+              "dateCreated": "2025-08-13T12:28:46.177Z",
+              "dateUpdated": "2025-08-13T12:28:46.187Z",
               "replyMessageId": null,
-              "messageTime": 1754982031777,
+              "messageTime": 1755088126177,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
@@ -13876,517 +16036,25 @@
           },
           {
               "message": {
-                  "text": "Pankaj Test",
+                  "text": "Can't find required date time for Candy Land Birthday Decoration",
                   "messageType": "text"
               },
               "messageOriginType": "CUSTOMER",
-              "id": "df4f738d-ab82-44d8-a22a-569e90632e96",
+              "id": "7499a239-3f96-4b4d-bdf3-b8e052395f56",
               "readCount": 1,
               "deliveryCount": 0,
               "erroredCount": 0,
-              "dateCreated": "2025-08-12T07:00:27.607Z",
-              "dateUpdated": "2025-08-12T07:00:28.374Z",
+              "dateCreated": "2025-08-13T12:28:17.616Z",
+              "dateUpdated": "2025-08-13T12:28:17.825Z",
               "replyMessageId": null,
-              "messageTime": 1754982027607,
+              "messageTime": 1755088097616,
               "totalCount": 1,
               "errorMessage": null,
               "adReferralData": null,
               "replyMessage": null,
               "senderUser": {},
               "messageMetadata": {}
-          },
-          {
-              "message": {
-                  "text": "Conversation assigned to Mohit Chopra by Mayank Singhania",
-                  "messageType": "system_message_v2",
-                  "actionType": "ASSIGN_AGENT",
-                  "actorType": "USER",
-                  "actorId": "user_LSSTd5SOPD"
-              },
-              "messageOriginType": "SYSTEM",
-              "id": "5a863c17-eb5d-4511-afb4-13ad1a3e3699",
-              "readCount": 0,
-              "deliveryCount": 0,
-              "erroredCount": 0,
-              "dateCreated": "2025-08-12T06:59:59.175Z",
-              "dateUpdated": "2025-08-12T06:59:59.175Z",
-              "replyMessageId": null,
-              "messageTime": 1754981999175,
-              "totalCount": 1,
-              "errorMessage": null,
-              "adReferralData": null,
-              "replyMessage": null,
-              "senderUser": {},
-              "messageMetadata": {}
-          },
-          {
-              "message": {
-                  "text": "Conversation assigned to Rakshit Mehra by Mayank Singhania",
-                  "messageType": "system_message_v2",
-                  "actionType": "ASSIGN_AGENT",
-                  "actorType": "USER",
-                  "actorId": "user_LSSTd5SOPD"
-              },
-              "messageOriginType": "SYSTEM",
-              "id": "a0272880-1618-4d03-9149-adb36768ca4c",
-              "readCount": 0,
-              "deliveryCount": 0,
-              "erroredCount": 0,
-              "dateCreated": "2025-08-12T06:54:53.650Z",
-              "dateUpdated": "2025-08-12T06:54:53.650Z",
-              "replyMessageId": null,
-              "messageTime": 1754981693650,
-              "totalCount": 1,
-              "errorMessage": null,
-              "adReferralData": null,
-              "replyMessage": null,
-              "senderUser": {},
-              "messageMetadata": {}
-          },
-          {
-              "message": {
-                  "text": "API \"AssignAgent\" called by Pankaj's Test Bot",
-                  "botRunId": "83853683",
-                  "botRunLogId": "1025794861",
-                  "messageType": "system_message_v2",
-                  "actionType": "API_CALL",
-                  "actorType": "BOT",
-                  "actorId": "dcfdb072-e810-461d-8d6d-01389013c9cc",
-                  "links": [
-                      {
-                          "type": "BOT",
-                          "id": "dcfdb072-e810-461d-8d6d-01389013c9cc",
-                          "start": 28,
-                          "end": 44
-                      }
-                  ]
-              },
-              "messageOriginType": "SYSTEM",
-              "id": "6a317819-7e11-41b4-95d9-19d5af017865",
-              "readCount": 0,
-              "deliveryCount": 0,
-              "erroredCount": 0,
-              "dateCreated": "2025-08-12T06:48:44.488Z",
-              "dateUpdated": "2025-08-12T06:48:44.488Z",
-              "replyMessageId": null,
-              "messageTime": 1754981324488,
-              "totalCount": 1,
-              "errorMessage": null,
-              "adReferralData": null,
-              "replyMessage": null,
-              "senderUser": {},
-              "messageMetadata": {}
-          },
-          {
-              "message": {
-                  "text": "Conversation assigned to Rakshit Mehra by Mayank Singhania",
-                  "messageType": "system_message_v2",
-                  "actionType": "ASSIGN_AGENT",
-                  "actorType": "USER",
-                  "actorId": "user_LSSTd5SOPD"
-              },
-              "messageOriginType": "SYSTEM",
-              "id": "85306e1a-7a2c-4af8-b9c1-9d7984fe8d8a",
-              "readCount": 0,
-              "deliveryCount": 0,
-              "erroredCount": 0,
-              "dateCreated": "2025-08-12T06:48:42.852Z",
-              "dateUpdated": "2025-08-12T06:48:42.852Z",
-              "replyMessageId": null,
-              "messageTime": 1754981322852,
-              "totalCount": 1,
-              "errorMessage": null,
-              "adReferralData": null,
-              "replyMessage": null,
-              "senderUser": {},
-              "messageMetadata": {}
-          },
-          {
-              "message": {
-                  "text": "Sales",
-                  "payload": "4c369bae-0a9e-4732-8861-2fa6904506ef",
-                  "messageType": "button",
-                  "agentReaction": {
-                      "text": "👍",
-                      "agentId": "user_nAV4Su4i4O",
-                      "agentName": "Sandeep Kumar",
-                      "agentPhone": "918920896510",
-                      "messageType": "reaction"
-                  }
-              },
-              "messageOriginType": "CUSTOMER",
-              "id": "84a97426-1677-4a66-9b1b-fe512707f31f",
-              "readCount": 1,
-              "deliveryCount": 0,
-              "erroredCount": 0,
-              "dateCreated": "2025-08-12T06:48:39.814Z",
-              "dateUpdated": "2025-08-12T06:54:46.701Z",
-              "replyMessageId": "2a0cd37b-2c47-4fe7-8add-955ea6ad1b88",
-              "messageTime": 1754981319814,
-              "totalCount": 1,
-              "errorMessage": null,
-              "adReferralData": null,
-              "replyMessage": {
-                  "id": "2a0cd37b-2c47-4fe7-8add-955ea6ad1b88",
-                  "messageOriginType": "USER",
-                  "message": {
-                      "messageType": "interactive",
-                      "interactiveMessage": {
-                          "body": {
-                              "text": "Testing Pankaj"
-                          },
-                          "type": "list",
-                          "button": "TEST",
-                          "header": {
-                              "text": "Test",
-                              "type": "text"
-                          },
-                          "sections": [
-                              {
-                                  "rows": [
-                                      {
-                                          "id": "4c369bae-0a9e-4732-8861-2fa6904506ef",
-                                          "title": "Sales",
-                                          "description": ""
-                                      },
-                                      {
-                                          "id": "cb5291dc-f3fe-418e-b001-24eec49851c9",
-                                          "title": "Operations",
-                                          "description": ""
-                                      }
-                                  ],
-                                  "title": ""
-                              }
-                          ]
-                      }
-                  },
-                  "senderUser": {
-                      "id": null,
-                      "name": null,
-                      "phoneNumber": null
-                  },
-                  "messageTime": null
-              },
-              "senderUser": {},
-              "messageMetadata": {}
-          },
-          {
-              "message": {
-                  "text": "Interactive list message sent by Pankaj's Test Bot",
-                  "botRunId": "83853683",
-                  "botRunLogId": "1025794604",
-                  "messageType": "system_message_v2",
-                  "actionType": "INTERACTIVE_LIST_MESSAGE",
-                  "actorType": "BOT",
-                  "actorId": "dcfdb072-e810-461d-8d6d-01389013c9cc",
-                  "links": [
-                      {
-                          "type": "BOT",
-                          "id": "dcfdb072-e810-461d-8d6d-01389013c9cc",
-                          "start": 33,
-                          "end": 49
-                      }
-                  ]
-              },
-              "messageOriginType": "SYSTEM",
-              "id": "71be86c4-ffec-4b86-ab11-b03346a22084",
-              "readCount": 0,
-              "deliveryCount": 0,
-              "erroredCount": 0,
-              "dateCreated": "2025-08-12T06:48:34.144Z",
-              "dateUpdated": "2025-08-12T06:48:34.144Z",
-              "replyMessageId": null,
-              "messageTime": 1754981314144,
-              "totalCount": 1,
-              "errorMessage": null,
-              "adReferralData": null,
-              "replyMessage": null,
-              "senderUser": {},
-              "messageMetadata": {}
-          },
-          {
-              "message": {
-                  "messageType": "interactive",
-                  "interactiveMessage": {
-                      "body": {
-                          "text": "Testing Pankaj"
-                      },
-                      "type": "list",
-                      "button": "TEST",
-                      "header": {
-                          "text": "Test",
-                          "type": "text"
-                      },
-                      "sections": [
-                          {
-                              "rows": [
-                                  {
-                                      "id": "4c369bae-0a9e-4732-8861-2fa6904506ef",
-                                      "title": "Sales",
-                                      "description": ""
-                                  },
-                                  {
-                                      "id": "cb5291dc-f3fe-418e-b001-24eec49851c9",
-                                      "title": "Operations",
-                                      "description": ""
-                                  }
-                              ],
-                              "title": ""
-                          }
-                      ]
-                  }
-              },
-              "messageOriginType": "USER",
-              "id": "2a0cd37b-2c47-4fe7-8add-955ea6ad1b88",
-              "readCount": 0,
-              "deliveryCount": 1,
-              "erroredCount": 0,
-              "dateCreated": "2025-08-12T06:48:32.366Z",
-              "dateUpdated": "2025-08-12T06:48:32.383Z",
-              "replyMessageId": null,
-              "messageTime": 1754981312366,
-              "totalCount": 1,
-              "errorMessage": null,
-              "adReferralData": null,
-              "replyMessage": null,
-              "senderUser": {
-                  "id": "user_LSSTd5SOPD",
-                  "name": "Mayank Singhania (Public API)",
-                  "phoneNumber": "917828434400"
-              },
-              "messageMetadata": {}
-          },
-          {
-              "message": {
-                  "text": "Pankaj Test",
-                  "messageType": "text"
-              },
-              "messageOriginType": "CUSTOMER",
-              "id": "3c2498bb-82fc-41d3-b821-f8e3b8f94e22",
-              "readCount": 1,
-              "deliveryCount": 0,
-              "erroredCount": 0,
-              "dateCreated": "2025-08-12T06:48:30.556Z",
-              "dateUpdated": "2025-08-12T06:48:30.737Z",
-              "replyMessageId": null,
-              "messageTime": 1754981310556,
-              "totalCount": 1,
-              "errorMessage": null,
-              "adReferralData": null,
-              "replyMessage": null,
-              "senderUser": {},
-              "messageMetadata": {}
-          },
-          {
-              "message": {
-                  "text": "Conversation assigned to Muskan Khan by Mayank Singhania",
-                  "messageType": "system_message_v2",
-                  "actionType": "ASSIGN_AGENT",
-                  "actorType": "USER",
-                  "actorId": "user_LSSTd5SOPD"
-              },
-              "messageOriginType": "SYSTEM",
-              "id": "e7d96861-0f38-4ad7-a3cd-770e4bdd3106",
-              "readCount": 0,
-              "deliveryCount": 0,
-              "erroredCount": 0,
-              "dateCreated": "2025-08-12T06:47:51.887Z",
-              "dateUpdated": "2025-08-12T06:47:51.887Z",
-              "replyMessageId": null,
-              "messageTime": 1754981271887,
-              "totalCount": 1,
-              "errorMessage": null,
-              "adReferralData": null,
-              "replyMessage": null,
-              "senderUser": {},
-              "messageMetadata": {}
-          },
-          {
-              "message": {
-                  "text": "API \"AssignAgent\" called by Pankaj's Test Bot",
-                  "botRunId": "83853312",
-                  "botRunLogId": "1025792592",
-                  "messageType": "system_message_v2",
-                  "actionType": "API_CALL",
-                  "actorType": "BOT",
-                  "actorId": "dcfdb072-e810-461d-8d6d-01389013c9cc",
-                  "links": [
-                      {
-                          "type": "BOT",
-                          "id": "dcfdb072-e810-461d-8d6d-01389013c9cc",
-                          "start": 28,
-                          "end": 44
-                      }
-                  ]
-              },
-              "messageOriginType": "SYSTEM",
-              "id": "db1ddd95-7069-44d0-8c10-de9b286c734b",
-              "readCount": 0,
-              "deliveryCount": 0,
-              "erroredCount": 0,
-              "dateCreated": "2025-08-12T06:47:32.129Z",
-              "dateUpdated": "2025-08-12T06:47:32.129Z",
-              "replyMessageId": null,
-              "messageTime": 1754981252129,
-              "totalCount": 1,
-              "errorMessage": null,
-              "adReferralData": null,
-              "replyMessage": null,
-              "senderUser": {},
-              "messageMetadata": {}
-          },
-          {
-              "message": {
-                  "text": "Conversation assigned to Rakshit Mehra by Mayank Singhania",
-                  "messageType": "system_message_v2",
-                  "actionType": "ASSIGN_AGENT",
-                  "actorType": "USER",
-                  "actorId": "user_LSSTd5SOPD"
-              },
-              "messageOriginType": "SYSTEM",
-              "id": "32c4b7b8-1fa7-439a-971a-c080df712bff",
-              "readCount": 0,
-              "deliveryCount": 0,
-              "erroredCount": 0,
-              "dateCreated": "2025-08-12T06:47:31.683Z",
-              "dateUpdated": "2025-08-12T06:47:31.683Z",
-              "replyMessageId": null,
-              "messageTime": 1754981251683,
-              "totalCount": 1,
-              "errorMessage": null,
-              "adReferralData": null,
-              "replyMessage": null,
-              "senderUser": {},
-              "messageMetadata": {}
-          },
-          {
-              "message": {
-                  "text": "Sales",
-                  "payload": "4c369bae-0a9e-4732-8861-2fa6904506ef",
-                  "messageType": "button"
-              },
-              "messageOriginType": "CUSTOMER",
-              "id": "0a32e3cc-7b89-42b1-b1a1-f62eff8419fa",
-              "readCount": 1,
-              "deliveryCount": 0,
-              "erroredCount": 0,
-              "dateCreated": "2025-08-12T06:47:30.851Z",
-              "dateUpdated": "2025-08-12T06:47:31.067Z",
-              "replyMessageId": "ea110937-b8f7-4fe0-a51e-51a95be30e76",
-              "messageTime": 1754981250851,
-              "totalCount": 1,
-              "errorMessage": null,
-              "adReferralData": null,
-              "replyMessage": {
-                  "id": "ea110937-b8f7-4fe0-a51e-51a95be30e76",
-                  "messageOriginType": "USER",
-                  "message": {
-                      "messageType": "interactive",
-                      "interactiveMessage": {
-                          "body": {
-                              "text": "Testing Pankaj"
-                          },
-                          "type": "list",
-                          "button": "TEST",
-                          "header": {
-                              "text": "Test",
-                              "type": "text"
-                          },
-                          "sections": [
-                              {
-                                  "rows": [
-                                      {
-                                          "id": "4c369bae-0a9e-4732-8861-2fa6904506ef",
-                                          "title": "Sales",
-                                          "description": ""
-                                      },
-                                      {
-                                          "id": "cb5291dc-f3fe-418e-b001-24eec49851c9",
-                                          "title": "Operations",
-                                          "description": ""
-                                      }
-                                  ],
-                                  "title": ""
-                              }
-                          ]
-                      }
-                  },
-                  "senderUser": {
-                      "id": null,
-                      "name": null,
-                      "phoneNumber": null
-                  },
-                  "messageTime": null
-              },
-              "senderUser": {},
-              "messageMetadata": {}
-          },{
-            "message": {
-              "messageType": "template",
-              "templateMessage": {
-                "header": {
-                  "type": "IMAGE",
-                  "image": {
-                    "link": "assets/images/avatars/male-02.jpg"
-                  }
-                },
-                "body": {
-                  "data": [
-                    {
-                      "type": "text",
-                      "text": "Hello {{1}}, your order *#{{2}}* is confirmed! 🎉"
-                    }
-                  ]
-                },
-                "footer": {
-                  "data": [
-                    {
-                      "type": "text",
-                      "text": "Team CherishX"
-                    }
-                  ]
-                },
-                "buttons": [
-                  {
-                    "type": "URL",
-                    "text": "View Order",
-                    "url": "https://cherishx.com/orders/{{2}}"
-                  },
-                  {
-                    "type": "CALL",
-                    "text": "Call Support",
-                    "phoneNumber": "+918010679679"
-                  },
-                  {
-                    "type": "QUICK_REPLY",
-                    "text": "Track Order"
-                  },
-                  {
-                    "type": "OTP",
-                    "text": "Copy Code",
-                    "otp_type": "COPY_CODE",
-                    "otp": "123456",
-                    "example": "123456"
-                  }
-                ]
-              }
-            },
-            "messageOriginType": "USER",
-            "id": "template-full-example-1",
-            "readCount": 0,
-            "deliveryCount": 0,
-            "erroredCount": 0,
-            "dateCreated": "2025-08-31T12:00:00.000Z",
-            "dateUpdated": "2025-08-31T12:00:00.000Z",
-            "messageTime": 1755446400000,
-            "senderUser": {
-              "id": "user_LSSTd5SOPD",
-              "name": "Mayank Singhania",
-              "phoneNumber": "917828434400"
-            },
-            "messageMetadata": {}
           }
-          
       ]
       },
       

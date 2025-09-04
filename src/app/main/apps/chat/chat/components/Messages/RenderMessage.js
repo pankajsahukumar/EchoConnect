@@ -9,6 +9,9 @@ import QuotedMessage from "./QuotedMessage";
 import ImageMessage from "./ImageMessage";
 import InteractiveMessage from "./InteractiveMessage";
 import ButtonMessage from "./ButtonMessage";
+import AudioMessage from "./AudioMessage";
+import DocumentMessage from "./DocumentMessage";
+import VideoMessage from "./VideoMessage";
 const StyledMessageRow = styled("div")(() => ({
   display: "flex",
   width: "100%",
@@ -132,6 +135,16 @@ const RenderMessage = ({
         );
       case "interactive":
         return msg?.interactiveMessage?.body?.text || "Interactive message";
+      case "image":
+        return msg?.payload?.image?.filename || "Image";
+      case "video":
+        return msg?.payload?.video?.filename || "Video";
+      case "audio":
+        return msg?.payload?.audio?.filename || "Audio message";
+      case "document":
+        return msg?.payload?.document?.filename || "Document";
+      case "button":
+        return msg?.payload?.button?.text || "Button message";
       default:
         return "Message";
     }
@@ -163,14 +176,14 @@ const RenderMessage = ({
             senderName={senderName}
           />
         );
-      case "image":
-        return (
-          <ImageMessage
-            message={message}
-            isMine={isMine}
-            senderName={senderName}
-          />
-        );
+        case "image":
+          return (
+            <ImageMessage
+              message={message}
+              isMine={isMine}
+              senderName={senderName}
+            />
+          );
       case "interactive":
         return (
           <InteractiveMessage
@@ -179,8 +192,32 @@ const RenderMessage = ({
             senderName={senderName}
           />
         );
+      case "audio":
+        return (
+          <AudioMessage
+            message={message}
+            isMine={isMine}
+            senderName={senderName}
+          />
+        );
+      case "document":
+        return (
+          <DocumentMessage
+            message={message}
+            isMine={isMine}
+            senderName={senderName}
+          />
+        );
+      case "video":
+        return (
+          <VideoMessage
+            message={message}
+            isMine={isMine}
+            senderName={senderName}
+          />
+        );
       default:
-        console.log("Unsupported message type:", messageType);
+        console.log("Unsupported message type:", Data);
         return null;
       
     }

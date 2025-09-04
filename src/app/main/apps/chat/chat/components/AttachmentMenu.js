@@ -3,6 +3,7 @@ import {
     Typography,
     Menu,
     MenuItem,
+    Input,
   } from "@mui/material";
   import FuseSvgIcon from "@fuse/core/FuseSvgIcon";
   
@@ -10,7 +11,7 @@ import {
     setAnchorEl,
     setTemplateOpen,
     anchorEl,
-    handlePickImage, // ✅ make sure you pass this prop from parent
+    handlePickImage,
   }) {
    
     return (
@@ -23,7 +24,7 @@ import {
       >
         <MenuItem
           onClick={() => {
-            handlePickImage?.(); // ✅ safeguard
+            handlePickImage();
             setAnchorEl(null);
           }}
         >

@@ -17,6 +17,7 @@ export const getChat = createAsyncThunk(
 export const sendMessage = createAsyncThunk(
   'chatApp/chat/sendMessage',
   async ({ contactId, messageText, type, payload, context }, { dispatch, getState }) => {
+    
     const messageData = {
       type,
       payload,
