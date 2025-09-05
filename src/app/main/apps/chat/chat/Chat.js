@@ -208,16 +208,22 @@ export default function Chat(props) {
     };
   }, [user, contactId, dispatch]);
   
-  useEffect(() => {
-    if (chatRef.current && chat?.length > 0) {
-      setTimeout(() => {
-        chatRef.current.scrollTo({
-          top: chatRef.current.scrollHeight,
-          behavior: "smooth",
-        });
-      }, 100);
+  const [shouldAutoScroll, setShouldAutoScroll] = useState(true);
+
+  const handleScroll = () => {
+    if (chatRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = chatRef.current;
+      const isAtBottom = Math.abs(scrollHeight - scrollTop - clientHeight) < 50;
+      setShouldAutoScroll(isAtBottom);
     }
-  }, [chat]);
+  };
+
+  useEffect(() => {
+    if (chatRef.current) {
+      chatRef.current.addEventListener('scroll', handleScroll);
+      return () => chatRef.current?.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
 
   useEffect(() => {
     if (!ws.current) return;
@@ -226,26 +232,38 @@ export default function Chat(props) {
       try {
         const data = JSON.parse(event.data);
         console.log("WS message received:", data);
-        const messageData=data.payload;
-        // content
+        const messageData = data.payload;
         if (data.type === "chatMessage") {
-          
           dispatch(addTempMessage(messageData));
         }
-        setTimeout(() => {
-          if (chatRef.current) {
-            console.log(chatRef.current.scrollHeight,"this is height i am running")
-            chatRef.current.scrollTo({
-              top: chatRef.current.scrollHeight,
-              behavior: "smooth",
-            });
-          }
-        }, 100);
       } catch (e) {
         console.error("WS parse error:", e);
       }
     };
-  }, [ws.current,dispatch]);
+  }, [ws.current, dispatch]);
+
+  // Effect for handling scroll on chat updates
+  useEffect(() => {
+    if (!chatRef.current || !shouldAutoScroll || !chat?.length) return;
+
+    const scrollToBottom = () => {
+      const scrollElement = chatRef.current;
+      if (scrollElement) {
+        scrollElement.scrollTo({
+          top: scrollElement.scrollHeight,
+          behavior: "smooth",
+        });
+        // Ensure FuseScrollbars updates its internal scroll state
+        if (scrollElement.updateScroll) {
+          scrollElement.updateScroll();
+        }
+      }
+    };
+
+    // Add a small delay to ensure DOM is updated
+    const timeoutId = setTimeout(scrollToBottom, 200);
+    return () => clearTimeout(timeoutId);
+  }, [chat, shouldAutoScroll]);
   
   
   async function onMessageSubmit(ev) {
@@ -313,25 +331,44 @@ export default function Chat(props) {
 
   if (!user || !selectedContact) return null;
 
+  const scrollToBottom = () => {
+    if (chatRef.current) {
+      chatRef.current.scrollTo({
+        top: chatRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+      setShouldAutoScroll(true);
+    }
+  };
+
   return (
     <>
-    <ChatHeader contact={selectedContact} onSidebarToggle={() => setMainSidebarOpen(true)} onContactInfo={() => setContactSidebarOpen(true)} />
+      <ChatHeader contact={selectedContact} onSidebarToggle={() => setMainSidebarOpen(true)} onContactInfo={() => setContactSidebarOpen(true)} />
 
-    <ChatMessages
-      chat={chat}
-      highlightedMessageId={highlightedMessageId}
-      onReply={handleReply}
-      onCopy={handleCopy}
-      onForward={handleForward}
-      onDelete={handleDelete}
-      onEmojiSelect={handleEmojiSelect}
-      onQuoteClick={scrollToMessage}
-      chatRef={chatRef}
-      className={props.className}
-    />
+      <div className="relative flex flex-col flex-1">
+        <ChatMessages
+          chat={chat}
+          highlightedMessageId={highlightedMessageId}
+          onReply={handleReply}
+          onCopy={handleCopy}
+          onForward={handleForward}
+          onDelete={handleDelete}
+          onEmojiSelect={handleEmojiSelect}
+          onQuoteClick={scrollToMessage}
+          chatRef={chatRef}
+          className={props.className}
+        />
+        {!shouldAutoScroll && (
+          <div 
+            className="absolute bottom-16 right-4 z-50 cursor-pointer bg-primary text-white rounded-full p-2 shadow-lg hover:bg-primary-dark transition-colors"
+            onClick={scrollToBottom}
+          >
+            <FuseSvgIcon size={24}>heroicons-outline:arrow-down</FuseSvgIcon>
+          </div>
+        )}
+      </div>
 
       {/* Message Input Area - WhatsApp Style */}
-     
       <MessageInput 
         messageText={messageText}
         setMessageText={setMessageText}

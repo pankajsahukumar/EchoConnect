@@ -18,26 +18,12 @@ import AttachmentMenu from "./AttachmentMenu";
     onMessageSubmit,
     inputRef,
     fileInputRef,
+    handleFileChange,
     setAnchorEl,
     setTemplateOpen,
     anchorEl,
-    onMediaUpload,
+    handlePickImage, // ✅ make sure you pass this prop from parent
   }) {
-    const handleFileUpload = async (event, type) => {
-      const file = event.target.files[0];
-      if (!file) return;
-
-      try {
-        const formData = new FormData();
-        formData.append('file', file);
-        formData.append('type', type);
-
-        await onMediaUpload(formData);
-        event.target.value = '';
-      } catch (error) {
-        console.error('Error uploading file:', error);
-      }
-    };
     // ✅ Added missing input change handler
     const onInputChange = (e) => {
       setMessageText(e.target.value);
@@ -172,7 +158,7 @@ import AttachmentMenu from "./AttachmentMenu";
             type="file"
             accept="image/*,video/*"
             style={{ display: "none" }}
-            onChange={(e) => handleFileUpload(e, 'image')}
+            onChange={handleFileChange}
           />
   
           {/* Send Button */}
@@ -208,7 +194,7 @@ import AttachmentMenu from "./AttachmentMenu";
           setAnchorEl={setAnchorEl}
           setTemplateOpen={setTemplateOpen}
           anchorEl={anchorEl}
-          handlePickImage={() => fileInputRef.current?.click()}
+          handlePickImage={handlePickImage}
         />
       </Box>
     );

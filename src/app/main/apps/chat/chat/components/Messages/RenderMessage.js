@@ -135,16 +135,6 @@ const RenderMessage = ({
         );
       case "interactive":
         return msg?.interactiveMessage?.body?.text || "Interactive message";
-      case "image":
-        return msg?.payload?.image?.filename || "Image";
-      case "video":
-        return msg?.payload?.video?.filename || "Video";
-      case "audio":
-        return msg?.payload?.audio?.filename || "Audio message";
-      case "document":
-        return msg?.payload?.document?.filename || "Document";
-      case "button":
-        return msg?.payload?.button?.text || "Button message";
       default:
         return "Message";
     }
@@ -217,7 +207,7 @@ const RenderMessage = ({
           />
         );
       default:
-        console.log("Unsupported message type:", Data);
+        console.log("Unsupported message type:", messageType);
         return null;
       
     }

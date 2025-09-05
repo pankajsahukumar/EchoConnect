@@ -49,6 +49,7 @@
         "react-redux": "8.0.2",
         "react-router-dom": "6.3.0",
         "react-swipeable": "7.0.0",
+        "reactflow": "^11.11.4",
         "redux-logger": "4.0.0",
         "styled-components": "5.3.5",
         "stylis": "4.1.1",

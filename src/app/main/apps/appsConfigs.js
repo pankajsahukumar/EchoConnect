@@ -1,6 +1,8 @@
+import BotFlowConfig from './botflow/BotFlowConfig';
 import ChatAppConfig from './chat/ChatAppConfig';
 const appsConfigs = [
-  ChatAppConfig
+  ChatAppConfig,
+  BotFlowConfig
 ];
 
 export default appsConfigs;
