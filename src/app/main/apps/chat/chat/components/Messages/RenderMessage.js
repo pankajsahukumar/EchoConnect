@@ -9,9 +9,6 @@ import QuotedMessage from "./QuotedMessage";
 import ImageMessage from "./ImageMessage";
 import InteractiveMessage from "./InteractiveMessage";
 import ButtonMessage from "./ButtonMessage";
-import AudioMessage from "./AudioMessage";
-import DocumentMessage from "./DocumentMessage";
-import VideoMessage from "./VideoMessage";
 const StyledMessageRow = styled("div")(() => ({
   display: "flex",
   width: "100%",
