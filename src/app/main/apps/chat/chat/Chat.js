@@ -1,21 +1,10 @@
-import FuseScrollbars from "@fuse/core/FuseScrollbars";
-import { lighten, styled } from "@mui/material/styles";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import clsx from "clsx";
+
 import { useContext, useEffect, useMemo, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import InputBase from "@mui/material/InputBase";
-import Paper from "@mui/material/Paper";
 import FuseSvgIcon from "@fuse/core/FuseSvgIcon";
-import Toolbar from "@mui/material/Toolbar";
 import { useParams } from "react-router-dom";
-import Box from "@mui/material/Box";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Divider from "@mui/material/Divider";
-import Tooltip from "@mui/material/Tooltip";
 import JsonDdata from "../../../../../TestData.json";
+import template from "../../../../../template.json"
 // NOTE: These imports assume your existing store slices export these utilities
 import {
   getChat,
@@ -31,6 +20,12 @@ import TemplateDialog from "./components/TemplateDialog";
 import ChatHeader from "./components/ChatHeader";
 import ChatMessages from "./components/ChatMessages";
 import MessageInput from "./components/MessageInput";
+import { getCustomer, selectCustomer } from "../store/customerSlice";
+import { ChatMessageModel } from "@models";
+import { io } from "socket.io-client";
+import { SocketManager } from "@socket";
+import TemplateForm from "../TemplateMessageComponent/TemplateView";
+
 
 /**
  * =============================================================
@@ -51,6 +46,7 @@ export default function Chat(props) {
   const dispatch = useDispatch();
   const chat = useSelector(selectChat);
   const user = useSelector(selectUser);
+  const customer=useSelector(selectCustomer);
   const routeParams = useParams();
   const contactId = routeParams.id;
   const selectedContact = useSelector((state) =>
@@ -185,28 +181,55 @@ export default function Chat(props) {
     }
   };
 
-  // Generic function to get message preview for replies
-  
+useEffect(()=>{
 
-  useEffect(() => {
-    if (!user) return; // wait until user is loaded
-  
-    ws.current = new WebSocket('ws://localhost:8081');
-  
-    ws.current.onopen = () => {
-      console.log('Connected to WebSocket server', user);
-      ws.current.send(JSON.stringify({
-        type: 'register',
-        payload: { userId: user.id, contactId }
-      }));
-    };
-  
-    dispatch(getChat(contactId));
-  
-    return () => {
-      ws.current?.close();
-    };
-  }, [user, contactId, dispatch]);
+  const fetchData = async () => {
+    const resultAction =  await dispatch(
+      getCustomer( contactId)
+        );
+
+    if (getCustomer.fulfilled.match(resultAction)) {
+
+    dispatch(getChat(resultAction.payload.id));
+    } else {
+      console.error("Failed to send message:", resultAction.error);
+    }
+  };
+  fetchData();
+},[contactId,dispatch])
+
+useEffect(() => {
+  if (!customer) return;
+
+  ws.current = SocketManager.socket("/conversations", {
+    auth: {
+      organizationId: customer.organization_id,
+      userId: user.id,
+    },
+  });
+  if (!ws.current.connected) {
+    ws.current.connect();
+  }
+
+  ws.current.on("connect", () => {
+    console.log("✅ Connected to Socket.IO server", user,customer,"this is info");
+    // ws.current.emit("joinRoom", { chatId: customer.id });
+  });
+
+  ws.current.on("chatMessage", (messageData) => {
+    console.log("📩 Socket.IO message received:", messageData);
+    dispatch(addTempMessage(messageData));
+  });
+
+  ws.current.on("disconnect", () => {
+    console.log("❌ Disconnected from Socket.IO server");
+  });
+
+  return () => {
+    ws.current.off("chatMessage");
+    ws.current.disconnect();
+  };
+}, [customer, contactId, dispatch]);
   
   const [shouldAutoScroll, setShouldAutoScroll] = useState(true);
 
@@ -271,16 +294,15 @@ export default function Chat(props) {
     const trimmed = messageText.trim();
     if (!trimmed) return;
 
-
     try {
-      // Prepare message data for the API
-      const messageData = {
-        messageText: trimmed,
-        type: "text",
-        payload: { text: { body: trimmed } },
-        context: quote ? { message_id: quote.id } : undefined,
-      };
-
+      const messageData = new ChatMessageModel(
+        customer.id,
+        { messageType: "text", text: trimmed },
+        quote?quote.id:null,
+        customer
+      );
+      console.log(messageData.toTempMessage(quote),quote,"this is the reponse that you need to see")
+      dispatch(addTempMessage(messageData.toTempMessage(quote)));
       if (ws.current && ws.current.readyState === WebSocket.OPEN) {
         console.log("Sending message via WebSocket:", messageData);
         ws.current.send(JSON.stringify({
@@ -290,12 +312,9 @@ export default function Chat(props) {
       }else{
         console.log("WebSocket not connected");
       }
-      // Send message via Redux action
+
       const resultAction = await dispatch(
-        sendMessage({
-          contactId,
-          ...messageData,
-        })
+        sendMessage(messageData)
       );
 
       // Check if the message was sent successfully
@@ -319,8 +338,6 @@ export default function Chat(props) {
         }
       }, 100);
 
-      // // Refresh chat to get the latest messages
-      // dispatch(getChat({ contactId }));
     } catch (error) {
       console.error("Error sending message:", error);
       // Clear input on error too
@@ -328,8 +345,8 @@ export default function Chat(props) {
       setQuote(null);
     }
   }
-
-  if (!user || !selectedContact) return null;
+  // if (!user || !selectedContact) return null;
+  if (!user) return null;
 
   const scrollToBottom = () => {
     if (chatRef.current) {
@@ -340,12 +357,11 @@ export default function Chat(props) {
       setShouldAutoScroll(true);
     }
   };
-
   return (
     <>
-      <ChatHeader contact={selectedContact} onSidebarToggle={() => setMainSidebarOpen(true)} onContactInfo={() => setContactSidebarOpen(true)} />
+      {/* <ChatHeader contact={selectedContact} onSidebarToggle={() => setMainSidebarOpen(true)} onContactInfo={() => setContactSidebarOpen(true)} /> */}
 
-      <div className="relative flex flex-col flex-1">
+      <div className="relative flex flex-col flex-1 w-full">
         <ChatMessages
           chat={chat}
           highlightedMessageId={highlightedMessageId}
@@ -358,6 +374,10 @@ export default function Chat(props) {
           chatRef={chatRef}
           className={props.className}
         />
+        {template.map(temp=>{
+         return    <TemplateForm template={temp} onSubmit={()=>console.log("hi there")} />
+        })}
+     
         {!shouldAutoScroll && (
           <div 
             className="absolute bottom-16 right-4 z-50 cursor-pointer bg-primary text-white rounded-full p-2 shadow-lg hover:bg-primary-dark transition-colors"

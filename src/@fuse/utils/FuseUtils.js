@@ -1,7 +1,7 @@
 // eslint-disable-next-line max-classes-per-file
 import _ from '@lodash';
 import * as colors from '@mui/material/colors';
-
+import { v4 as uuidv4 } from 'uuid';
 class EventEmitter {
   constructor() {
     this.events = {};
@@ -385,6 +385,10 @@ class FuseUtils {
           }
           return list;
         }, []);
+  }
+
+  static generateMessageUUID() {
+    return uuidv4();
   }
 }
 

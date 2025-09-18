@@ -1,0 +1,36 @@
+[
+  {
+    "chatId": "7676bf39-9ef9-46e9-b869-feaa215b02be",
+    "customerId": "customer_hFtVD3k29k",
+    "chatMessageId": "e22cfb75-1e42-4906-8e86-126e19c4a695",
+    "messageTimestamp": 1757523254011,
+    "message": {
+      "messageType": "template",
+      "templateMessage": {
+        "id": 1434092,
+        "variables": [{ "type": "text", "text": "pankaj" }],
+        "cardVariables": []
+      }
+    },
+    "phoneNumber": "919899960297",
+    "sendViaMMLite": true
+  },
+  {
+    "chatId": "7676bf39-9ef9-46e9-b869-feaa215b02be",
+    "chatMessageId": "a480e87f-4295-41d8-971e-c085f7772600",
+    "messageTimestamp": 1757523394693,
+    "message": { "text": "hi", "messageType": "text" },
+    "phoneNumber": "919899960297",
+    "sendViaMMLite": false
+  },
+
+  {
+    "chatId": "7676bf39-9ef9-46e9-b869-feaa215b02be",
+    "chatMessageId": "5a2dd9b0-8592-4a56-8ac0-be70b9a207c1",
+    "messageTimestamp": 1757854445501,
+    "message": { "text": "test", "messageType": "text" },
+    "phoneNumber": "919899960297",
+    "replyMessageId": "5fa4e794-74d3-46a8-8f51-a53116ea0b21",
+    "sendViaMMLite": false
+  }
+]

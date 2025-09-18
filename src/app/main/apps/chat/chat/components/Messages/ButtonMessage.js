@@ -11,7 +11,7 @@ import { Fragment } from "react";
 const ButtonMessage = (props) => {
   // ** Props
   const { message, isMine, senderName } = props;
-console.log("message", message);
+// console.log("message", message);
   return (
     <Fragment>
       <MuiBox

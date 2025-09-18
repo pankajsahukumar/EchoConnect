@@ -1,6 +1,7 @@
 import FuseScrollbars from "@fuse/core/FuseScrollbars";
 import clsx from "clsx";
 import RenderMessage from "./Messages/RenderMessage";
+import { useEffect } from "react";
 
 export default function ChatMessages({
   chat,
@@ -16,6 +17,7 @@ export default function ChatMessages({
 }) {
   
     const getMessagePreview = (message, messageType) => {
+      console.log(message,messageType,"this is info")
         if (!message) return "Message";
     
         switch (messageType) {
@@ -40,7 +42,6 @@ export default function ChatMessages({
       }, 50);
     }
   }, [chat, chatRef]);
-
   return (
     <div className="flex flex-auto h-full min-h-0 w-full">
     <div
@@ -54,23 +55,21 @@ export default function ChatMessages({
         className="flex flex-1 flex-col overflow-y-auto"
         option={{ suppressScrollX: true, wheelPropagation: true }}
         style={{
-          backgroundColor: "#efeae2",
+          backgroundColor: "#000",
           backgroundImage: `url("data:image/svg+xml,%3csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3e%3cdefs%3e%3cpattern id='a' patternUnits='userSpaceOnUse' width='20' height='20' patternTransform='scale(0.5) rotate(0)'%3e%3crect x='0' y='0' width='100%25' height='100%25' fill='hsla(0,0%25,100%25,0)'/%3e%3cpath d='M 10,-2.55e-7 V 20 Z M -1.1677362e-8,10 H 20 Z' stroke-width='0.5' stroke='hsla(0,0%25,100%25,0.05)' fill='none'/%3e%3c/pattern%3e%3c/defs%3e%3crect width='800%25' height='800%25' transform='translate(0,0)' fill='url(%23a)'/%3e%3c/svg%3e")`,
         }}
       >
         {chat.map((msg) => {
           const messageType = msg.message?.messageType;
           const isMine = msg.messageOriginType === "USER";
-
-          // Create quote object from replyMessage if it exists
           let messageQuote = null;
           if (msg.replyMessage) {
             messageQuote = {
-              id: msg.replyMessage.id,
-              type: msg.replyMessage.message?.messageType || "text",
+              id: msg.replyMessageId,
+              type: msg.replyMessage?.messageType || "text",
               preview: getMessagePreview(
-                msg.replyMessage.message,
-                msg.replyMessage.message?.messageType
+                msg.replyMessage,
+                msg.replyMessage?.messageType
               ),
               authorName:
                 msg.replyMessage.messageOriginType === "USER"

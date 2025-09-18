@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import TextComponent from "./TextComponent";
+import MessageTextBlock from "../TemplateMessage/MessageTextBlock";
 
 const TemplateContainer = styled(Box)(({ isMine }) => ({
   maxWidth: 320,
@@ -47,36 +48,6 @@ const TemplateVideoMedia = styled("video")({
   paddingRight: "2px",
 });
 
-const TemplateTextContent = styled(Box)({
-  "& a": {
-    color: "#039be5",
-    textDecoration: "underline",
-  },
-  "& strong": {
-    fontWeight: 600,
-  },
-  "& em": {
-    fontStyle: "italic",
-  },
-  "& pre": {
-    fontFamily: "monospace",
-    backgroundColor: "#f0f2f5",
-    padding: "4px 8px",
-    borderRadius: "4px",
-    margin: "4px 0",
-  },
-  padding: "8px 12px",
-  "& .template-text": {
-    fontSize: "14px",
-    lineHeight: "19px",
-    color: "#111b21",
-    whiteSpace: "pre-wrap",
-    wordBreak: "break-word",
-    marginBottom: "6px",
-    "&:last-child": { marginBottom: 0 },
-  },
-});
-
 // Line clamp CSS (10 lines max)
 const lineClampStyle = {
   display: "-webkit-box",
@@ -110,8 +81,8 @@ const CopyToast = styled(Box)({
     "0%": { opacity: 0 },
     "10%": { opacity: 1 },
     "90%": { opacity: 1 },
-    "100%": { opacity: 0 }
-  }
+    "100%": { opacity: 0 },
+  },
 });
 
 const TemplateButton = styled(Button)({
@@ -138,20 +109,25 @@ const ButtonComponent = ({ button, maxVisibleButtons = 3 }) => {
     setAnchorEl(null);
   };
 
-  const [copySuccess, setCopySuccess] = useState('');
+  const [copySuccess, setCopySuccess] = useState("");
 
   const handleButtonClick = (btn) => {
     if (btn.type === "URL" && btn.url) window.open(btn.url, "_blank");
-    if (btn.type === "PHONE_NUMBER" && btn.phoneNumber) window.open(`tel:${btn.phoneNumber}`);
-    if (btn.type === "QUICK_REPLY") console.log("Quick Reply clicked:", btn.text);
+    if (btn.type === "PHONE_NUMBER" && btn.phoneNumber)
+      window.open(`tel:${btn.phoneNumber}`);
+    if (btn.type === "QUICK_REPLY")
+      console.log("Quick Reply clicked:", btn.text);
     if (btn.type === "OTP" && btn.otp_type === "COPY_CODE") {
-      navigator.clipboard.writeText(btn.otp).then(() => {
-        setCopySuccess('Code copied!');
-        setTimeout(() => setCopySuccess(''), 2000);
-      }).catch(err => {
-        console.error('Failed to copy code:', err);
-        setCopySuccess('Failed to copy code');
-      });
+      navigator.clipboard
+        .writeText(btn.otp)
+        .then(() => {
+          setCopySuccess("Code copied!");
+          setTimeout(() => setCopySuccess(""), 2000);
+        })
+        .catch((err) => {
+          console.error("Failed to copy code:", err);
+          setCopySuccess("Failed to copy code");
+        });
     }
     handleClose();
   };
@@ -166,7 +142,11 @@ const ButtonComponent = ({ button, maxVisibleButtons = 3 }) => {
       {copySuccess && <CopyToast>{copySuccess}</CopyToast>}
       {visibleButtons.map((btn, idx) => (
         <TemplateButton key={idx} onClick={() => handleButtonClick(btn)}>
-          {btn.type === "URL" ? "🔗 " : btn.type === "PHONE_NUMBER" ? "📞 " : ""}
+          {btn.type === "URL"
+            ? "🔗 "
+            : btn.type === "PHONE_NUMBER"
+            ? "📞 "
+            : ""}
           {btn.text}
         </TemplateButton>
       ))}
@@ -203,8 +183,15 @@ const ButtonComponent = ({ button, maxVisibleButtons = 3 }) => {
               onClick={(e) => e.stopPropagation()}
             >
               {overflowButtons.map((btn, idx) => (
-                <TemplateButton key={idx} onClick={() => handleButtonClick(btn)}>
-                  {btn.type === "URL" ? "🔗 " : btn.type === "CALL" ? "📞 " : ""}
+                <TemplateButton
+                  key={idx}
+                  onClick={() => handleButtonClick(btn)}
+                >
+                  {btn.type === "URL"
+                    ? "🔗 "
+                    : btn.type === "CALL"
+                    ? "📞 "
+                    : ""}
                   {btn.text}
                 </TemplateButton>
               ))}
@@ -257,27 +244,17 @@ const TemplateMessageHeader = ({ header }) => {
     <div>
       {HeaderData.map((item, index) => {
         if (item.type !== "text") {
-          console.log("different type", item);
+          // console.log("different type", item);
         }
         return (
           <div key={index}>
             {item.type === "text" && (
-              <TemplateTextContent>
-                <Typography
-                  className="template-text"
-                  style={{ fontWeight: 600 }}
-                >
-                  {item.text}
-                </Typography>
-              </TemplateTextContent>
+              <MessageTextBlock variant="header">{item.text}</MessageTextBlock>
             )}
-            {(item.type === 'image' || item.type === 'video') && item?.link && (
+            {(item.type === "image" || item.type === "video") && item?.link && (
               <div className="media-container">
-                {item.type === 'image' ? (
-                  <TemplateMedia
-                    src={item.link}
-                    alt="header"
-                  />
+                {item.type === "image" ? (
+                  <TemplateMedia src={item.link} alt="header" />
                 ) : (
                   <TemplateVideoMedia controls>
                     <source src={item.link} type="video/mp4" />
@@ -318,13 +295,8 @@ const TemplateMessage = ({ message, isMine = false, senderName }) => {
 
         {/* Body */}
         {bodyText && (
-          <TemplateTextContent>
-            <Typography
-              className="template-text"
-              style={!expanded ? lineClampStyle : {}}
-            >
-              <TextComponent text={bodyText} />
-            </Typography>
+          <MessageTextBlock variant="body">
+            <TextComponent text={bodyText} />
 
             {bodyText.split(/\s+/).length > 20 && (
               <Button
@@ -342,23 +314,15 @@ const TemplateMessage = ({ message, isMine = false, senderName }) => {
                 {!expanded && "Read More"}
               </Button>
             )}
-          </TemplateTextContent>
+          </MessageTextBlock>
         )}
 
         {/* Footer */}
         {footerText && (
-          <TemplateTextContent>
-            <Typography
-              className="template-text"
-              style={{ fontSize: "12px", color: "#667781" }}
-            >
-              {footerText}
-              <TimeStamp>
-                {timeString}{" "}
-                {isMine && <span style={{ color: "#00a884" }}>✓✓</span>}
-              </TimeStamp>
-            </Typography>
-          </TemplateTextContent>
+          <MessageTextBlock variant="footer">
+            {footerText}
+            <TimeStamp>11:13 pm ✓✓</TimeStamp>
+          </MessageTextBlock>
         )}
 
         {/* Buttons */}

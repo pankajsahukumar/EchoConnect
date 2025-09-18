@@ -18,14 +18,14 @@ const StyledListItem = styled(ListItem)(({ theme, active }) => ({
 function ContactListItem(props) {
   const { chat, contact } = props;
   const routeParams = useParams();
-
+console.log("contact details",contact)
   return (
     <StyledListItem
       button
       className="px-32 py-12 min-h-80"
       active={routeParams.id === contact.id ? 1 : 0}
       component={NavLinkAdapter}
-      to={`/apps/chat/${contact.id}`}
+      to={`/apps/chat/${contact.phone_number}`}
       end
       activeClassName="active"
     >

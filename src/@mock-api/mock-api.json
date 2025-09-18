@@ -16198,6 +16198,50 @@
             }
           },
           {
+            "id": "9d3f0e7f-dcbd-4e56-a5e8-87b8154e9edfg",
+            "avatar": "assets/images/avatars/male-02.jpg",
+            "name": "Pankaj Sahu",
+            "about": "Hi there! I'm using FuseChat.",
+            "status": "away",
+            "details": {
+              "emails": [
+                {
+                  "email": "bernardlangley@mail.com",
+                  "label": "Personal"
+                },
+                {
+                  "email": "langley.bernard@boilcat.name",
+                  "label": "Work"
+                }
+              ],
+              "phoneNumbers": [
+                {
+                  "country": "md",
+                  "phoneNumber": "893 548 2862",
+                  "label": "Mobile"
+                }
+              ],
+              "title": "Electromedical Equipment Technician",
+              "company": "Boilcat",
+              "birthday": "1988-05-26T12:00:00.000Z",
+              "address": "943 Adler Place, Hamilton, South Dakota, PO5592"
+            },
+            "attachments": {
+              "media": [
+                "assets/images/cards/01-320x200.jpg",
+                "assets/images/cards/02-320x200.jpg",
+                "assets/images/cards/03-320x200.jpg",
+                "assets/images/cards/04-320x200.jpg",
+                "assets/images/cards/05-320x200.jpg",
+                "assets/images/cards/06-320x200.jpg",
+                "assets/images/cards/07-320x200.jpg",
+                "assets/images/cards/08-320x200.jpg"
+              ],
+              "docs": [],
+              "links": []
+            }
+          },
+          {
             "id": "42a5da95-5e6d-42fd-a09d-de755d123a47",
             "background": "assets/images/cards/16-640x480.jpg",
             "name": "Mclaughlin Steele",

@@ -1,12 +1,10 @@
 import { styled } from '@mui/material/styles';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import withReducer from 'app/store/withReducer';
-import { createContext, useEffect, useState } from 'react';
+import { createContext } from 'react';
 import FusePageSimple from '@fuse/core/FusePageSimple';
+import Typography from '@mui/material/Typography';
 import reducer from './store';
 import BotFlow from './BotFlow';
-
-const drawerWidth = 400;
 
 export const BotFlowAppContext = createContext({});
 
@@ -19,33 +17,19 @@ const Root = styled(FusePageSimple)(({ theme }) => ({
   },
 }));
 
-const StyledSwipeableDrawer = styled(SwipeableDrawer)(({ theme }) => ({
-  '& .MuiDrawer-paper': {
-    width: drawerWidth,
-    maxWidth: '100%',
-    overflow: 'hidden',
-    [theme.breakpoints.up('md')]: {
-      position: 'relative',
-    },
-  },
+const HeaderContent = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  padding: '24px',
 }));
-function BotFlowApp(props) {
- 
 
+function BotFlowApp(props) {
   return (
-    <BotFlowAppContext.Provider
-    value={{}}>
-     <Root
-          header={
-            <div className="p-24">
-              <h4>BotFlow</h4>
-            </div>
-          }
-          content={
-           <BotFlow/>
-          }
-          scroll="content"
-        />
+    <BotFlowAppContext.Provider value={{}}>
+      <Root
+        content={<BotFlow />}
+        scroll="content"
+      />
     </BotFlowAppContext.Provider>
   );
 }

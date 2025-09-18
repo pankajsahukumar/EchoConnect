@@ -47,7 +47,6 @@ function ChatApp(props) {
 
   useEffect(() => {
     dispatch(getUserData());
-    dispatch(getContacts());
     dispatch(getChats());
   }, [dispatch]);
 

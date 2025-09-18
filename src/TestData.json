@@ -138,27 +138,27 @@
         "senderUser": {},
         "messageMetadata": {}
     },
-    {
-        "message": {
-            "text": "You are coming to this, after I have  shared all the concerns.",
-            "messageType": "text"
+        {
+            "message": {
+                "text": "You are coming to this, after I have  shared all the concerns.",
+                "messageType": "text"
+            },
+            "messageOriginType": "CUSTOMER",
+            "id": "ef7310fc-8456-421a-bba2-4ae6764a0a12",
+            "readCount": 0,
+            "deliveryCount": 0,
+            "erroredCount": 0,
+            "dateCreated": "2025-09-02T14:52:50.316Z",
+            "dateUpdated": "2025-09-02T14:52:50.480Z",
+            "replyMessageId": null,
+            "messageTime": 1756824770316,
+            "totalCount": 1,
+            "errorMessage": null,
+            "adReferralData": null,
+            "replyMessage": null,
+            "senderUser": {},
+            "messageMetadata": {}
         },
-        "messageOriginType": "CUSTOMER",
-        "id": "ef7310fc-8456-421a-bba2-4ae6764a0a12",
-        "readCount": 0,
-        "deliveryCount": 0,
-        "erroredCount": 0,
-        "dateCreated": "2025-09-02T14:52:50.316Z",
-        "dateUpdated": "2025-09-02T14:52:50.480Z",
-        "replyMessageId": null,
-        "messageTime": 1756824770316,
-        "totalCount": 1,
-        "errorMessage": null,
-        "adReferralData": null,
-        "replyMessage": null,
-        "senderUser": {},
-        "messageMetadata": {}
-    },
     {
         "message": {
             "text": "Is this a professional reply.",
@@ -1034,7 +1034,28 @@
         "senderUser": {},
         "messageMetadata": {}
     },
+
     {
+        "message": {
+            "text": "In short I need 4 colours\nPastel blue, Pastel Pink, Pastel yellow and Pastel purple.\nEach 50.\nTotal 🟰 200",
+            "messageType": "text"
+        },
+        "messageOriginType": "CUSTOMER",
+        "id": "e0e8d84c-791c-426f-9662-55f868a1d1d4",
+        "readCount": 1,
+        "deliveryCount": 0,
+        "erroredCount": 0,
+        "dateCreated": "2025-08-14T08:25:53.580Z",
+        "dateUpdated": "2025-08-14T08:25:53.796Z",
+        "replyMessageId": null,
+        "messageTime": 1755159953580,
+        "totalCount": 1,
+        "errorMessage": null,
+        "adReferralData": null,
+        "replyMessage": null,
+        "senderUser": {},
+        "messageMetadata": {}
+    },    {
         "message": {
             "messageType": "template",
             "templateMessage": {
@@ -1246,27 +1267,6 @@
             "name": "Vikram Chauhan",
             "phoneNumber": "917827606272"
         },
-        "messageMetadata": {}
-    },
-    {
-        "message": {
-            "text": "In short I need 4 colours\nPastel blue, Pastel Pink, Pastel yellow and Pastel purple.\nEach 50.\nTotal 🟰 200",
-            "messageType": "text"
-        },
-        "messageOriginType": "CUSTOMER",
-        "id": "e0e8d84c-791c-426f-9662-55f868a1d1d4",
-        "readCount": 1,
-        "deliveryCount": 0,
-        "erroredCount": 0,
-        "dateCreated": "2025-08-14T08:25:53.580Z",
-        "dateUpdated": "2025-08-14T08:25:53.796Z",
-        "replyMessageId": null,
-        "messageTime": 1755159953580,
-        "totalCount": 1,
-        "errorMessage": null,
-        "adReferralData": null,
-        "replyMessage": null,
-        "senderUser": {},
         "messageMetadata": {}
     },
     {

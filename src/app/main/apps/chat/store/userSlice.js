@@ -3,7 +3,6 @@ import axios from 'axios';
 
 export const getUserData = createAsyncThunk('chatApp/user/getUserData', async () => {
   const response = await axios.get('/api/chat/user');
-
   const data = await response.data;
 
   return data;
