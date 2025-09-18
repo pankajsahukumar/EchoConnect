@@ -24,7 +24,8 @@ import { getCustomer, selectCustomer } from "../store/customerSlice";
 import { ChatMessageModel } from "@models";
 import { io } from "socket.io-client";
 import { SocketManager } from "@socket";
-import TemplateForm from "../TemplateMessageComponent/TemplateView";
+import TemplatePreview from "../TemplateMessageComponent/TemplatePreview";
+import TemplateForm from "../TemplateMessageComponent/TemplateForm";
 
 
 /**
@@ -301,8 +302,10 @@ useEffect(() => {
         quote?quote.id:null,
         customer
       );
-      console.log(messageData.toTempMessage(quote),quote,"this is the reponse that you need to see")
       dispatch(addTempMessage(messageData.toTempMessage(quote)));
+            // Always clear input and quote after attempting to send
+            setMessageText("");
+            setQuote(null);
       if (ws.current && ws.current.readyState === WebSocket.OPEN) {
         console.log("Sending message via WebSocket:", messageData);
         ws.current.send(JSON.stringify({
@@ -324,9 +327,7 @@ useEffect(() => {
         console.error("Failed to send message:", resultAction.error);
       }
 
-      // Always clear input and quote after attempting to send
-      setMessageText("");
-      setQuote(null);
+
 
       // Auto-scroll to bottom after sending
       setTimeout(() => {
@@ -373,11 +374,7 @@ useEffect(() => {
           onQuoteClick={scrollToMessage}
           chatRef={chatRef}
           className={props.className}
-        />
-        {template.map(temp=>{
-         return    <TemplateForm template={temp} onSubmit={()=>console.log("hi there")} />
-        })}
-     
+        />     
         {!shouldAutoScroll && (
           <div 
             className="absolute bottom-16 right-4 z-50 cursor-pointer bg-primary text-white rounded-full p-2 shadow-lg hover:bg-primary-dark transition-colors"
