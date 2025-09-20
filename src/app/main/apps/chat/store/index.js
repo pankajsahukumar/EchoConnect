@@ -4,13 +4,15 @@ import chat from './chatSlice';
 import contacts from './contactsSlice';
 import user from './userSlice';
 import customer from './customerSlice';
+import templates from './templateSlice';
 
 const reducer = combineReducers({
   user,
   contacts,
   chats,
   chat,
-  customer
+  customer,
+  templates
 });
 
 export default reducer;
