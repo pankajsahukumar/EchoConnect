@@ -74,7 +74,7 @@ const TemplatePreview = ({ template }) => {
                 <CheckCircleIcon sx={{ color: "#53bdeb", fontSize: 14 }} />
               </Box>
             </CardContent>
-            <RenderButton buttons={buttons} />
+            <RenderButton buttons={buttons} template={template} />
           </Card>
         </Box>
       </Box>
@@ -286,7 +286,52 @@ const RenderBody = ({ body, template }) => {
 
 
 
-const RenderButton = ({ buttons }) => {
+const RenderButton = ({ buttons, template }) => {
   if (!buttons || buttons.length < 1) return null;
-  return <ButtonComponent button={buttons} />;
+  
+  // Process buttons to replace variables in text
+  const processButtons = (buttons) => {
+    if (!buttons || buttons.length === 0) return buttons;
+    
+    return buttons.map(button => {
+      if (button.text) {
+        // Process text to replace variables with sample values
+        const processedText = button.text.replace(/{{([^}]+)}}/g, (match, variable) => {
+          // Default sample values
+          const sampleValues = {
+            '1': 'John',
+            '2': 'ABC123',
+            '3': 'Tomorrow',
+            'Name': 'Alex Smith',
+            'Tracking Code': 'TRK-12345',
+            'Inquiry Code': 'INQ-789',
+            'Location': 'New York',
+            'experience_name': 'Premium Package',
+            'order_id': 'ORD-987654',
+            'Agent': 'Sarah Johnson',
+            'Today': new Date().toLocaleDateString(),
+            'Future Date': new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString(),
+            'Opt Out': 'Reply STOP to opt out',
+          };
+          
+          // Check if we have custom example values from the Variables step
+          if (template && template.variableInfo) {
+            const variableInfo = template.variableInfo.find(v => v.name === variable);
+            if (variableInfo && variableInfo.example) {
+              return variableInfo.example;
+            }
+          }
+          
+          // Fall back to default sample values
+          return sampleValues[variable] || `[${variable}]`;
+        });
+        
+        return { ...button, text: processedText };
+      }
+      return button;
+    });
+  };
+  
+  const processedButtons = processButtons(buttons);
+  return <ButtonComponent button={processedButtons} />;
 };

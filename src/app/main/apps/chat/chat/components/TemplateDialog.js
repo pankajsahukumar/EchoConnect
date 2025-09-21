@@ -6,23 +6,14 @@ import {
   DialogContent,
   DialogTitle,
 } from "@mui/material";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from "react";
+import templates from "../../../../../../template.json";
 import TemplatePreview from "../../TemplateMessageComponent/TemplatePreview";
 import TemplateForm from "../../TemplateMessageComponent/TemplateForm";
-import { getTemplates, selectTemplates } from "../../store/templateSlice";
 
 export default function TemplateDialog({ open, onClose, onSend }) {
-  const dispatch = useDispatch();
-  const templates = useSelector(selectTemplates);
   const [submitting, setSubmitting] = useState(false);
   const [selectedTemplate, setSelectedTemplate] = useState(null);
-  
-  useEffect(() => {
-    if (open) {
-      dispatch(getTemplates());
-    }
-  }, [dispatch, open]);
 
   const handleSendClick = (template) => {
     // instead of sending directly, open second dialog
