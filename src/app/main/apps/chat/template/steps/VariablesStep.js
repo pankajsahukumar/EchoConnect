@@ -42,17 +42,17 @@ export default function VariablesStep({ template }) {
       });
     };
 
-    const header = template.components.find((c) => c.type === "HEADER");
+    const header = template?.components?.find((c) => c.type === "HEADER");
     if (header?.format === "TEXT" && header.text) {
       pushUnique(extractVariablesFromText(header.text), "Header");
     }
 
-    const body = template.components.find((c) => c.type === "BODY");
+    const body = template?.components?.find((c) => c.type === "BODY");
     if (body?.text) {
       pushUnique(extractVariablesFromText(body.text), "Body");
     }
 
-    const buttonsComponent = template.components.find(
+    const buttonsComponent = template?.components?.find(
       (c) => c.type === "BUTTONS"
     );
     buttonsComponent?.buttons?.forEach((btn, i) => {
@@ -133,9 +133,6 @@ export default function VariablesStep({ template }) {
                   />
                 </Box>
               ))}
-              <Button variant="contained" type="submit">
-                Submit
-              </Button>
             </Stack>
           </Paper>
         </form>

@@ -12,7 +12,10 @@ import {
   MenuItem,
   Select,
   InputLabel,
+  Alert,
 } from '@mui/material';
+import { useTemplate } from 'src/hooks/useTemplate';
+import { TEMPLATE_STEPS } from 'src/Constants/TemplateStepContants';
 
 const categories = [
   {
@@ -51,12 +54,13 @@ const languages = [
   { code: 'hi_IN', name: 'Hindi' },
 ];
 
-export default function BasicInfoStep({ template, updateTemplate }) {
+export default function BasicInfoStep({ template, updateTemplate, validateCurrentStep }) {
   const [name, setName] = useState(template.name || '');
   const [category, setCategory] = useState(template.category || 'MARKETING');
   const [language, setLanguage] = useState(template.language || 'en_US');
-  const [nameError, setNameError] = useState('');
-
+  const {errors}=useTemplate();
+  const stepErrors = errors[TEMPLATE_STEPS.BASIC.key] || {};
+  
   useEffect(() => {
     // Update parent component when values change
     updateTemplate({ name, category, language });
@@ -65,27 +69,30 @@ export default function BasicInfoStep({ template, updateTemplate }) {
   const handleNameChange = (e) => {
     const value = e.target.value;
     setName(value);
-    
-    // Validate name
-    if (!value) {
-      setNameError('Template name is required');
-    } else if (!/^[a-z0-9_]+$/.test(value)) {
-      setNameError('Only lower_case, numbers and underscores allowed');
-    } else {
-      setNameError('');
+     
+    if (validateCurrentStep) {
+      console.log("handleing the name change");
+      const result = validateCurrentStep();
     }
   };
 
   const handleCategoryChange = (e) => {
     setCategory(e.target.value);
+    
+    // Validate using the hook's validation function
+    // if (validateCurrentStep) {
+    //   const result = validateCurrentStep();
+    //   setValidationError(result.isValid ? '' : result.error);
+    // }
   };
 
   const handleLanguageChange = (e) => {
     setLanguage(e.target.value);
-  };
 
+  };
   return (
     <Box>
+  
       <Box sx={{ mb: 4 }}>
         <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
           Template name
@@ -95,16 +102,21 @@ export default function BasicInfoStep({ template, updateTemplate }) {
         </Typography>
         <TextField
           fullWidth
-          placeholder="abandoned_cart"
+          placeholder="Type template name"
           value={name}
           onChange={handleNameChange}
-          error={!!nameError}
-          helperText={nameError || 'Only lower_case, numbers and underscores allowed'}
+          error={!!stepErrors.name}   // 👈 turns border & label red
+          helperText={
+            stepErrors.name
+              ? stepErrors.name
+              : "Only lower case letters(a), numbers(0) and underscore (_) allowed E.g.: stock_clearance_sale"
+          }
           sx={{ mt: 1 }}
-          inputProps={{ maxLength: 50 }}
+          inputProps={{ maxLength: 512 }}
         />
+    
         <Typography variant="caption" color="text.secondary" sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-          {name.length}/50
+          {name.length}/512
         </Typography>
       </Box>
 

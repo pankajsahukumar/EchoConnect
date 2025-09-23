@@ -11,35 +11,63 @@ import {
   Checkbox,
   InputAdornment,
   Alert,
+  Menu,
+  MenuItem,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import DragIndicatorIcon from '@mui/icons-material/DragIndicator';
 
 export default function ButtonsStep({ template, updateComponent }) {
   const [buttons, setButtons] = useState(
-    template.components.find(c => c.type === 'BUTTONS' || c.type === 'BUTTON')?.buttons || []
+    template?.components?.find(c => c.type === 'BUTTONS' || c.type === 'BUTTON')?.buttons || []
   );
   const [addStopButton, setAddStopButton] = useState(false);
-  const [buttonType, setButtonType] = useState('QUICK_REPLY');
+  const [anchorEl, setAnchorEl] = useState(null); // for menu
+  const [errors, setErrors] = useState({}); // button errors
 
   useEffect(() => {
-    // Update buttons component
-    updateComponent('BUTTONS', {
-      buttons: buttons
-    });
+    updateComponent('BUTTONS', { buttons });
+    validateButtons(buttons);
   }, [buttons]);
 
-  const handleAddButton = () => {
+  const validateButtons = (buttons) => {
+    const newErrors = {};
+    buttons.forEach((button, index) => {
+      if (button.text !== 'STOP') {
+        if (!button.text || button.text.trim() === '') {
+          newErrors[index] = 'Button text is required';
+          return;
+        }
+        if (button.type === 'URL') {
+          const urlPattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$/i;
+          if (!button.url || !urlPattern.test(button.url)) {
+            newErrors[index] = 'Please enter a valid URL';
+          }
+        }
+        if (button.type === 'PHONE_NUMBER') {
+          const phonePattern = /^\+?[1-9]\d{1,14}$/; // basic E.164
+          if (!button.phoneNumber || !phonePattern.test(button.phoneNumber)) {
+            newErrors[index] = 'Please enter a valid phone number';
+          }
+        }
+      }
+    });
+    setErrors(newErrors);
+  };
+
+  const handleAddButtonClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleAddButtonType = (type) => {
     if (buttons.length < 3) {
-      setButtons([...buttons, { text: '', type: buttonType }]);
+      setButtons([...buttons, { text: '', type }]);
     }
+    setAnchorEl(null);
   };
 
   const handleRemoveButton = (index) => {
-    const newButtons = [...buttons];
-    newButtons.splice(index, 1);
-    setButtons(newButtons);
+    setButtons(buttons.filter((_, i) => i !== index));
   };
 
   const handleButtonTextChange = (index, value) => {
@@ -50,21 +78,11 @@ export default function ButtonsStep({ template, updateComponent }) {
 
   const handleAddStopButtonChange = (event) => {
     setAddStopButton(event.target.checked);
-    if (event.target.checked) {
-      // Add STOP button if checked
-      if (!buttons.some(btn => btn.text === 'STOP')) {
-        setButtons([...buttons, { text: 'STOP', type: 'QUICK_REPLY' }]);
-      }
+    if (event.target.checked && !buttons.some(btn => btn.text === 'STOP')) {
+      setButtons([...buttons, { text: 'STOP', type: 'QUICK_REPLY' }]);
     } else {
-      // Remove STOP button if unchecked
       setButtons(buttons.filter(btn => btn.text !== 'STOP'));
     }
-  };
-  
-  const handleButtonTypeChange = (index, newType) => {
-    const newButtons = [...buttons];
-    newButtons[index] = { ...newButtons[index], type: newType };
-    setButtons(newButtons);
   };
 
   return (
@@ -77,47 +95,33 @@ export default function ButtonsStep({ template, updateComponent }) {
         <Button
           variant="outlined"
           startIcon={<AddIcon />}
-          onClick={handleAddButton}
+          onClick={handleAddButtonClick}
           disabled={buttons.length >= 3}
-          sx={{ mb: 2 }}
         >
           Add a button
         </Button>
         <Typography variant="body2" color="text.secondary">
           {buttons.length}/3 buttons
         </Typography>
+
+        <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={() => setAnchorEl(null)}>
+          <MenuItem onClick={() => handleAddButtonType('QUICK_REPLY')}>Quick Reply</MenuItem>
+          <MenuItem onClick={() => handleAddButtonType('URL')}>Website</MenuItem>
+          <MenuItem onClick={() => handleAddButtonType('PHONE_NUMBER')}>Phone Number</MenuItem>
+        </Menu>
       </Box>
 
-      {buttons.length === 0 && (
-        <Typography variant="body2" color="text.secondary" sx={{ my: 2 }}>
-          No buttons added yet. Click "Add a button" to create one.
-        </Typography>
-      )}
-
-      {buttons.length > 0 && (
-        <Typography variant="body2" sx={{ mb: 1 }}>
-          {buttons.length > 1 ? 'If you add more than 3 buttons they will appear in a list' : ''}
-        </Typography>
-      )}
-
-      {/* Button List */}
       {buttons.map((button, index) => (
         <Paper
           key={index}
           elevation={0}
-          sx={{
-            p: 2,
-            mb: 2,
-            border: '1px solid #ddd',
-            borderRadius: 1,
-            position: 'relative',
-          }}
+          sx={{ p: 2, mb: 2, border: '1px solid #ddd', borderRadius: 1, position: 'relative' }}
         >
           <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
             <Typography variant="subtitle2">{index + 1}.</Typography>
             <Typography variant="subtitle2" sx={{ ml: 1 }}>
-              {button.type === 'PHONE_NUMBER' ? 'Phone Number' : 
-               button.type === 'URL' ? 'URL' : 'Quick Reply'}
+              {button.type === 'PHONE_NUMBER' ? 'Phone Number' :
+               button.type === 'URL' ? 'Website' : 'Quick Reply'}
             </Typography>
             <Box sx={{ flexGrow: 1 }} />
             <IconButton
@@ -130,45 +134,14 @@ export default function ButtonsStep({ template, updateComponent }) {
           </Box>
 
           <Box sx={{ mt: 2 }}>
-            <Typography variant="body2" gutterBottom>
-              Button type
-            </Typography>
-            <Box sx={{ display: 'flex', gap: 1, mb: 2 }}>
-              <Button 
-                variant={button.type === 'QUICK_REPLY' ? 'contained' : 'outlined'}
-                size="small"
-                onClick={() => handleButtonTypeChange(index, 'QUICK_REPLY')}
-                disabled={button.text === 'STOP' && addStopButton}
-              >
-                Quick Reply
-              </Button>
-              <Button 
-                variant={button.type === 'URL' ? 'contained' : 'outlined'}
-                size="small"
-                onClick={() => handleButtonTypeChange(index, 'URL')}
-                disabled={button.text === 'STOP' && addStopButton}
-              >
-                URL
-              </Button>
-              <Button 
-                variant={button.type === 'PHONE_NUMBER' ? 'contained' : 'outlined'}
-                size="small"
-                onClick={() => handleButtonTypeChange(index, 'PHONE_NUMBER')}
-                disabled={button.text === 'STOP' && addStopButton}
-              >
-                Phone Number
-              </Button>
-            </Box>
-            
-            <Typography variant="body2" gutterBottom>
-              Button text
-            </Typography>
             <TextField
               fullWidth
               value={button.text}
               onChange={(e) => handleButtonTextChange(index, e.target.value)}
               placeholder={`Button ${index + 1}`}
               disabled={button.text === 'STOP' && addStopButton}
+              error={!!errors[index]}
+              helperText={errors[index]}
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
@@ -179,12 +152,9 @@ export default function ButtonsStep({ template, updateComponent }) {
                 ),
               }}
             />
-            
+
             {button.type === 'URL' && (
               <Box sx={{ mt: 2 }}>
-                <Typography variant="body2" gutterBottom>
-                  URL
-                </Typography>
                 <TextField
                   fullWidth
                   value={button.url || ''}
@@ -194,16 +164,14 @@ export default function ButtonsStep({ template, updateComponent }) {
                     setButtons(newButtons);
                   }}
                   placeholder="https://example.com"
-                  disabled={button.text === 'STOP' && addStopButton}
+                  error={!!errors[index]}
+                  helperText={errors[index]}
                 />
               </Box>
             )}
-            
+
             {button.type === 'PHONE_NUMBER' && (
               <Box sx={{ mt: 2 }}>
-                <Typography variant="body2" gutterBottom>
-                  Phone Number
-                </Typography>
                 <TextField
                   fullWidth
                   value={button.phoneNumber || ''}
@@ -213,7 +181,8 @@ export default function ButtonsStep({ template, updateComponent }) {
                     setButtons(newButtons);
                   }}
                   placeholder="+1234567890"
-                  disabled={button.text === 'STOP' && addStopButton}
+                  error={!!errors[index]}
+                  helperText={errors[index]}
                 />
               </Box>
             )}
@@ -223,21 +192,10 @@ export default function ButtonsStep({ template, updateComponent }) {
 
       <Divider sx={{ my: 3 }} />
 
-      {/* Add STOP button option */}
       <FormControlLabel
-        control={
-          <Checkbox
-            checked={addStopButton}
-            onChange={handleAddStopButtonChange}
-            name="addStopButton"
-          />
-        }
+        control={<Checkbox checked={addStopButton} onChange={handleAddStopButtonChange} />}
         label="Add stop button"
       />
-      <Typography variant="body2" color="text.secondary" sx={{ ml: 4, mt: -1 }}>
-        Learn more
-      </Typography>
-
       {addStopButton && (
         <Alert severity="warning" sx={{ mt: 2 }}>
           No opt-out messaging set. This might lead to account violation and number getting banned by WhatsApp

@@ -13,6 +13,7 @@ import {
   Paper,
   Alert,
 } from '@mui/material';
+import { useTemplate } from 'src/hooks/useTemplate';
 import ImageIcon from '@mui/icons-material/Image';
 import TextFieldsIcon from '@mui/icons-material/TextFields';
 import VideocamIcon from '@mui/icons-material/Videocam';
@@ -21,10 +22,12 @@ import UploadFileIcon from '@mui/icons-material/UploadFile';
 import LinkIcon from '@mui/icons-material/Link';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
+import { TEMPLATE_STEPS } from 'src/Constants/TemplateStepContants';
 
-export default function ContentStep({ template, updateComponent }) {
+export default function ContentStep({ template, updateComponent, validateCurrentStep }) {
+  const [validationError, setValidationError] = useState('');
   // Find existing components or use defaults
-  const existingHeader = template.components.find(c => c.type === 'HEADER');
+  const existingHeader = template?.components?.find(c => c.type === 'HEADER');
   const initialHeaderType = existingHeader ? existingHeader.format?.toLowerCase() || 'none' : 'none';
   const initialHeaderContent = existingHeader?.text || '';
   const initialHeaderImageUrl = existingHeader?.image?.url || '';
@@ -32,29 +35,21 @@ export default function ContentStep({ template, updateComponent }) {
   const [headerType, setHeaderType] = useState(initialHeaderType);
   const [headerContent, setHeaderContent] = useState(initialHeaderContent);
   const [headerImageUrl, setHeaderImageUrl] = useState(initialHeaderImageUrl);
-  const [bodyContent, setBodyContent] = useState(template.components.find(c => c.type === 'BODY')?.text || '');
-  const [footerContent, setFooterContent] = useState(template.components.find(c => c.type === 'FOOTER')?.text || '');
+  const [bodyContent, setBodyContent] = useState(template?.components?.find(c => c.type === 'BODY')?.text || '');
+  const [footerContent, setFooterContent] = useState(template?.components?.find(c => c.type === 'FOOTER')?.text || '');
   const [uploadMethod, setUploadMethod] = useState('file'); // 'file' or 'url'
   const [previewImage, setPreviewImage] = useState(initialHeaderImageUrl);
   const [uploadError, setUploadError] = useState('');
-  
+  const {errors} =useTemplate();
+  const stepErrors = errors[TEMPLATE_STEPS.CONTENT.key] || {};
   const fileInputRef = useRef(null);
-
-  // // Extract variables from text (e.g., {{1}}, {{variable_name}})
-  // const extractVariablesFromText = (text) => {
-  //   const regex = /{{([^}]+)}}/g;
-  //   const variables = [];
-  //   let match;
-    
-  //   while ((match = regex.exec(text)) !== null) {
-  //     variables.push({
-  //       name: match[1],
-  //       defaultValue: ''
-  //     });
-  //   }
-    
-  //   return variables;
-  // };
+  console.log(stepErrors,"this is validation error")
+  const validateContent = () => {
+    if (validateCurrentStep) {
+      const result = validateCurrentStep();
+      setValidationError(result.isValid ? '' : result.error);
+    }
+  };
 
   useEffect(() => {
     // Update header component based on type
@@ -82,8 +77,27 @@ export default function ContentStep({ template, updateComponent }) {
     }
 
     updateComponent('HEADER', headerComponent);
+    
+    // Validate after updating component
+    validateContent();
   }, [headerType, headerContent, headerImageUrl, previewImage]);
-  
+  // Add this inside ContentStep component, after state definitions
+const [headerError, setHeaderError] = useState('');
+
+// Validate header whenever it changes
+useEffect(() => {
+  if (headerType === 'none') {
+    setHeaderError(''); // no error
+  } else if (headerType === 'text' && !headerContent.trim()) {
+    setHeaderError('Header text is required');
+  } else if (headerType === 'image' && !headerImageUrl.trim() && !previewImage.trim()) {
+    setHeaderError('Header image is required');
+  } else if ((headerType === 'video' || headerType === 'document') && !headerContent.trim()) {
+    setHeaderError(`${headerType.charAt(0).toUpperCase() + headerType.slice(1)} header is required`);
+  } else {
+    setHeaderError('');
+  }
+}, [headerType, headerContent, headerImageUrl, previewImage]);
   useEffect(() => {
     
     const bodyComponent = {
@@ -94,6 +108,9 @@ export default function ContentStep({ template, updateComponent }) {
     };
     
     updateComponent('BODY', bodyComponent);
+    
+    // Validate after updating component
+    validateContent();
   }, [bodyContent]);
 
   useEffect(() => {
@@ -120,13 +137,13 @@ export default function ContentStep({ template, updateComponent }) {
     switch (headerType) {
       case 'text':
         return (
-          <TextField
-            fullWidth
-            placeholder="Type header text"
-            value={headerContent}
-            onChange={(e) => setHeaderContent(e.target.value)}
-            sx={{ mt: 2 }}
-          />
+            <TextField
+              fullWidth
+              placeholder="Type header text"
+              value={headerContent}
+              onChange={(e) => setHeaderContent(e.target.value)}
+              sx={{ mt: 2 }}
+            />
         );
       case 'image':
         return renderMediaUpload('Image type allowed: JPG, JPEG, PNG', 'Max file size: 5 MB');
@@ -292,32 +309,39 @@ export default function ContentStep({ template, updateComponent }) {
         </Typography>
 
         <ToggleButtonGroup
-          value={headerType}
-          exclusive
-          onChange={handleHeaderTypeChange}
-          aria-label="header type"
-          sx={{ mt: 2 }}
-        >
-          <ToggleButton value="none" aria-label="no header">
-            None
-          </ToggleButton>
-          <ToggleButton value="text" aria-label="text header">
-            <TextFieldsIcon sx={{ mr: 1 }} />
-            Text
-          </ToggleButton>
-          <ToggleButton value="image" aria-label="image header">
-            <ImageIcon sx={{ mr: 1 }} />
-            Image
-          </ToggleButton>
-          <ToggleButton value="video" aria-label="video header">
-            <VideocamIcon sx={{ mr: 1 }} />
-            Video
-          </ToggleButton>
-          <ToggleButton value="document" aria-label="document header">
-            <InsertDriveFileIcon sx={{ mr: 1 }} />
-            Document
-          </ToggleButton>
-        </ToggleButtonGroup>
+  value={headerType}
+  exclusive
+  onChange={handleHeaderTypeChange}
+  aria-label="header type"
+  sx={{ mt: 2 }}
+>
+  <ToggleButton value="none" aria-label="no header">
+    None
+  </ToggleButton>
+  <ToggleButton value="text" aria-label="text header">
+    <TextFieldsIcon sx={{ mr: 1 }} />
+    Text
+  </ToggleButton>
+  <ToggleButton value="image" aria-label="image header">
+    <ImageIcon sx={{ mr: 1 }} />
+    Image
+  </ToggleButton>
+  <ToggleButton value="video" aria-label="video header">
+    <VideocamIcon sx={{ mr: 1 }} />
+    Video
+  </ToggleButton>
+  <ToggleButton value="document" aria-label="document header">
+    <InsertDriveFileIcon sx={{ mr: 1 }} />
+    Document
+  </ToggleButton>
+</ToggleButtonGroup>
+
+{headerError && (
+  <Alert severity="error" sx={{ mt: 1 }}>
+    {headerError}
+  </Alert>
+)}
+
 
         {renderHeaderInput()}
       </Box>
@@ -351,6 +375,7 @@ export default function ContentStep({ template, updateComponent }) {
           rows={4}
           placeholder="Type message body"
           value={bodyContent}
+          error={!!stepErrors.body}
           onChange={(e) => setBodyContent(e.target.value)}
           InputProps={{
             endAdornment: (

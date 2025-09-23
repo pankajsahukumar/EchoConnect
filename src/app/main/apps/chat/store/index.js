@@ -5,6 +5,7 @@ import contacts from './contactsSlice';
 import user from './userSlice';
 import customer from './customerSlice';
 import templates from './templateSlice';
+import templateForm from './templateFormSlice';
 
 const reducer = combineReducers({
   user,
@@ -12,7 +13,8 @@ const reducer = combineReducers({
   chats,
   chat,
   customer,
-  templates
+  templates,
+  templateForm
 });
 
 export default reducer;

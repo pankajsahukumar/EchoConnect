@@ -17,11 +17,12 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const TemplatePreview = ({ template }) => {
-  const header = template.components.find((c) => c.type === "HEADER");
-  const body = template.components.find((c) => c.type === "BODY");
-  const footer = template.components.find((c) => c.type === "FOOTER");
+  // Check if template and components exist before accessing them
+  const header = template?.components?.find((c) => c.type === "HEADER");
+  const body = template?.components?.find((c) => c.type === "BODY");
+  const footer = template?.components?.find((c) => c.type === "FOOTER");
   const buttons =
-    template.components.find((c) => c.type === "BUTTON")?.buttons || [];
+    template?.components?.find((c) => c.type === "BUTTON")?.buttons || [];
     
   return (
     <div className="flex justify-start">
@@ -116,9 +117,9 @@ const RenderHeaderFactory = ({ header, template }) => {
       };
       
       // Check if we have custom example values from the Variables step
-      if (template && template.variableInfo) {
+      if (template?.variableInfo) {
         const variableInfo = template.variableInfo.find(v => v.name === variable);
-        if (variableInfo && variableInfo.example) {
+        if (variableInfo?.example) {
           return variableInfo.example;
         }
       }
@@ -187,9 +188,9 @@ const RenderFooter = ({ footer, template }) => {
       };
       
       // Check if we have custom example values from the Variables step
-      if (template && template.variableInfo) {
+      if (template?.variableInfo) {
         const variableInfo = template.variableInfo.find(v => v.name === variable);
-        if (variableInfo && variableInfo.example) {
+        if (variableInfo?.example) {
           return variableInfo.example;
         }
       }
@@ -204,6 +205,9 @@ const RenderFooter = ({ footer, template }) => {
 
 const RenderBody = ({ body, template }) => {
   const [expanded, setExpanded] = useState(false);
+
+  // If body doesn't exist, return null
+  if (!body) return null;
 
   // Process text to replace variables with sample values
   const processText = (text) => {
@@ -229,9 +233,9 @@ const RenderBody = ({ body, template }) => {
       };
       
       // Check if we have custom example values from the Variables step
-      if (template && template.variableInfo) {
+      if (template?.variableInfo) {
         const variableInfo = template.variableInfo.find(v => v.name === variable);
-        if (variableInfo && variableInfo.example) {
+        if (variableInfo?.example) {
           return variableInfo.example;
         }
       }
@@ -255,7 +259,9 @@ const RenderBody = ({ body, template }) => {
     return variables;
   };
 
-  const processedText = processText(body.text);
+  // Check if body.text exists before processing
+  const bodyText = body?.text || '';
+  const processedText = processText(bodyText);
   const words = processedText.split(/\s+/);
   const shouldTruncate = words.length > 20;
   const displayText =
@@ -294,7 +300,7 @@ const RenderButton = ({ buttons, template }) => {
     if (!buttons || buttons.length === 0) return buttons;
     
     return buttons.map(button => {
-      if (button.text) {
+      if (button?.text) {
         // Process text to replace variables with sample values
         const processedText = button.text.replace(/{{([^}]+)}}/g, (match, variable) => {
           // Default sample values
@@ -315,9 +321,9 @@ const RenderButton = ({ buttons, template }) => {
           };
           
           // Check if we have custom example values from the Variables step
-          if (template && template.variableInfo) {
+          if (template?.variableInfo) {
             const variableInfo = template.variableInfo.find(v => v.name === variable);
-            if (variableInfo && variableInfo.example) {
+            if (variableInfo?.example) {
               return variableInfo.example;
             }
           }
