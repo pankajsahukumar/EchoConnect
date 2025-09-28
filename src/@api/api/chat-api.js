@@ -6,4 +6,8 @@ export default{
         const res = await apiClient.get("/api/get/chats");
         return res;
       },
+
+      async getDocumentUploadUrl(params){
+        const res=await apiClient.get("/api/get/url",params)
+      }
 }

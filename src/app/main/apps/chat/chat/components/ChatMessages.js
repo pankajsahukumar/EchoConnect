@@ -17,7 +17,6 @@ export default function ChatMessages({
 }) {
   
     const getMessagePreview = (message, messageType) => {
-      console.log(message,messageType,"this is info")
         if (!message) return "Message";
     
         switch (messageType) {

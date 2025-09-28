@@ -110,17 +110,17 @@ const validateButtons = (template) => {
       isValid = false;
       return;
     }
-
-    // Validate URL type
     if (button.type === 'URL') {
       const urlSchema = yup.string().url('Invalid URL').required('URL is required');
       try {
-        urlSchema.validateSync(button.url || '');
+        const safeUrl = (button.url || '').replace(/{{\s*[^}]+\s*}}/g, 'placeholder');
+        urlSchema.validateSync(safeUrl);
       } catch (err) {
         errors[index] = err.message;
         isValid = false;
       }
     }
+    
 
     // Validate PHONE_NUMBER type
     if (button.type === 'PHONE_NUMBER') {

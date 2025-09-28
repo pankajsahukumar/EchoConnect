@@ -45,13 +45,14 @@ class ChatMessageModel {
       case "audio":
       case "video":
       case "image":
-      case "file":
+      case "document":
         return {
           messageType: type,
-          url: message?.url || null,
+          fileUrl: message?.fileUrl || null,
           mimeType: message?.mimeType || null,
           caption: message?.caption || null,
           size: message?.size || null,
+          fileName: message?.fileName || null,
         };
 
       default:

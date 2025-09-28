@@ -9,6 +9,7 @@ import QuotedMessage from "./QuotedMessage";
 import ImageMessage from "./ImageMessage";
 import InteractiveMessage from "./InteractiveMessage";
 import ButtonMessage from "./ButtonMessage";
+import DocumentMessage from "./DocumentMessage";
 const StyledMessageRow = styled("div")(() => ({
   display: "flex",
   width: "100%",
@@ -164,6 +165,7 @@ const RenderMessage = ({
           />
         );
         case "image":
+          console.log(message,"this istyep image","image")
           return (
             <ImageMessage
               message={message}

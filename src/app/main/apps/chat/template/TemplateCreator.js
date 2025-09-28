@@ -60,24 +60,23 @@ export default function TemplateCreator() {
       const validationResult = validateTemplate();
       console.log(validationResult,"this is validateion error")
       if (!validationResult.isValid) {
-        setError(validationResult.error);
+        // setError(validationResult.error);
         return;
       }
 
-      setLoading(true);
-      setError(null);
+      // setLoading(true);
+      // setError(null);
 
-      // Format template for Meta API submission using the utility from useTemplate
-      const metaApiTemplate = formatTemplateForSubmission();
+      // // Format template for Meta API submission using the utility from useTemplate
+      // const metaApiTemplate = formatTemplateForSubmission();
 
-      // Submit template to API
-      await dispatch(addTemplate(metaApiTemplate));
-      navigate("/apps/chat/templates");
+      // // Submit template to API
+      // await dispatch(addTemplate(metaApiTemplate));
+      // navigate("/apps/chat/templates");
+      console.log(template,"this is tmplae to submit");
     } catch (error) {
       console.error("Failed to create template:", error);
-      setError(
-        "Failed to create template. Please check your inputs and try again."
-      );
+      
     } finally {
       setLoading(false);
     }

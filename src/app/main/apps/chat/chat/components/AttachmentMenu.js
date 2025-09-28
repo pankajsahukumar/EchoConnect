@@ -10,7 +10,8 @@ import {
     setAnchorEl,
     setTemplateOpen,
     anchorEl,
-    handlePickImage, // ✅ make sure you pass this prop from parent
+    handlePickImage,
+    handlePickDocument // ✅ make sure you pass this prop from parent
   }) {
    
     return (
@@ -39,7 +40,10 @@ import {
           </FuseSvgIcon>
           Audio
         </MenuItem>
-        <MenuItem>
+        <MenuItem   onClick={() => {
+            handlePickDocument?.(); // ✅ safeguard
+            setAnchorEl(null);
+          }}>
           <FuseSvgIcon className="mr-2">
             heroicons-outline:document-text
           </FuseSvgIcon>

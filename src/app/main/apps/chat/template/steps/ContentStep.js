@@ -23,15 +23,15 @@ import LinkIcon from '@mui/icons-material/Link';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import { TEMPLATE_STEPS } from 'src/Constants/TemplateStepContants';
+import { apiClient } from 'src/@api/utils/apiClient';
 
 export default function ContentStep({ template, updateComponent, validateCurrentStep }) {
   const [validationError, setValidationError] = useState('');
-  // Find existing components or use defaults
   const existingHeader = template?.components?.find(c => c.type === 'HEADER');
   const initialHeaderType = existingHeader ? existingHeader.format?.toLowerCase() || 'none' : 'none';
   const initialHeaderContent = existingHeader?.text || '';
   const initialHeaderImageUrl = existingHeader?.image?.url || '';
-  
+
   const [headerType, setHeaderType] = useState(initialHeaderType);
   const [headerContent, setHeaderContent] = useState(initialHeaderContent);
   const [headerImageUrl, setHeaderImageUrl] = useState(initialHeaderImageUrl);
@@ -40,10 +40,12 @@ export default function ContentStep({ template, updateComponent, validateCurrent
   const [uploadMethod, setUploadMethod] = useState('file'); // 'file' or 'url'
   const [previewImage, setPreviewImage] = useState(initialHeaderImageUrl);
   const [uploadError, setUploadError] = useState('');
-  const {errors} =useTemplate();
+  const { errors } = useTemplate();
   const stepErrors = errors[TEMPLATE_STEPS.CONTENT.key] || {};
   const fileInputRef = useRef(null);
-  console.log(stepErrors,"this is validation error")
+
+  const [headerError, setHeaderError] = useState('');
+
   const validateContent = () => {
     if (validateCurrentStep) {
       const result = validateCurrentStep();
@@ -51,100 +53,184 @@ export default function ContentStep({ template, updateComponent, validateCurrent
     }
   };
 
+  // Update HEADER component in store whenever relevant states change
   useEffect(() => {
-    // Update header component based on type
-    const headerComponent = {
-      type: 'HEADER',
-      format: headerType.toUpperCase(),
-    };
+    const headerComponent = { type: 'HEADER', format: headerType.toUpperCase() };
 
     if (headerType === 'text') {
-      // // Extract variables from header text
-      // const variables = extractVariablesFromText(headerContent);
-      // const exampleValues = variables.map(v => v.defaultValue || '');
-      
       headerComponent.text = headerContent;
-      headerComponent.example = {  };
-    } else if (headerType === 'none') {
-      // No header
+      headerComponent.example = {};
     } else if (headerType === 'image') {
-      // For image
       headerComponent.image = { url: headerImageUrl || previewImage };
-      headerComponent.example = { link:"",fileName:"" };
-    } else {
-      // For video, document
-      headerComponent.example = { header_handle: [headerContent] };
+      headerComponent.example = { link: "", fileName: "" };
+    } else if (headerType === 'video') {
+      headerComponent.video = { url: headerContent };
+      headerComponent.example = { video_handle: "" };
+    } else if (headerType === 'document') {
+      headerComponent.document = { url: headerContent };
+      headerComponent.example = { document_handle: "" };
     }
 
     updateComponent('HEADER', headerComponent);
-    
-    // Validate after updating component
     validateContent();
   }, [headerType, headerContent, headerImageUrl, previewImage]);
-  // Add this inside ContentStep component, after state definitions
-const [headerError, setHeaderError] = useState('');
 
-// Validate header whenever it changes
-useEffect(() => {
-  if (headerType === 'none') {
-    setHeaderError(''); // no error
-  } else if (headerType === 'text' && !headerContent.trim()) {
-    setHeaderError('Header text is required');
-  } else if (headerType === 'image' && !headerImageUrl.trim() && !previewImage.trim()) {
-    setHeaderError('Header image is required');
-  } else if ((headerType === 'video' || headerType === 'document') && !headerContent.trim()) {
-    setHeaderError(`${headerType.charAt(0).toUpperCase() + headerType.slice(1)} header is required`);
-  } else {
-    setHeaderError('');
-  }
-}, [headerType, headerContent, headerImageUrl, previewImage]);
+  // Header validation
   useEffect(() => {
-    
-    const bodyComponent = {
-      text: bodyContent,
-      example: {
-    
-      }
-    };
-    
-    updateComponent('BODY', bodyComponent);
-    
-    // Validate after updating component
+    if (headerType === 'none') setHeaderError('');
+    else if (headerType === 'text' && !headerContent.trim()) setHeaderError('Header text is required');
+    else if (headerType === 'image' && !headerImageUrl.trim() && !previewImage.trim()) setHeaderError('Header image is required');
+    else if ((headerType === 'video' || headerType === 'document') && !headerContent.trim())
+      setHeaderError(`${headerType.charAt(0).toUpperCase() + headerType.slice(1)} header is required`);
+    else setHeaderError('');
+  }, [headerType, headerContent, headerImageUrl, previewImage]);
+
+  // Update BODY component
+  useEffect(() => {
+    updateComponent('BODY', { text: bodyContent, example: {} });
     validateContent();
   }, [bodyContent]);
 
+  // Update FOOTER component
   useEffect(() => {
-    // Update footer component
-    updateComponent('FOOTER', {
-      text: footerContent
-    });
+    updateComponent('FOOTER', { text: footerContent });
   }, [footerContent]);
 
   const handleHeaderTypeChange = (event, newType) => {
     if (newType !== null) {
       setHeaderType(newType);
       setHeaderContent('');
+      setHeaderImageUrl('');
+      setPreviewImage('');
     }
   };
 
   const handleUploadMethodChange = (event, newMethod) => {
-    if (newMethod !== null) {
-      setUploadMethod(newMethod);
-    }
+    if (newMethod !== null) setUploadMethod(newMethod);
   };
+
+  const handleFileUpload = async (event) => {
+    const file = event.target.files[0];
+    setUploadError('');
+    if (!file) return;
+     console.log("this is getting called with the file name in this",file);
+    const allowedTypes = {
+      image: ['image/jpeg', 'image/png', 'image/jpg'],
+      video: ['video/mp4', 'video/webm', 'video/ogg'],
+      document: ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
+    };
+
+    if (!allowedTypes[headerType]?.includes(file.type)) {
+      setUploadError(`Please upload a valid ${headerType} file`);
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      setUploadError('File size exceeds 5MB limit');
+      return;
+    }
+    const response=await apiClient.get("/api/get/url",{
+      fileName: file.name,
+      fileType: file.type,
+    })
+    let presignedUrl=response.data.signedUrl;
+   await fetch(presignedUrl, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': file.type,
+      },
+      body: file,
+    });
+    console.log(response,"this is response i am getting")
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      if (headerType === 'image') {
+        setHeaderImageUrl(e.target.result);
+        setPreviewImage(e.target.result);
+      } else {
+        setHeaderContent(e.target.result);
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleRemoveImage = () => {
+    setPreviewImage('');
+    setHeaderImageUrl('');
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  };
+
+  const renderMediaUpload = (title, subtitle) => (
+    <Box sx={{ mt: 2 }}>
+      <Typography variant="body2">{title}</Typography>
+      <Typography variant="caption" color="text.secondary">{subtitle}</Typography>
+
+      <ToggleButtonGroup
+        value={uploadMethod}
+        exclusive
+        onChange={handleUploadMethodChange}
+        size="small"
+        sx={{ mt: 1, mb: 2 }}
+      >
+        <ToggleButton value="file">
+          <UploadFileIcon fontSize="small" sx={{ mr: 1 }} />
+          Upload a file
+        </ToggleButton>
+        <ToggleButton value="url">
+          <LinkIcon fontSize="small" sx={{ mr: 1 }} />
+          Enter URL
+        </ToggleButton>
+      </ToggleButtonGroup>
+
+      {uploadError && <Alert severity="error" sx={{ mb: 2 }}>{uploadError}</Alert>}
+
+      {uploadMethod === 'file' ? (
+        <Button variant="outlined" component="label" fullWidth sx={{ mt: 1 }}>
+          Upload {headerType.charAt(0).toUpperCase() + headerType.slice(1)}
+          <input
+            type="file"
+            hidden
+            accept={
+              headerType === 'image' ? 'image/*' :
+              headerType === 'video' ? 'video/*' :
+              headerType === 'document' ? '.pdf,.doc,.docx' : ''
+            }
+            onChange={handleFileUpload}
+            ref={fileInputRef}
+          />
+        </Button>
+      ) : (
+        <TextField
+          fullWidth
+          placeholder={`Enter ${headerType} URL`}
+          value={headerType === 'image' ? headerImageUrl : headerContent}
+          onChange={(e) => {
+            if (headerType === 'image') setHeaderImageUrl(e.target.value);
+            else setHeaderContent(e.target.value);
+          }}
+          sx={{ mt: 1 }}
+        />
+      )}
+
+      {headerType === 'image' && previewImage && (
+        <Box sx={{ mt: 2, maxWidth: 320, position: 'relative' }}>
+          <img src={previewImage} alt="preview" style={{ width: '100%' }} />
+          <IconButton
+            size="small"
+            sx={{ position: 'absolute', top: 8, right: 8, bgcolor: 'rgba(255,255,255,0.8)' }}
+            onClick={handleRemoveImage}
+          >
+            <DeleteOutlineIcon />
+          </IconButton>
+        </Box>
+      )}
+    </Box>
+  );
 
   const renderHeaderInput = () => {
     switch (headerType) {
       case 'text':
-        return (
-            <TextField
-              fullWidth
-              placeholder="Type header text"
-              value={headerContent}
-              onChange={(e) => setHeaderContent(e.target.value)}
-              sx={{ mt: 2 }}
-            />
-        );
+        return <TextField fullWidth placeholder="Type header text" value={headerContent} onChange={(e) => setHeaderContent(e.target.value)} sx={{ mt: 2 }} />;
       case 'image':
         return renderMediaUpload('Image type allowed: JPG, JPEG, PNG', 'Max file size: 5 MB');
       case 'video':
@@ -154,147 +240,6 @@ useEffect(() => {
       default:
         return null;
     }
-  };
-
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
-    setUploadError('');
-    
-    if (!file) return;
-    
-    // Check file type for images
-    if (headerType === 'image' && !file.type.match('image.*')) {
-      setUploadError('Please upload a valid image file (JPG, JPEG, PNG)');
-      return;
-    }
-    
-    // Check file size (5MB limit)
-    if (file.size > 5 * 1024 * 1024) {
-      setUploadError('File size exceeds 5MB limit');
-      return;
-    }
-    
-    // Create a preview URL
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      setPreviewImage(e.target.result);
-      // In a real app, you would upload the file to a server here
-      // and then set the URL from the server response
-      setHeaderImageUrl(e.target.result);
-    };
-    reader.readAsDataURL(file);
-  };
-  
-  const handleRemoveImage = () => {
-    setPreviewImage('');
-    setHeaderImageUrl('');
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
-  };
-
-  const renderMediaUpload = (title, subtitle) => {
-    return (
-      <Box sx={{ mt: 2 }}>
-        <Typography variant="body2">{title}</Typography>
-        <Typography variant="caption" color="text.secondary">{subtitle}</Typography>
-        
-        <ToggleButtonGroup
-          value={uploadMethod}
-          exclusive
-          onChange={handleUploadMethodChange}
-          size="small"
-          sx={{ mt: 1, mb: 2 }}
-        >
-          <ToggleButton value="file">
-            <UploadFileIcon fontSize="small" sx={{ mr: 1 }} />
-            Upload a file
-          </ToggleButton>
-          <ToggleButton value="url">
-            <LinkIcon fontSize="small" sx={{ mr: 1 }} />
-            Enter URL
-          </ToggleButton>
-        </ToggleButtonGroup>
-
-        {uploadError && (
-          <Alert severity="error" sx={{ mb: 2 }}>
-            {uploadError}
-          </Alert>
-        )}
-
-        {previewImage && headerType === 'image' ? (
-          <Box sx={{ position: 'relative', mb: 2 }}>
-            <Paper 
-              elevation={0} 
-              sx={{ 
-                border: '1px solid #e0e0e0', 
-                borderRadius: 1,
-                overflow: 'hidden',
-                maxWidth: 320,
-                maxHeight: 180
-              }}
-            >
-              <img 
-                src={previewImage} 
-                alt="Header preview" 
-                style={{ width: '100%', height: 'auto', display: 'block' }} 
-              />
-              <IconButton 
-                size="small" 
-                sx={{ position: 'absolute', top: 8, right: 8, bgcolor: 'rgba(255,255,255,0.8)' }}
-                onClick={handleRemoveImage}
-              >
-                <DeleteOutlineIcon />
-              </IconButton>
-            </Paper>
-          </Box>
-        ) : (
-          uploadMethod === 'file' ? (
-            <Button
-              variant="outlined"
-              component="label"
-              startIcon={<AddPhotoAlternateIcon />}
-              sx={{ mt: 1 }}
-              fullWidth
-            >
-              Upload image
-              <input 
-                type="file" 
-                hidden 
-                accept="image/*"
-                onChange={handleFileUpload}
-                ref={fileInputRef}
-              />
-            </Button>
-          ) : (
-            <TextField
-              fullWidth
-              placeholder="Enter image URL"
-              value={headerImageUrl}
-              onChange={(e) => {
-                setHeaderImageUrl(e.target.value);
-                setPreviewImage(e.target.value);
-              }}
-              sx={{ mt: 1 }}
-              InputProps={{
-                endAdornment: headerImageUrl && (
-                  <InputAdornment position="end">
-                    <Button 
-                      size="small" 
-                      onClick={() => {
-                        setPreviewImage(headerImageUrl);
-                      }}
-                    >
-                      Preview
-                    </Button>
-                  </InputAdornment>
-                ),
-              }}
-            />
-          )
-        )}
-      </Box>
-    );
   };
 
   return (
@@ -309,39 +254,20 @@ useEffect(() => {
         </Typography>
 
         <ToggleButtonGroup
-  value={headerType}
-  exclusive
-  onChange={handleHeaderTypeChange}
-  aria-label="header type"
-  sx={{ mt: 2 }}
->
-  <ToggleButton value="none" aria-label="no header">
-    None
-  </ToggleButton>
-  <ToggleButton value="text" aria-label="text header">
-    <TextFieldsIcon sx={{ mr: 1 }} />
-    Text
-  </ToggleButton>
-  <ToggleButton value="image" aria-label="image header">
-    <ImageIcon sx={{ mr: 1 }} />
-    Image
-  </ToggleButton>
-  <ToggleButton value="video" aria-label="video header">
-    <VideocamIcon sx={{ mr: 1 }} />
-    Video
-  </ToggleButton>
-  <ToggleButton value="document" aria-label="document header">
-    <InsertDriveFileIcon sx={{ mr: 1 }} />
-    Document
-  </ToggleButton>
-</ToggleButtonGroup>
+          value={headerType}
+          exclusive
+          onChange={handleHeaderTypeChange}
+          aria-label="header type"
+          sx={{ mt: 2 }}
+        >
+          <ToggleButton value="none" aria-label="no header">None</ToggleButton>
+          <ToggleButton value="text" aria-label="text header"><TextFieldsIcon sx={{ mr: 1 }} />Text</ToggleButton>
+          <ToggleButton value="image" aria-label="image header"><ImageIcon sx={{ mr: 1 }} />Image</ToggleButton>
+          <ToggleButton value="video" aria-label="video header"><VideocamIcon sx={{ mr: 1 }} />Video</ToggleButton>
+          <ToggleButton value="document" aria-label="document header"><InsertDriveFileIcon sx={{ mr: 1 }} />Document</ToggleButton>
+        </ToggleButtonGroup>
 
-{headerError && (
-  <Alert severity="error" sx={{ mt: 1 }}>
-    {headerError}
-  </Alert>
-)}
-
+        {headerError && <Alert severity="error" sx={{ mt: 1 }}>{headerError}</Alert>}
 
         {renderHeaderInput()}
       </Box>
@@ -350,22 +276,14 @@ useEffect(() => {
 
       {/* Body Section */}
       <Box sx={{ mb: 4 }}>
-        <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-          Body
-        </Typography>
+        <Typography variant="subtitle1" fontWeight="bold" gutterBottom>Body</Typography>
         <Typography variant="body2" color="text.secondary" gutterBottom>
           To add a custom variable, please add a variable in double curly brackets without a space.
         </Typography>
 
         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1, my: 2 }}>
-          {['1', '2', '3', 'Name', 'Tracking Code', 'Inquiry Code', 'Location', 'experience_name', 'order_id', 'Agent', 'Today', 'Future Date', 'Opt Out'].map((variable) => (
-            <Chip 
-              key={variable} 
-              label={variable} 
-              onClick={() => setBodyContent(prev => `${prev} {{${variable}}} `)} 
-              variant="outlined" 
-              size="small" 
-            />
+          {['1','2','3','Name','Tracking Code','Inquiry Code','Location','experience_name','order_id','Agent','Today','Future Date','Opt Out'].map((variable) => (
+            <Chip key={variable} label={variable} onClick={() => setBodyContent(prev => `${prev} {{${variable}}} `)} variant="outlined" size="small" />
           ))}
         </Box>
 
@@ -380,9 +298,7 @@ useEffect(() => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <Typography variant="caption" color="text.secondary">
-                  {bodyContent.length}/1024
-                </Typography>
+                <Typography variant="caption" color="text.secondary">{bodyContent.length}/1024</Typography>
               </InputAdornment>
             ),
           }}
@@ -393,10 +309,7 @@ useEffect(() => {
 
       {/* Footer Section */}
       <Box>
-        <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
-          Footer (Optional)
-        </Typography>
-
+        <Typography variant="subtitle1" fontWeight="bold" gutterBottom>Footer (Optional)</Typography>
         <TextField
           fullWidth
           placeholder="Type message footer"
@@ -405,9 +318,7 @@ useEffect(() => {
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
-                <Typography variant="caption" color="text.secondary">
-                  {footerContent.length}/60
-                </Typography>
+                <Typography variant="caption" color="text.secondary">{footerContent.length}/60</Typography>
               </InputAdornment>
             ),
           }}

@@ -30,10 +30,9 @@ const templatesSlice = createSlice({
       state.errors = initialErrors; // reset all step errors
     },
     updateCurrentTemplate: (state, action) => {
-      state.currentTemplate = {
-        ...state.currentTemplate,
-        ...action.payload,
-      };
+      let updateTemplateState={ ...state.currentTemplate,
+        ...action.payload}
+      state.currentTemplate = new TemplateModel(updateTemplateState);
     },
     setTemplateErrors: (state, action) => {
       const { step, errors } = action.payload;

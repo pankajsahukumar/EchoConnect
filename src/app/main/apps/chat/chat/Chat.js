@@ -54,7 +54,6 @@ export default function Chat(props) {
     selectContactById(state, contactId)
   );
   const chatRef = useRef(null);
-  const fileInputRef = useRef(null);
   const inputRef = useRef(null);
   const [messageText, setMessageText] = useState("");
   const [anchorEl, setAnchorEl] = useState(null);
@@ -62,60 +61,6 @@ export default function Chat(props) {
   const [quote, setQuote] = useState(null); // quoted message when replying
   const [highlightedMessageId, setHighlightedMessageId] = useState(null); // for scroll-to-message highlight
   const ws = useRef(null);
-  const handlePickImage = () => {
-    fileInputRef.current?.click();
-  };
-
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const formData = new FormData();
-      formData.append('file', file);
-      formData.append('type', file.type.startsWith('image/') ? 'image' :
-        file.type.startsWith('video/') ? 'video' :
-        file.type.startsWith('audio/') ? 'audio' : 'document');
-      handleMediaUpload(formData);
-    }
-  };
-
-  const handleMediaUpload = async (formData) => {
-    try {
-      const messageType = formData.get('type');
-      const file = formData.get('file');
-
-      // Create message data based on type
-      const messageData = {
-        type: messageType,
-        payload: {
-          [messageType]: {
-            filename: file.name,
-            mimetype: file.type,
-            // You would typically upload to your server here and get a URL
-            url: URL.createObjectURL(file)
-          }
-        },
-        context: quote ? { message_id: quote.id } : undefined
-      };
-
-      // Send message via Redux action
-      const resultAction = await dispatch(
-        sendMessage({
-          contactId,
-          ...messageData,
-        })
-      );
-
-      if (sendMessage.fulfilled.match(resultAction)) {
-        console.log('Media message sent successfully:', resultAction.payload);
-      } else {
-        console.error('Failed to send media message:', resultAction.error);
-      }
-
-      setQuote(null);
-    } catch (error) {
-       console.error('Error handling media upload:', error);
-     }
-   };
 
   // Handler functions for RenderMessage callbacks
   const handleReply = (replyData) => {
@@ -290,62 +235,7 @@ useEffect(() => {
   }, [chat, shouldAutoScroll]);
   
   
-  async function onMessageSubmit(ev) {
-    ev.preventDefault();
-    const trimmed = messageText.trim();
-    if (!trimmed) return;
 
-    try {
-      const messageData = new ChatMessageModel(
-        customer.id,
-        { messageType: "text", text: trimmed },
-        quote?quote.id:null,
-        customer
-      );
-      dispatch(addTempMessage(messageData.toTempMessage(quote)));
-            // Always clear input and quote after attempting to send
-            setMessageText("");
-            setQuote(null);
-      if (ws.current && ws.current.readyState === WebSocket.OPEN) {
-        console.log("Sending message via WebSocket:", messageData);
-        ws.current.send(JSON.stringify({
-          "type": "chatMessage",
-          "payload": messageData
-        }));
-      }else{
-        console.log("WebSocket not connected");
-      }
-
-      const resultAction = await dispatch(
-        sendMessage(messageData)
-      );
-
-      // Check if the message was sent successfully
-      if (sendMessage.fulfilled.match(resultAction)) {
-        console.log("Message sent successfully:", resultAction.payload);
-      } else {
-        console.error("Failed to send message:", resultAction.error);
-      }
-
-
-
-      // Auto-scroll to bottom after sending
-      setTimeout(() => {
-        if (chatRef.current) {
-          chatRef.current.scrollTo({
-            top: chatRef.current.scrollHeight,
-            behavior: "smooth",
-          });
-        }
-      }, 100);
-
-    } catch (error) {
-      console.error("Error sending message:", error);
-      // Clear input on error too
-      setMessageText("");
-      setQuote(null);
-    }
-  }
   // if (!user || !selectedContact) return null;
   if (!user) return null;
 
@@ -391,10 +281,7 @@ useEffect(() => {
         setMessageText={setMessageText}
         quote={quote}
         setQuote={setQuote}
-        onMessageSubmit={onMessageSubmit}
         inputRef={inputRef}
-        fileInputRef={fileInputRef}
-        handleFileChange={handleFileChange}
         setAnchorEl={setAnchorEl}
         setTemplateOpen={setTemplateOpen}
         anchorEl={anchorEl}
