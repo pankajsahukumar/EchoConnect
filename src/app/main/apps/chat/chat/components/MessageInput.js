@@ -25,6 +25,7 @@ export default function MessageInput({
   const dispatch = useDispatch();
   const customer = useSelector(selectCustomer);
   async function onMessageSubmit(ev) {
+    console.log(customer,"this is customer");
     ev.preventDefault();
     const trimmed = messageText.trim();
     if (!trimmed) return;
@@ -59,10 +60,9 @@ export default function MessageInput({
     let trimmed = messageText.trim();
     if (!trimmed && files.length <= 0) return;
     let MessageList = [];
-    console.log(trimmed, "this is file information", files);
     if (files.length <= 0) {
       const messageData = new ChatMessageModel(
-        customer.id,
+        customer.chatId,
         { messageType: "text", text: trimmed },
         quote ? quote.id : null,
         customer
@@ -81,7 +81,7 @@ export default function MessageInput({
         };
         trimmed = "";
         const messageData = new ChatMessageModel(
-          customer.id,
+          customer.chatId,
           message,
           quote ? quote.id : null,
           customer

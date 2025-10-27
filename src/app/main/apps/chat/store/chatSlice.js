@@ -4,10 +4,10 @@ import { apiClient } from 'src/@api/utils/apiClient';
 
 export const getChat = createAsyncThunk(
   'chatApp/chat/getChat',
-  async (contactId, { dispatch, getState }) => {
-    const response = await apiClient.get(`/api/get/messages/${contactId}`);
+  async (chatId, { dispatch, getState }) => {
+    const response = await apiClient.get(`/api/messages/${chatId}`);
 
-    const data = await response.data;
+    const data = await response.data.data;
 
     return data;
   }
@@ -17,7 +17,7 @@ export const sendMessage = createAsyncThunk(
   'chatApp/chat/sendMessage',
   async (messageData, { dispatch, getState }) => {
     
-    const response = await apiClient.post(`/api/chat/send`, messageData);
+    const response = await apiClient.post(`/api/messages/send`, messageData);
 
     const data = await response.data;
 

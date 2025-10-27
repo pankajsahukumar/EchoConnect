@@ -135,8 +135,7 @@ useEffect(()=>{
         );
 
     if (getCustomer.fulfilled.match(resultAction)) {
-
-    dispatch(getChat(resultAction.payload.id));
+    dispatch(getChat(resultAction.payload.chatId));
     } else {
       console.error("Failed to send message:", resultAction.error);
     }

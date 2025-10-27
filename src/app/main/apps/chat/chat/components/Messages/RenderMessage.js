@@ -10,11 +10,12 @@ import ImageMessage from "./ImageMessage";
 import InteractiveMessage from "./InteractiveMessage";
 import ButtonMessage from "./ButtonMessage";
 import DocumentMessage from "./DocumentMessage";
+import AudioMessage from "app/shared-components/Messages/AudioMessage/AudioMessage";
 const StyledMessageRow = styled("div")(() => ({
   display: "flex",
   width: "100%",
   marginBottom: 1,
-  padding: "0 2% 0 2%",
+  padding: "0 2% 2% 2%",
 
   "&.contact": {
     justifyContent: "flex-start",
@@ -165,7 +166,6 @@ const RenderMessage = ({
           />
         );
         case "image":
-          console.log(message,"this istyep image","image")
           return (
             <ImageMessage
               message={message}
@@ -197,14 +197,14 @@ const RenderMessage = ({
             senderName={senderName}
           />
         );
-      case "video":
-        return (
-          <VideoMessage
-            message={message}
-            isMine={isMine}
-            senderName={senderName}
-          />
-        );
+      // case "video":
+      //   return (
+      //     <VideoMessage
+      //       message={message}
+      //       isMine={isMine}
+      //       senderName={senderName}
+      //     />
+      //   );
       default:
         console.log("Unsupported message type:", messageType);
         return null;

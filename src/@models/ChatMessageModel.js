@@ -5,12 +5,12 @@ class ChatMessageModel {
     // required identifiers
     this.messageId = FuseUtils.generateMessageUUID();
     this.chatId = chatId;
-    this.customerId = customer.customer_id || null;
+    this.customerId = customer.customerId || null;
     this.message = this.parseMessage(message.messageType, message);
 
     // reply context
     this.replyMessageId = replyMessageId || null;
-    this.phoneNumber = customer.phone_number;
+    this.phoneNumber = customer.phoneNumber;
 
     this.messageTime = Date.now();
   }
@@ -71,7 +71,7 @@ class ChatMessageModel {
       id: this.messageId,
       message: this.message,
       senderUser: [], // you can later fill with logged-in user details
-      messageOriginType: "USER", // or CUSTOMER depending on who sends
+      senderType: "USER", // or CUSTOMER depending on who sends
       replyMessage: quote
         ? {
             text: quote.preview,

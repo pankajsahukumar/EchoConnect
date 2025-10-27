@@ -5,9 +5,8 @@ import { apiClient } from 'src/@api/utils/apiClient';
 export const getCustomer = createAsyncThunk(
   'chatApp/customer/getCustomer',
   async (contactId, { dispatch, getState }) => {
-    const response = await apiClient.get(`/api/get/customer/details/${contactId}`);
-    const data = await response.data;
-    console.log(response,"this si sd",response,contactId)
+    const response = await apiClient.get(`/api/customers/details/${contactId}`);
+    const data = await response.data.data;
     return data;
   }
 );

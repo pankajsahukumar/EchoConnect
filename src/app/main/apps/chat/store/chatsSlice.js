@@ -4,10 +4,11 @@ import axios from 'axios';
 import { apiClient } from 'src/@api/utils/apiClient';
 
 export const getChats = createAsyncThunk('chatApp/chats/getChats', async (params) => {
-  const response = await apiClient.get('/api/get/chats');
+  const response = await apiClient.get('/api/chats',{
+    pagination: { pageNumber: 1, pageSize: 10 }
+  });
   const data = await response.data;
-
-  return data;
+  return data.data.content;
 });
 
 export const addChat = createAsyncThunk('chats/addChat', async (chatData) => {

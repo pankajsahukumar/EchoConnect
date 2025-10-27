@@ -17,7 +17,7 @@ function ContactSidebar(props) {
   const routeParams = useParams();
   const contactId = routeParams.id;
   const contact = useSelector((state) => selectContactById(state, contactId));
-
+    console.log(contact,"this is contact");
   if (!contact) {
     return null;
   }

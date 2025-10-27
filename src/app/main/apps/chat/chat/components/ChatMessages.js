@@ -60,7 +60,7 @@ export default function ChatMessages({
       >
         {chat.map((msg) => {
           const messageType = msg.message?.messageType;
-          const isMine = msg.messageOriginType === "USER";
+          const isMine = msg.senderType === "USER";
           let messageQuote = null;
           if (msg.replyMessage) {
             messageQuote = {
@@ -71,7 +71,7 @@ export default function ChatMessages({
                 msg.replyMessage?.messageType
               ),
               authorName:
-                msg.replyMessage.messageOriginType === "USER"
+                msg.replyMessage.senderType === "USER"
                   ? "You"
                   : msg.replyMessage.senderUser?.name || "Contact",
             };
@@ -82,7 +82,7 @@ export default function ChatMessages({
               key={msg.id}
               message={msg.message}
               messageType={messageType}
-              messageOriginType={msg.messageOriginType}
+              messageOriginType={msg.senderType}
               isMine={isMine}
               senderName={
                 !isMine ? msg.senderUser?.name || "Contact" : "You"

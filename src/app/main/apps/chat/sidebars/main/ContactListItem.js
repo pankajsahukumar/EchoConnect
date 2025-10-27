@@ -25,7 +25,7 @@ console.log("contact details",contact)
       className="px-32 py-12 min-h-80"
       active={routeParams.id === contact.id ? 1 : 0}
       component={NavLinkAdapter}
-      to={`/apps/chat/${contact.phone_number}`}
+      to={`/apps/chat/${contact.phoneNumber}`}
       end
       activeClassName="active"
     >
