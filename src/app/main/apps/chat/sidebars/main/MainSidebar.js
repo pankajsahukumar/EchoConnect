@@ -25,7 +25,7 @@ function MainSidebar(props) {
   const { setUserSidebarOpen } = useContext(ChatAppContext);
 
   const dispatch = useDispatch();
-  const chats = useSelector(selectChats);
+  const contacts = useSelector(selectContacts);
   const user = useSelector(selectUser);
 
   const [searchText, setSearchText] = useState('');
@@ -104,9 +104,9 @@ function MainSidebar(props) {
               return FuseUtils.filterArrayByString(arr, _searchText);
             }
 
-            const chatListContacts =chats.length > 0
-                ? chats.map((_chat) => ({
-                    ..._chat
+            const chatListContacts =contacts.length > 0
+                ? contacts.map((_contact) => ({
+                    ..._contact
                   }))
                 : [];
             const filteredChatList = getFilteredArray([...chatListContacts], searchText);
@@ -143,7 +143,7 @@ function MainSidebar(props) {
 
               </motion.div>
             );
-          }, [ chats, searchText, dispatch])}
+          }, [ contacts, searchText, dispatch])}
         </List>
       </FuseScrollbars>
     </div>

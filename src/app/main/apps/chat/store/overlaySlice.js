@@ -4,6 +4,7 @@ const initialState = {
     DocumentOverlayIsOpen: false,
     GalleryOverlayIsOpen: false,
     voiceMessagePanelIsOpen: false,
+    templateOverlayIsOpen: false,
   };
 
 
@@ -24,8 +25,11 @@ const overlaySlice = createSlice({
     toggleVoiceMessagePanelOverlay: (state) => {
       state.voiceMessagePanelIsOpen = !state.voiceMessagePanelIsOpen;
     },
+    toggleTemplatePanelOverlay: (state) => {
+      state.templateOverlayIsOpen = !state.templateOverlayIsOpen;
+    },
   },
 });
 export const selectOverlay = ({ chatApp }) => chatApp.overlay;
-export const { toggleDocumentOverlay, toggleGalleryOverlay, closeOverlay, toggleVoiceMessagePanelOverlay } = overlaySlice.actions;
+export const { toggleDocumentOverlay, toggleGalleryOverlay, closeOverlay, toggleVoiceMessagePanelOverlay,toggleTemplatePanelOverlay } = overlaySlice.actions;
 export default overlaySlice.reducer;

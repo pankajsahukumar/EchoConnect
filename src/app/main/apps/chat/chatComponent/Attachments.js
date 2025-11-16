@@ -3,7 +3,7 @@ import FuseSvgIcon from "@fuse/core/FuseSvgIcon";
 import AttachmentOptionFile from "./AttachmentOptionFile";
 import { useDispatch } from "react-redux";
 import { addFiles } from "../store/filesSlice";
-import { toggleDocumentOverlay } from "../store/overlaySlice";
+import { toggleDocumentOverlay, toggleTemplatePanelOverlay } from "../store/overlaySlice";
 
 export default function Attachments({ setAnchorEl, anchorEl }) {
   const RTK_dispatch = useDispatch();
@@ -13,6 +13,9 @@ export default function Attachments({ setAnchorEl, anchorEl }) {
     RTK_dispatch(addFiles({ files, from }));
     RTK_dispatch(toggleDocumentOverlay());
   };
+  const handleTemplateClick = () => {
+          RTK_dispatch(toggleTemplatePanelOverlay());
+  }
   return (
     <Menu
       anchorEl={anchorEl}
@@ -41,12 +44,12 @@ export default function Attachments({ setAnchorEl, anchorEl }) {
         <FuseSvgIcon className="mr-2">heroicons-outline:music-note</FuseSvgIcon>
         Audio
       </MenuItem>
-      {/* <MenuItem onClick={() => setTemplateOpen(true)}>
+      <MenuItem onClick={() => handleTemplateClick()}>
           <FuseSvgIcon className="mr-2">
             heroicons-outline:template
           </FuseSvgIcon>
           Template
-        </MenuItem> */}
+        </MenuItem>
       <Divider />
       <MenuItem>
         <Typography sx={{ color: "#00a884", fontWeight: 600 }}>

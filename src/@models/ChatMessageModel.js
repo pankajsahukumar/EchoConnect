@@ -1,4 +1,5 @@
 import FuseUtils from "@fuse/utils";
+import { height } from "@mui/system";
 
 class ChatMessageModel {
   constructor(chatId, message, replyMessageId = null, customer = {}) {
@@ -53,6 +54,8 @@ class ChatMessageModel {
           caption: message?.caption || null,
           size: message?.size || null,
           fileName: message?.fileName || null,
+          height: message?.height || 300,
+          width: message?.width || 300,
         };
 
       default:

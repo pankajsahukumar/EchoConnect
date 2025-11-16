@@ -80,10 +80,7 @@ export const addTemplate = createAsyncThunk(
 
       // Submit to Meta API
       // For now, we'll just submit to our backend API which will handle the Meta API call
-      const response = await apiClient.post('/api/templates', {
-        template: metaTemplate,
-        originalTemplate: templateData
-      });
+      const response = await apiClient.post('/api/template', templateData);
 
       const data = await response.data;
       return data;

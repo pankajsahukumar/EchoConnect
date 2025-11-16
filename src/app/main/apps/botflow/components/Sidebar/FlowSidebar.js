@@ -75,7 +75,71 @@ const triggerNodes = [
 
 // Define action nodes with their icons
 const actionNodes = [
-  { id: 'ADD_REMOVE_TAGS', label: 'Add/Remove Tags', icon: <LocalOfferIcon />, blockType: 'UPDATE_TAG' },
+  {
+    "blockId": "522f186d-899c-4286-8552-8dd05fe7612d",
+    "blockName": "Add / Remove Tags",
+    "blockDescription": null,
+    "needsProcessing": false,
+    "blockDataType": "action",
+    "blockType": "UPDATE_TAG",
+    "blockIsEmpty": false,
+    "restrictedTo": null,
+    "isVisible": true,
+    "disableIntegration": true,
+    "components": [
+        {
+            "componentId": "e1276a3f-e45e-454e-bcaf-43e83a4dc21c",
+            "componentName": "Update Tags",
+            "componentIsMultiple": false,
+            "componentPosition": 0,
+            "componentType": "UPDATE_TAG",
+            "componentVariables": null,
+            "componentVariablesV2": null,
+            "elements": [
+                {
+                    "elementId": "a771b7d8-6d67-4160-a992-b9851e39a1a2",
+                    "elementIsMandatory": true,
+                    "elementName": "Choose action",
+                    "elementPosition": 0,
+                    "elementRules": {
+                        "align": "horizontal",
+                        "label": "Choose action",
+                        "options": [
+                            {
+                                "label": "Add Tags",
+                                "value": "SET_TAG"
+                            },
+                            {
+                                "label": "Remove Tags",
+                                "value": "REMOVE_TAG"
+                            }
+                        ],
+                        "is_radio": true
+                    },
+                    "elementType": "CHECKBOX",
+                    "hasChildren": false
+                },
+                {
+                    "elementId": "c9d8cf7b-1781-461e-8bb5-8da3d6a56b8d",
+                    "elementIsMandatory": true,
+                    "elementName": "Choose Tags",
+                    "elementPosition": 1,
+                    "elementRules": {
+                        "label": "Choose tags",
+                        "api_url": "https://flow-api.doubletick.io/v1/component-api/96f06110-3369-4d80-8762-c68d8ec18073/f83ce0a3-5835-4707-9c42-4182dd7dd988/process",
+                        "api_method": "POST",
+                        "placeholder": "Select tag",
+                        "target_element": "37321ccb-a769-42c4-bc8e-e1e56eeba21e",
+                        "target_hierarchy": "0::0",
+                        "disable_render_input": true
+                    },
+                    "elementType": "DROPDOWN_VARIABLE_INPUT",
+                    "hasChildren": false
+                }
+            ]
+        }
+    ]
+},
   { id: 'ADD_TO_BROADCAST_LISTS', label: 'Add to Broadcast Lists', icon: <NotificationsIcon />, blockType: 'ADD_TO_BROADCAST_LIST' },
   { id: 'ASSIGN_AGENT', label: 'Assign Agent', icon: <PersonIcon />, blockType: 'ASSIGN_AGENT_V3' },
   { id: 'SEND_MESSAGE', label: 'Send Message', icon: <ChatIcon />, blockType: 'SEND_MESSAGE' },
@@ -90,6 +154,7 @@ export default function FlowSidebar({ onDragStart }) {
   };
 
   const onDragStartHandler = (event, nodeType, nodeData) => {
+    console.log('Dragging node:', nodeType, nodeData);
     // Include the blockType in the data being transferred
     event.dataTransfer.setData('application/reactflow', JSON.stringify({ 
       type: nodeType, 

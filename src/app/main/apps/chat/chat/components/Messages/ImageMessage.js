@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { IconButton } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
-
-const ImageContainer = styled(Box)(() => ({
-  width: '100%',
-  maxWidth: '330px',
-  position: 'relative',
-  padding: '6px',
-  borderRadius: '7.5px',
-  overflow: 'hidden',
+import { calculateScaledDimensions } from 'src/utils/calculateScaledDimensions';
+const Container = styled(Box)(() => ({
+  width: "100%",
+  maxWidth: "330px",
+  position: "relative",
+  padding: "6px",
+  borderRadius: "7.5px",
+  overflow: "hidden"
 }));
+
+const ImageContainer = styled(Box)(({ height, width }) => ({
+  width: "100%",
+  maxWidth: "330px",
+  position: "relative",
+  padding: "6px",
+  borderRadius: "7.5px",
+  overflow: "hidden",
+  height: height || 300,
+  minHeight: height || 300,
+  width: width || 300,
+  minWidth: width || 300,
+  maxWidth: width,
+  maxHeight: height,
+}));
+
 
 const StyledImage = styled('img')(() => ({
   width: '100%',
@@ -100,7 +116,11 @@ const ImageMessage = ({ message, isMine, senderName }) => {
     hour: '2-digit',
     minute: '2-digit'
   });
-
+  console.log('ImageMessage rendered with message:', message);
+  const dimensions = useMemo(
+    () => calculateScaledDimensions(message?.width, message?.height, 300, 300, 200, 200),
+    [message?.height, message?.width],
+  );
   const handleImageClick = () => {
     window.open(message.fileUrl, '_blank');
   };
@@ -116,8 +136,15 @@ const ImageMessage = ({ message, isMine, senderName }) => {
   };
 
   return (
-    <ImageContainer>
-      {/* Sender name for contact messages */}
+    <Container>
+ {/* <MediaMessageBubbleWrapper
+      isFromMe={isFromMe}
+      messageType={message?.messageType}
+      className="flex place-items-center justify-center"
+      height={dimensions.height}
+      width={dimensions.width}
+      onClick={() => handleGalleryOverlay(message?.media?.id)}
+    > */}
       {!isMine && senderName && (
         <SenderName>
           {senderName}
@@ -125,12 +152,14 @@ const ImageMessage = ({ message, isMine, senderName }) => {
       )}
 
       {/* Image with overlay */}
-      <Box position="relative">
+      <ImageContainer height={dimensions.height} width={dimensions.width}>
         <StyledImage
           src={message.thumbnailUrl || message.fileUrl}
           alt={message.fileName || 'Image'}
           onClick={handleImageClick}
           loading="lazy"
+          height={dimensions.height}
+          width={dimensions.width}
         />
         <ImageOverlay>
           <IconButton
@@ -149,8 +178,15 @@ const ImageMessage = ({ message, isMine, senderName }) => {
             )}
           </TimeStamp>
         </ImageOverlay>
+      </ImageContainer>
+      <Box>
+        {message.caption && (
+          <TextContent>
+            {message.caption}
+          </TextContent>
+        )}
       </Box>
-    </ImageContainer>
+    </Container>
   );
 }
 

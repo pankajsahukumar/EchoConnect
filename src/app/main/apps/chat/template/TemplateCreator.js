@@ -64,14 +64,14 @@ export default function TemplateCreator() {
         return;
       }
 
-      // setLoading(true);
+      setLoading(true);
       // setError(null);
 
       // // Format template for Meta API submission using the utility from useTemplate
       // const metaApiTemplate = formatTemplateForSubmission();
 
       // // Submit template to API
-      // await dispatch(addTemplate(metaApiTemplate));
+       dispatch(addTemplate(template));
       // navigate("/apps/chat/templates");
       console.log(template,"this is tmplae to submit");
     } catch (error) {

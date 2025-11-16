@@ -26,14 +26,15 @@ export default function MessageSender() {
       customer
     );
     dispatch(addTempMessage(messageData.toTempMessage(null)));
+    setMessageText("");
+    setQuote(null);
     const resultAction = await dispatch(sendMessage(messageData));
     if (sendMessage.fulfilled.match(resultAction)) {
       console.log("Message sent successfully:", resultAction.payload);
     } else {
       console.error("Failed to send message:", resultAction.error);
     }
-    setMessageText("");
-    setQuote(null);
+
   };
   const onInputChange = (e) => {
     setMessageText(e.target.value);

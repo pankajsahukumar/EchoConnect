@@ -62,7 +62,6 @@ export default function ContentStep({ template, updateComponent, validateCurrent
       headerComponent.example = {};
     } else if (headerType === 'image') {
       headerComponent.image = { url: headerImageUrl || previewImage };
-      headerComponent.example = { link: "", fileName: "" };
     } else if (headerType === 'video') {
       headerComponent.video = { url: headerContent };
       headerComponent.example = { video_handle: "" };

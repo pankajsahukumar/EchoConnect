@@ -15,7 +15,7 @@ const StyledMessageRow = styled("div")(() => ({
   display: "flex",
   width: "100%",
   marginBottom: 1,
-  padding: "0 2% 2% 2%",
+  padding: "0 2% 0% 2%",
 
   "&.contact": {
     justifyContent: "flex-start",

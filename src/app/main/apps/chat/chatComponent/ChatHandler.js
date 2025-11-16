@@ -1,101 +1,81 @@
 import FuseScrollbars from "@fuse/core/FuseScrollbars";
-import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { getCustomer } from "../store/customerSlice";
-import { getChat, selectChat } from "../store/chatSlice";
-import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { addNewMessage } from "../store/chatSlice";
 import RenderMessage from "../chat/components/Messages/RenderMessage";
+import useSocket from "src/hooks/useSocket";
+import useCurrentChat from "src/hooks/useCurrentChat";
 
 const ChatHandler = () => {
-  // const { socket } = useSocket();
-  const routeParams = useParams();
-  const contactId = routeParams.id;
+  const { socket } = useSocket('/chats');
   const dispatch = useDispatch();
-  const chat = useSelector(selectChat);
-  // const Me = useSelector((state) => state.UserSlice.Me);
-
   const bottomRef = useRef(null);
 
-  // const { chat, id, } = useCurrentChat()
-
+  const { chat,id } = useCurrentChat();
+   const sizeChanged = (prevSize, newSize, newSizeCallback) => {
+    console.log('sizeChanged called', prevSize, newSize)
+    if (newSize && prevSize) {
+      if (newSize > prevSize) {
+        return newSizeCallback(newSize, newSize - prevSize);
+      }
+      return;
+    }
+    return;
+  };
+  
   const [scrolled, setScrolled] = useState(false);
 
-  // const [currentMessagesSize, setCurrentMessagesSize] = useState<number | undefined>(chat?.messages?.length)
+  const [currentMessagesSize, setCurrentMessagesSize] = useState(chat.length)
+
+  useEffect(() => {
+    if(id){
+      socket.emit('init_room', { chat_id: id });
+      socket.emit('join_room', { chat_id: id  });
+    }
+
+    return () => {
+      socket.emit('leave_room', { room_id: id });
+      socket.off('get_pid');
+    };
+  }, [socket, id, dispatch]);
+
+  useEffect(() => {
+    socket.on('chatMessage', (message) => {
+      dispatch(addNewMessage(message));
+    });
+    // socket.on('message_status', (messageStatus) => {
+    //   dispatch(updateMessageStatus({ chat_id: messageStatus.chat_id, message_id: messageStatus.message_id, new_status: messageStatus.status }));
+    // });
+    return () => {
+      socket.off('message_status');
+    };
+  }, [socket, dispatch, id]);
+
+
+  useEffect(() => {
+    if (bottomRef) {
+      bottomRef.current?.scrollIntoView()
+      setScrolled(true)
+    }
+  }, [bottomRef, id]);
 
   // useEffect(() => {
-
-  //   socket.emit('init_room', { chat_id: id as string });
-  //   socket.emit('join_room', { chat_id: id as string });
-
-  //   return () => {
-  //     socket.emit('leave_room', { room_id: id as string });
-  //     socket.off('get_pid');
-  //   };
-  // }, [socket, id, dispatch]);
-
-  // useEffect(() => {
-  //   socket.on('newMessage', (message) => {
-  //     dispatch(addNewMessage({ chat_id: id || message.chat_id, message: message.message }));
-  //   });
-  //   socket.on('message_status', (messageStatus) => {
-  //     dispatch(updateMessageStatus({ chat_id: messageStatus.chat_id, message_id: messageStatus.message_id, new_status: messageStatus.status }));
-  //   });
-  //   return () => {
-  //     socket.off('message_status');
-  //   };
-  // }, [socket, dispatch, id]);
-
-  // useEffect(() => {
-  //   if (bottomRef) {
-  //     bottomRef.current?.scrollIntoView()
-  //     setScrolled(true)
-  //   }
-  // }, [bottomRef, id]);
-
-  // useEffect(() => {
-  //   sizeChanged(currentMessagesSize, chat?.messages?.length, (newSize, changedSize) => {
+  //   sizeChanged(currentMessagesSize, chat.length, (newSize, changedSize) => {
   //     setCurrentMessagesSize(newSize)
+  //     console.log('changed size', changedSize)
   //     if (bottomRef && changedSize && changedSize < 2) {
   //       bottomRef.current?.scrollIntoView()
   //     }
   //   })
-  // }, [chat?.messages, currentMessagesSize])
+  // }, [chat, currentMessagesSize])
 
-  // const { receiver_id } = useSelector((state: RootState) => state.ChatSlice);
-
-  // const chatSlice = useSelector((state: RootState) => state.ChatSlice);
-
-  // const { paginate, state, meta } = usePaginatedMessages({ chat_id: id })
-
-  // const observer = useRef<IntersectionObserver>()
-  // const lastMessageElement = useCallback((node: any) => {
-  //   if (state.isLoading) return
-  //   if (observer.current) observer.current.disconnect()
-
-  //   observer.current = new IntersectionObserver(entries => {
-  //     if (entries[0].isIntersecting && meta.hasNext && scrolled) {
-
-  //       paginate()
-  //     }
-  //   })
-  //   if (node) observer.current.observe(node)
-  // }, [meta.hasNext, paginate, scrolled, state.isLoading])
-
-  console.log("Contact ID:", contactId, chat);
   useEffect(() => {
-    const fetchData = async () => {
-      const resultAction = await dispatch(getCustomer(contactId));
-
-      if (getCustomer.fulfilled.match(resultAction)) {
-        dispatch(getChat(resultAction.payload.chatId));
-      } else {
-        console.error("Failed to send message:", resultAction.error);
-      }
-    };
-    fetchData();
-  }, [contactId, dispatch]);
+    const timer = setTimeout(() => {
+      bottomRef.current?.scrollIntoView({ behavior: "auto" });
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [chat.length]);
+  
   const onReply = (messageId) => {
   }
   const onCopy = (messageId) => {
@@ -142,7 +122,7 @@ const ChatHandler = () => {
 
               return (
                 <RenderMessage
-                  key={msg.id}
+                  key={msg.messageId || msg.id}
                   message={msg.message}
                   messageType={messageType}
                   messageOriginType={msg.senderType}
@@ -150,7 +130,7 @@ const ChatHandler = () => {
                   senderName={
                     !isMine ? msg.senderUser?.name || "Contact" : "You"
                   }
-                  messageId={msg.id}
+                  messageId={msg.messageId || msg.id}
                   quote={messageQuote}
                   highlightedMessageId={highlightedMessageId}
                   onReply={onReply}
@@ -163,8 +143,9 @@ const ChatHandler = () => {
                 />
               );
             })}
+            <div ref={bottomRef} style={{marginTop:10}}></div>
           </FuseScrollbars>
-          <div ref={bottomRef}></div>
+          {/* <div ref={bottomRef}></div> */}
         </div>
       </div>
     </>

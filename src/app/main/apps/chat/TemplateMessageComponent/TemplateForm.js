@@ -135,6 +135,9 @@ const TemplateForm = ({ template }) => {
               />
             </Box>
           ))}
+              <Button onClick={() => handleSubmit()} color="secondary">
+            Send Now
+          </Button>
     </div>
   );
 };

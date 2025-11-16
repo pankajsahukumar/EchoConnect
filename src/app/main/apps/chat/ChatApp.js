@@ -12,7 +12,6 @@ import reducer from './store';
 import { getUserData } from './store/userSlice';
 import { getContacts } from './store/contactsSlice';
 import UserSidebar from './sidebars/user/UserSidebar';
-import { getChats } from './store/chatsSlice';
 
 const drawerWidth = 400;
 
@@ -47,7 +46,7 @@ function ChatApp(props) {
 
   useEffect(() => {
     dispatch(getUserData());
-    dispatch(getChats());
+    dispatch(getContacts());
   }, [dispatch]);
 
   useEffect(() => {

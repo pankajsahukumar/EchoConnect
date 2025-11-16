@@ -20,12 +20,12 @@ const customerSlice = createSlice({
   name: 'chatApp/customer',
   initialState: null,
   reducers: {
-    setSelectedCustomer: (state, action) => [...state, action.payload],
+    setSelectedCustomer: (state, action) => action.payload,
   },
   extraReducers: {
     [getCustomer.fulfilled]: (state, action) => action.payload,
   },
 });
-export const { addTempMessage } = customerSlice.actions;
+export const { setSelectedCustomer } = customerSlice.actions;
 export const selectCustomer = ({ chatApp }) => chatApp.customer;
 export default customerSlice.reducer;
