@@ -66,6 +66,18 @@ export default function BasicInfoStep({ template, updateTemplate, validateCurren
     updateTemplate({ name, category, language });
   }, [name, category, language]);
 
+  // Sync local state when a template is loaded or changed (e.g., edit route)
+  useEffect(() => {
+    if (!template) return;
+    const incomingName = template.name || '';
+    const incomingCategory = template.category || 'MARKETING';
+    const incomingLanguage = template.language || 'en_US';
+
+    if (incomingName !== name) setName(incomingName);
+    if (incomingCategory !== category) setCategory(incomingCategory);
+    if (incomingLanguage !== language) setLanguage(incomingLanguage);
+  }, [template?.name, template?.category, template?.language]);
+
   const handleNameChange = (e) => {
     const value = e.target.value;
     setName(value);

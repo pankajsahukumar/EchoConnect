@@ -33,6 +33,14 @@ export default function ButtonsStep({ template, updateComponent }) {
     validateButtons(buttons);
   }, [buttons]);
 
+  // Sync local state when a template is loaded or changed (e.g., edit route)
+  useEffect(() => {
+    const storeButtons =
+      template?.components?.find((c) => c.type === "BUTTONS" || c.type === "BUTTON")?.buttons || [];
+    const changed = JSON.stringify(storeButtons) !== JSON.stringify(buttons);
+    if (changed) setButtons(storeButtons);
+  }, [template]);
+
   const validateButtons = (buttons) => {
     const newErrors = {};
     buttons.forEach((button, index) => {

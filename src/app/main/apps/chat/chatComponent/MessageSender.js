@@ -15,12 +15,11 @@ export default function MessageSender() {
 
   const [anchorEl, setAnchorEl] = useState(null);
 
-
   const dispatch = useDispatch();
   const onMessageSubmitV2 = async () => {
     let trimmed = messageText.trim();
     const messageData = new ChatMessageModel(
-      customer.chatId,
+      customer.id,
       { messageType: "text", text: trimmed },
       quote ? quote.id : null,
       customer

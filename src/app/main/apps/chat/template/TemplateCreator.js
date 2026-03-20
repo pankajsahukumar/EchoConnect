@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import { useTemplate } from "src/hooks/useTemplate";
 import {
   Box,
@@ -19,16 +19,19 @@ import BasicInfoStep from "./steps/BasicInfoStep";
 import ContentStep from "./steps/ContentStep";
 import ButtonsStep from "./steps/ButtonsStep";
 import VariablesStep from "./steps/VariablesStep";
-import { addTemplate } from "../store/templateSlice";
+import { addTemplate, getTemplateById, selectTemplateById } from "../store/templateSlice";
 import TemplatePreview from "./TemplatePreview";
 import { TEMPLATE_STEPS, TEMPLATE_STEPS_LIST } from "src/Constants/TemplateStepContants";
 import { setTemplateErrors } from "../store/templateFormSlice";
+import { setCurrentTemplate, resetCurrentTemplate } from "../store/templateFormSlice";
+import TemplateModel from "src/@models/TemplateModel";
 
 const steps = ["basicinfo", "Content", "Buttons", "Variables"];
 
 export default function TemplateCreator() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { templateId } = useParams();
   const [activeStep, setActiveStep] = useState(TEMPLATE_STEPS.BASIC.key);
   const [loading, setLoading] = useState(false);
   // Use the Redux-connected template hook
@@ -39,6 +42,35 @@ export default function TemplateCreator() {
     validateCurrentStep,
     formatTemplateForSubmission,
   } = useTemplate();
+
+  // Pull the selected template from templates list store if available
+  const selectedTemplate = useSelector((state) =>
+    templateId ? selectTemplateById(state, templateId) : null
+  );
+
+  // On mount or when templateId changes, set the form's current template
+  // If editing, populate; if creating, reset to defaults
+  useEffect(() => {
+    if (templateId) {
+      if (selectedTemplate) {
+        dispatch(setCurrentTemplate(new TemplateModel(selectedTemplate)));
+      } else {
+        // Fallback: fetch template by id and then set
+        dispatch(getTemplateById(templateId))
+          .unwrap()
+          .then((tmpl) => {
+            dispatch(setCurrentTemplate(new TemplateModel(tmpl)));
+          })
+          .catch(() => {
+            // If fetch fails, keep current state; optionally handle error UI
+          });
+      }
+    } else {
+      // Create mode: ensure a clean slate
+      dispatch(resetCurrentTemplate());
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [templateId, selectedTemplate, dispatch]);
   const handleNext = () => {
     // Validate current step before proceeding
     const isValidState = validateCurrentStep(activeStep);
@@ -149,7 +181,7 @@ export default function TemplateCreator() {
           <ArrowBackIcon />
         </IconButton>
         <Typography variant="h6" sx={{ ml: 1 }}>
-          New Template
+          {templateId ? "Edit Template" : "New Template"}
         </Typography>
       </Box>
 

@@ -46,6 +46,28 @@ export default function ContentStep({ template, updateComponent, validateCurrent
 
   const [headerError, setHeaderError] = useState('');
 
+  // Sync local state when a template is loaded or changed (e.g., edit route)
+  useEffect(() => {
+    const hdr = template?.components?.find((c) => c.type === 'HEADER');
+    const hdrType = hdr ? hdr.format?.toLowerCase() || 'none' : 'none';
+    if (hdrType !== headerType) setHeaderType(hdrType);
+
+    const hdrText = hdr?.text || '';
+    if (hdrType === 'text' && hdrText !== headerContent) setHeaderContent(hdrText);
+
+    const hdrImg = hdr?.image?.url || '';
+    if (hdrType === 'image') {
+      if (hdrImg !== headerImageUrl) setHeaderImageUrl(hdrImg);
+      if (hdrImg && hdrImg !== previewImage) setPreviewImage(hdrImg);
+    }
+
+    const bodyText = template?.components?.find((c) => c.type === 'BODY')?.text || '';
+    if (bodyText !== bodyContent) setBodyContent(bodyText);
+
+    const footerText = template?.components?.find((c) => c.type === 'FOOTER')?.text || '';
+    if (footerText !== footerContent) setFooterContent(footerText);
+  }, [template]);
+
   const validateContent = () => {
     if (validateCurrentStep) {
       const result = validateCurrentStep();

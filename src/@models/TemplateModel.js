@@ -5,19 +5,17 @@ export default class TemplateModel {
 
     this.name = template.name || '';
     this.category = template.category || 'MARKETING';
-    this.language = template.language || 'en_US';
-
-    // Normalize components
+    this.language = template.language || 'en'; // Changed default to 'en' to match UI
     this.components = this.normalizeComponents(template.components || []);
   }
 
   /**
-   * Ensure components always have HEADER, BODY, FOOTER, BUTTONS
+   * Ensure components always have HEADER, BODY, FOOTER, BUTTONS for UI consistency
    */
   normalizeComponents(components) {
     const defaultComponents = {
-      HEADER: { type: 'HEADER', format: 'TEXT', text: '', example: {} },
-      BODY: { type: 'BODY', text: '', example: {} },
+      HEADER: { type: 'HEADER', format: 'NONE' }, // Default format NONE
+      BODY: { type: 'BODY', text: '' },
       FOOTER: { type: 'FOOTER', text: '' },
       BUTTONS: { type: 'BUTTONS', buttons: [] }
     };
@@ -25,53 +23,48 @@ export default class TemplateModel {
     // Map incoming components by type
     const compMap = {};
     components.forEach((c) => {
-      let merged = { ...defaultComponents[c.type], ...c };
-
-      // Special handling for HEADER text variables
-      if (c.type === 'HEADER' && c.format === 'TEXT' && c.text) {
-        merged.example = this.extractVariables(c.text, c.example || {});
-      }
-
-      // Special handling for BODY text variables
-      if (c.type === 'BODY' && c.text) {
-        merged.example = this.extractVariables(c.text, c.example || {});
-      }
-
-      // Special handling for BUTTONS with URL type
-      if (c.type === 'BUTTONS' && Array.isArray(c.buttons)) {
-        merged.buttons = c.buttons.map((btn) => {
-          if (btn.type === 'URL' && btn.url) {
-            btn.example = this.extractVariables(btn.url, btn.example || {});
-          }
-          return btn;
-        });
-      }
-
-      compMap[c.type] = merged;
+      compMap[c.type] = { ...c };
     });
 
-    // Always return all 4, fallback to defaults if missing
-    return Object.values(defaultComponents).map((def) =>
-      compMap[def.type] ? compMap[def.type] : def
-    );
+    // Return array with merged defaults
+    return Object.keys(defaultComponents).map(type => {
+      if (compMap[type]) {
+        return compMap[type];
+      }
+      return defaultComponents[type];
+    });
   }
 
   /**
-   * Extract variables from any string like "Hello {{name}}"
-   * Returns { name: "" } or preserves existing values
+   * Prepare data for API submission
+   * Removes empty/unused components
    */
-  extractVariables(text, existingExample = {}) {
-    const regex = /{{\s*([^}]+)\s*}}/g;
-    const variables = { ...existingExample };
-    let match;
-
-    while ((match = regex.exec(text)) !== null) {
-      const varName = match[1].trim();
-      if (!(varName in variables)) {
-        variables[varName] = '';
+  toApiPayload() {
+    const validComponents = this.components.filter(c => {
+      if (c.type === 'HEADER') {
+        return c.format && c.format !== 'NONE';
       }
-    }
+      if (c.type === 'BODY') {
+        return c.text && c.text.trim().length > 0;
+      }
+      if (c.type === 'FOOTER') {
+        return c.text && c.text.trim().length > 0;
+      }
+      if (c.type === 'BUTTONS') {
+        return c.buttons && c.buttons.length > 0;
+      }
+      return false;
+    });
 
-    return variables;
+    return {
+      name: this.name,
+      category: this.category,
+      language: this.language,
+      components: validComponents
+    };
+  }
+
+  static fromState(state) {
+    return new TemplateModel(state);
   }
 }

@@ -41,7 +41,6 @@ const SelectedFiles = () => {
       setIsLoading(true);
       const mediaMessages = await Promise.all(
         loadedFiles.map(async (f) => {
-          console.log("Uploading file:", f);
           const result = await fetchSignedUrl(f.original_name, f.mime);
           const { signedUrl, fileUrl } = result.data.data;
           await fetch(signedUrl, {
