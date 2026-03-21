@@ -15,12 +15,14 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import SendIcon from "@mui/icons-material/Send";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
-import CodeIcon from "@mui/icons-material/Code";
+import HttpIcon from "@mui/icons-material/Http";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import TableChartIcon from "@mui/icons-material/TableChart";
 import EditAttributesIcon from "@mui/icons-material/EditAttributes";
 import ChatIcon from "@mui/icons-material/Chat";
-import CircularProgress from "@mui/material/CircularProgress";
+import DescriptionIcon from "@mui/icons-material/Description";
+import SmartButtonIcon from "@mui/icons-material/SmartButton";
+import CallSplitIcon from "@mui/icons-material/CallSplit";
 
 const StyledSidebar = styled(Paper)(({ theme }) => ({
   width: 280,
@@ -432,6 +434,102 @@ const actionNodes = [
             uniqueId: "ad0855f9-c282-4bdc-970a-7be81b6170b3",
             hasTargetBlock: true,
             rules: null,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "SLEEP_DELAY",
+    label: "Sleep / Delay",
+    icon: <HourglassEmptyIcon />,
+    blockType: "SLEEP_DELAY",
+    blockName: "Sleep / Delay",
+  },
+  {
+    id: "HTTP_API_CALL",
+    label: "HTTP API Call",
+    icon: <HttpIcon />,
+    blockType: "HTTP_API_CALL",
+    blockName: "HTTP API Call",
+  },
+  {
+    id: "SEND_TEMPLATE_MESSAGE",
+    label: "Send Template Message",
+    icon: <DescriptionIcon />,
+    blockType: "SEND_TEMPLATE_MESSAGE",
+    blockName: "Send Template Message",
+  },
+  {
+    id: "SEND_BUTTON_MESSAGE",
+    label: "Send Button Message",
+    icon: <SmartButtonIcon />,
+    blockType: "SEND_BUTTON_MESSAGE",
+    blockName: "Send Button Message",
+  },
+  {
+    id: "UPDATE_ATTRIBUTE",
+    label: "Update Attribute",
+    icon: <EditAttributesIcon />,
+    blockType: "UPDATE_ATTRIBUTE",
+    blockName: "Update Attribute",
+  },
+  {
+    id: "CONDITION",
+    label: "Condition / Branch",
+    icon: <CallSplitIcon />,
+    blockType: "condition",
+    blockName: "Condition",
+    components: [
+      {
+        componentId: "condition-comp-1",
+        componentName: "Condition Settings",
+        componentIsMultiple: false,
+        componentPosition: 0,
+        componentType: "CONDITION",
+        elements: [
+          {
+            elementId: "cond-variable",
+            elementIsMandatory: true,
+            elementName: "Variable",
+            elementPosition: 0,
+            elementRules: {
+              label: "Variable to check",
+              placeholder: "e.g. {{name}}",
+            },
+            elementType: "CLEARABLE_INPUT",
+            hasChildren: false,
+          },
+          {
+            elementId: "cond-operator",
+            elementIsMandatory: true,
+            elementName: "Operator",
+            elementPosition: 1,
+            elementRules: {
+              label: "Operator",
+              align: "horizontal",
+              is_radio: true,
+              options: [
+                { label: "Equals", value: "EQUALS" },
+                { label: "Not Equals", value: "NOT_EQUALS" },
+                { label: "Contains", value: "CONTAINS" },
+                { label: "Is Empty", value: "IS_EMPTY" },
+              ],
+            },
+            elementType: "CHECKBOX",
+            hasChildren: false,
+          },
+          {
+            elementId: "cond-value",
+            elementIsMandatory: false,
+            elementName: "Value",
+            elementPosition: 2,
+            elementRules: {
+              label: "Compare value",
+              placeholder: "Enter value to compare",
+            },
+            elementType: "CLEARABLE_INPUT",
+            hasChildren: false,
           },
         ],
       },

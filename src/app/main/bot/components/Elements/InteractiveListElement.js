@@ -551,6 +551,25 @@ function InteractiveListElement({ element, value, onChange }) {
         })()}
       </Menu>
 
+      {/* Default/Fallback Handle */}
+      <Box sx={{ mt: 1, position: "relative", display: "flex", alignItems: "center", justifyContent: "flex-end", pr: 3 }}>
+        <Typography variant="caption" sx={{ color: "#94a3b8", fontWeight: 600, fontSize: 10 }}>
+          Default
+        </Typography>
+        <Handle
+          type="source"
+          position={Position.Right}
+          id="default"
+          style={{
+            background: "#94a3b8",
+            border: "2px solid #fff",
+            width: 14,
+            height: 14,
+            right: -7,
+          }}
+        />
+      </Box>
+
       {/* Menu for section options */}
       <Menu
         anchorEl={menuAnchor}
