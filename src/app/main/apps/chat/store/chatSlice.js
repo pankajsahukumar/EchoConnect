@@ -7,8 +7,7 @@ export const getChat = createAsyncThunk(
   async (chatId, { dispatch, getState }) => {
     const response = await apiClient.get(`/api/messages/${chatId}`);
 
-    const data = await response.data.data;
-
+    const data = await response.data.data.content;
     return data;
   }
 );
