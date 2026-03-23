@@ -1,7 +1,7 @@
 // eslint-disable-next-line max-classes-per-file
 import _ from '@lodash';
 import * as colors from '@mui/material/colors';
-
+import { v4 as uuidv4 } from 'uuid';
 class EventEmitter {
   constructor() {
     this.events = {};
@@ -43,6 +43,39 @@ class EventEmitter {
 }
 
 class FuseUtils {
+  static setAccessToken(token) {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('access_token', token);
+    }
+  }
+
+  static getAccessToken() {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('access_token');
+    }
+    return null;
+  }
+
+  static setRefreshToken(token) {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('refresh_token', token);
+    }
+  }
+
+  static getRefreshToken() {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('refresh_token');
+    }
+    return null;
+  }
+
+  static clearTokens() {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+    }
+  }
+
   static filterArrayByString(mainArr, searchText) {
     if (searchText === '') {
       return mainArr;
@@ -385,6 +418,10 @@ class FuseUtils {
           }
           return list;
         }, []);
+  }
+
+  static generateMessageUUID() {
+    return uuidv4();
   }
 }
 

@@ -16,6 +16,13 @@ const navigationConfig = [
     icon: 'heroicons-outline:star',
     url: 'example',
   },
+  {
+    id: 'templates',
+    title: 'Templates',
+    type: 'item',
+    icon: 'heroicons-outline:document-text',
+    url: 'apps/templates',
+  },
 ];
 
 export default navigationConfig;

@@ -1,6 +1,11 @@
 import { lazy } from 'react';
 import Chat from './chat/Chat';
 import ChatFirstScreen from './ChatFirstScreen';
+import ChatPanel from './chatComponent/ChatPanel';
+
+// Template components
+const TemplateList = lazy(() => import('./template/TemplateList'));
+const TemplateCreator = lazy(() => import('./template/TemplateCreator'));
 
 const ChatApp = lazy(() => import('./ChatApp'));
 
@@ -37,7 +42,20 @@ const ChatAppConfig = {
         },
         {
           path: ':id',
-          element: <Chat />,
+          element: <ChatPanel />,
+        },
+        // Template management routes
+        {
+          path: 'templates',
+          element: <TemplateList />,
+        },
+        {
+          path: 'templates/create',
+          element: <TemplateCreator />,
+        },
+        {
+          path: 'templates/edit/:templateId',
+          element: <TemplateCreator />,
         },
       ],
     },

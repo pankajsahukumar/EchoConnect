@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import NavLinkAdapter from '@fuse/core/NavLinkAdapter';
 import ContactAvatar from '../../ContactAvatar';
+import { useDispatch } from 'react-redux';
 
 const StyledListItem = styled(ListItem)(({ theme, active }) => ({
   '&.active': {
@@ -18,16 +19,16 @@ const StyledListItem = styled(ListItem)(({ theme, active }) => ({
 function ContactListItem(props) {
   const { chat, contact } = props;
   const routeParams = useParams();
-
   return (
     <StyledListItem
       button
       className="px-32 py-12 min-h-80"
-      active={routeParams.id === contact.id ? 1 : 0}
+      active={routeParams.id === contact.phoneNumber ? 1 : 0}
       component={NavLinkAdapter}
-      to={`/apps/chat/${contact.id}`}
+      to={`/apps/chat/${contact.phoneNumber}`}
       end
       activeClassName="active"
+      // onClick={handleChatClick} // ✅ Trigger on select
     >
       <ContactAvatar contact={contact} />
 

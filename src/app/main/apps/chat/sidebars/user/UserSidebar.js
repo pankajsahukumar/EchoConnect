@@ -59,9 +59,9 @@ function UserSidebar(props) {
         </Toolbar>
       </Box>
 
-      <div className="flex flex-col justify-center items-center py-32">
+      {/* <div className="flex flex-col justify-center items-center py-32">
         <ContactAvatar className="w-160 h-160 text-64" contact={user} />
-      </div>
+      </div> */}
 
       <form onSubmit={handleSubmit(onSubmit)} className="px-24">
         <Controller

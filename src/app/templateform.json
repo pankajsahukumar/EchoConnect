@@ -1,0 +1,61 @@
+[
+  {
+    "chatId": "7676bf39-9ef9-46e9-b869-feaa215b02be",
+    "customerId": "customer_hFtVD3k29k",
+    "chatMessageId": "c69ad561-deec-471b-aaea-cd6e4e767891",
+    "messageTimestamp": 1758211398570,
+    "message": {
+      "messageType": "template",
+      "templateMessage": {
+        "id": 1442246,
+        "variables": [
+          { "type": "text", "text": "Pankaj |--_--|" },
+          { "type": "text", "text": "919899960297" },
+          { "type": "text", "text": "Pankaj  |--_--|" }
+        ],
+        "cardVariables": []
+      }
+    },
+    "phoneNumber": "919899960297",
+    "sendViaMMLite": false
+  },
+  {
+    "chatId": "7676bf39-9ef9-46e9-b869-feaa215b02be",
+    "customerId": "customer_hFtVD3k29k",
+    "chatMessageId": "da96ce56-cd7c-4655-a099-50dc447b6156",
+    "messageTimestamp": 1758212292206,
+    "message": {
+      "messageType": "template",
+      "templateMessage": {
+        "id": 1391187,
+        "variables": [
+          { "type": "text", "text": "test" },
+          { "type": "text", "text": "test" }
+        ],
+        "cardVariables": []
+      }
+    },
+    "phoneNumber": "919899960297",
+    "sendViaMMLite": false
+  },
+  {
+    "chatId": "7676bf39-9ef9-46e9-b869-feaa215b02be",
+    "customerId": "customer_hFtVD3k29k",
+    "chatMessageId": "07cd7da5-fa4b-49df-a56c-a3bd0ac90148",
+    "messageTimestamp": 1758212470435,
+    "message": {
+      "messageType": "template",
+      "templateMessage": {
+        "id": 1391181,
+        "variables": [
+          { "type": "text", "text": "test" },
+          { "type": "text", "text": "test" }
+        ],
+        "cardVariables": []
+      }
+    },
+    "phoneNumber": "919899960297",
+    "sendViaMMLite": true
+  },
+  {"chatId":"7676bf39-9ef9-46e9-b869-feaa215b02be","customerId":"customer_hFtVD3k29k","chatMessageId":"5d97d851-86d9-4c42-97cb-2905f3e53922","messageTimestamp":1758212581657,"message":{"messageType":"template","templateMessage":{"id":1391181,"variables":[{"type":"image","link":"https://data-storage.doubletick.io/org_nVb6SOgUix/chat-messages/7676bf39-9ef9-46e9-b869-feaa215b02be/images/118704ab-b98f-4aef-aaf5-77093ba8d3f7.png"},{"type":"text","text":"test"},{"type":"text","text":"test"}],"cardVariables":[]}},"phoneNumber":"919899960297","sendViaMMLite":true}
+]

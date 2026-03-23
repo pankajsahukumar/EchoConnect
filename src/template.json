@@ -1,0 +1,1650 @@
+[
+    {
+        "name": "booking_update_confirmation_needed",
+        "id": 1442246,
+        "dateCreated": 1758102049916,
+        "dateUpdated": 1758102597063,
+        "remoteId": "1872237720365339",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Hello {{name}}, there’s an important update for your booking {{order_id}} scheduled on {{experience_date}}.\n\nReply with \"Hi\" to review and confirm the update.",
+                "type": "BODY",
+                "example": {
+                    "name": "Pankaj",
+                    "order_id": "OD2323232",
+                    "experience_date": "25th Sept 2025"
+                },
+                "wrappedLinks": []
+            }
+        ],
+        "category": "UTILITY",
+        "status": "APPROVED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_LSSTd5SOPD",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": null,
+        "timesSent": 0,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1442246
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_LSSTd5SOPD",
+            "name": "Mayank Singhania"
+        },
+        "editDetails": {
+            "editable": false,
+            "reason": "Template can be edited only after 24 hours of last edit",
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "event_reminder_support",
+        "id": 1434092,
+        "dateCreated": 1757489108101,
+        "dateUpdated": 1757489136391,
+        "remoteId": "788812813644389",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Hello {{Name}}, this is a reminder from CherishX regarding your past booking. Please let us know if you’d like our support for the upcoming occasion.",
+                "type": "BODY",
+                "example": {
+                    "Name": "Subhash"
+                },
+                "wrappedLinks": []
+            },
+            {
+                "type": "BUTTON",
+                "buttons": [
+                    {
+                        "text": "Contact Us",
+                        "type": "PHONE_NUMBER",
+                        "phoneNumber": "+918060679679"
+                    }
+                ]
+            }
+        ],
+        "category": "MARKETING",
+        "status": "APPROVED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_LSSTd5SOPD",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": "2025-09-10T16:54:14.000Z",
+        "timesSent": 1,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "2025-09-10T07:25:11.328Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1434092
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_LSSTd5SOPD",
+            "name": "Mayank Singhania"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "support_unreachable_alert_v2",
+        "id": 1434081,
+        "dateCreated": 1757488468778,
+        "dateUpdated": 1757488491881,
+        "remoteId": "687235634390961",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Dear {{Name}}, \n\nWe tried reaching you regarding your recent request with CherishX but couldn’t get through. Please reply to this message or call us at 8010679679 so we can assist you further.",
+                "type": "BODY",
+                "example": {
+                    "Name": "Subhash"
+                },
+                "wrappedLinks": []
+            },
+            {
+                "type": "BUTTON",
+                "buttons": [
+                    {
+                        "text": "Contact Us",
+                        "type": "PHONE_NUMBER",
+                        "phoneNumber": "+918010679679"
+                    }
+                ]
+            }
+        ],
+        "category": "UTILITY",
+        "status": "APPROVED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_LSSTd5SOPD",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": "2025-09-16T05:04:47.000Z",
+        "timesSent": 2,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1434081
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_LSSTd5SOPD",
+            "name": "Mayank Singhania"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "past_year",
+        "id": 1430789,
+        "dateCreated": 1757313146277,
+        "dateUpdated": 1757313168376,
+        "remoteId": "2218252258673523",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "*Greetings from CherishX,*\nWe hope this message finds you well. \nLast year, we had the pleasure of being part of your celebration, and it was truly a delightful experience for us. \nWith your special occasion coming up again, we’d love to know if you’re planning to celebrate with us this year as well.\n\nLooking forward to hearing from you!",
+                "type": "BODY",
+                "wrappedLinks": []
+            }
+        ],
+        "category": "MARKETING",
+        "status": "APPROVED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_I971KCfTpi",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": "2025-09-17T07:23:31.000Z",
+        "timesSent": 2,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1430789
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_I971KCfTpi",
+            "name": "Subhash Mandal"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "utility_account_update_test",
+        "id": 1421638,
+        "dateCreated": 1756280102071,
+        "dateUpdated": 1756280128015,
+        "remoteId": "1404091327556477",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Hello {{1}}, \n\nYour account with ID {{2}} has been successfully updated.  \nHere are the details:  \n- Plan: {{3}}  \n- Expiry Date: {{4}}  \n- Experience :{{experience_name}}\nIf you did not make this change, please contact our support immediately.  \nThank you for using our services!",
+                "type": "BODY",
+                "example": {
+                    "1": "Pankaj",
+                    "2": "123456",
+                    "3": "Premium",
+                    "4": "31-Aug-2025",
+                    "experience_name": "Test"
+                },
+                "wrappedLinks": []
+            }
+        ],
+        "category": "MARKETING",
+        "status": "APPROVED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_LSSTd5SOPD",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": "2025-08-27T09:16:06.000Z",
+        "timesSent": 6,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "2025-08-27T07:35:08.915Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1421638
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_LSSTd5SOPD",
+            "name": "Mayank Singhania"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "testing_template_v3",
+        "id": 1421609,
+        "dateCreated": 1756278953683,
+        "dateUpdated": 1756278957906,
+        "remoteId": "2183886055466833",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Testing Template for order id {{order_id}}",
+                "type": "BODY",
+                "example": {
+                    "order_id": "OD232323"
+                },
+                "wrappedLinks": []
+            },
+            {
+                "type": "BUTTON",
+                "buttons": [
+                    {
+                        "text": "SLOT 9 TO 8",
+                        "type": "QUICK_REPLY"
+                    },
+                    {
+                        "text": "SLOT 7 TO 10",
+                        "type": "QUICK_REPLY"
+                    }
+                ]
+            }
+        ],
+        "category": "MARKETING",
+        "status": "REJECTED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": "INVALID_FORMAT",
+        "createdBy": "user_LSSTd5SOPD",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": null,
+        "timesSent": 0,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1421609
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_LSSTd5SOPD",
+            "name": "Mayank Singhania"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "testing_template_v2",
+        "id": 1421603,
+        "dateCreated": 1756278719156,
+        "dateUpdated": 1756278722941,
+        "remoteId": "702906396124364",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Choose you material pickup time slot for order{{order_id}} ",
+                "type": "BODY",
+                "example": {
+                    "order_id": "OD333434"
+                },
+                "wrappedLinks": []
+            },
+            {
+                "type": "BUTTON",
+                "buttons": [
+                    {
+                        "text": "9AM To 10AM",
+                        "type": "QUICK_REPLY"
+                    },
+                    {
+                        "text": "10AM to 11 PM",
+                        "type": "QUICK_REPLY"
+                    }
+                ]
+            }
+        ],
+        "category": "MARKETING",
+        "status": "REJECTED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": "INVALID_FORMAT",
+        "createdBy": "user_LSSTd5SOPD",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": null,
+        "timesSent": 0,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1421603
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_LSSTd5SOPD",
+            "name": "Mayank Singhania"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "happy_state",
+        "id": 1412065,
+        "dateCreated": 1755551057007,
+        "dateUpdated": 1755551057007,
+        "remoteId": "2222412461513564",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Hi {{name}}, happy code for your booking is {{happy_code}}. Pls share with the partner if you are happy with your experience.",
+                "type": "BODY",
+                "example": {
+                    "name": "Mayank",
+                    "happy_code": "Bags"
+                }
+            },
+            {
+                "text": "CherishX",
+                "type": "FOOTER"
+            }
+        ],
+        "category": "UTILITY",
+        "status": "APPROVED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_LSSTd5SOPD",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": "2025-09-04T17:35:31.000Z",
+        "timesSent": 3,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1412065
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_LSSTd5SOPD",
+            "name": "Mayank Singhania"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "partner_start_state",
+        "id": 1412064,
+        "dateCreated": 1755551057006,
+        "dateUpdated": 1755551057006,
+        "remoteId": "2163674350818374",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Hi {{name}}, experience start code for your booking is {{happy_code}}. Pls share with the partner to start your experience.",
+                "type": "BODY",
+                "example": {
+                    "name": "Mayank",
+                    "happy_code": "kjfsd"
+                }
+            },
+            {
+                "text": "CherishX",
+                "type": "FOOTER"
+            }
+        ],
+        "category": "UTILITY",
+        "status": "REJECTED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_LSSTd5SOPD",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": null,
+        "timesSent": 0,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1412064
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_LSSTd5SOPD",
+            "name": "Mayank Singhania"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "vendor_start_token",
+        "id": 1410611,
+        "dateCreated": 1755514584622,
+        "dateUpdated": 1755514584622,
+        "remoteId": "750786331178712",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Dear {{name}}, your booking start token is {{token}}. Please share this with our Partner to begin your service.",
+                "type": "BODY",
+                "example": {
+                    "name": "Mayank",
+                    "token": "1239"
+                }
+            },
+            {
+                "text": "CherishX",
+                "type": "FOOTER"
+            }
+        ],
+        "category": "UTILITY",
+        "status": "REJECTED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_LSSTd5SOPD",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": null,
+        "timesSent": 0,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1410611
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_LSSTd5SOPD",
+            "name": "Mayank Singhania"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "dining_follow_up",
+        "id": 1410042,
+        "dateCreated": 1755505586304,
+        "dateUpdated": 1755508016908,
+        "remoteId": "24157549173916334",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Hi 👋 Hope you’re doing well! We were chatting earlier about the dining for your upcoming event, and I just wanted to check in — are we still on track to make it magical together, or have you already gone with another plan? Either way, I’d love to hear from you so we can plan ahead. 🎈✨",
+                "type": "BODY",
+                "wrappedLinks": []
+            },
+            {
+                "text": "Team CherishX.",
+                "type": "FOOTER"
+            }
+        ],
+        "category": "MARKETING",
+        "status": "APPROVED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_I971KCfTpi",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": "2025-09-02T09:49:24.000Z",
+        "timesSent": 2,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1410042
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_I971KCfTpi",
+            "name": "Subhash Mandal"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "follow_up",
+        "id": 1404908,
+        "dateCreated": 1754919138049,
+        "dateUpdated": 1754919150912,
+        "remoteId": "2447017285673431",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Hi 👋 Hope you’re doing well! We were chatting earlier about the décor for your upcoming event, and I just wanted to check in — are we still on track to make it magical together, or have you already gone with another plan? Either way, I’d love to hear from you so we can plan ahead. 🎈✨",
+                "type": "BODY",
+                "wrappedLinks": []
+            },
+            {
+                "text": "Team CherishX",
+                "type": "FOOTER"
+            }
+        ],
+        "category": "MARKETING",
+        "status": "APPROVED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_I971KCfTpi",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": "2025-09-02T09:56:30.000Z",
+        "timesSent": 61,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1404908
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_I971KCfTpi",
+            "name": "Subhash Mandal"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "sales_team_missed_call_v2",
+        "id": 1391781,
+        "dateCreated": 1754399012580,
+        "dateUpdated": 1754399058143,
+        "remoteId": "1273406291194679",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Dear {{Name}}, Hi, I recently tried reaching out regarding your request but couldn’t get through. If you have any questions or need help, feel free to reply or call us at 8010679679. We’d love to assist you. Thanks for considering us!",
+                "type": "BODY",
+                "example": {
+                    "Name": "Ichchit"
+                },
+                "wrappedLinks": []
+            },
+            {
+                "text": "Team CherishX",
+                "type": "FOOTER"
+            }
+        ],
+        "category": "MARKETING",
+        "status": "APPROVED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_I971KCfTpi",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": "2025-09-14T15:52:59.000Z",
+        "timesSent": 67,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1391781
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_I971KCfTpi",
+            "name": "Subhash Mandal"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "sales_team_missed_call",
+        "id": 1391743,
+        "dateCreated": 1754398266727,
+        "dateUpdated": 1754398286814,
+        "remoteId": "4162918877364917",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Dear {{Name}}, I recently tried to reach you in response to your request to connect with the team. However, I wasn't able to get through to you. If you still have any queries or doubts about our products and services, please reply to this message or call us back at 8010679679. We'd be happy to answer any questions and help you with your purchase. Thank you for considering us. We value your business and look forward to speaking with you soon.",
+                "type": "BODY",
+                "example": {
+                    "Name": "Subhash"
+                },
+                "wrappedLinks": []
+            },
+            {
+                "text": "Team CherishX",
+                "type": "FOOTER"
+            }
+        ],
+        "category": "MARKETING",
+        "status": "APPROVED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_I971KCfTpi",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": "2025-09-05T10:43:38.000Z",
+        "timesSent": 4,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1391743
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_I971KCfTpi",
+            "name": "Subhash Mandal"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "review_template_auto_v3",
+        "id": 1391288,
+        "dateCreated": 1754379482640,
+        "dateUpdated": 1754379499679,
+        "remoteId": "1293412468288015",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Tell us about your experience",
+                "type": "HEADER",
+                "format": "TEXT"
+            },
+            {
+                "text": "Hi {{name}},\n\nWe hope everything went well with your recent CherishX experience.\n\nTo help us improve, we’d appreciate it if you could take a moment to share your feedback.\n\nJust click the button below to leave a quick review.\n\nThank you for your time and support.",
+                "type": "BODY",
+                "example": {
+                    "name": "Mayank"
+                },
+                "wrappedLinks": []
+            },
+            {
+                "type": "BUTTON",
+                "buttons": [
+                    {
+                        "url": "https://cherishx.com/feedback?oid={{order_id}}",
+                        "text": "Review",
+                        "type": "URL",
+                        "example": "OD27321873",
+                        "wrapUrl": false
+                    }
+                ]
+            }
+        ],
+        "category": "UTILITY",
+        "status": "APPROVED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_LSSTd5SOPD",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": "2025-09-17T06:03:34.000Z",
+        "timesSent": 6304,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1391288
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_LSSTd5SOPD",
+            "name": "Mayank Singhania"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "review_template_auto",
+        "id": 1391202,
+        "dateCreated": 1754376369165,
+        "dateUpdated": 1754376395950,
+        "remoteId": "1420547382396617",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Tell us about your experience",
+                "type": "HEADER",
+                "format": "TEXT"
+            },
+            {
+                "text": "Hi {{name}},\nThanks a lot for choosing CherishX! We hope that we were able to create a memorable experience for you.\nPlease take a moment to provide us with some helpful feedback—it’ll only take a few minutes.\n\nKindly click on Review button below:",
+                "type": "BODY",
+                "example": {
+                    "name": "Mayank"
+                },
+                "wrappedLinks": []
+            },
+            {
+                "text": "Keep CherishX-ing!",
+                "type": "FOOTER"
+            },
+            {
+                "type": "BUTTON",
+                "buttons": [
+                    {
+                        "url": "https://cherishx.com/feedback?oid={{order_id}}",
+                        "text": "Review",
+                        "type": "URL",
+                        "example": "OD27321873",
+                        "wrapUrl": false
+                    }
+                ]
+            }
+        ],
+        "category": "MARKETING",
+        "status": "APPROVED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_LSSTd5SOPD",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": "2025-08-08T14:34:36.000Z",
+        "timesSent": 4,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "2025-08-05T06:46:13.073Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1391202
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_LSSTd5SOPD",
+            "name": "Mayank Singhania"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "experience_reminder",
+        "id": 1391198,
+        "dateCreated": 1754376236101,
+        "dateUpdated": 1754376264055,
+        "remoteId": "1138371274806654",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Reminder for your upcoming booking",
+                "type": "HEADER",
+                "format": "TEXT"
+            },
+            {
+                "text": "Hey!\n\nJust a gentle reminder for your today's booking with us. So what's next?\n\n💆‍♀️ We don't like to Disturb! Your booking is confirmed. Sit back & relax while we prepare your experience. We will only call you if we need some details. Your booking will be completed within the time slot selected by you while booking.\n\n👨‍🔧 You can check your host / decorator details from the link below.\n\n📋 Make sure that, we have all your details with us. Check if you have filled all the post-booking details like Delivery Address, Custom Photographs, Personalised Message etc (if any) ? If you haven’t, please select the Bookings section from the menu on the App or Website and update the details!\n\n🤙 Happy to Help anytime! You can call us on +91-8081833833 for any help regarding your booking.",
+                "type": "BODY",
+                "wrappedLinks": []
+            },
+            {
+                "text": "Keep CherishX-ing!",
+                "type": "FOOTER"
+            },
+            {
+                "type": "BUTTON",
+                "buttons": [
+                    {
+                        "url": "https://cherishx.com/track_order/{{order_id}}",
+                        "text": "Track your Booking",
+                        "type": "URL",
+                        "example": "OD12893123621983",
+                        "wrapUrl": false
+                    }
+                ]
+            }
+        ],
+        "category": "UTILITY",
+        "status": "APPROVED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_LSSTd5SOPD",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": "2025-09-17T10:00:48.000Z",
+        "timesSent": 5377,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1391198
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_LSSTd5SOPD",
+            "name": "Mayank Singhania"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "cutomer_booking_confirmation",
+        "id": 1391194,
+        "dateCreated": 1754376110911,
+        "dateUpdated": 1754376135001,
+        "remoteId": "2228501770946269",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "text": "Your Booking is Confirmed!",
+                "type": "HEADER",
+                "format": "TEXT"
+            },
+            {
+                "text": "You are all set to cherish your {{experience_name}} experience. We will only call you if we need some details. Your host/decorator details will be provided through email/whatsapp 3-12 hours before the booking.\n\nTo manage and track your booking status you can use the link below. Also make sure we have all your details such as address, photos & other relevant information in case of personalised bookings.",
+                "type": "BODY",
+                "example": {
+                    "experience_name": "Balloon Surprise"
+                },
+                "wrappedLinks": []
+            },
+            {
+                "text": "Keep CherishX-ing!",
+                "type": "FOOTER"
+            },
+            {
+                "type": "BUTTON",
+                "buttons": [
+                    {
+                        "url": "https://cherishx.com/track_order/{{order_id}}",
+                        "text": "Manage Booking",
+                        "type": "URL",
+                        "example": "OD12896312963",
+                        "wrapUrl": false
+                    }
+                ]
+            }
+        ],
+        "category": "UTILITY",
+        "status": "APPROVED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_LSSTd5SOPD",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": "2025-09-17T17:07:29.000Z",
+        "timesSent": 6528,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1391194
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_LSSTd5SOPD",
+            "name": "Mayank Singhania"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "new_addon_upgrade",
+        "id": 1391191,
+        "dateCreated": 1754376015964,
+        "dateUpdated": 1754376039149,
+        "remoteId": "1681506705894493",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "type": "HEADER",
+                "format": "VIDEO",
+                "example": {
+                    "link": "https://quickscale-template-media.s3.ap-south-1.amazonaws.com/org_nVb6SOgUix/bfd378e8-0a8a-4a33-b087-31cf86039b9c.mp4",
+                    "fileName": "Vertical_Version-291d8f03-1b78-4874-b537-a017755c17a0 (1).m4v"
+                }
+            },
+            {
+                "text": "Dear {{name}},\n\nYou are one step away from enjoying the awesome {{experience_name}} experience.\n\nAt CherishX we love to personalise the experience to your taste. For achieving this we have a lot of interesting and unique customisations as add-ons to turbo charge your experience!\n\nCheck and book any customisation to curate your experience for your loved one(s). 🥳🥳\n",
+                "type": "BODY",
+                "example": {
+                    "name": "Customer",
+                    "experience_name": "Balloon Surprise"
+                },
+                "wrappedLinks": []
+            },
+            {
+                "text": "Keep CherishX-ing!",
+                "type": "FOOTER"
+            },
+            {
+                "type": "BUTTON",
+                "buttons": [
+                    {
+                        "url": "https://cherishx.com/track_order/{{order_id}}",
+                        "text": "Upgrade it",
+                        "type": "URL",
+                        "example": "OD16529761225532",
+                        "wrapUrl": false
+                    }
+                ]
+            }
+        ],
+        "category": "MARKETING",
+        "status": "APPROVED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_LSSTd5SOPD",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": "2025-09-17T17:00:39.000Z",
+        "timesSent": 6373,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1391191
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_LSSTd5SOPD",
+            "name": "Mayank Singhania"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+    {
+        "name": "automated_rental_agreement",
+        "id": 1391187,
+        "dateCreated": 1754375852744,
+        "dateUpdated": 1754375887132,
+        "remoteId": "2443118386056617",
+        "integrationId": "intg_twv2cWtAQl",
+        "language": "en",
+        "components": [
+            {
+                "type": "HEADER",
+                "format": "DOCUMENT",
+                "example": {
+                    "link": "https://quickscale-template-media.s3.ap-south-1.amazonaws.com/org_nVb6SOgUix/912ac5ce-6f97-4ec3-b449-17ed9cd68091.pdf",
+                    "fileName": "GHzh3WeN_ggm_CLgqQInxrrt5q7O_akWUn8hOR6tTyRental_Agreement_Material-9020a728-6345-4732-8045-73e29cb4c983.pdf"
+                },
+                "thumbnailUrl": "https://quickscale-template-media.s3.ap-south-1.amazonaws.com/org_nVb6SOgUix/thumbnails/912ac5ce-6f97-4ec3-b449-17ed9cd68091.jpg"
+            },
+            {
+                "text": "Dear {{name}},\n\nCongratulations on your booking {{experience_name}}! 🎊\n\nRemember, please return the rented material in the same condition as received, within the agreed time frame. ⏰\n\nAttached is the Rental Agreement for your reference. It is considered auto-approved.\n\nFeel free to reach out if you have any questions. We're here to help!\n\nThank you.",
+                "type": "BODY",
+                "example": {
+                    "name": "Customer",
+                    "experience_name": "Experience"
+                },
+                "wrappedLinks": []
+            },
+            {
+                "text": "Keep CherishX-ing!",
+                "type": "FOOTER"
+            }
+        ],
+        "category": "UTILITY",
+        "status": "APPROVED",
+        "type": "CUSTOM",
+        "dateDeleted": null,
+        "rejectedReason": null,
+        "createdBy": "user_LSSTd5SOPD",
+        "allowCategoryUpdate": true,
+        "messageLineCount": null,
+        "lastUsedAt": "2025-09-17T17:00:40.000Z",
+        "timesSent": 60,
+        "quality": "Active - Quality pending",
+        "oldCategory": null,
+        "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+        "businessName": "CherishX.com",
+        "wabaName": "Double Tick 8010679679",
+        "phoneName": "CherishX.com",
+        "templateIntegrationMap": {
+            "intg_twv2cWtAQl": 1391187
+        },
+        "languageName": "English",
+        "integrationName": "CherishX.com",
+        "createdByUser": {
+            "id": "user_LSSTd5SOPD",
+            "name": "Mayank Singhania"
+        },
+        "editDetails": {
+            "editable": true,
+            "bots": [],
+            "groups": [],
+            "chats": []
+        }
+    },
+        {
+            "name": "photo_upload_alert",
+            "id": 1391186,
+            "dateCreated": 1754375701782,
+            "dateUpdated": 1754376681150,
+            "remoteId": "1789472208614210",
+            "integrationId": "intg_twv2cWtAQl",
+            "language": "en",
+            "components": [
+                {
+                    "text": "{{subject}}",
+                    "type": "HEADER",
+                    "format": "TEXT",
+                    "example": {
+                        "subject": "Upload pictures for your booking"
+                    }
+                },
+                {
+                    "text": "Hi {{name}}\n\nCongratulations on booking a great surprise for your loved one.\n\nWe need your help to make this surprise more personalised. Please share {{photo_count}} nice photograph(s). We will print these for you, and CherishX designer will use these photos to create a pleasant surprise for you.\n\nChoose photos which you think convey a meaning to your loved one and will add to the experience.\n \nKindly upload your photos via this google drive link: {{google_drive_link}}",
+                    "type": "BODY",
+                    "example": {
+                        "name": "Mayank",
+                        "photo_count": "10",
+                        "google_drive_link": "https://drive.google.com/open?id=1N-BC-fg3D6cQdHUuJmwAMO44RCsMhTZ"
+                    },
+                    "wrappedLinks": []
+                },
+                {
+                    "text": "Keep CherishX-ing!",
+                    "type": "FOOTER"
+                }
+            ],
+            "category": "UTILITY",
+            "status": "APPROVED",
+            "type": "CUSTOM",
+            "dateDeleted": null,
+            "rejectedReason": null,
+            "createdBy": "user_LSSTd5SOPD",
+            "allowCategoryUpdate": true,
+            "messageLineCount": null,
+            "lastUsedAt": "2025-09-17T08:33:52.000Z",
+            "timesSent": 367,
+            "quality": "Active - Quality pending",
+            "oldCategory": null,
+            "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+            "businessName": "CherishX.com",
+            "wabaName": "Double Tick 8010679679",
+            "phoneName": "CherishX.com",
+            "templateIntegrationMap": {
+                "intg_twv2cWtAQl": 1391186
+            },
+            "languageName": "English",
+            "integrationName": "CherishX.com",
+            "createdByUser": {
+                "id": "user_LSSTd5SOPD",
+                "name": "Mayank Singhania"
+            },
+            "editDetails": {
+                "editable": true,
+                "bots": [],
+                "groups": [],
+                "chats": []
+            }
+        },
+        {
+            "name": "automated_last_year_customer_03",
+            "id": 1391181,
+            "dateCreated": 1754375596682,
+            "dateUpdated": 1754376705148,
+            "remoteId": "1454177259235863",
+            "integrationId": "intg_twv2cWtAQl",
+            "language": "en",
+            "components": [
+                {
+                    "type": "HEADER",
+                    "format": "IMAGE",
+                    "example": {
+                        "link": "https://quickscale-template-media.s3.ap-south-1.amazonaws.com/org_nVb6SOgUix/7b677a8b-87e4-4c0b-8b4f-c3bc5daea8c7.jpeg",
+                        "fileName": "Banner-221a230f-1a21-41ce-8e85-c201d787de4a (1).jpg"
+                    }
+                },
+                {
+                    "text": "Hello {{name}}! It’s {{agent}} from CherishX.\n\nTime flies, and it's been a year since we had the joy of organizing your loved one's celebration. We hope life has treated you well since then! 🌟💞 \n\nGuess what? We've been busy curating exciting new themes and packages that we can't wait for you to explore. As a token of our gratitude for your loyalty, we're thrilled to offer you an exclusive 10% discount on your next booking! Simply use the code LOYAL10 at checkout.🎁\n\n*Our New Categories -*\nPremium Decors - https://cherishx.com/experiences/delhi-ncr/premium-decors\n\n*Get more with CherishX now*\nReturn Gifts\nBanquet Decorations\nHaldi & Mehndi Setups\nTenting on Rent\nGames and Coordinators",
+                    "type": "BODY",
+                    "example": {
+                        "name": "❤️",
+                        "agent": "Subhash"
+                    },
+                    "wrappedLinks": []
+                },
+                {
+                    "text": "Reply \"STOP\" to Unsubscribe",
+                    "type": "FOOTER"
+                },
+                {
+                    "type": "BUTTON",
+                    "buttons": [
+                        {
+                            "url": "https://cherishx.com?utm_source=whatsapp&utm_medium=past_year_customers_march_2023",
+                            "text": "Visit CherishX.com",
+                            "type": "URL",
+                            "wrapUrl": false
+                        },
+                        {
+                            "text": "Call Coordinator",
+                            "type": "PHONE_NUMBER",
+                            "phoneNumber": "+918010679679"
+                        },
+                        {
+                            "text": "Call Coordinator",
+                            "type": "PHONE_NUMBER",
+                            "phoneNumber": "+918010679679"
+                        },
+                        {
+                            "text": "Call Coordinator",
+                            "type": "PHONE_NUMBER",
+                            "phoneNumber": "+918010679679"
+                        },
+                        {
+                            "text": "Call Coordinator",
+                            "type": "PHONE_NUMBER",
+                            "phoneNumber": "+918010679679"
+                        },
+                        {
+                            "text": "Call Coordinator",
+                            "type": "PHONE_NUMBER",
+                            "phoneNumber": "+918010679679"
+                        },
+                        {
+                            "text": "Call Coordinator",
+                            "type": "PHONE_NUMBER",
+                            "phoneNumber": "+918010679679"
+                        },
+                        {
+                            "text": "Call Coordinator",
+                            "type": "PHONE_NUMBER",
+                            "phoneNumber": "+918010679679"
+                        },
+                        {
+                            "text": "Call Coordinator",
+                            "type": "PHONE_NUMBER",
+                            "phoneNumber": "+918010679679"
+                        }
+                    ]
+                }
+            ],
+            "category": "MARKETING",
+            "status": "APPROVED",
+            "type": "CUSTOM",
+            "dateDeleted": null,
+            "rejectedReason": null,
+            "createdBy": "user_LSSTd5SOPD",
+            "allowCategoryUpdate": true,
+            "messageLineCount": null,
+            "lastUsedAt": "2025-09-17T08:08:47.000Z",
+            "timesSent": 22244,
+            "quality": "Active - Quality pending",
+            "oldCategory": null,
+            "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+            "businessName": "CherishX.com",
+            "wabaName": "Double Tick 8010679679",
+            "phoneName": "CherishX.com",
+            "templateIntegrationMap": {
+                "intg_twv2cWtAQl": 1391181
+            },
+            "languageName": "English",
+            "integrationName": "CherishX.com",
+            "createdByUser": {
+                "id": "user_LSSTd5SOPD",
+                "name": "Mayank Singhania"
+            },
+            "editDetails": {
+                "editable": true,
+                "bots": [],
+                "groups": [],
+                "chats": []
+            }
+        },
+        {
+            "name": "automated_offline_confirmation",
+            "id": 1391174,
+            "dateCreated": 1754375351975,
+            "dateUpdated": 1754375369292,
+            "remoteId": "756958833545066",
+            "integrationId": "intg_twv2cWtAQl",
+            "language": "en",
+            "components": [
+                {
+                    "text": "Your Booking needs attention!",
+                    "type": "HEADER",
+                    "format": "TEXT"
+                },
+                {
+                    "text": "Congratulations on your booking! 🎉 Please take a moment to review the details of your booking using the link provided below. It's important to verify your date, time slot, and address for accuracy. If you happen to notice any discrepancies, kindly notify us immediately so we can rectify them.\n\nIf everything appears correct, simply click the *'Confirm'* button on the track order page to confirm your booking details. We're here to assist you, and if you wish to make any changes on your own, please inform us in advance so that we can ensure your booking is executed according to your expectations.\n\nYour satisfaction is our priority, and we're dedicated to making your experience smooth and enjoyable. Thank you for choosing us!",
+                    "type": "BODY",
+                    "wrappedLinks": []
+                },
+                {
+                    "text": "Keep CherishX-ing!",
+                    "type": "FOOTER"
+                },
+                {
+                    "type": "BUTTON",
+                    "buttons": [
+                        {
+                            "url": "https://cherishx.com/track_order/{{order_id}}",
+                            "text": "Check Booking info!",
+                            "type": "URL",
+                            "example": "OD12896312963",
+                            "wrapUrl": false
+                        }
+                    ]
+                }
+            ],
+            "category": "UTILITY",
+            "status": "APPROVED",
+            "type": "CUSTOM",
+            "dateDeleted": null,
+            "rejectedReason": null,
+            "createdBy": "user_LSSTd5SOPD",
+            "allowCategoryUpdate": true,
+            "messageLineCount": null,
+            "lastUsedAt": "2025-09-17T17:00:37.000Z",
+            "timesSent": 410,
+            "quality": "Active - Quality pending",
+            "oldCategory": null,
+            "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+            "businessName": "CherishX.com",
+            "wabaName": "Double Tick 8010679679",
+            "phoneName": "CherishX.com",
+            "templateIntegrationMap": {
+                "intg_twv2cWtAQl": 1391174
+            },
+            "languageName": "English",
+            "integrationName": "CherishX.com",
+            "createdByUser": {
+                "id": "user_LSSTd5SOPD",
+                "name": "Mayank Singhania"
+            },
+            "editDetails": {
+                "editable": true,
+                "bots": [],
+                "groups": [],
+                "chats": []
+            }
+        },
+        {
+            "name": "missing_questions_notification",
+            "id": 1391173,
+            "dateCreated": 1754375259305,
+            "dateUpdated": 1754375285679,
+            "remoteId": "2011071969629765",
+            "integrationId": "intg_twv2cWtAQl",
+            "language": "en",
+            "components": [
+                {
+                    "text": "Missing Details for your order.",
+                    "type": "HEADER",
+                    "format": "TEXT"
+                },
+                {
+                    "text": "Hi {{name}}, You forgot to fill the order details for {{order_visible_id}}. Click the link below to update the same. Some mandatory details are required to be filled timely in order to ensure smooth execution of your booking. Please make sure to provide them, otherwise your experience may got delayed. Kindly reply on the same chat if you face any issues. \nKindly ignore the message if already done.\n\nTeam CherishX",
+                    "type": "BODY",
+                    "example": {
+                        "name": "Mayank",
+                        "order_visible_id": "OD91237912370"
+                    },
+                    "wrappedLinks": []
+                },
+                {
+                    "type": "BUTTON",
+                    "buttons": [
+                        {
+                            "url": "https://cherishx.com/track_order/{{order_visible_id}}",
+                            "text": "Track Order",
+                            "type": "URL",
+                            "example": "OD91237912370",
+                            "wrapUrl": false
+                        }
+                    ]
+                }
+            ],
+            "category": "UTILITY",
+            "status": "APPROVED",
+            "type": "CUSTOM",
+            "dateDeleted": null,
+            "rejectedReason": null,
+            "createdBy": "user_LSSTd5SOPD",
+            "allowCategoryUpdate": true,
+            "messageLineCount": null,
+            "lastUsedAt": "2025-09-17T14:00:38.000Z",
+            "timesSent": 169,
+            "quality": "Active - Quality pending",
+            "oldCategory": null,
+            "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+            "businessName": "CherishX.com",
+            "wabaName": "Double Tick 8010679679",
+            "phoneName": "CherishX.com",
+            "templateIntegrationMap": {
+                "intg_twv2cWtAQl": 1391173
+            },
+            "languageName": "English",
+            "integrationName": "CherishX.com",
+            "createdByUser": {
+                "id": "user_LSSTd5SOPD",
+                "name": "Mayank Singhania"
+            },
+            "editDetails": {
+                "editable": true,
+                "bots": [],
+                "groups": [],
+                "chats": []
+            }
+        },
+        {
+            "name": "abandoned_cart",
+            "id": 1391171,
+            "dateCreated": 1754375106033,
+            "dateUpdated": 1754375133651,
+            "remoteId": "1292542199127698",
+            "integrationId": "intg_twv2cWtAQl",
+            "language": "en",
+            "components": [
+                {
+                    "type": "HEADER",
+                    "format": "IMAGE",
+                    "example": {
+                        "link": "https://quickscale-template-media.s3.ap-south-1.amazonaws.com/org_nVb6SOgUix/b2815553-403b-4da2-901f-4cce5b133a56.jpeg",
+                        "fileName": "1608752878_large.jpg"
+                    }
+                },
+                {
+                    "text": "Hi {{1}},\n\nIt seems you are interested in {{2}} but haven't completed your order yet.\nClick on the \"Complete Purchase\" button to process your payment and confirm your order. {{3}}",
+                    "type": "BODY",
+                    "example": {
+                        "1": "Mayank Singhania",
+                        "2": "Balloon Surprise",
+                        "3": "Checkout"
+                    },
+                    "wrappedLinks": []
+                },
+                {
+                    "text": "Keep CherishX-ing!",
+                    "type": "FOOTER"
+                },
+                {
+                    "type": "BUTTON",
+                    "buttons": [
+                        {
+                            "url": "https://cherishx.com/checkout/{{4}}",
+                            "text": "Complete Purchase",
+                            "type": "URL",
+                            "example": "9ea3cdee-3ec6-4065-aad4-61f9f6775321?utm_source=checkout&utm_medium=whatsapp",
+                            "wrapUrl": false
+                        },
+                        {
+                            "text": "Need Help?",
+                            "type": "PHONE_NUMBER",
+                            "phoneNumber": "+918010679679"
+                        }
+                    ]
+                }
+            ],
+            "category": "MARKETING",
+            "status": "APPROVED",
+            "type": "CUSTOM",
+            "dateDeleted": null,
+            "rejectedReason": null,
+            "createdBy": "user_LSSTd5SOPD",
+            "allowCategoryUpdate": true,
+            "messageLineCount": null,
+            "lastUsedAt": "2025-09-17T14:00:28.000Z",
+            "timesSent": 446,
+            "quality": "Active - Quality pending",
+            "oldCategory": null,
+            "categoryUpdatedAt": "2025-08-05T06:25:10.377Z",
+            "businessName": "CherishX.com",
+            "wabaName": "Double Tick 8010679679",
+            "phoneName": "CherishX.com",
+            "templateIntegrationMap": {
+                "intg_twv2cWtAQl": 1391171
+            },
+            "languageName": "English",
+            "integrationName": "CherishX.com",
+            "createdByUser": {
+                "id": "user_LSSTd5SOPD",
+                "name": "Mayank Singhania"
+            },
+            "editDetails": {
+                "editable": true,
+                "bots": [],
+                "groups": [],
+                "chats": []
+            }
+        },
+        {
+            "name": "login_otp_v4",
+            "id": 1391123,
+            "dateCreated": 1754372007969,
+            "dateUpdated": 1754372012043,
+            "remoteId": "1821534735431861",
+            "integrationId": "intg_twv2cWtAQl",
+            "language": "en",
+            "components": [
+                {
+                    "text": "*{{1}}* is your verification code.\nFor your security, do not share this code.",
+                    "type": "BODY",
+                    "example": {
+                        "1": "123456"
+                    },
+                    "add_security_recommendation": true
+                },
+                {
+                    "text": "This code will expire in 5 minutes.",
+                    "type": "FOOTER",
+                    "code_expiration_minutes": 5
+                },
+                {
+                    "type": "BUTTON",
+                    "buttons": [
+                        {
+                            "type": "OTP",
+                            "otp_type": "COPY_CODE",
+                            "text": "Copy Code"
+                        }
+                    ]
+                }
+            ],
+            "category": "AUTHENTICATION",
+            "status": "APPROVED",
+            "type": "CUSTOM",
+            "dateDeleted": null,
+            "rejectedReason": null,
+            "createdBy": "user_LSSTd5SOPD",
+            "allowCategoryUpdate": true,
+            "messageLineCount": null,
+            "lastUsedAt": "2025-09-17T17:32:08.000Z",
+            "timesSent": 9973,
+            "quality": "Active - Quality pending",
+            "oldCategory": null,
+            "categoryUpdatedAt": "1970-01-01T00:00:00.000Z",
+            "businessName": "CherishX.com",
+            "wabaName": "Double Tick 8010679679",
+            "phoneName": "CherishX.com",
+            "templateIntegrationMap": {
+                "intg_twv2cWtAQl": 1391123
+            },
+            "languageName": "English",
+            "integrationName": "CherishX.com",
+            "createdByUser": {
+                "id": "user_LSSTd5SOPD",
+                "name": "Mayank Singhania"
+            },
+            "editDetails": {
+                "editable": true,
+                "bots": [],
+                "groups": [],
+                "chats": []
+            }
+        }
+    ]

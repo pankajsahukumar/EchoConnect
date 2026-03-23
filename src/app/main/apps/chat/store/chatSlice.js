@@ -1,32 +1,24 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { getChats } from './chatsSlice';
+import { apiClient } from 'src/@api/utils/apiClient';
 
 export const getChat = createAsyncThunk(
   'chatApp/chat/getChat',
-  async (contactId, { dispatch, getState }) => {
-    console.log('Getting chat for contactId:', contactId); // Debug log
-    const response = await axios.get(`/api/chat/chats/${contactId}`);
+  async (chatId, { dispatch, getState }) => {
+    const response = await apiClient.get(`/api/messages/${chatId}`);
 
-    const data = await response.data;
-
+    const data = await response.data.data.content;
     return data;
   }
 );
 
 export const sendMessage = createAsyncThunk(
   'chatApp/chat/sendMessage',
-  async ({ contactId, messageText, type, payload, context }, { dispatch, getState }) => {
-    const messageData = {
-      type,
-      payload,
-      context,
-    };
-    const response = await axios.post(`/api/chat/chats/${contactId}`, messageData);
+  async (messageData, { dispatch, getState }) => {
+    
+    const response = await apiClient.post(`/api/messages/send`, messageData);
 
     const data = await response.data;
-
-    // dispatch(getChats());
 
     return data;
   }
@@ -38,13 +30,22 @@ const chatSlice = createSlice({
   reducers: {
     removeChat: (state, action) => action.payload,
     addTempMessage: (state, action) => [...state, action.payload],
+    addNewMessage: (state, { payload }) => {
+      const exists = state.some(
+        (msg) => msg.messageId === payload.messageId
+      );
+      if (!exists) {
+        state.push(payload);
+      }
+      return;
+    },
   },
   extraReducers: {
     [getChat.fulfilled]: (state, action) => action.payload,
     [sendMessage.fulfilled]: (state, action) => [...state, action.payload],
   },
 });
-
+export const { addTempMessage,addNewMessage } = chatSlice.actions;
 export const selectChat = ({ chatApp }) => chatApp.chat;
 
 export default chatSlice.reducer;

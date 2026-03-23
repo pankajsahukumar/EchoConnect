@@ -8,7 +8,7 @@ import { useContext } from 'react';
 import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
 import { lighten } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import { selectContactById } from '../../store/contactsSlice';
+import {  selectContactByMobile } from '../../store/contactsSlice';
 import ContactAvatar from '../../ContactAvatar';
 import { ChatAppContext } from '../../ChatApp';
 
@@ -16,7 +16,7 @@ function ContactSidebar(props) {
   const { setContactSidebarOpen } = useContext(ChatAppContext);
   const routeParams = useParams();
   const contactId = routeParams.id;
-  const contact = useSelector((state) => selectContactById(state, contactId));
+  const contact = useSelector((state) => selectContactByMobile(state, contactId));
 
   if (!contact) {
     return null;
@@ -48,7 +48,7 @@ function ContactSidebar(props) {
           {contact.about}
         </Typography>
       </div>
-      <div className="w-full p-24">
+      {/* <div className="w-full p-24">
         {contact.attachments?.media && (
           <>
             <Typography className="mt-16 text-16 font-medium">Media</Typography>
@@ -129,7 +129,7 @@ function ContactSidebar(props) {
 
           <Typography>{contact.details.address}</Typography>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

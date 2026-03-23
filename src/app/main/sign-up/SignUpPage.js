@@ -39,13 +39,18 @@ const defaultValues = {
 };
 
 function SignUpPage() {
-  const { control, formState, handleSubmit, reset } = useForm({
+  const {
+    control,
+    formState: { isValid, dirtyFields, errors },
+    handleSubmit,
+    reset,
+    setError,
+  } = useForm({
     mode: 'onChange',
     defaultValues,
     resolver: yupResolver(schema),
   });
-
-  const { isValid, dirtyFields, errors, setError } = formState;
+  
 
   function onSubmit({ displayName, password, email }) {
     jwtService
@@ -58,12 +63,17 @@ function SignUpPage() {
         // No need to do anything, registered user data will be set at app/auth/AuthContext
       })
       .catch((_errors) => {
-        _errors.forEach((error) => {
-          setError(error.type, {
-            type: 'manual',
-            message: error.message,
+        console.log(_errors.subErrors,'this is error');
+        if(_errors.subErrors && _errors.subErrors.length > 0){
+          _errors = _errors.subErrors;
+          _errors.forEach((error) => {
+            setError(error.field, {
+              type: 'manual',
+              message: error.message,
+            });
           });
-        });
+        }
+       
       });
   }
 
