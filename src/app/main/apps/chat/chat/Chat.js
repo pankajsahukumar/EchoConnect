@@ -8,10 +8,12 @@ import template from "../../../../../template.json"
 // NOTE: These imports assume your existing store slices export these utilities
 import {
   getChat,
+  loadMoreMessages,
   selectChat,
+  selectChatHasMore,
+  selectChatCursor,
   sendMessage,
   addTempMessage,
-  // sendTemplateMessage, sendInteractiveReply
 } from "../store/chatSlice";
 import { selectContactById } from "../store/contactsSlice";
 import { selectUser } from "../store/userSlice";
@@ -46,8 +48,12 @@ export default function Chat(props) {
     useContext(ChatAppContext);
   const dispatch = useDispatch();
   const chat = useSelector(selectChat);
+  const hasMore = useSelector(selectChatHasMore);
+  const nextCursor = useSelector(selectChatCursor);
   const user = useSelector(selectUser);
-  const customer=useSelector(selectCustomer);
+  const customer = useSelector(selectCustomer);
+  const isLoadingMore = useRef(false);
+  const prevScrollHeight = useRef(null);
   const routeParams = useParams();
   const contactId = routeParams.id;
   const selectedContact = useSelector((state) =>
@@ -127,21 +133,36 @@ export default function Chat(props) {
     }
   };
 
-useEffect(()=>{
-
+useEffect(() => {
   const fetchData = async () => {
-    const resultAction =  await dispatch(
-      getCustomer( contactId)
-        );
-
+    const resultAction = await dispatch(getCustomer(contactId));
     if (getCustomer.fulfilled.match(resultAction)) {
-    dispatch(getChat(resultAction.payload.chatId));
+      dispatch(getChat({ chatId: resultAction.payload.chatId }));
     } else {
-      console.error("Failed to send message:", resultAction.error);
+      console.error("Failed to fetch customer:", resultAction.error);
     }
   };
   fetchData();
-},[contactId,dispatch])
+}, [contactId, dispatch]);
+
+// Restore scroll position after older messages are prepended
+useEffect(() => {
+  if (prevScrollHeight.current !== null && chatRef.current) {
+    const newScrollHeight = chatRef.current.scrollHeight;
+    chatRef.current.scrollTop = newScrollHeight - prevScrollHeight.current;
+    prevScrollHeight.current = null;
+    isLoadingMore.current = false;
+  }
+}, [chat]);
+
+const handleScrollTop = () => {
+  if (!hasMore || isLoadingMore.current || !customer || !nextCursor) return;
+  isLoadingMore.current = true;
+  if (chatRef.current) {
+    prevScrollHeight.current = chatRef.current.scrollHeight;
+  }
+  dispatch(loadMoreMessages({ chatId: customer.chatId, cursor: nextCursor }));
+};
 
 useEffect(() => {
   if (!customer) return;
@@ -261,6 +282,7 @@ useEffect(() => {
           onDelete={handleDelete}
           onEmojiSelect={handleEmojiSelect}
           onQuoteClick={scrollToMessage}
+          onScrollTop={handleScrollTop}
           chatRef={chatRef}
           className={props.className}
         />     

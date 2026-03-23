@@ -12,7 +12,7 @@ export const createSocket = (namespace = '/') => {
   let isError = false;
 
   const socket = io(`http://localhost:8081${namespace}`, {
-    auth: { accessToken: "Test Token" },
+    auth: { accessToken: localStorage.getItem("access_token") || "" },
     transports: ['websocket'],
     reconnection: true,
   });

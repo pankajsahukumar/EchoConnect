@@ -10,7 +10,7 @@
     axiosRequest.interceptors.request.use(
       (config) => {
         // Example: attach auth token from localStorage or cookies
-        const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+        const token = typeof window !== "undefined" ? localStorage.getItem("access_token") : null;
         if (token) {
           config.headers.Authorization = `Bearer ${token}`;
         }

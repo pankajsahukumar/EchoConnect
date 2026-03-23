@@ -14,7 +14,7 @@ const ChatAppConfig = {
     layout: {
       config: {
         navbar: {
-          display: false,
+          display: true,
         },
         toolbar: {
           display: false,

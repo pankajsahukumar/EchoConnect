@@ -93,47 +93,52 @@ class JwtService extends FuseUtils.EventEmitter {
   signInWithEmailAndPassword = (email, password) => {
     return new Promise((resolve, reject) => {
       axios
-        .get(jwtServiceConfig.signIn, {
-          data: {
-          email,
-          password,
-          },
+        .post("http://127.0.0.1:8090" + jwtServiceConfig.signIn, { email, password })
+        .then((response) => {
+          const { accessToken, refreshToken } = response.data.data;
+          this.setSession(accessToken, refreshToken);
+          const user = this._buildUserFromToken(accessToken);
+          resolve(user);
+          this.emit('onLogin', user);
         })
-      .then((response) => {
-        console.log(response,'this is response');
-          if (response.data.user) {
-            this.setSession(response.data.access_token);
-            resolve(response.data.user);
-            this.emit('onLogin', response.data.user);
-        } else {
-            reject(response.data.error);
-        }
+        .catch((error) => {
+          if (error.response && error.response.data) {
+            reject(error.response.data);
+          } else {
+            reject({ message: 'Network or server error' });
+          }
         });
     });
   };
 
   signInWithToken = () => {
     return new Promise((resolve, reject) => {
-      axios
-        .get(jwtServiceConfig.accessToken, {
-          data: {
-            access_token: this.getAccessToken(),
-          },
-        })
-        .then((response) => {
-          if (response.data.user) {
-            this.setSession(response.data.access_token);
-            resolve(response.data.user);
-          } else {
-            this.logout();
-            reject(new Error('Failed to login with token.'));
-          }
-        })
-        .catch((error) => {
-          this.logout();
-          reject(new Error('Failed to login with token.'));
-        });
+      const access_token = this.getAccessToken();
+      if (!access_token) {
+        this.logout();
+        return reject(new Error('No access token'));
+      }
+      try {
+        const user = this._buildUserFromToken(access_token);
+        resolve(user);
+      } catch {
+        this.logout();
+        reject(new Error('Failed to login with token.'));
+      }
     });
+  };
+
+  _buildUserFromToken = (token) => {
+    const decoded = jwtDecode(token);
+    return {
+      role: decoded.userPermissions?.length > 0 ? decoded.userPermissions : ['user'],
+      data: {
+        displayName: `${decoded.userFirstName} ${decoded.userLastName}`.trim(),
+        email: decoded.userEmail,
+        photoURL: '',
+        userId: decoded.userId,
+      },
+    };
   };
 
   updateUserData = (user) => {
@@ -204,7 +209,7 @@ class JwtService extends FuseUtils.EventEmitter {
             reject(new Error('Failed to refresh token'));
           }
         })
-        .catch((error) => {
+        .catch(() => {
           this.logout();
           reject(new Error('Failed to refresh token'));
         });
