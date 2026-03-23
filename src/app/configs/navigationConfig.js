@@ -9,12 +9,11 @@ i18next.addResourceBundle('ar', 'navigation', ar);
 
 const navigationConfig = [
   {
-    id: 'example-component',
-    title: 'Example',
-    translate: 'EXAMPLE',
+    id: 'chat',
+    title: 'Chat',
     type: 'item',
-    icon: 'heroicons-outline:star',
-    url: 'example',
+    icon: 'heroicons-outline:chat-bubble-left-right',
+    url: 'apps/chat',
   },
   {
     id: 'templates',

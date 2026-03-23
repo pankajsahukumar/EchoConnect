@@ -16,10 +16,10 @@ const useCurrentChat = () => {
   const memoData = useMemo(() => {
     return {
       chat,
-      id: customer?.id || null,
+      id: customer?.chatId || null,
       // rawChat, // include if you're using it
     };
-  }, [chat, customer?.id]);
+  }, [chat, customer?.chatId]);
 
   return memoData;
 };

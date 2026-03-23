@@ -19,11 +19,11 @@ const settingsConfig = {
    To make whole app accessible without authorization by default set defaultAuth: null
    *** The individual route configs which has auth option won't be overridden.
    */
-  defaultAuth: ['admin'],
+  defaultAuth: ['admin', 'staff', 'user'],
   /*
     Default redirect url for the logged-in user,
    */
-  loginRedirectUrl: '/',
+  loginRedirectUrl: '/apps/chat',
 };
 
 export default settingsConfig;

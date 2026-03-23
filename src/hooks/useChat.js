@@ -28,7 +28,7 @@ export const useChats = () => {
       try {
         setState((prev) => ({ ...prev, isLoading: true }));
         dispatch(setSelectedCustomer(contact));
-        const result = await dispatch(getChat(contact.id)).unwrap();
+        const result = await dispatch(getChat({ chatId: contact.id })).unwrap();
 
         setState({
           error: null,

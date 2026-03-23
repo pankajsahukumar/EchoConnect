@@ -7,6 +7,7 @@ import {
   navbarOpenFolded,
   selectFuseNavbar,
 } from 'app/store/fuse/navbarSlice';
+import { useCallback, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFuseCurrentLayoutConfig } from 'app/store/fuse/settingsSlice';
 import NavbarStyle2Content from './NavbarStyle2Content';
@@ -116,11 +117,29 @@ function NavbarStyle2(props) {
   const dispatch = useDispatch();
   const config = useSelector(selectFuseCurrentLayoutConfig);
   const navbar = useSelector(selectFuseNavbar);
+  const closeTimer = useRef(null);
 
-  // const folded = !navbar.open;
   const { folded } = config.navbar;
   const foldedandclosed = folded && !navbar.foldedOpen;
   const foldedandopened = folded && navbar.foldedOpen;
+
+  const handleMouseEnter = useCallback(() => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+    if (folded && !navbar.foldedOpen) {
+      dispatch(navbarOpenFolded());
+    }
+  }, [dispatch, folded, navbar.foldedOpen]);
+
+  const handleMouseLeave = useCallback(() => {
+    if (folded && navbar.foldedOpen) {
+      closeTimer.current = setTimeout(() => {
+        dispatch(navbarCloseFolded());
+      }, 100);
+    }
+  }, [dispatch, folded, navbar.foldedOpen]);
 
   return (
     <Root
@@ -136,8 +155,8 @@ function NavbarStyle2(props) {
           folded={folded ? 1 : 0}
           foldedandopened={foldedandopened ? 1 : 0}
           foldedandclosed={foldedandclosed ? 1 : 0}
-          onMouseEnter={() => foldedandclosed && dispatch(navbarOpenFolded())}
-          onMouseLeave={() => foldedandopened && dispatch(navbarCloseFolded())}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           <NavbarStyle2Content className="NavbarStyle2-content" />
         </StyledNavbar>
