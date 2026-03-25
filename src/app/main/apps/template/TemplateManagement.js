@@ -52,7 +52,18 @@ export default function TemplateManagement() {
   );
 
   return (
-    <Box sx={{ p: 3, width: '100%', height: '100%', display: 'flex', flexDirection: 'column', gap: 2.5, overflow: 'hidden' }}>
+    <Box
+      sx={{
+        p: 3,
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 2.5,
+        overflow: 'hidden',
+        minWidth: 0,
+      }}
+    >
       <TemplateManagementHeader />
       <TemplateManagementFilters
         searchText={searchText}

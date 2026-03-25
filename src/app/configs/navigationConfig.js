@@ -22,6 +22,13 @@ const navigationConfig = [
     icon: 'heroicons-outline:document-text',
     url: 'apps/templates',
   },
+  {
+    id: 'settings',
+    title: 'Settings',
+    type: 'item',
+    icon: 'heroicons-outline:cog-6-tooth',
+    url: 'apps/settings',
+  },
 ];
 
 export default navigationConfig;

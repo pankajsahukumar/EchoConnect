@@ -26,13 +26,27 @@ import TemplatePreview from './TemplatePreview';
 
 const headerCellSx = {
   fontWeight: 600,
-  fontSize: '0.8rem',
-  color: 'text.secondary',
-  bgcolor: '#f8f9fa',
-  borderBottom: '2px solid',
-  borderColor: 'divider',
+  fontSize: '0.75rem',
+  color: '#637381',
+  textTransform: 'uppercase',
+  letterSpacing: '0.5px',
+  bgcolor: '#f4f6f8',
+  borderBottom: '1px solid',
+  borderColor: '#e0e0e0',
   whiteSpace: 'nowrap',
   py: 1.5,
+  px: 2,
+  '&:first-of-type': { pl: 3 },
+  '&:last-of-type': { pr: 3 },
+};
+
+const bodyCellSx = {
+  py: 1.8,
+  px: 2,
+  borderBottom: '1px solid',
+  borderColor: '#f0f0f0',
+  '&:first-of-type': { pl: 3 },
+  '&:last-of-type': { pr: 3 },
 };
 
 function formatDate(dateStr) {
@@ -78,164 +92,164 @@ export default function TemplateManagementTable({ templates, loading }) {
 
   return (
     <>
-      <Paper
-        elevation={0}
+      <TableContainer
         sx={{
-          width: '100%',
-          overflow: 'hidden',
           flex: '1 1 auto',
+          overflow: 'auto',
+          width: '100%',
           border: '1px solid',
-          borderColor: 'divider',
+          borderColor: '#e0e0e0',
           borderRadius: '8px',
+          bgcolor: 'white',
         }}
       >
-        <TableContainer sx={{ height: '100%', width: '100%' }}>
-          <Table stickyHeader sx={{ minWidth: 900 }}>
-            <TableHead>
+        <Table stickyHeader sx={{ width: '100%', tableLayout: 'auto' }}>
+          <TableHead>
+            <TableRow>
+              <TableCell sx={{ ...headerCellSx, width: '18%' }}>Template name</TableCell>
+              <TableCell sx={{ ...headerCellSx, width: '18%' }}>Preview</TableCell>
+              <TableCell sx={{ ...headerCellSx, width: '14%' }}>WABA</TableCell>
+              <TableCell sx={{ ...headerCellSx, width: '8%' }}>Status</TableCell>
+              <TableCell sx={{ ...headerCellSx, width: '10%' }}>Created by</TableCell>
+              <TableCell sx={{ ...headerCellSx, width: '10%' }}>Created on</TableCell>
+              <TableCell sx={{ ...headerCellSx, width: '10%' }}>Last updated</TableCell>
+              <TableCell sx={{ ...headerCellSx, width: '8%' }}>Last used on</TableCell>
+              <TableCell sx={{ ...headerCellSx, width: '4%', textAlign: 'right' }} />
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {templates.length === 0 ? (
               <TableRow>
-                <TableCell sx={{ ...headerCellSx, minWidth: 180 }}>Template name</TableCell>
-                <TableCell sx={{ ...headerCellSx, minWidth: 180 }}>Preview</TableCell>
-                <TableCell sx={{ ...headerCellSx, minWidth: 160 }}>WABA</TableCell>
-                <TableCell sx={{ ...headerCellSx, minWidth: 100 }}>Status</TableCell>
-                <TableCell sx={{ ...headerCellSx, minWidth: 130 }}>Created by</TableCell>
-                <TableCell sx={{ ...headerCellSx, minWidth: 110 }}>Created on</TableCell>
-                <TableCell sx={{ ...headerCellSx, minWidth: 110 }}>Last updated</TableCell>
-                <TableCell sx={{ ...headerCellSx, minWidth: 110 }}>Last used on</TableCell>
-                <TableCell sx={{ ...headerCellSx, width: 120 }} />
+                <TableCell colSpan={9} align="center">
+                  <Typography variant="body1" sx={{ py: 8, color: 'text.secondary' }}>
+                    No templates found. Create your first template to get started.
+                  </Typography>
+                </TableCell>
               </TableRow>
-            </TableHead>
-            <TableBody>
-              {templates.length === 0 ? (
-                <TableRow>
-                  <TableCell colSpan={9} align="center">
-                    <Typography variant="body1" sx={{ py: 8, color: 'text.secondary' }}>
-                      No templates found. Create your first template to get started.
+            ) : (
+              templates.map((template) => (
+                <TableRow
+                  key={template.id}
+                  hover
+                  sx={{
+                    cursor: 'pointer',
+                    transition: 'background-color 0.15s',
+                    '&:hover': { bgcolor: '#f8fafb' },
+                    '&:last-child td': { border: 0 },
+                  }}
+                >
+                  <TableCell sx={bodyCellSx}>
+                    <Box>
+                      <Typography variant="body2" fontWeight={600} noWrap sx={{ color: '#212b36', mb: 0.5 }}>
+                        {template.name}
+                      </Typography>
+                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                        <Chip
+                          label={template.category}
+                          size="small"
+                          color={CATEGORY_COLORS[template.category] || 'default'}
+                          variant="outlined"
+                          sx={{ fontSize: '0.6rem', height: 18, fontWeight: 600 }}
+                        />
+                        <Typography variant="caption" color="text.secondary">
+                          {template.languageLabel || template.language}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </TableCell>
+                  <TableCell
+                    sx={bodyCellSx}
+                    onMouseEnter={(e) => handlePreviewOpen(e, template)}
+                    onMouseLeave={handlePreviewClose}
+                  >
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      sx={{
+                        maxWidth: 250,
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                        cursor: 'default',
+                      }}
+                    >
+                      {template.previewText || '-'}
                     </Typography>
                   </TableCell>
-                </TableRow>
-              ) : (
-                templates.map((template) => (
-                  <TableRow
-                    key={template.id}
-                    hover
-                    sx={{
-                      cursor: 'pointer',
-                      '&:last-child td': { border: 0 },
-                      '& td': { py: 1.5, borderColor: 'divider' },
-                    }}
-                  >
-                    <TableCell>
-                      <Box>
-                        <Typography variant="body2" fontWeight={500} noWrap>
-                          {template.name}
-                        </Typography>
-                        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5, mt: 0.5 }}>
-                          <Chip
-                            label={template.category}
-                            size="small"
-                            color={CATEGORY_COLORS[template.category] || 'default'}
-                            variant="outlined"
-                            sx={{ fontSize: '0.6rem', height: 18, fontWeight: 600 }}
-                          />
-                          <Typography variant="caption" color="text.secondary">
-                            {template.languageLabel || template.language}
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </TableCell>
-                    <TableCell
-                      onMouseEnter={(e) => handlePreviewOpen(e, template)}
-                      onMouseLeave={handlePreviewClose}
-                    >
-                      <Typography
-                        variant="body2"
-                        color="text.secondary"
-                        sx={{
-                          maxWidth: 220,
-                          overflow: 'hidden',
-                          textOverflow: 'ellipsis',
-                          whiteSpace: 'nowrap',
-                          cursor: 'default',
+                  <TableCell sx={bodyCellSx}>
+                    <Typography variant="body2" fontWeight={500} noWrap>
+                      {template.waba?.name || '-'}
+                    </Typography>
+                    {template.waba?.phone && (
+                      <Typography variant="caption" color="text.secondary" component="div">
+                        {template.waba.phone}
+                      </Typography>
+                    )}
+                  </TableCell>
+                  <TableCell sx={bodyCellSx}>
+                    <Chip
+                      label={template.status}
+                      size="small"
+                      color={STATUS_COLORS[template.status] || 'default'}
+                      sx={{ fontSize: '0.65rem', height: 22, fontWeight: 500 }}
+                    />
+                  </TableCell>
+                  <TableCell sx={bodyCellSx}>
+                    <Typography variant="body2" noWrap>
+                      {template.createdBy?.name || '-'}
+                    </Typography>
+                  </TableCell>
+                  <TableCell sx={bodyCellSx}>
+                    <Typography variant="body2" noWrap>
+                      {formatDate(template.createdOn)}
+                    </Typography>
+                  </TableCell>
+                  <TableCell sx={bodyCellSx}>
+                    <Typography variant="body2" noWrap>
+                      {formatDate(template.lastUpdated)}
+                    </Typography>
+                  </TableCell>
+                  <TableCell sx={bodyCellSx}>
+                    <Typography variant="body2" noWrap>
+                      {formatDate(template.lastUsedOn)}
+                    </Typography>
+                  </TableCell>
+                  <TableCell align="right" sx={{ ...bodyCellSx, whiteSpace: 'nowrap' }}>
+                    <Tooltip title="View">
+                      <IconButton size="small">
+                        <VisibilityIcon fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
+                    <Tooltip title="Edit">
+                      <IconButton
+                        size="small"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(`/apps/templates/edit/${template.id}`);
                         }}
                       >
-                        {template.previewText || '-'}
-                      </Typography>
-                    </TableCell>
-                    <TableCell>
-                      <Typography variant="body2" noWrap>
-                        {template.waba?.name || '-'}
-                      </Typography>
-                      {template.waba?.phone && (
-                        <Typography variant="caption" color="text.secondary" component="div">
-                          {template.waba.phone}
-                        </Typography>
-                      )}
-                    </TableCell>
-                    <TableCell>
-                      <Chip
-                        label={template.status}
+                        <EditIcon fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
+                    <Tooltip title="Delete">
+                      <IconButton
                         size="small"
-                        color={STATUS_COLORS[template.status] || 'default'}
-                        sx={{ fontSize: '0.65rem', height: 22, fontWeight: 500 }}
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <Typography variant="body2" noWrap>
-                        {template.createdBy?.name || '-'}
-                      </Typography>
-                    </TableCell>
-                    <TableCell>
-                      <Typography variant="body2" noWrap>
-                        {formatDate(template.createdOn)}
-                      </Typography>
-                    </TableCell>
-                    <TableCell>
-                      <Typography variant="body2" noWrap>
-                        {formatDate(template.lastUpdated)}
-                      </Typography>
-                    </TableCell>
-                    <TableCell>
-                      <Typography variant="body2" noWrap>
-                        {formatDate(template.lastUsedOn)}
-                      </Typography>
-                    </TableCell>
-                    <TableCell align="right" sx={{ whiteSpace: 'nowrap' }}>
-                      <Tooltip title="View">
-                        <IconButton size="small">
-                          <VisibilityIcon fontSize="small" />
-                        </IconButton>
-                      </Tooltip>
-                      <Tooltip title="Edit">
-                        <IconButton
-                          size="small"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            navigate(`/apps/templates/edit/${template.id}`);
-                          }}
-                        >
-                          <EditIcon fontSize="small" />
-                        </IconButton>
-                      </Tooltip>
-                      <Tooltip title="Delete">
-                        <IconButton
-                          size="small"
-                          color="error"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleDelete(template.id);
-                          }}
-                        >
-                          <DeleteIcon fontSize="small" />
-                        </IconButton>
-                      </Tooltip>
-                    </TableCell>
-                  </TableRow>
-                ))
-              )}
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Paper>
+                        color="error"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDelete(template.id);
+                        }}
+                      >
+                        <DeleteIcon fontSize="small" />
+                      </IconButton>
+                    </Tooltip>
+                  </TableCell>
+                </TableRow>
+              ))
+            )}
+          </TableBody>
+        </Table>
+      </TableContainer>
 
       {/* Preview Popover on hover */}
       <Popover
@@ -255,7 +269,6 @@ export default function TemplateManagementTable({ templates, loading }) {
               overflow: 'auto',
               borderRadius: '12px',
               boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
-              // Override TemplatePreview's minHeight for compact popover
               '& .MuiBox-root': {
                 minHeight: 'unset !important',
               },

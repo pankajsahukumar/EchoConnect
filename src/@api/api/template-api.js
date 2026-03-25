@@ -23,7 +23,7 @@ const DUMMY_TEMPLATES = [
       { type: 'HEADER', format: 'TEXT', text: 'Your Photos Are Ready!' },
       { type: 'BODY', text: 'Your CherishX Booking photos are ready 📸📩\n\nHi {{1}}, your photos from the {{2}} experience are now available for download.\n\nClick the link below to view and download your memories!' },
       { type: 'FOOTER', text: 'CherishX - Making memories special' },
-      { type: 'BUTTON', buttons: [{ text: 'Download Photos', type: 'URL' }] },
+      { type: 'BUTTONS', buttons: [{ text: 'Download Photos', type: 'URL' }] },
     ],
   },
   {
@@ -60,7 +60,7 @@ const DUMMY_TEMPLATES = [
     components: [
       { type: 'BODY', text: '👋 Hello {{1}},\n\nWe regret to inform you that your delivery ride has been cancelled.\n\nReason: {{2}}\n\nPlease contact support if you have any questions.' },
       { type: 'FOOTER', text: 'We apologize for the inconvenience' },
-      { type: 'BUTTON', buttons: [{ text: 'Contact Support', type: 'PHONE_NUMBER' }] },
+      { type: 'BUTTONS', buttons: [{ text: 'Contact Support', type: 'PHONE_NUMBER' }] },
     ],
   },
   {
@@ -80,7 +80,7 @@ const DUMMY_TEMPLATES = [
       { type: 'HEADER', format: 'TEXT', text: 'Reminder for your upcoming booking' },
       { type: 'BODY', text: 'Hey!\n\nJust a gentle reminder for your today\'s booking with us. So what\'s next?\n\n🙅 We don\'t like to Disturb! Your booking is confirmed. Sit back & relax while we prepare your experience. We will only call you if we need some details. Your booking will be completed within the time slot selected by you while booking....' },
       { type: 'FOOTER', text: 'Keep CherishX-ing!' },
-      { type: 'BUTTON', buttons: [{ text: 'Track your Booking', type: 'URL' }] },
+      { type: 'BUTTONS', buttons: [{ text: 'Track your Booking', type: 'URL' }] },
     ],
   },
   {
@@ -100,7 +100,7 @@ const DUMMY_TEMPLATES = [
       { type: 'HEADER', format: 'TEXT', text: 'Booking Confirmed! 🎉' },
       { type: 'BODY', text: 'You are all set to cherish your {{experience_name}}!\n\nBooking ID: {{booking_id}}\nDate: {{date}}\nTime: {{time}}\nVenue: {{venue}}\n\nWe are excited to make this experience special for you.' },
       { type: 'FOOTER', text: 'CherishX - Making memories' },
-      { type: 'BUTTON', buttons: [{ text: 'View Booking', type: 'URL' }] },
+      { type: 'BUTTONS', buttons: [{ text: 'View Booking', type: 'URL' }] },
     ],
   },
   {
@@ -120,7 +120,7 @@ const DUMMY_TEMPLATES = [
       { type: 'HEADER', format: 'IMAGE', example: { link: '' } },
       { type: 'BODY', text: '🎄💚 Diwali Card Party Just Got Bigger! 🎄❤️\n\nCelebrate this Diwali with our exclusive card party decorations!\n\n✨ Premium Decorations\n🎊 Party Supplies\n🎁 Gift Hampers\n\nBook now and get 20% OFF!' },
       { type: 'FOOTER', text: 'Limited time offer' },
-      { type: 'BUTTON', buttons: [{ text: 'Shop Now', type: 'URL' }, { text: 'Call Us', type: 'PHONE_NUMBER' }] },
+      { type: 'BUTTONS', buttons: [{ text: 'Shop Now', type: 'URL' }, { text: 'Call Us', type: 'PHONE_NUMBER' }] },
     ],
   },
   {
@@ -139,7 +139,7 @@ const DUMMY_TEMPLATES = [
     components: [
       { type: 'BODY', text: 'Hi, your special day is approaching! Since you celebrated with us last time, we wanted to make sure this year is even more special.\n\nWe have curated exclusive packages just for you! 🎂🎈\n\nUse code CELEBRATE15 for 15% off.' },
       { type: 'FOOTER', text: 'CherishX Celebrations' },
-      { type: 'BUTTON', buttons: [{ text: 'Explore Packages', type: 'URL' }] },
+      { type: 'BUTTONS', buttons: [{ text: 'Explore Packages', type: 'URL' }] },
     ],
   },
   {
@@ -176,7 +176,7 @@ const DUMMY_TEMPLATES = [
     lastUsedOn: '2026-03-21T09:00:00Z',
     components: [
       { type: 'BODY', text: 'Hello {{Name}}, this is a reminder from CherishX.\n\nYour event is scheduled for {{date}}. Please make sure everything is ready.\n\nNeed help? Our support team is here for you!' },
-      { type: 'BUTTON', buttons: [{ text: 'Contact Support', type: 'PHONE_NUMBER' }] },
+      { type: 'BUTTONS', buttons: [{ text: 'Contact Support', type: 'PHONE_NUMBER' }] },
     ],
   },
   {
@@ -212,7 +212,7 @@ const DUMMY_TEMPLATES = [
     lastUsedOn: '2026-01-20T09:00:00Z',
     components: [
       { type: 'BODY', text: 'Greetings from CherishX! 🎉\n\nIt\'s been a year since your last celebration with us and we miss you!\n\nLet\'s make more beautiful memories together. Check out our latest experiences.' },
-      { type: 'BUTTON', buttons: [{ text: 'Browse Experiences', type: 'URL' }] },
+      { type: 'BUTTONS', buttons: [{ text: 'Browse Experiences', type: 'URL' }] },
     ],
   },
   {
@@ -249,7 +249,7 @@ const DUMMY_TEMPLATES = [
     components: [
       { type: 'HEADER', format: 'TEXT', text: 'Welcome! 👋' },
       { type: 'BODY', text: 'Welcome to EchoConnect! We are excited to have you on board.\n\nHere\'s what you can do:\n✅ Connect your WhatsApp Business\n✅ Create message templates\n✅ Start chatting with customers\n\nNeed help getting started?' },
-      { type: 'BUTTON', buttons: [{ text: 'Get Started', type: 'URL' }, { text: 'Talk to Support', type: 'PHONE_NUMBER' }] },
+      { type: 'BUTTONS', buttons: [{ text: 'Get Started', type: 'URL' }, { text: 'Talk to Support', type: 'PHONE_NUMBER' }] },
     ],
   },
   {
@@ -269,7 +269,7 @@ const DUMMY_TEMPLATES = [
       { type: 'HEADER', format: 'TEXT', text: 'Payment Failed ❌' },
       { type: 'BODY', text: 'Hi {{1}}, your payment of ₹{{2}} has failed.\n\nPlease retry the payment or use an alternate payment method.\n\nOrder ID: {{3}}' },
       { type: 'FOOTER', text: 'Contact support for assistance' },
-      { type: 'BUTTON', buttons: [{ text: 'Retry Payment', type: 'URL' }] },
+      { type: 'BUTTONS', buttons: [{ text: 'Retry Payment', type: 'URL' }] },
     ],
   },
 ];

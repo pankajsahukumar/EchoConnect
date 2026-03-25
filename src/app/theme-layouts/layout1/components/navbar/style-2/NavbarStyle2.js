@@ -134,12 +134,15 @@ function NavbarStyle2(props) {
   }, [dispatch, folded, navbar.foldedOpen]);
 
   const handleMouseLeave = useCallback(() => {
-    if (folded && navbar.foldedOpen) {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+    }
+    if (folded) {
       closeTimer.current = setTimeout(() => {
         dispatch(navbarCloseFolded());
-      }, 100);
+      }, 200);
     }
-  }, [dispatch, folded, navbar.foldedOpen]);
+  }, [dispatch, folded]);
 
   return (
     <Root
