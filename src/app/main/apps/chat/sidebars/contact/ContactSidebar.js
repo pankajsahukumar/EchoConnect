@@ -1,137 +1,201 @@
-import IconButton from '@mui/material/IconButton';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import { useSelector } from 'react-redux';
-import format from 'date-fns/format';
-import { useParams } from 'react-router-dom';
 import { useContext } from 'react';
-import FuseSvgIcon from '@fuse/core/FuseSvgIcon';
-import { lighten } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import {  selectContactByMobile } from '../../store/contactsSlice';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import {
+    Box,
+    Typography,
+    IconButton,
+    Chip,
+    Divider,
+    Tooltip,
+} from '@mui/material';
+import { alpha, useTheme } from '@mui/material/styles';
+import CloseIcon from '@mui/icons-material/Close';
+import PhoneIcon from '@mui/icons-material/Phone';
+import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
+import TuneOutlinedIcon from '@mui/icons-material/TuneOutlined';
+import { selectContactByMobile } from '../../store/contactsSlice';
 import ContactAvatar from '../../ContactAvatar';
 import { ChatAppContext } from '../../ChatApp';
 
-function ContactSidebar(props) {
-  const { setContactSidebarOpen } = useContext(ChatAppContext);
-  const routeParams = useParams();
-  const contactId = routeParams.id;
-  const contact = useSelector((state) => selectContactByMobile(state, contactId));
+const TAG_STYLES = {
+    Priority: { bg: '#e8f4fd', color: '#1565c0' },
+    Urgent: { bg: '#fdecea', color: '#c62828' },
+    'SLA Breached': { bg: '#c62828', color: '#fff' },
+    Delay: { bg: '#fff8e1', color: '#e65100' },
+    Question: { bg: '#f3f3f3', color: '#555' },
+};
 
-  if (!contact) {
-    return null;
-  }
-
-  return (
-    <div className="flex flex-col flex-auto h-full">
-      <Box
-        className="border-b-1"
-        sx={{
-          backgroundColor: (theme) =>
-            theme.palette.mode === 'light'
-              ? lighten(theme.palette.background.default, 0.4)
-              : lighten(theme.palette.background.default, 0.02),
-        }}
-      >
-        <Toolbar className="flex items-center px-4">
-          <Typography className="px-4 font-medium text-16" color="inherit" variant="subtitle1">
-            Contact info
-          </Typography>
-        </Toolbar>
-      </Box>
-
-      <div className="flex flex-col justify-center items-center mt-32">
-        <ContactAvatar className="w-160 h-160 text-64" contact={contact} />
-        <Typography className="mt-16 text-16 font-medium">{contact.name}</Typography>
-
-        <Typography color="text.secondary" className="mt-2 text-13">
-          {contact.about}
-        </Typography>
-      </div>
-      {/* <div className="w-full p-24">
-        {contact.attachments?.media && (
-          <>
-            <Typography className="mt-16 text-16 font-medium">Media</Typography>
-            <div className="grid grid-cols-4 gap-4 mt-16">
-              {contact.attachments?.media.map((url, index) => (
-                <img key={index} className="h-80 rounded object-cover" src={url} alt="" />
-              ))}
-            </div>
-          </>
-        )}
-
-        <Typography className="mt-40 text-16 font-medium">Details</Typography>
-
-        <div className="mt-16">
-          <Typography className="text-14 font-medium" color="text.secondary">
-            Emails
-          </Typography>
-
-          {contact.details.emails?.map((item, index) => (
-            <div className="flex items-center" key={index}>
-              <Typography>{item.email}</Typography>
-              {item.label && (
-                <Typography className="text-md truncate" color="text.secondary">
-                  <span className="mx-8">&bull;</span>
-                  <span className="font-medium">{item.label}</span>
-                </Typography>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-16">
-          <Typography className="text-14 font-medium" color="text.secondary">
-            Phone numbers
-          </Typography>
-
-          {contact.details.phoneNumbers?.map((item, index) => (
-            <div className="flex items-center" key={index}>
-              <Typography>{item.phoneNumber}</Typography>
-              {item.label && (
-                <Typography className="text-md truncate" color="text.secondary">
-                  <span className="mx-8">&bull;</span>
-                  <span className="font-medium">{item.label}</span>
-                </Typography>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-16">
-          <Typography className="text-14 font-medium" color="text.secondary">
-            Title
-          </Typography>
-
-          <Typography>{contact.details.title}</Typography>
-        </div>
-
-        <div className="mt-16">
-          <Typography className="text-14 font-medium" color="text.secondary">
-            Company
-          </Typography>
-
-          <Typography>{contact.details.company}</Typography>
-        </div>
-
-        <div className="mt-16">
-          <Typography className="text-14 font-medium" color="text.secondary">
-            Birthday
-          </Typography>
-
-          <Typography>{format(new Date(contact.details.birthday), 'P')}</Typography>
-        </div>
-
-        <div className="mt-16">
-          <Typography className="text-14 font-medium" color="text.secondary">
-            Address
-          </Typography>
-
-          <Typography>{contact.details.address}</Typography>
-        </div>
-      </div> */}
-    </div>
-  );
+function getTagStyle(theme, tag) {
+    if (TAG_STYLES[tag]) return TAG_STYLES[tag];
+    return { bg: alpha(theme.palette.secondary.main, 0.12), color: theme.palette.secondary.main };
 }
 
-export default ContactSidebar;
+// Placeholder custom fields — replace with real data when API is ready
+const DEMO_CUSTOM_FIELDS = [
+    { label: 'Order ID', value: '#ORD-20481' },
+    { label: 'City', value: 'Mumbai' },
+    { label: 'Plan', value: 'Premium' },
+    { label: 'Assigned Agent', value: 'Riya Sharma' },
+];
+
+function SectionHeader({ icon, title }) {
+    return (
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1.5 }}>
+            {icon}
+            <Typography sx={{ fontWeight: 700, fontSize: 12, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'text.secondary' }}>
+                {title}
+            </Typography>
+        </Box>
+    );
+}
+
+export default function ContactSidebar() {
+    const { setContactSidebarOpen } = useContext(ChatAppContext);
+    const theme = useTheme();
+    const routeParams = useParams();
+    const contactId = routeParams.id;
+    const contact = useSelector((state) => selectContactByMobile(state, contactId));
+
+    if (!contact) return null;
+
+    const tags = Array.isArray(contact.tags)
+        ? contact.tags
+        : contact.tags
+        ? [contact.tags]
+        : [];
+
+    return (
+        <Box
+            sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                height: '100%',
+                bgcolor: 'background.paper',
+            }}
+        >
+            {/* Header bar */}
+            <Box
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    px: 2,
+                    py: 1.5,
+                    borderBottom: '1px solid',
+                    borderColor: 'divider',
+                    flexShrink: 0,
+                }}
+            >
+                <Typography sx={{ flex: 1, fontWeight: 700, fontSize: 15 }}>
+                    Contact info
+                </Typography>
+                <Tooltip title="Close">
+                    <IconButton size="small" onClick={() => setContactSidebarOpen(false)}>
+                        <CloseIcon sx={{ fontSize: 20 }} />
+                    </IconButton>
+                </Tooltip>
+            </Box>
+
+            {/* Scrollable body */}
+            <Box sx={{ flex: 1, overflowY: 'auto', px: 2.5, py: 3, display: 'flex', flexDirection: 'column', gap: 3 }}>
+
+                {/* Avatar + Name */}
+                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1.5 }}>
+                    <ContactAvatar
+                        contact={contact}
+                        sx={{ width: 80, height: 80, fontSize: 28 }}
+                    />
+                    <Typography sx={{ fontWeight: 700, fontSize: 18, textAlign: 'center' }}>
+                        {contact.name}
+                    </Typography>
+                </Box>
+
+                <Divider />
+
+                {/* Phone number */}
+                <Box>
+                    <SectionHeader
+                        icon={<PhoneIcon sx={{ fontSize: 16, color: 'text.secondary' }} />}
+                        title="Phone"
+                    />
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: 1,
+                            bgcolor: alpha(theme.palette.action.selected, 0.5),
+                            borderRadius: 2,
+                            px: 2,
+                            py: 1.25,
+                        }}
+                    >
+                        <Typography sx={{ fontSize: 14, fontWeight: 500 }}>
+                            {contact.phoneNumber || '—'}
+                        </Typography>
+                    </Box>
+                </Box>
+
+                {/* Tags */}
+                {tags.length > 0 && (
+                    <Box>
+                        <SectionHeader
+                            icon={<LocalOfferOutlinedIcon sx={{ fontSize: 16, color: 'text.secondary' }} />}
+                            title="Tags"
+                        />
+                        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+                            {tags.map((tag) => {
+                                const style = getTagStyle(theme, tag);
+                                return (
+                                    <Chip
+                                        key={tag}
+                                        label={tag}
+                                        size="small"
+                                        sx={{
+                                            height: 24,
+                                            fontSize: 12,
+                                            fontWeight: 700,
+                                            borderRadius: 999,
+                                            backgroundColor: style.bg,
+                                            color: style.color,
+                                        }}
+                                    />
+                                );
+                            })}
+                        </Box>
+                    </Box>
+                )}
+
+                {/* Custom Fields */}
+                <Box>
+                    <SectionHeader
+                        icon={<TuneOutlinedIcon sx={{ fontSize: 16, color: 'text.secondary' }} />}
+                        title="Custom Fields"
+                    />
+                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                        {DEMO_CUSTOM_FIELDS.map((field) => (
+                            <Box
+                                key={field.label}
+                                sx={{
+                                    display: 'flex',
+                                    justifyContent: 'space-between',
+                                    alignItems: 'center',
+                                    py: 1,
+                                    px: 1.5,
+                                    borderRadius: 2,
+                                    bgcolor: alpha(theme.palette.action.selected, 0.4),
+                                }}
+                            >
+                                <Typography sx={{ fontSize: 12, color: 'text.secondary', fontWeight: 500 }}>
+                                    {field.label}
+                                </Typography>
+                                <Typography sx={{ fontSize: 13, fontWeight: 600 }}>
+                                    {field.value}
+                                </Typography>
+                            </Box>
+                        ))}
+                    </Box>
+                </Box>
+            </Box>
+        </Box>
+    );
+}

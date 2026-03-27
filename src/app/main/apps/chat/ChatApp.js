@@ -70,7 +70,7 @@ function ChatApp(props) {
         leftSidebarOnClose={() => {
           setMainSidebarOpen(false);
         }}
-        leftSidebarWidth={400}
+        leftSidebarWidth={drawerWidth}
         rightSidebarContent={<ContactSidebar />}
         rightSidebarOpen={contactSidebarOpen}
         rightSidebarOnClose={() => {

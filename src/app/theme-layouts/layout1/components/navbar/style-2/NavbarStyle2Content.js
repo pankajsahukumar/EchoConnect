@@ -1,11 +1,16 @@
 import FuseScrollbars from '@fuse/core/FuseScrollbars';
 import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
+import Avatar from '@mui/material/Avatar';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 import clsx from 'clsx';
 import { memo } from 'react';
+import { useSelector } from 'react-redux';
 import Logo from '../../../../shared-components/Logo';
 import NavbarToggleButton from '../../../../shared-components/NavbarToggleButton';
 import Navigation from '../../../../shared-components/Navigation';
+import { selectUser } from 'app/store/userSlice';
 
 const Root = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
@@ -35,6 +40,9 @@ const StyledContent = styled(FuseScrollbars)(({ theme }) => ({
 }));
 
 function NavbarStyle2Content(props) {
+  const user = useSelector(selectUser);
+  const displayName = user?.data?.displayName || 'Agent';
+  const avatarSrc = user?.data?.photoURL;
   return (
     <Root className={clsx('flex flex-auto flex-col overflow-hidden h-full', props.className)}>
       <AppBar
@@ -52,6 +60,30 @@ function NavbarStyle2Content(props) {
       <StyledContent option={{ suppressScrollX: true, wheelPropagation: false }}>
         <Navigation layout="vertical" />
       </StyledContent>
+
+      <Box
+        className="flex items-center gap-12 px-16 py-12"
+        sx={{
+          borderTop: (theme) => `1px solid ${theme.palette.divider}`,
+        }}
+      >
+        <Avatar
+          src={avatarSrc}
+          alt={displayName}
+          sx={{
+            width: 36,
+            height: 36,
+            bgcolor: 'background.paper',
+            color: 'text.secondary',
+            fontWeight: 600,
+          }}
+        >
+          {displayName.charAt(0)}
+        </Avatar>
+        <Typography className="font-semibold text-14" noWrap>
+          {displayName}
+        </Typography>
+      </Box>
     </Root>
   );
 }

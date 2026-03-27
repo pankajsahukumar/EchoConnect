@@ -491,6 +491,60 @@ const themesConfig = {
       danger: 'orange',
     },
   },
+  luminous: {
+    palette: {
+      mode: 'light',
+      divider: 'rgba(171, 173, 175, 0.15)',
+      text: {
+        primary: '#2c2f31',
+        secondary: '#595c5e',
+        disabled: 'rgba(44, 47, 49, 0.55)',
+      },
+      primary: {
+        light: '#338080',
+        main: '#006666',
+        dark: '#005959',
+        contrastText: '#ffffff',
+      },
+      secondary: {
+        light: '#6a62ea',
+        main: '#4a40e0',
+        dark: '#3d30d4',
+        contrastText: '#ffffff',
+      },
+      tertiary: {
+        light: '#17c0fd',
+        main: '#006384',
+        dark: '#005674',
+        contrastText: '#e7f5ff',
+      },
+      error: {
+        light: '#fb5151',
+        main: '#b31b25',
+        dark: '#9f0519',
+        contrastText: '#ffefee',
+      },
+      background: {
+        paper: '#ffffff',
+        default: '#f5f7f9',
+      },
+      surface: '#f5f7f9',
+      surfaceContainer: '#e5e9eb',
+      surfaceContainerLow: '#eef1f3',
+      surfaceContainerLowest: '#ffffff',
+      surfaceContainerHigh: '#dfe3e6',
+      surfaceContainerHighest: '#d9dde0',
+      onSurface: '#2c2f31',
+      onSurfaceVariant: '#595c5e',
+      outlineVariant: '#abadaf',
+      secondaryContainer: '#cfcdff',
+      onSecondaryContainer: '#3424cc',
+      primaryDim: '#005959',
+    },
+    status: {
+      danger: 'orange',
+    },
+  },
   dark1: {
     palette: {
       mode: 'dark',

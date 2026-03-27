@@ -79,6 +79,17 @@ export default class TemplateModel {
           return { ...c, example: { body_text: [bodyExamples] } };
         }
       }
+      if (c.type === 'BUTTONS') {
+        const updatedButtons = c.buttons.map((btn, idx) => {
+          if (btn.type === 'URL' && /\{\{[^}]+\}\}/.test(btn.url || '')) {
+            const sample = this.variableSamples[`button_url:${idx}`] || '';
+            const exampleUrl = (btn.urlType || '') + (btn.url || '').replace(/\{\{[^}]+\}\}/g, sample);
+            return { ...btn, example: [exampleUrl] };
+          }
+          return btn;
+        });
+        return { ...c, buttons: updatedButtons };
+      }
       return c;
     });
 
