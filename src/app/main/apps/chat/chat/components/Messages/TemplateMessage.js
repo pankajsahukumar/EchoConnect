@@ -1,336 +1,162 @@
-import React, { useState } from "react";
-import { Box, Typography, Button } from "@mui/material";
-import { styled } from "@mui/material/styles";
-import TextComponent from "./TextComponent";
-import MessageTextBlock from "../TemplateMessage/MessageTextBlock";
+import { useState } from 'react';
+import { Box, Button, Typography } from '@mui/material';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import PhoneIcon from '@mui/icons-material/Phone';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import ReplyIcon from '@mui/icons-material/Reply';
+import TextComponent from './TextComponent';
+import useChatColors from './shared/chatColors';
+import { MsgTimestamp, SenderName } from './shared/MessageParts';
 
-const TemplateContainer = styled(Box)(({ isMine }) => ({
-  maxWidth: 320,
-  backgroundColor: isMine ? "#d9fdd3" : "#fff",
-  borderRadius: "7.5px",
-  overflow: "hidden",
-  fontFamily:
-    "Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif",
-  position: "relative",
-  marginBottom: "0px",
-}));
+// ─── Sub-components ──────────────────────────────────────────────────────────
 
-const SenderName = styled("div")({
-  color: "#00a884",
-  fontSize: "12.8px",
-  fontWeight: 500,
-  marginBottom: "4px",
-  padding: "8px 12px 0 12px",
-});
+function TemplateHeader({ header }) {
+  if (!header?.data?.length) return null;
 
-const TemplateContent = styled(Box)({
-  display: "flex",
-  flexDirection: "column",
-  backgroundColor: "transparent",
-});
-
-const TemplateMedia = styled("img")({
-  width: "100%",
-  height: "auto",
-  maxHeight: "350px",
-  objectFit: "cover",
-  borderRadius: "7.5px",
-  paddingLeft: "2px",
-  paddingRight: "2px",
-});
-const TemplateVideoMedia = styled("video")({
-  width: "100%",
-  height: "auto",
-  maxHeight: "500px",
-  objectFit: "cover",
-  borderRadius: "7.5px",
-  paddingLeft: "2px",
-  paddingRight: "2px",
-});
-
-// Line clamp CSS (10 lines max)
-const lineClampStyle = {
-  display: "-webkit-box",
-  WebkitBoxOrient: "vertical",
-  overflow: "hidden",
-  WebkitLineClamp: 10,
-};
-
-const TemplateButtonBox = styled(Box)({
-  width: "100%",
-  display: "flex",
-  flexDirection: "column",
-  borderTop: "1px solid rgba(189, 216, 200, 0.5)",
-  position: "relative",
-});
-
-const CopyToast = styled(Box)({
-  position: "absolute",
-  bottom: "100%",
-  left: "50%",
-  transform: "translateX(-50%)",
-  backgroundColor: "rgba(0, 0, 0, 0.8)",
-  color: "#fff",
-  padding: "8px 12px",
-  borderRadius: "4px",
-  fontSize: "12px",
-  marginBottom: "8px",
-  zIndex: 1000,
-  animation: "fadeInOut 2s ease-in-out",
-  "@keyframes fadeInOut": {
-    "0%": { opacity: 0 },
-    "10%": { opacity: 1 },
-    "90%": { opacity: 1 },
-    "100%": { opacity: 0 },
-  },
-});
-
-const TemplateButton = styled(Button)({
-  width: "100%",
-  backgroundColor: "transparent",
-  color: "rgb(0, 157, 226)",
-  borderRadius: 0,
-  padding: "10px 12px",
-  fontSize: "14px",
-  fontWeight: 500,
-  textTransform: "none",
-  "&:hover": { backgroundColor: "rgba(0, 168, 132, 0.05)" },
-});
-
-const ButtonComponent = ({ button, maxVisibleButtons = 3 }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const [copySuccess, setCopySuccess] = useState("");
-
-  const handleButtonClick = (btn) => {
-    if (btn.type === "URL" && btn.url) window.open(btn.url, "_blank");
-    if (btn.type === "PHONE_NUMBER" && btn.phoneNumber)
-      window.open(`tel:${btn.phoneNumber}`);
-    if (btn.type === "QUICK_REPLY")
-      console.log("Quick Reply clicked:", btn.text);
-    if (btn.type === "OTP" && btn.otp_type === "COPY_CODE") {
-      navigator.clipboard
-        .writeText(btn.otp)
-        .then(() => {
-          setCopySuccess("Code copied!");
-          setTimeout(() => setCopySuccess(""), 2000);
-        })
-        .catch((err) => {
-          console.error("Failed to copy code:", err);
-          setCopySuccess("Failed to copy code");
-        });
+  return header.data.map((item, i) => {
+    if (item.type === 'text' && item.text) {
+      return (
+        <Box key={i} sx={{ px: '12px', pt: '8px' }}>
+          <Typography sx={{ fontSize: '15px', fontWeight: 600, lineHeight: '20px' }}>
+            {item.text}
+          </Typography>
+        </Box>
+      );
     }
-    handleClose();
+    if ((item.type === 'image' || item.type === 'video') && item.link) {
+      return (
+        <Box key={i} sx={{ px: '3px', pt: '3px' }}>
+          {item.type === 'image' ? (
+            <img
+              src={item.link}
+              alt="header"
+              style={{ width: '100%', maxHeight: 200, objectFit: 'cover', borderRadius: '6px', display: 'block' }}
+            />
+          ) : (
+            <video controls style={{ width: '100%', maxHeight: 250, borderRadius: '6px', display: 'block' }}>
+              <source src={item.link} type="video/mp4" />
+            </video>
+          )}
+        </Box>
+      );
+    }
+    return null;
+  });
+}
+
+function TemplateButtons({ buttons, colors }) {
+  const [copyToast, setCopyToast] = useState('');
+
+  if (!buttons?.data?.length) return null;
+
+  const handleClick = (btn) => {
+    if (btn.type === 'URL' && btn.url) window.open(btn.url, '_blank');
+    if (btn.type === 'PHONE_NUMBER' && btn.phoneNumber) window.open(`tel:${btn.phoneNumber}`);
+    if ((btn.type === 'OTP' || btn.otp_type === 'COPY_CODE') && btn.otp) {
+      navigator.clipboard.writeText(btn.otp).then(() => {
+        setCopyToast('Code copied!');
+        setTimeout(() => setCopyToast(''), 2000);
+      });
+    }
   };
 
-  if (!button?.data || button.data.length === 0) return null;
-
-  const visibleButtons = button.data.slice(0, maxVisibleButtons);
-  const overflowButtons = button.data.slice(maxVisibleButtons);
-
-  return (
-    <TemplateButtonBox>
-      {copySuccess && <CopyToast>{copySuccess}</CopyToast>}
-      {visibleButtons.map((btn, idx) => (
-        <TemplateButton key={idx} onClick={() => handleButtonClick(btn)}>
-          {btn.type === "URL"
-            ? "🔗 "
-            : btn.type === "PHONE_NUMBER"
-            ? "📞 "
-            : ""}
-          {btn.text}
-        </TemplateButton>
-      ))}
-      {overflowButtons.length > 0 && (
-        <>
-          <TemplateButton onClick={handleClick}>
-            More options ({overflowButtons.length})
-          </TemplateButton>
-          <Box
-            component="div"
-            sx={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: "rgba(0, 0, 0, 0.5)",
-              display: open ? "flex" : "none",
-              justifyContent: "center",
-              alignItems: "flex-end",
-              zIndex: 1000,
-            }}
-            onClick={handleClose}
-          >
-            <Box
-              sx={{
-                backgroundColor: "#fff",
-                width: "100%",
-                maxWidth: 320,
-                borderRadius: "12px 12px 0 0",
-                overflow: "hidden",
-                marginBottom: "8px",
-              }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              {overflowButtons.map((btn, idx) => (
-                <TemplateButton
-                  key={idx}
-                  onClick={() => handleButtonClick(btn)}
-                >
-                  {btn.type === "URL"
-                    ? "🔗 "
-                    : btn.type === "CALL"
-                    ? "📞 "
-                    : ""}
-                  {btn.text}
-                </TemplateButton>
-              ))}
-              <TemplateButton onClick={handleClose} sx={{ color: "#ef5350" }}>
-                Cancel
-              </TemplateButton>
-            </Box>
-          </Box>
-        </>
-      )}
-    </TemplateButtonBox>
-  );
-};
-
-const TimeStamp = styled("div")({
-  fontSize: "11px",
-  color: "#667781",
-  fontWeight: 400,
-  marginTop: "4px",
-  float: "right",
-  lineHeight: "15px",
-});
-
-const MessageTailSvg = ({ isMine }) => (
-  <svg
-    viewBox="0 0 8 13"
-    width="8"
-    height="13"
-    style={{
-      position: "absolute",
-      bottom: 0,
-      right: isMine ? -8 : "auto",
-      left: isMine ? "auto" : -8,
-      transform: isMine ? "scaleX(-1)" : "none",
-    }}
-  >
-    <path
-      fill={isMine ? "#d9fdd3" : "#ffffff"}
-      d="M5.188 0H0v11.193l6.467-8.625C7.526 1.156 6.958 0 5.188 0z"
-    />
-  </svg>
-);
-
-const TemplateMessageHeader = ({ header }) => {
-  if (!header || !header.data || header.data.length === 0) {
+  const getIcon = (type) => {
+    if (type === 'URL') return <OpenInNewIcon sx={{ fontSize: 16, mr: 0.5 }} />;
+    if (type === 'PHONE_NUMBER') return <PhoneIcon sx={{ fontSize: 16, mr: 0.5 }} />;
+    if (type === 'OTP') return <ContentCopyIcon sx={{ fontSize: 16, mr: 0.5 }} />;
+    if (type === 'QUICK_REPLY') return <ReplyIcon sx={{ fontSize: 16, mr: 0.5 }} />;
     return null;
-  }
-  let HeaderData = [...header.data];
+  };
+
   return (
-    <div>
-      {HeaderData.map((item, index) => {
-        if (item.type !== "text") {
-          // console.log("different type", item);
-        }
-        return (
-          <div key={index}>
-            {item.type === "text" && (
-              <MessageTextBlock variant="header">{item.text}</MessageTextBlock>
-            )}
-            {(item.type === "image" || item.type === "video") && item?.link && (
-              <div className="media-container">
-                {item.type === "image" ? (
-                  <TemplateMedia src={item.link} alt="header" />
-                ) : (
-                  <TemplateVideoMedia controls>
-                    <source src={item.link} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </TemplateVideoMedia>
-                )}
-              </div>
-            )}
-          </div>
-        );
-      })}
-    </div>
+    <Box sx={{ borderTop: `1px solid ${colors.divider}`, position: 'relative' }}>
+      {copyToast && (
+        <Box
+          sx={{
+            position: 'absolute',
+            bottom: '100%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            bgcolor: 'rgba(0,0,0,0.8)',
+            color: '#fff',
+            px: '12px',
+            py: '6px',
+            borderRadius: '4px',
+            fontSize: 12,
+            mb: 1,
+            zIndex: 10,
+          }}
+        >
+          {copyToast}
+        </Box>
+      )}
+      {buttons.data.map((btn, idx) => (
+        <Button
+          key={idx}
+          fullWidth
+          onClick={() => handleClick(btn)}
+          sx={{
+            color: colors.buttonBlue,
+            textTransform: 'none',
+            fontSize: '14px',
+            fontWeight: 500,
+            borderRadius: 0,
+            py: '10px',
+            borderTop: idx > 0 ? `1px solid ${colors.divider}` : 'none',
+            '&:hover': { bgcolor: 'rgba(0, 168, 132, 0.05)' },
+          }}
+        >
+          {getIcon(btn.type)}
+          {btn.text}
+        </Button>
+      ))}
+    </Box>
   );
-};
+}
 
-const TemplateMessage = ({ message, isMine = false, senderName }) => {
-  const [expanded, setExpanded] = useState(false);
+// ─── Main component ──────────────────────────────────────────────────────────
 
-  const template = message?.payload?.template || message?.templateMessage;
+const TemplateMessage = ({ message, isMine, senderName, Data }) => {
+  const c = useChatColors();
+
+  const template = message?.templateMessage || message?.payload?.template;
   if (!template) return null;
 
   const { header, body, footer, button } = template;
-  const bodyText = body?.text || body?.data?.[0]?.text;
-  const footerText = footer?.text || footer?.data?.[0]?.text;
+  const bodyText = body?.text || body?.data?.[0]?.text || '';
+  const footerText = footer?.text || footer?.data?.[0]?.text || '';
 
-  const createdAt = message?.dateCreated || message?.messageTime || new Date();
-  const timeString = new Date(createdAt).toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
   return (
-    <TemplateContainer isMine={isMine}>
-      {!isMine && senderName && <SenderName>{senderName}</SenderName>}
+    <Box sx={{ maxWidth: 320, overflow: 'hidden' }}>
+      {!isMine && (
+        <Box sx={{ px: '9px', pt: '6px' }}>
+          <SenderName>{senderName}</SenderName>
+        </Box>
+      )}
 
-      <TemplateContent>
-        {/* Header */}
-        <TemplateMessageHeader header={header} />
+      {/* Header (image / video / text) */}
+      <TemplateHeader header={header} />
 
-        {/* Body */}
-        {bodyText && (
-          <MessageTextBlock variant="body">
-            <TextComponent text={bodyText} />
+      {/* Body */}
+      {bodyText && (
+        <Box sx={{ px: '12px', pt: '6px', pb: '2px', fontSize: '14.2px', lineHeight: '19px', whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
+          <TextComponent text={bodyText} />
+        </Box>
+      )}
 
-            {bodyText.split(/\s+/).length > 20 && (
-              <Button
-                size="small"
-                onClick={() => setExpanded(!expanded)}
-                sx={{
-                  fontSize: "12px",
-                  textTransform: "none",
-                  padding: 0,
-                  marginTop: "4px",
-                  color: "#009de2",
-                  "&:hover": { backgroundColor: "transparent" },
-                }}
-              >
-                {!expanded && "Read More"}
-              </Button>
-            )}
-          </MessageTextBlock>
-        )}
-
-        {/* Footer */}
+      {/* Footer + timestamp */}
+      <Box sx={{ px: '12px', pb: '6px' }}>
         {footerText && (
-          <MessageTextBlock variant="footer">
+          <Typography sx={{ fontSize: '12px', color: c.timestampText, mt: '4px', lineHeight: '16px' }}>
             {footerText}
-            <TimeStamp>11:13 pm ✓✓</TimeStamp>
-          </MessageTextBlock>
+          </Typography>
         )}
+        <MsgTimestamp Data={Data} isMine={isMine} />
+      </Box>
 
-        {/* Buttons */}
-        <ButtonComponent button={button} maxVisibleButtons={3} />
-      </TemplateContent>
-
-      <MessageTailSvg isMine={isMine} />
-    </TemplateContainer>
+      {/* Action buttons */}
+      <TemplateButtons buttons={button} colors={c} />
+    </Box>
   );
 };
 
