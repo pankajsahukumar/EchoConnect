@@ -14,7 +14,9 @@ import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 
-const ConfigPanel = styled(Paper)(({ theme }) => ({
+const ConfigPanel = styled(Paper, {
+  shouldForwardProp: (prop) => prop !== 'open',
+})(({ theme, open }) => ({
   position: 'absolute',
   right: 0,
   top: 0,
@@ -26,7 +28,7 @@ const ConfigPanel = styled(Paper)(({ theme }) => ({
   flexDirection: 'column',
   boxShadow: theme.shadows[3],
   transition: 'transform 0.3s ease',
-  transform: (props) => props.open ? 'translateX(0)' : 'translateX(100%)',
+  transform: open ? 'translateX(0)' : 'translateX(100%)',
 }));
 
 const ConfigHeader = styled(Box)(({ theme }) => ({
@@ -106,7 +108,7 @@ const nodeConfigFields = {
   },
 };
 
-export default function NodeConfigPanel({ open, onClose, selectedNode, onUpdateNodeData }) {
+export default function NodeConfigPanel({ open, onClose, selectedNode, onUpdateNodeData, onDeleteNode }) {
   const [nodeData, setNodeData] = useState({});
 
   useEffect(() => {

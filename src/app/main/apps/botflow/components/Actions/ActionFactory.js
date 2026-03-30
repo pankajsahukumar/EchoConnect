@@ -4,6 +4,11 @@ import AddToBroadcastLists from './AddToBroadcastLists';
 import AssignAgent from './AssignAgent';
 import SendMessage from './SendMessage';
 import SendInteractiveMessage from './SendInteractiveMessage';
+import Condition from './Condition';
+import SendTemplate from './SendTemplate';
+import CallAPI from './CallAPI';
+import UpdateCustomField from './UpdateCustomField';
+import CloseChat from './CloseChat';
 
 /**
  * ActionFactory component that renders the appropriate action component based on the action type
@@ -28,6 +33,16 @@ const ActionFactory = ({ data, nodeId }) => {
       return <SendMessage data={data} nodeId={nodeId} />;
     case 'SEND_INTERACTIVE_MESSAGE':
       return <SendInteractiveMessage data={data} nodeId={nodeId} />;
+    case 'CONDITION':
+      return <Condition data={data} nodeId={nodeId} />;
+    case 'SEND_TEMPLATE':
+      return <SendTemplate data={data} nodeId={nodeId} />;
+    case 'CALL_API':
+      return <CallAPI data={data} nodeId={nodeId} />;
+    case 'UPDATE_CUSTOM_FIELD':
+      return <UpdateCustomField data={data} nodeId={nodeId} />;
+    case 'CLOSE_CHAT':
+      return <CloseChat data={data} nodeId={nodeId} />;
     case 'ADD_REMOVE_TAGS': // For backward compatibility
       return <AddRemoveTags data={{...data, blockType: 'UPDATE_TAG'}} nodeId={nodeId} />;
     case 'ADD_TO_BROADCAST_LISTS': // For backward compatibility

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Handle, Position } from 'reactflow';
 import { styled } from '@mui/material/styles';
 import { Paper, Typography, Divider, Box, IconButton, Tooltip } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
@@ -51,30 +52,33 @@ const BaseTrigger = ({ data, nodeId, title, icon, children }) => {
   };
 
   return (
-    <TriggerContainer>
-      <TriggerHeader>
-        <Box display="flex" alignItems="center">
-          {icon && <Box mr={1}>{icon}</Box>}
-          <Typography variant="h6">{title || data.blockName}</Typography>
+    <div style={{ position: 'relative' }}>
+      <TriggerContainer>
+        <TriggerHeader>
+          <Box display="flex" alignItems="center">
+            {icon && <Box mr={1}>{icon}</Box>}
+            <Typography variant="h6">{title || data.blockName}</Typography>
+          </Box>
+          <Tooltip title="Duplicate">
+            <IconButton size="small" onClick={handleDuplicate}>
+              <ContentCopyIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
+        </TriggerHeader>
+        <Divider />
+        <Box mt={2}>
+          {children}
+          {elements.map((element) => (
+            <ElementRenderer
+              key={element.elementId}
+              element={element}
+              onChange={handleElementChange}
+            />
+          ))}
         </Box>
-        <Tooltip title="Duplicate">
-          <IconButton size="small" onClick={handleDuplicate}>
-            <ContentCopyIcon fontSize="small" />
-          </IconButton>
-        </Tooltip>
-      </TriggerHeader>
-      <Divider />
-      <Box mt={2}>
-        {children}
-        {elements.map((element) => (
-          <ElementRenderer
-            key={element.elementId}
-            element={element}
-            onChange={handleElementChange}
-          />
-        ))}
-      </Box>
-    </TriggerContainer>
+      </TriggerContainer>
+      <Handle type="source" position={Position.Bottom} id="source" style={{ background: '#4caf50' }} />
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Tabs from '@mui/material/Tabs';
@@ -14,13 +14,14 @@ import PersonIcon from '@mui/icons-material/Person';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SendIcon from '@mui/icons-material/Send';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
-import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
-import CodeIcon from '@mui/icons-material/Code';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import TableChartIcon from '@mui/icons-material/TableChart';
 import EditAttributesIcon from '@mui/icons-material/EditAttributes';
 import ChatIcon from '@mui/icons-material/Chat';
-import CircularProgress from '@mui/material/CircularProgress';
+import AccountTreeIcon from '@mui/icons-material/AccountTree';
+import DescriptionIcon from '@mui/icons-material/Description';
+import HttpIcon from '@mui/icons-material/Http';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 const StyledSidebar = styled(Paper)(({ theme }) => ({
   width: 280,
@@ -75,75 +76,16 @@ const triggerNodes = [
 
 // Define action nodes with their icons
 const actionNodes = [
-  {
-    "blockId": "522f186d-899c-4286-8552-8dd05fe7612d",
-    "blockName": "Add / Remove Tags",
-    "blockDescription": null,
-    "needsProcessing": false,
-    "blockDataType": "action",
-    "blockType": "UPDATE_TAG",
-    "blockIsEmpty": false,
-    "restrictedTo": null,
-    "isVisible": true,
-    "disableIntegration": true,
-    "components": [
-        {
-            "componentId": "e1276a3f-e45e-454e-bcaf-43e83a4dc21c",
-            "componentName": "Update Tags",
-            "componentIsMultiple": false,
-            "componentPosition": 0,
-            "componentType": "UPDATE_TAG",
-            "componentVariables": null,
-            "componentVariablesV2": null,
-            "elements": [
-                {
-                    "elementId": "a771b7d8-6d67-4160-a992-b9851e39a1a2",
-                    "elementIsMandatory": true,
-                    "elementName": "Choose action",
-                    "elementPosition": 0,
-                    "elementRules": {
-                        "align": "horizontal",
-                        "label": "Choose action",
-                        "options": [
-                            {
-                                "label": "Add Tags",
-                                "value": "SET_TAG"
-                            },
-                            {
-                                "label": "Remove Tags",
-                                "value": "REMOVE_TAG"
-                            }
-                        ],
-                        "is_radio": true
-                    },
-                    "elementType": "CHECKBOX",
-                    "hasChildren": false
-                },
-                {
-                    "elementId": "c9d8cf7b-1781-461e-8bb5-8da3d6a56b8d",
-                    "elementIsMandatory": true,
-                    "elementName": "Choose Tags",
-                    "elementPosition": 1,
-                    "elementRules": {
-                        "label": "Choose tags",
-                        "api_url": "https://flow-api.doubletick.io/v1/component-api/96f06110-3369-4d80-8762-c68d8ec18073/f83ce0a3-5835-4707-9c42-4182dd7dd988/process",
-                        "api_method": "POST",
-                        "placeholder": "Select tag",
-                        "target_element": "37321ccb-a769-42c4-bc8e-e1e56eeba21e",
-                        "target_hierarchy": "0::0",
-                        "disable_render_input": true
-                    },
-                    "elementType": "DROPDOWN_VARIABLE_INPUT",
-                    "hasChildren": false
-                }
-            ]
-        }
-    ]
-},
-  { id: 'ADD_TO_BROADCAST_LISTS', label: 'Add to Broadcast Lists', icon: <NotificationsIcon />, blockType: 'ADD_TO_BROADCAST_LIST' },
-  { id: 'ASSIGN_AGENT', label: 'Assign Agent', icon: <PersonIcon />, blockType: 'ASSIGN_AGENT_V3' },
+  { id: 'CONDITION', label: 'Condition', icon: <AccountTreeIcon />, blockType: 'CONDITION' },
+  { id: 'UPDATE_TAG', label: 'Add / Remove Tags', icon: <LocalOfferIcon />, blockType: 'UPDATE_TAG' },
   { id: 'SEND_MESSAGE', label: 'Send Message', icon: <ChatIcon />, blockType: 'SEND_MESSAGE' },
+  { id: 'SEND_TEMPLATE', label: 'Send Template', icon: <DescriptionIcon />, blockType: 'SEND_TEMPLATE' },
   { id: 'SEND_INTERACTIVE_MESSAGE', label: 'Send Interactive Message', icon: <SendIcon />, blockType: 'SEND_INTERACTIVE_MESSAGE' },
+  { id: 'CALL_API', label: 'Call API', icon: <HttpIcon />, blockType: 'CALL_API' },
+  { id: 'ASSIGN_AGENT', label: 'Assign Agent', icon: <PersonIcon />, blockType: 'ASSIGN_AGENT_V3' },
+  { id: 'UPDATE_CUSTOM_FIELD', label: 'Update Custom Field', icon: <EditAttributesIcon />, blockType: 'UPDATE_CUSTOM_FIELD' },
+  { id: 'ADD_TO_BROADCAST_LISTS', label: 'Add to Broadcast Lists', icon: <NotificationsIcon />, blockType: 'ADD_TO_BROADCAST_LIST' },
+  { id: 'CLOSE_CHAT', label: 'Close Chat', icon: <ExitToAppIcon />, blockType: 'CLOSE_CHAT' },
 ];
 
 export default function FlowSidebar({ onDragStart }) {
@@ -154,17 +96,15 @@ export default function FlowSidebar({ onDragStart }) {
   };
 
   const onDragStartHandler = (event, nodeType, nodeData) => {
-    console.log('Dragging node:', nodeType, nodeData);
-    // Include the blockType in the data being transferred
-    event.dataTransfer.setData('application/reactflow', JSON.stringify({ 
-      type: nodeType, 
+    event.dataTransfer.setData('application/reactflow', JSON.stringify({
+      type: nodeType,
       data: {
         ...nodeData,
-        blockType: nodeData.blockType // Ensure blockType is included
-      } 
+        blockType: nodeData.blockType,
+      }
     }));
     event.dataTransfer.effectAllowed = 'move';
-    
+
     if (onDragStart) {
       onDragStart(event);
     }
@@ -176,7 +116,7 @@ export default function FlowSidebar({ onDragStart }) {
         <Tab label="Triggers" {...a11yProps(0)} />
         <Tab label="Actions" {...a11yProps(1)} />
       </Tabs>
-      
+
       <TabPanel value={value} index={0}>
         <Typography variant="subtitle2" gutterBottom>
           Drag a trigger to start your flow (only one allowed)
@@ -194,7 +134,7 @@ export default function FlowSidebar({ onDragStart }) {
           ))}
         </List>
       </TabPanel>
-      
+
       <TabPanel value={value} index={1}>
         <Typography variant="subtitle2" gutterBottom>
           Drag actions to build your flow

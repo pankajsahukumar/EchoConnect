@@ -1,4 +1,5 @@
 import React from 'react';
+import { Handle, Position } from 'reactflow';
 import { styled } from '@mui/material/styles';
 import { Paper, Typography, Divider, Box, IconButton, Tooltip } from '@mui/material';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
@@ -51,30 +52,34 @@ const BaseAction = ({ data, nodeId, title, icon, children }) => {
   };
 
   return (
-    <ActionContainer>
-      <ActionHeader>
-        <Box display="flex" alignItems="center">
-          {icon && <Box mr={1}>{icon}</Box>}
-          <Typography variant="h6">{title || data.blockName}</Typography>
+    <div style={{ position: 'relative' }}>
+      <Handle type="target" position={Position.Top} id="target" style={{ background: '#1976d2' }} />
+      <ActionContainer>
+        <ActionHeader>
+          <Box display="flex" alignItems="center">
+            {icon && <Box mr={1}>{icon}</Box>}
+            <Typography variant="h6">{title || data.blockName}</Typography>
+          </Box>
+          <Tooltip title="Duplicate">
+            <IconButton size="small" onClick={handleDuplicate}>
+              <ContentCopyIcon fontSize="small" />
+            </IconButton>
+          </Tooltip>
+        </ActionHeader>
+        <Divider />
+        <Box mt={2}>
+          {children}
+          {elements.map((element) => (
+            <ElementRenderer
+              key={element.elementId}
+              element={element}
+              onChange={handleElementChange}
+            />
+          ))}
         </Box>
-        <Tooltip title="Duplicate">
-          <IconButton size="small" onClick={handleDuplicate}>
-            <ContentCopyIcon fontSize="small" />
-          </IconButton>
-        </Tooltip>
-      </ActionHeader>
-      <Divider />
-      <Box mt={2}>
-        {children}
-        {elements.map((element) => (
-          <ElementRenderer
-            key={element.elementId}
-            element={element}
-            onChange={handleElementChange}
-          />
-        ))}
-      </Box>
-    </ActionContainer>
+      </ActionContainer>
+      <Handle type="source" position={Position.Bottom} id="source" style={{ background: '#1976d2' }} />
+    </div>
   );
 };
 

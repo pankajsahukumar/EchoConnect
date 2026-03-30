@@ -165,7 +165,30 @@ export default function BotFlow(props) {
   );
   
   const onConnect = useCallback(
-    (params) => setEdges((edgesSnapshot) => addEdge(params, edgesSnapshot)),
+    (params) => {
+      let edgeParams = { ...params };
+
+      // Style edges from Condition node branches
+      if (params.sourceHandle === 'yes') {
+        edgeParams = {
+          ...edgeParams,
+          label: 'Yes',
+          style: { stroke: '#4caf50', strokeWidth: 2 },
+          labelStyle: { fill: '#4caf50', fontWeight: 700 },
+          labelBgStyle: { fill: '#fff', fillOpacity: 0.9 },
+        };
+      } else if (params.sourceHandle === 'no') {
+        edgeParams = {
+          ...edgeParams,
+          label: 'No',
+          style: { stroke: '#f44336', strokeWidth: 2 },
+          labelStyle: { fill: '#f44336', fontWeight: 700 },
+          labelBgStyle: { fill: '#fff', fillOpacity: 0.9 },
+        };
+      }
+
+      setEdges((edgesSnapshot) => addEdge(edgeParams, edgesSnapshot));
+    },
     [],
   );
 
@@ -338,6 +361,63 @@ export default function BotFlow(props) {
                   data: {
                     lists: node.data.lists || [],
                     blockType: 'ADD_TO_BROADCAST_LIST'
+                  }
+                };
+              case 'CONDITION':
+                nodeType = 'condition';
+                return {
+                  id: node.id,
+                  type: nodeType,
+                  data: {
+                    conditionField: node.data.conditionField || 'message_content',
+                    operator: node.data.operator || 'contains',
+                    value: node.data.value || '',
+                    blockType: 'CONDITION'
+                  }
+                };
+              case 'SEND_TEMPLATE':
+                nodeType = 'sendTemplate';
+                return {
+                  id: node.id,
+                  type: nodeType,
+                  data: {
+                    templateId: node.data.templateId || '',
+                    variables: node.data.variables || {},
+                    blockType: 'SEND_TEMPLATE'
+                  }
+                };
+              case 'CALL_API':
+                nodeType = 'callApi';
+                return {
+                  id: node.id,
+                  type: nodeType,
+                  data: {
+                    method: node.data.method || 'GET',
+                    url: node.data.url || '',
+                    headers: node.data.headers || [],
+                    body: node.data.body || '',
+                    responseVariable: node.data.responseVariable || '',
+                    blockType: 'CALL_API'
+                  }
+                };
+              case 'UPDATE_CUSTOM_FIELD':
+                nodeType = 'updateCustomField';
+                return {
+                  id: node.id,
+                  type: nodeType,
+                  data: {
+                    fieldName: node.data.fieldName || '',
+                    fieldValue: node.data.fieldValue || '',
+                    blockType: 'UPDATE_CUSTOM_FIELD'
+                  }
+                };
+              case 'CLOSE_CHAT':
+                nodeType = 'closeChat';
+                return {
+                  id: node.id,
+                  type: nodeType,
+                  data: {
+                    blockType: 'CLOSE_CHAT'
                   }
                 };
               default:
@@ -548,11 +628,58 @@ export default function BotFlow(props) {
             nodeData = {
               label: 'Add To Broadcast Lists',
               id: 'add-to-broadcast-lists',
-              blockType: 'ADD_TO_BROADCAST_LIST', // Changed from ADD_TO_BROADCAST_LISTS to ADD_TO_BROADCAST_LIST
+              blockType: 'ADD_TO_BROADCAST_LIST',
               lists: node.data.lists || []
             };
+          } else if (node.type === 'condition') {
+            nodeType = 'action';
+            nodeData = {
+              label: 'Condition',
+              id: 'condition',
+              blockType: 'CONDITION',
+              conditionField: node.data.conditionField || 'message_content',
+              operator: node.data.operator || 'contains',
+              value: node.data.value || ''
+            };
+          } else if (node.type === 'sendTemplate') {
+            nodeType = 'action';
+            nodeData = {
+              label: 'Send Template',
+              id: 'send-template',
+              blockType: 'SEND_TEMPLATE',
+              templateId: node.data.templateId || '',
+              variables: node.data.variables || {}
+            };
+          } else if (node.type === 'callApi') {
+            nodeType = 'action';
+            nodeData = {
+              label: 'Call API',
+              id: 'call-api',
+              blockType: 'CALL_API',
+              method: node.data.method || 'GET',
+              url: node.data.url || '',
+              headers: node.data.headers || [],
+              body: node.data.body || '',
+              responseVariable: node.data.responseVariable || ''
+            };
+          } else if (node.type === 'updateCustomField') {
+            nodeType = 'action';
+            nodeData = {
+              label: 'Update Custom Field',
+              id: 'update-custom-field',
+              blockType: 'UPDATE_CUSTOM_FIELD',
+              fieldName: node.data.fieldName || '',
+              fieldValue: node.data.fieldValue || ''
+            };
+          } else if (node.type === 'closeChat') {
+            nodeType = 'action';
+            nodeData = {
+              label: 'Close Chat',
+              id: 'close-chat',
+              blockType: 'CLOSE_CHAT'
+            };
           }
-          
+
           return {
             id: node.id,
             type: nodeType,
@@ -596,6 +723,7 @@ export default function BotFlow(props) {
           nodesDraggable={true}
           elementsSelectable={true}
           nodesConnectable={true}
+          defaultEdgeOptions={{ type: 'smoothstep', animated: true }}
           proOptions={{ hideAttribution: true }}
         >
           <Background />
@@ -638,6 +766,15 @@ export default function BotFlow(props) {
             </TopBar>
           </Panel>
         </ReactFlow>
+        {configPanelOpen && (
+          <NodeConfigPanel
+            open={configPanelOpen}
+            onClose={closeConfigPanel}
+            selectedNode={selectedNode}
+            onUpdateNodeData={updateNodeData}
+            onDeleteNode={deleteNode}
+          />
+        )}
       </CanvasContainer>
     </FlowContainer>
   );
