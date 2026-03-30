@@ -16,6 +16,13 @@ const navigationConfig = [
     url: 'apps/chat',
   },
   {
+    id: 'customers',
+    title: 'Customers',
+    type: 'item',
+    icon: 'heroicons-outline:users',
+    url: 'apps/customers',
+  },
+  {
     id: 'templates',
     title: 'Templates',
     type: 'item',
