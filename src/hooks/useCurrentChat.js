@@ -16,7 +16,7 @@ const useCurrentChat = () => {
   const memoData = useMemo(() => {
     return {
       chat,
-      id: customer?.chatId || null,
+      id: customer?.chatId || customer?.id || null,
       // rawChat, // include if you're using it
     };
   }, [chat, customer?.chatId]);

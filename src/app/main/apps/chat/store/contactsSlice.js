@@ -3,8 +3,8 @@ import axios from 'axios';
 import { apiClient } from 'src/@api/utils/apiClient';
 
 export const getContacts = createAsyncThunk('chatApp/contacts/getContacts', async (params) => {
-  const response = await apiClient.get('/api/contacts',{
-    pageNumber: 1, pageSize: 10
+  const response = await apiClient.get('/api/chats', {
+    pageNumber: 1, pageSize: 50
   });
   const data = await response.data;
   return data.data.content;
